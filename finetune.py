@@ -1,9 +1,8 @@
 import requests
-import json
 
 # Variables
 OPENAI_API_KEY = "your_openai_api_key"
-DATASET_PATH = "path_to_your_dataset.jsonl"
+DATASET_PATH = "data/training_dataset.jsonl"
 MODEL = "gpt-3.5-turbo"
 # Optional: Add path to your validation dataset if we actually have one?
 VALIDATION_DATASET_PATH = "path_to_your_validation_dataset.jsonl"
