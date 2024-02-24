@@ -1,5 +1,7 @@
 import websocket
 import threading
+import json
+import openai
 
 class WebSocketClient:
     """
@@ -63,12 +65,39 @@ class WebSocketClient:
         :param ws: Is the WebSocketApp instance that received the message.
         :return:
         """
+        openai.api_key = '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'
+
         while self.should_continue:
-            message = input("Enter a message to send (type 'exit' to close): ")
-            if message == 'exit':
+            user_input = input(
+                "Enter a message to send (type 'exit' to close): ")
+            if user_input == 'exit':
                 ws.close()
                 break
-            ws.send(message)
+
+            # Constructing the payload for the ChatGPT API
+            try:
+                response = openai.Completion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You are a helpful assistant."},
+                        {"role": "user", "content": user_input}
+                    ]
+                )
+
+                # Preparing the JSON message
+                message = json.dumps({
+                    "input": user_input,
+                    "response": response.choices[0].message[
+                        'content'] if response.choices else "No response"
+                })
+
+                print("Sending:", message)
+
+                # Sending the JSON message over WebSocket
+                ws.send(message)
+            except Exception as e:
+                print(f"Error while calling OpenAI API: {e}")
 
     def run_forever(self):
         """
