@@ -2,6 +2,7 @@ import json
 import os
 
 # TODO: Add documentation
+# TODO: Parameters can be useful give more context to the user
 class TrainingSetCreator:
     def __init__(self, input_directory, output_directory='data',
                  output_filename='training_set.jsonl'):

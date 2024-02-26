@@ -8,7 +8,7 @@ kill_port_process() {
     if [ ! -z "$PID" ]; then
         echo "Killing process on port $PORT..."
         kill -9 $PID
-        sleep 2 # Wait a bit to ensure the process has been killed
+        wait $PID
     fi
 }
 
@@ -21,15 +21,14 @@ kill_port_process 8080
 echo "Starting the node server in /Users/jasperbruin/Documents/harberger-vue/api/"
 cd /Users/jasperbruin/Documents/harberger-vue/api/ || exit
 bash -c "node server.js" &
-# Wait a bit to ensure the server starts before moving on
-sleep 5
+PID=$!
+disown $PID
 
 # Navigate to the second directory and start the Vue app
 echo "Starting the Vue app in /Users/jasperbruin/Documents/harberger-vue/my-app/"
 cd /Users/jasperbruin/Documents/harberger-vue/my-app/ || exit
 npm run serve &
-
-# Wait for the npm run serve command, which runs a development server, to be fully up and running
-sleep 5
+PID=$!
+disown $PID
 
 echo "Both commands are now running in the background."

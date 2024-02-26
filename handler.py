@@ -74,30 +74,30 @@ class WebSocketClient:
                 ws.close()
                 break
 
-            # # Constructing the payload for the ChatGPT API
-            # try:
-            #     response = openai.Completion.create(
-            #         model="gpt-3.5-turbo",
-            #         messages=[
-            #             {"role": "system",
-            #              "content": "You are a helpful assistant."},
-            #             {"role": "user", "content": user_input}
-            #         ]
-            #     )
-            #
-            #     # Preparing the JSON message
-            #     message = json.dumps({
-            #         "input": user_input,
-            #         "response": response.choices[0].message[
-            #             'content'] if response.choices else "No response"
-            #     })
-            #
-            #     print("Sending:", message)
-            #
-            #     # Sending the JSON message over WebSocket
-            #     ws.send(message)
-            # except Exception as e:
-            #     print(f"Error while calling OpenAI API: {e}")
+            # Constructing the payload for the ChatGPT API
+            try:
+                response = openai.completions.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You are a helpful assistant."},
+                        {"role": "user", "content": user_input}
+                    ]
+                )
+
+                # Preparing the JSON message
+                message = json.dumps({
+                    "input": user_input,
+                    "response": response.choices[0].message[
+                        'content'] if response.choices else "No response"
+                })
+
+                print("Sending:", message)
+
+                # Sending the JSON message over WebSocket
+                ws.send(message)
+            except Exception as e:
+                print(f"Error while calling OpenAI API: {e}")
 
     def run_forever(self):
         """

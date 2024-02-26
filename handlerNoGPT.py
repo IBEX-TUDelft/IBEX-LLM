@@ -1,6 +1,9 @@
 import websocket
 import threading
 
+# TODO: Check if this connection is reliable because it might be disconnected and we not notice this.
+# TODO: Get ping message back because then we can check if the connection is still alive.
+
 class WebSocketClient:
     """
     A simple WebSocket client that sends a message to the server every second
@@ -16,10 +19,12 @@ class WebSocketClient:
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error,
-                                         on_close=self.on_close)
+                                         on_close=self.on_close,
+                                         on_ping=self.on_ping,
+                                         on_pong=self.on_pong)
         self.ws.on_open = self.on_open
         self.should_continue = True  # Flag to control the send_message loop
-        self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
+        self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
 
     def on_message(self, ws, message):
         """
@@ -47,6 +52,15 @@ class WebSocketClient:
         """
         print("### closed ###")
         self.should_continue = False
+        self.reconnect()
+
+    def reconnect(self):
+        """
+        Function to reconnect to the server.
+        :return:
+        """
+        self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
+        self.wst.start()
 
     def on_open(self, ws):
         """
@@ -69,6 +83,25 @@ class WebSocketClient:
                 ws.close()
                 break
             ws.send(message)
+
+    def on_ping(self, ws, message):
+        """
+        Callback executed when a ping message is received from the server.
+        :param ws: Is the WebSocketApp instance that received the message.
+        :param message: Is the ping message received from the server.
+        :return:
+        """
+        # TODO: Check if the ping message is received and if the connection is still alive, otherwise do a comedown should be reset to the beginning.
+        # print("Ping:", message)
+
+    def on_pong(self, ws, message):
+        """
+        Callback executed when a pong message is received from the server.
+        :param ws: Is the WebSocketApp instance that received the message.
+        :param message: Is the pong message received from the server.
+        :return:
+        """
+        # print("Pong:", message)
 
     def run_forever(self):
         """
