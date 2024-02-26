@@ -4,7 +4,7 @@ import requests
 OPENAI_API_KEY = "your_openai_api_key"
 DATASET_PATH = "data/training_dataset.jsonl"
 MODEL = "gpt-3.5-turbo"
-# Optional: Add path to your validation dataset if we actually have one?
+# Optional: Add path to your validation dataset if we actually need one?
 VALIDATION_DATASET_PATH = "path_to_your_validation_dataset.jsonl"
 
 headers = {
@@ -21,7 +21,7 @@ with open(DATASET_PATH, 'rb') as f:
     training_file_id = response.json()['id']
 print(f"Training file uploaded: {training_file_id}")
 
-# Optional: Upload the validation dataset (if we have one)
+# Optional: Upload the validation dataset (if we need one)
 # Uncomment the following lines if you have a validation dataset
 #print("Uploading validation dataset...")
 #with open(VALIDATION_DATASET_PATH, 'rb') as f:
