@@ -59,13 +59,25 @@ class WebSocketClient:
         print("### Connection is open ###")
         threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
 
+    def load_api_key(self):
+        """
+        Load the API key from an external file.
+        """
+        try:
+            with open('token.txt',
+                      'r') as file:  # Update the path to your actual file location
+                return file.read().strip()
+        except FileNotFoundError:
+            print("API key file not found. Please check the file path.")
+            exit()
+
     def send_message(self, ws):
         """
         Function to send a message to the server.
         :param ws: Is the WebSocketApp instance that received the message.
         :return:
         """
-        openai.api_key = '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'
+        openai.api_key = self.load_api_key()
 
         while self.should_continue:
             user_input = input(
@@ -74,28 +86,25 @@ class WebSocketClient:
                 ws.close()
                 break
 
-            # Constructing the payload for the ChatGPT API
             try:
+                # Constructing the prompt for the OpenAI API
+                prompt = f"You are a helpful assistant.\n\n{user_input}"
+
+                # Requesting a completion from OpenAI
                 response = openai.completions.create(
                     model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system",
-                         "content": "You are a helpful assistant."},
-                        {"role": "user", "content": user_input}
-                    ]
+                    prompt=prompt,
+                    temperature=0.5,
+                    max_tokens=150
                 )
 
-                # Preparing the JSON message
-                message = json.dumps({
-                    "input": user_input,
-                    "response": response.choices[0].message[
-                        'content'] if response.choices else "No response"
-                })
+                # Extracting the text response
+                text_response = response.choices[0].text.strip()
 
-                print("Sending:", message)
+                print("AI Response:", text_response)
 
-                # Sending the JSON message over WebSocket
-                ws.send(message)
+                # Sending the AI response over WebSocket (or modify as needed)
+                ws.send(text_response)
             except Exception as e:
                 print(f"Error while calling OpenAI API: {e}")
 

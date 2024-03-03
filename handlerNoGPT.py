@@ -69,7 +69,14 @@ class WebSocketClient:
         :return:
         """
         print("### Connection is open ###")
-        threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
+        # Sending predefined message immediately upon connection
+        initial_message = '{"gameId":15,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}'
+        ws.send(initial_message)
+        second_message = '{"gameId":15,"type":"player-is-ready"}'
+        ws.send(second_message)
+        # Start thread for user input to send messages
+        threading.Thread(target=self.send_message, args=(ws,),
+                         daemon=True).start()
 
     def send_message(self, ws):
         """
@@ -79,6 +86,8 @@ class WebSocketClient:
         """
         while self.should_continue:
             message = input("Enter a message to send (type 'exit' to close): ")
+            # first message would be:  {"gameId":15,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}
+
             if message == 'exit':
                 ws.close()
                 break
@@ -119,3 +128,6 @@ if __name__ == "__main__":
     websocket.enableTrace(False)
     client = WebSocketClient("ws://localhost:3088")
     client.run_forever()
+
+
+# {compensationRequest: [10000]}
