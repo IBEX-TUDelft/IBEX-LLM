@@ -58,9 +58,6 @@ Ensure your environment meets the following prerequisites:
 - **OpenAI API Key:** Required for `finetune.py` to access OpenAI services.
 - **WebSocket Support:** Necessary for the operation of `handler.py`.
 
-## 📚 Contributing
-
-TODO
 
 ## 📌 LLM Agent Integration
 
@@ -82,3 +79,7 @@ To facilitate the integration of an LLM agent for specific actions within this p
 ```
 
 This message format is an example of what the LLM agent receives all necessary details to take action, including the action type, detailed instructions, deadlines, and the format for submissions. This integration is pivotal for automating and streamlining specific tasks within the project, particularly in phases requiring precise and timely submissions.
+
+## 📚 Contributing
+
+TODO
