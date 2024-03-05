@@ -88,6 +88,7 @@ class WebSocketClient:
 
             try:
                 # Constructing the prompt for the OpenAI API
+                # TODO: We need to modify this because its not right yet.
                 prompt = f"You are a helpful assistant.\n\n{user_input}"
 
                 # Requesting a completion from OpenAI
