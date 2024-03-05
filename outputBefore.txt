@@ -12,7 +12,7 @@ Received: {"type":"event","eventType":"reset-timer","data":{}}
 Received: {"type":"event","eventType":"set-timer","data":{"end":1709450030349}}
 Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
 Received: {"type":"notice","message":"Phase 2 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}a
+Received: {"type":"event","eventType":"reset-timer","data":{}}
 Received: {"type":"event","eventType":"set-timer","data":{"end":1709450040370}}
 Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
 Received: {"type":"notice","message":"Phase 3 has begun."}

@@ -73,7 +73,7 @@ To facilitate the integration of an LLM agent for specific actions within this p
                 "responseFormat": "Your responses should be formatted according to the instructions provided for each action request. Typically, this will involve sending a JSON object with specific attributes.",
                 "example": {
                     "actionType": "ExampleAction",
-                    "instructions": "Here's an example of a typical response format you might be asked to submit: {\"gameId\":15, \"type\":\"action-type\", \"details\":[\"specific\", \"details\"]}.",
+                    "instructions": "Here's an example of a typical response format you might be asked to submit: {\"gameId\":Y, \"type\":\"action-type\", \"details\":[\"specific\", \"details\"]}.",
                     "actionRequiredBy": "Remember, prompt action is required. Failure to respond in time may affect the game's outcome.",
                     "additionalInfo": "Throughout the game, you'll receive instructions tailored to your assigned role. Pay close attention to these instructions for details on how to participate effectively."
                 }
@@ -83,9 +83,9 @@ To facilitate the integration of an LLM agent for specific actions within this p
   "eventType": "action-required",
   "data": {
     "actionType": "SubmitCompensationRequest",
-    "instructions": "You are now entering the Compensation Request Phase. Review the project proposals and submit your compensation request. Use the format: {'gameId':15,'type':'compensation-request','compensationRequests':[null,X]}, where X is your requested compensation amount as an integer.",
+    "instructions": "You are now entering the Compensation Request Phase. Review the project proposals and submit your compensation request. Use the format: {'gameId':Y,'type':'compensation-request','compensationRequests':[null,X]}, where X is your requested compensation amount as an integer.",
     "deadline": "You must submit your request before the timer ends at [timestamp].",
-    "format": "{'gameId':15,'type':'compensation-request','compensationRequests':[null,X]}",
+    "format": "{'gameId':Y,'type':'compensation-request','compensationRequests':[null,X]}",
     "actionRequiredBy": "[timestamp]",
     "additionalInfo": "This phase is critical for negotiating compensation based on the project proposals. Your timely and accurate submission is essential."
   }
