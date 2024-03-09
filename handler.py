@@ -18,10 +18,13 @@ class WebSocketClient:
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error,
-                                         on_close=self.on_close)
+                                         on_close=self.on_close,
+                                         on_ping=self.on_ping,
+                                         on_pong=self.on_pong)
         self.ws.on_open = self.on_open
         self.should_continue = True  # Flag to control the send_message loop
-        self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
+        self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
+
 
     def on_message(self, ws, message):
         """
@@ -30,7 +33,23 @@ class WebSocketClient:
         :param message: Is the message received from the server.
         :return:
         """
-        print("Received:", message)
+        try:
+            msg_data = json.loads(message)
+            # Define a set of eventTypes to ignore
+            ignore_event_types = {
+                "assign-name", "phase-instructions",
+                "set-timer", "reset-timer", "phase-transition", "round-end", "ready-received"
+            }
+            # Check if the message should be ignored
+            if msg_data.get("type") == "event" and msg_data.get("eventType") in ignore_event_types:
+                return  # Ignore these event types
+            if msg_data.get("type") == "info" and ("rejoined the game" in msg_data.get("message", "") or "joined. We have now" in msg_data.get("message", "")):
+                return  # Ignore these info messages
+
+            # If the message wasn't ignored, print it
+            print("Received:", message)
+        except json.JSONDecodeError:
+            print("Error decoding JSON from message:", message)
 
     def on_error(self, ws, error):
         """
@@ -49,15 +68,31 @@ class WebSocketClient:
         """
         print("### closed ###")
         self.should_continue = False
+        self.reconnect()
 
-    def on_open(self, ws):
+    def reconnect(self):
         """
-        Callback executed when the connection is open.
-        :param ws: Is the WebSocketApp instance that received the message.
+        Function to reconnect to the server.
         :return:
         """
+        self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
+        self.wst.start()
+
+    def on_open(self, ws):
         print("### Connection is open ###")
-        threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
+
+        # Sending initial game-specific messages
+        initial_message = '{"gameId":16,"type":"join","recovery":"q3yrymy6y8ixicjlq241nswpi00ag74deooxedsgg0so78b5iipr6ol85v4milq0"}'
+        ws.send(initial_message)
+        print("Sent initial game join message.")
+
+        second_message = '{"gameId":16,"type":"player-is-ready"}'
+        ws.send(second_message)
+        print("Sent player is ready message.")
+
+        # Start thread for handling incoming WebSocket messages
+        threading.Thread(target=self.send_message, args=(ws,),
+                         daemon=True).start()
 
     def load_api_key(self):
         """
@@ -71,6 +106,7 @@ class WebSocketClient:
             print("API key file not found. Please check the file path.")
             exit()
 
+
     def send_message(self, ws):
         """
         Function to send a message to the server.
@@ -78,6 +114,8 @@ class WebSocketClient:
         :return:
         """
         openai.api_key = self.load_api_key()
+
+        print("Waiting for instructions...")
 
         while self.should_continue:
             user_input = input(
@@ -89,7 +127,7 @@ class WebSocketClient:
             try:
                 # Constructing the prompt for the OpenAI API
                 # TODO: We need to modify this because its not right yet.
-                prompt = f"You are a helpful assistant.\n\n{user_input}"
+                prompt = f"You are an intelligent agent participating in a simulation. Wait for instructions."
 
                 # Requesting a completion from OpenAI
                 response = openai.completions.create(
@@ -120,6 +158,27 @@ class WebSocketClient:
                 self.wst.join(timeout=1)
         except KeyboardInterrupt:
             self.ws.close()
+
+
+    def on_ping(self, ws, message):
+        """
+        Callback executed when a ping message is received from the server.
+        :param ws: Is the WebSocketApp instance that received the message.
+        :param message: Is the ping message received from the server.
+        :return:
+        """
+        # TODO: Check if the ping message is received and if the connection is still alive, otherwise do a comedown should be reset to the beginning.
+        # print("Ping:", message)
+
+
+    def on_pong(self, ws, message):
+        """
+        Callback executed when a pong message is received from the server.
+        :param ws: Is the WebSocketApp instance that received the message.
+        :param message: Is the pong message received from the server.
+        :return:
+        """
+        # print("Pong:", message)
 
 if __name__ == "__main__":
     websocket.enableTrace(False)

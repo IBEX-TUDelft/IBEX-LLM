@@ -1,8 +1,10 @@
 import websocket
 import threading
+import json
 
 # TODO: Check if this connection is reliable because it might be disconnected and we not notice this.
 # TODO: Get ping message back because then we can check if the connection is still alive.
+# TODO: I need to sort the messages that are being received because most of them are not relevant for the LLM.
 
 class WebSocketClient:
     """
@@ -33,7 +35,23 @@ class WebSocketClient:
         :param message: Is the message received from the server.
         :return:
         """
-        print("Received:", message)
+        try:
+            msg_data = json.loads(message)
+            # Define a set of eventTypes to ignore
+            ignore_event_types = {
+                "assign-name", "phase-instructions",
+                "set-timer", "reset-timer", "phase-transition", "round-end", "ready-received"
+            }
+            # Check if the message should be ignored
+            if msg_data.get("type") == "event" and msg_data.get("eventType") in ignore_event_types:
+                return  # Ignore these event types
+            if msg_data.get("type") == "info" and ("rejoined the game" in msg_data.get("message", "") or "joined. We have now" in msg_data.get("message", "")):
+                return  # Ignore these info messages
+
+            # If the message wasn't ignored, print it
+            print("Received:", message)
+        except json.JSONDecodeError:
+            print("Error decoding JSON from message:", message)
 
     def on_error(self, ws, error):
         """
@@ -102,6 +120,7 @@ class WebSocketClient:
         """
         # TODO: Check if the ping message is received and if the connection is still alive, otherwise do a comedown should be reset to the beginning.
         # print("Ping:", message)
+
 
     def on_pong(self, ws, message):
         """

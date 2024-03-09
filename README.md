@@ -6,16 +6,17 @@ This project is designed to streamline processes involving dataset preparation f
 
 The repository is organized as follows, providing a clear and logical layout for easy navigation and understanding:
 
-| File/Directory      | Description |
-|---------------------|-------------|
-| `README.md`         | An overview of the project, its purpose, instructions for use, and the integration of an LLM agent for specific actions. |
-| `constructDataset.py` | Reads `.log.json` files from `jsonFiles`, extracts "log" data, and compiles it into a JSON Lines file in `data`. |
-| `data/training_set.jsonl` | Generated dataset consisting of extracted log entries, ready for model training. |
-| `finetune.py`       | Interacts with the OpenAI API to fine-tune a GPT model using the prepared dataset. |
-| `handler.py`        | Manages WebSocket connections for real-time server-client communication and handles specific actions as instructed by LLM agents. |
-| `jsonFiles`         | Contains source `.log.json` files used for dataset creation. |
-| `killer.sh`         | Shell script to terminate server processes. |
-| `serverStarter.sh`  | Initializes and starts server processes. |
+| File/Directory            | Description                                                                                                                                       |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `README.md`               | An overview of the project, its purpose, instructions for use, and the integration of an LLM agent for specific actions.                          |
+| `constructDataset.py`     | Reads `.log.json` files from `jsonFiles`, extracts "log" data, and compiles it into a JSON Lines file in `data`.                                  |
+| `data/training_set.jsonl` | Generated dataset consisting of extracted log entries, ready for model training.                                                                  |
+| `finetune.py`             | Interacts with the OpenAI API to fine-tune a GPT model using the prepared dataset.                                                                |
+| `handler.py`              | Manages WebSocket connections for real-time server-client communication and handles specific actions as instructed by LLM agents.                 |
+| `jsonFiles`               | Contains source `.log.json` files used for dataset creation.                                                                                      |
+| `killer.sh`               | Shell script to terminate server processes.                                                                                                       |
+| `instructionReader.py`    | Reads and formats instructions from a given pdf or doc file and that will classify how and when the instructions will be parsed to the LLM agent. |
+| `serverStarter.sh`        | Initializes and starts server processes.                                                                                                          |
 
 ## 🚀 Usage
 
