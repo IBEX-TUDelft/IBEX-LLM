@@ -60,40 +60,74 @@ Ensure your environment meets the following prerequisites:
 - **WebSocket Support:** Necessary for the operation of `handler.py`.
 
 
-## 📌 LLM Agent Integration
+To refine the "LLM Agent Integration" section for clarity and effectiveness, we can focus on making the instructions more direct and structured, ensuring all critical information is easily accessible and understandable. Here's a fine-tuned version:
 
-To facilitate the integration of an LLM agent for specific actions within this project, an initiating message format has been established. This format is designed to clearly communicate when and what action the LLM agent is required to perform:
+## 📌 LLM Agent Integration Overview
+Initially, the LLM agent is briefed using the same document provided to human subjects. The `instructionReader.py` script processes these documents by parsing, converting them to JSON format, and summarizing the content. This ensures that the LLM agent receives brief and concise prompts, facilitating efficient and accurate task execution.
+
+### Instruction Format
+
+The instructions for the LLM agent are encapsulated in JSON format. Here is an example structure showcasing how the agent is briefed on the project's various phases, including an overview and key actions like requests, offers, and voting.
 
 ```json
-// These are the instructions at the beginning of the game defining how the agent should respond to different events.
-"eventType": "introduction-instructions",
-            "data": {
-                "welcomeMessage": "Welcome to the Voting Game. You are now participating as an LLM agent.",
-                "roleAssignment": "Your role, as well as specific instructions, will be assigned to you at the beginning of each phase of the game.",
-                "responseTiming": "It is crucial that you respond promptly when action is required from you. Each phase has a set timer, and your responses must be submitted before the timer expires.",
-                "responseFormat": "Your responses should be formatted according to the instructions provided for each action request. Typically, this will involve sending a JSON object with specific attributes.",
-                "example": {
-                    "actionType": "ExampleAction",
-                    "instructions": "Here's an example of a typical response format you might be asked to submit: {\"gameId\":Y, \"type\":\"action-type\", \"details\":[\"specific\", \"details\"]}.",
-                    "actionRequiredBy": "Remember, prompt action is required. Failure to respond in time may affect the game's outcome.",
-                    "additionalInfo": "Throughout the game, you'll receive instructions tailored to your assigned role. Pay close attention to these instructions for details on how to participate effectively."
-                }
-
-// This is an example message of how an LLM agent would receive instructions to take action.
-  "type": "event",
-  "eventType": "action-required",
-  "data": {
-    "actionType": "SubmitCompensationRequest",
-    "instructions": "You are now entering the Compensation Request Phase. Review the project proposals and submit your compensation request. Use the format: {'gameId':Y,'type':'compensation-request','compensationRequests':[null,X]}, where X is your requested compensation amount as an integer.",
-    "deadline": "You must submit your request before the timer ends at [timestamp].",
-    "format": "{'gameId':Y,'type':'compensation-request','compensationRequests':[null,X]}",
-    "actionRequiredBy": "[timestamp]",
-    "additionalInfo": "This phase is critical for negotiating compensation based on the project proposals. Your timely and accurate submission is essential."
-  }
+{
+    "Overview": [
+        "The experiment simulates a democratic situation where owners vote. If the majority votes for the project, it gets developed. Players either implement a Project, or no Project is implemented."
+    ],
+    "Request": [
+        "In the 'request' phase, the developer waits while owners make compensation requests. All requests are shown to the developer in the next phase, not to other voters."
+    ],
+    "Offer": [
+        "After receiving requests, the developer sees the amounts in area 8. In area 10, they set the offer amount, the compensation offered to each owner if the Project is implemented. The developer's profit is visible if the offer is accepted."
+    ],
+    "Voting": [
+        "In the voting phase, the developer is inactive, and owners vote on the project's development. Voting involves selecting an option in the tick boxes and pressing the vote button. If the majority votes in favor, the project is developed, and the developer pays the compensation amount to each owner. The game then progresses to the next round."
+    ]
 }
 ```
 
-This message format is an example of what the LLM agent receives all necessary details to take action, including the action type, detailed instructions, deadlines, and the format for submissions. This integration is pivotal for automating and streamlining specific tasks within the project, particularly in phases requiring precise and timely submissions.
+### Game Introduction Instructions
+
+At the game's start, the LLM agent receives instructions defining how to respond to different events, ensuring a smooth integration and participation process.
+
+```json
+{
+    "eventType": "introduction-instructions",
+    "data": {
+        "welcomeMessage": "Welcome to the Voting Game as an LLM agent.",
+        "roleAssignment": "Your specific role and instructions will be provided at each game phase.",
+        "responseTiming": "Prompt responses are crucial. Respond before the phase timer expires.",
+        "responseFormat": "Responses should be in JSON format, with attributes as per instructions.",
+        "example": {
+            "actionType": "ExampleAction",
+            "instructions": "Example response format: {\"gameId\":Y, \"type\":\"action-type\", \"details\":[\"specific details\"]}.",
+            "actionRequiredBy": "Timely action is essential for game progression.",
+            "additionalInfo": "Pay close attention to role-specific instructions for effective participation."
+        }
+    }
+}
+```
+
+### Action Required Message Example
+
+An example message illustrates how the LLM agent receives detailed instructions for taking action, emphasizing the importance of precision and timeliness.
+
+```json
+{
+    "type": "event",
+    "eventType": "action-required",
+    "data": {
+        "actionType": "SubmitCompensationRequest",
+        "instructions": "Enter the Compensation Request Phase. Submit your request using the format: {'gameId':Y, 'type':'compensation-request', 'compensationRequests':[null,X]}, where X is your compensation amount.",
+        "deadline": "Submit before the timer ends at [timestamp].",
+        "format": "{'gameId':Y, 'type':'compensation-request', 'compensationRequests':[null,X]}",
+        "actionRequiredBy": "[timestamp]",
+        "additionalInfo": "This phase is crucial for project negotiation. Ensure your submission is timely and accurate."
+    }
+}
+```
+
+This refined structure provides a clear, detailed guide for integrating LLM agents into the project, specifying the instruction format, initial briefing, and example action messages. This approach ensures the agent is well-prepared to perform required tasks efficiently and effectively.
 
 ## 📚 Contributing
 
