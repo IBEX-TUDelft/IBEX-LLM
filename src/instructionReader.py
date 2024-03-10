@@ -98,8 +98,8 @@ class InstructionParser:
             json.dump(self.instructions, json_file, indent=4)
 
 # Example usage
-doc_path = 'instructions/Instructions voting_11_25_md_rvb-SR15-12.docx'
-json_path = 'data/instructions.json'
+doc_path = '../instructions/Instructions voting_11_25_md_rvb-SR15-12.docx'
+json_path = '../data/instructions.json'
 
 parser = InstructionParser(doc_path)
 parser.parse_instructions()  # Parse instructions from the document

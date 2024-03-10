@@ -99,7 +99,7 @@ class WebSocketClient:
         Load the API key from an external file.
         """
         try:
-            with open('token.txt',
+            with open('../config/token.txt',
                       'r') as file:  # Update the path to your actual file location
                 return file.read().strip()
         except FileNotFoundError:

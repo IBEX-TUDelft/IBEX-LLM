@@ -45,6 +45,6 @@ class TrainingSetCreator:
 
 
 if __name__ == "__main__":
-    directory_path = '/Users/jasperbruin/Documents/IBEX-LLM/jsonFiles'
+    directory_path = '/jsonFiles'
     creator = TrainingSetCreator(input_directory=directory_path)
     creator.create_training_set()
