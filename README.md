@@ -4,19 +4,20 @@ This project is designed to streamline processes involving dataset preparation f
 
 ## 📂 Project Structure
 
-The repository is organized as follows, providing a clear and logical layout for easy navigation and understanding:
-
-| File/Directory            | Description                                                                                                                                       |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `README.md`               | An overview of the project, its purpose, instructions for use, and the integration of an LLM agent for specific actions.                          |
-| `constructDataset.py`     | Reads `.log.json` files from `jsonFiles`, extracts "log" data, and compiles it into a JSON Lines file in `data`.                                  |
-| `data/training_set.jsonl` | Generated dataset consisting of extracted log entries, ready for model training.                                                                  |
-| `finetune.py`             | Interacts with the OpenAI API to fine-tune a GPT model using the prepared dataset.                                                                |
-| `handler.py`              | Manages WebSocket connections for real-time server-client communication and handles specific actions as instructed by LLM agents.                 |
-| `jsonFiles`               | Contains source `.log.json` files used for dataset creation.                                                                                      |
-| `killer.sh`               | Shell script to terminate server processes.                                                                                                       |
-| `instructionReader.py`    | Reads and formats instructions from a given pdf or doc file and that will classify how and when the instructions will be parsed to the LLM agent. |
-| `serverStarter.sh`        | Initializes and starts server processes.                                                                                                          |
+| File/Directory                          | Description                                                                                                                                      |
+|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `README.md`                             | Provides an overview of the project, its purpose, instructions for use, and the integration of an LLM agent for specific actions.                |
+| `src/constructDataset.py`               | Reads `.log.json` files from `data/raw`, extracts "log" data, and compiles it into a JSON Lines file in `data/processed`.                        |
+| `data/`                                 | Contains all data-related files and subdirectories, including raw data, processed data, and output data.                                         |
+| `data/raw/`                             | Houses source `.log.json` files used for dataset creation.                                                                                       |
+| `data/processed/training_set_voting.jsonl` | Generated dataset consisting of extracted log entries, ready for model training. Stored within the `processed` subdirectory.                    |
+| `data/output/`                          | Contains output files such as `outputAfter.txt` and `outputBefore.txt`, showcasing results or data transformations.                              |
+| `src/finetune.py`                       | Interacts with the OpenAI API to fine-tune a GPT model using the prepared dataset located in `data/processed`.                                   |
+| `src/handler.py`, `src/handlerNoGPT.py` | Manage WebSocket connections for real-time server-client communication and handle specific actions as instructed by LLM agents.                  |
+| `config/token.txt`                      | Stores configuration details or sensitive information like API tokens.                                                                           |
+| `instructions/`                         | Contains instructional documents in various formats (e.g., docx) that detail how the project or certain components should be used or operated.    |
+| `src/instructionReader.py`              | Reads and formats instructions from documents in the `instructions/` directory and classifies how and when the instructions will be parsed.      |
+| `scripts/killer.sh`, `scripts/serverStarter.sh` | Shell scripts for managing server processes, including initialization and termination.                                                         |
 
 ## 🚀 Usage
 
@@ -58,9 +59,6 @@ Ensure your environment meets the following prerequisites:
 - **Python 3.x:** The primary programming language used.
 - **OpenAI API Key:** Required for `finetune.py` to access OpenAI services.
 - **WebSocket Support:** Necessary for the operation of `handler.py`.
-
-
-To refine the "LLM Agent Integration" section for clarity and effectiveness, we can focus on making the instructions more direct and structured, ensuring all critical information is easily accessible and understandable. Here's a fine-tuned version:
 
 ## 📌 LLM Agent Integration Overview
 Initially, the LLM agent is briefed using the same document provided to human subjects. The `instructionReader.py` script processes these documents by parsing, converting them to JSON format, and summarizing the content. This ensures that the LLM agent receives brief and concise prompts, facilitating efficient and accurate task execution.
