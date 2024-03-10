@@ -61,7 +61,7 @@ Ensure your environment meets the following prerequisites:
 - **WebSocket Support:** Necessary for the operation of `handler.py`.
 
 ## 📌 LLM Agent Integration Overview
-Initially, the LLM agent is briefed using the same document provided to human subjects. The `instructionReader.py` script processes these documents by parsing, converting them to JSON format, and summarizing the content. This ensures that the LLM agent receives brief and concise prompts, facilitating efficient and accurate task execution.
+Initially, the LLM agent is briefed using the same document provided to human subjects. The `instructionReader.py` script processes these documents by parsing, converting them to JSON format, and summarizing the content.
 
 ### Instruction Format
 
@@ -124,9 +124,3 @@ An example message illustrates how the LLM agent receives detailed instructions 
     }
 }
 ```
-
-This refined structure provides a clear, detailed guide for integrating LLM agents into the project, specifying the instruction format, initial briefing, and example action messages. This approach ensures the agent is well-prepared to perform required tasks efficiently and effectively.
-
-## 📚 Contributing
-
-TODO
