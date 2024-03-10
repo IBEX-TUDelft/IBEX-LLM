@@ -5,7 +5,7 @@ This project introduces a approach to automating economic experiments by leverag
 ### Project Goals: Enhancing LLM Agent Reasoning in Economic Experiments
 #### Note: these things change over time but I like to keep them here for reference
 
-The project aims to substantially improve the reasoning abilities of Large Language Models (LLMs) used as agents in economic experiments, focusing on two main objectives:
+The project aims to substantially improve the reasoning abilities of LLMs used as agents in economic experiments, focusing on these objectives:
 
 #### 1. **Refine Instruction Parsing**
 - **Goal:** Develop a more sophisticated parsing process that accurately interprets and summarizes complex instructions, ensuring LLM agents receive a rich, contextual understanding of their tasks.
