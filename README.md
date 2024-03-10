@@ -1,12 +1,26 @@
 # Project Overview
 
-This project is designed to streamline processes involving dataset preparation from log files, model fine-tuning using OpenAI's API, WebSocket connection management, and server process control. Its versatile components enable efficient handling of diverse tasks, from data manipulation to real-time communication and computational resource management.
+This project introduces a approach to automating economic experiments by leveraging Large Language Models (LLMs). It utilizes OpenAI's API to create a multi-actor simulation environment where different LLM agents act as economic entities with distinct roles, preferences, and information. This setup aims to mimic complex economic scenarios within a digital platform, enabling efficient and ethical experimentation on a wide range of economic theories and institutional designs.
+
+### Project Goals: Enhancing LLM Agent Reasoning in Economic Experiments
+#### Note: these things change over time but I like to keep them here for reference
+
+The project aims to substantially improve the reasoning abilities of Large Language Models (LLMs) used as agents in economic experiments, focusing on two main objectives:
+
+#### 1. **Refine Instruction Parsing**
+- **Goal:** Develop a more sophisticated parsing process that accurately interprets and summarizes complex instructions, ensuring LLM agents receive a rich, contextual understanding of their tasks.
+- **Approach:** Enhance the summarization pipeline to preserve essential context and integrate contextual clues that aid in understanding the broader economic scenarios.
+
+#### 2. **Expand Context with Advanced Techniques**
+- **Goal:** Utilize advanced machine learning techniques and dynamic prompting to enrich the context available to LLM agents, improving their decision-making in complex scenarios.
+- **Approach:** Implement dynamic prompting strategies, integrate external knowledge bases, and explore ML models that specialize in context retention and understanding.
+
+**Expected Outcome:** These improvements aim to make LLM agents’ reasoning more sophisticated and human-like, enhancing the fidelity of economic experiments and opening new avenues for economic research.
 
 ## 📂 Project Structure
 
 | File/Directory                          | Description                                                                                                                                      |
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `README.md`                             | Provides an overview of the project, its purpose, instructions for use, and the integration of an LLM agent for specific actions.                |
 | `src/constructDataset.py`               | Reads `.log.json` files from `data/raw`, extracts "log" data, and compiles it into a JSON Lines file in `data/processed`.                        |
 | `data/`                                 | Contains all data-related files and subdirectories, including raw data, processed data, and output data.                                         |
 | `data/raw/`                             | Houses source `.log.json` files used for dataset creation.                                                                                       |
@@ -23,7 +37,7 @@ This project is designed to streamline processes involving dataset preparation f
 
 ### Preparing the Dataset
 
-Generate your training dataset from log files:
+Extract and prepare the dataset from simulation logs for LLM training:
 
 ```bash
 python constructDataset.py
@@ -31,15 +45,14 @@ python constructDataset.py
 
 ### Fine-tuning the Model
 
-Initiate the model fine-tuning process with OpenAI:
+Adapt LLM agents to specific economic behaviors and scenarios:
 
 ```bash
 python finetune.py
 ```
 
-### Managing WebSocket Connections
-
-Handle WebSocket communications and specific LLM agent instructions:
+### WebSocket Communication
+Facilitate real-time decision-making and interaction in simulations:
 
 ```bash
 python handler.py
@@ -56,9 +69,9 @@ Start and stop server processes as needed:
 
 Ensure your environment meets the following prerequisites:
 
-- **Python 3.x:** The primary programming language used.
-- **OpenAI API Key:** Required for `finetune.py` to access OpenAI services.
-- **WebSocket Support:** Necessary for the operation of `handler.py`.
+- **Python 3.x:** The backbone of the project for scripting and data processing.
+- **OpenAI API Key:** Essential for accessing LLM services and fine-tuning.
+- **WebSocket Implementation:** Critical for real-time simulation and agent communication.
 
 ## Architecture Overview
 
@@ -129,3 +142,7 @@ An example message illustrates how the LLM agent receives detailed instructions 
     }
 }
 ```
+
+### Dynamic Scenario Simulation
+
+Agents are dynamically assigned roles and objectives based on the specific economic theory or institutional design being tested. Each simulation can explore different facets of economic behavior, from market speculation to resource allocation, in a controlled yet complex virtual environment.
