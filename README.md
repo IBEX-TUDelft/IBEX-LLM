@@ -60,6 +60,11 @@ Ensure your environment meets the following prerequisites:
 - **OpenAI API Key:** Required for `finetune.py` to access OpenAI services.
 - **WebSocket Support:** Necessary for the operation of `handler.py`.
 
+## Architecture Overview
+
+![Alt text for the image](./config/architecture.svg)
+
+
 ## 📌 LLM Agent Integration Overview
 Initially, the LLM agent is briefed using the same document provided to human subjects. The `instructionReader.py` script processes these documents by parsing, converting them to JSON format, and summarizing the content. This ensures that the LLM agent receives brief and concise prompts, facilitating efficient and accurate task execution.
 
