@@ -125,6 +125,7 @@ class WebSocketClient:
                 break
 
             try:
+                print("Calling OpenAI API...")
                 # Constructing the prompt for the OpenAI API
                 # TODO: We need to modify this because its not right yet.
                 prompt = f"You are an intelligent agent participating in a simulation. Wait for instructions."

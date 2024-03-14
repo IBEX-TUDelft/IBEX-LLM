@@ -88,9 +88,9 @@ class WebSocketClient:
         """
         print("### Connection is open ###")
         # Sending predefined message immediately upon connection
-        initial_message = '{"gameId":15,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}'
+        initial_message = '{"gameId":16,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}'
         ws.send(initial_message)
-        second_message = '{"gameId":15,"type":"player-is-ready"}'
+        second_message = '{"gameId":16,"type":"player-is-ready"}'
         ws.send(second_message)
         # Start thread for user input to send messages
         threading.Thread(target=self.send_message, args=(ws,),
