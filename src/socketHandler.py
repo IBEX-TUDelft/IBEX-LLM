@@ -2,6 +2,7 @@ import websocket
 import threading
 import json
 import openai
+from time import sleep
 
 class WebSocketClient:
     """
@@ -27,7 +28,6 @@ class WebSocketClient:
         openai.api_key = self.load_api_key()
         self.get_latest_message = None
 
-
     def on_message(self, ws, message):
         """
         Callback executed when a message is received from the server.
@@ -37,22 +37,84 @@ class WebSocketClient:
         """
         try:
             msg_data = json.loads(message)
-            # Define a set of eventTypes to ignore
-            ignore_event_types = {
-                "assign-name", "phase-instructions",
-                "set-timer", "reset-timer", "phase-transition", "round-end", "ready-received"
-            }
-            # Check if the message should be ignored
-            if msg_data.get("type") == "event" and msg_data.get("eventType") in ignore_event_types:
-                return  # Ignore these event types
-            if msg_data.get("type") == "info" and ("rejoined the game" in msg_data.get("message", "") or "joined. We have now" in msg_data.get("message", "")):
-                return  # Ignore these info messages
-
-            # If the message wasn't ignored, print it
-            print("Received:", message)
-            self.get_latest_message = message
+            # Filter based on eventType; only process if eventType matches our criteria
+            eventType = msg_data.get('eventType')
+            if eventType in ['introduction-instructions', 'action-required']:
+                # Process the message as needed
+                self.get_latest_message = self.instruction_to_prompt(message)
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
+
+
+    def instruction_to_prompt(self, instruction):
+        """
+        Function to convert an instruction to a prompt for the AI.
+        :param instruction: The instruction to convert to a prompt.
+        :return: The prompt to use for the AI.
+        """
+        try:
+            # Decode the JSON message to access its contents
+            msg_data = json.loads(instruction)
+            eventType = msg_data.get("eventType")
+
+            if eventType == "introduction-instructions":
+                # Extract and format the introduction instructions
+                instructions = msg_data.get("data", {}).get("data", {})
+                welcome_message = instructions.get("welcomeMessage", "")
+                role_assignment = instructions.get("roleAssignment", "")
+                response_timing = instructions.get("responseTiming", "")
+                response_format = instructions.get("responseFormat", "")
+                example = instructions.get("example", {}).get("instructions",
+                                                              "")
+                additional_info = instructions.get("example", {}).get(
+                    "additionalInfo", "")
+
+                content = f"{welcome_message} {role_assignment} {response_timing} {response_format} Example: {example} {additional_info}"
+
+                return json.dumps({
+                    "role": "system",
+                    "content": content
+                }, indent=2)
+
+            # Handle action-required messages
+            elif eventType == "action-required":
+                # Extract the nested 'data' containing the actual instructions
+                instructions = msg_data.get("data", {}).get("data", {})
+
+                # Construct the prompt for action-required messages
+                action_type = instructions.get("actionType", "")
+                detailed_instructions = instructions.get("instructions", "")
+                response_format = instructions.get("format", "")
+                action_required_by = instructions.get("actionRequiredBy", "")
+                deadline = instructions.get("deadline", "")
+                additional_info = instructions.get("additionalInfo", "")
+
+                content = (
+                    f"Action Type: {action_type}\n"
+                    f"Instructions: {detailed_instructions}\n"
+                    f"Response Format: {response_format}\n"
+                    f"Action Required By: {action_required_by}\n"
+                    f"Deadline: {deadline}\n"
+                    f"Additional Information: {additional_info}"
+                )
+
+                return json.dumps({
+                    "role": "user",
+                    "content": content
+                }, indent=2)
+
+            else:
+                # Handle unexpected eventType
+                return json.dumps({
+                    "role": "system",
+                    "content": f"Received an unhandled eventType: {eventType}"
+                }, indent=2)
+
+        except json.JSONDecodeError:
+            return json.dumps({
+                "role": "system",
+                "content": "Error decoding instruction message."
+            }, indent=2)
 
     def on_error(self, ws, error):
         """
@@ -115,19 +177,14 @@ class WebSocketClient:
     def send_message(self, ws):
         print("Waiting for instructions...")
         while self.should_continue:
-            received_message = self.get_latest_message
+            sleep(2)
 
-            if received_message:
-                # Assume received_message is processed to extract relevant info if necessary
-                prompt = f"{received_message}"  # Construct a meaningful prompt as needed
-
+            if self.get_latest_message:
+                prompt = json.loads(self.get_latest_message)
+                print(f"prompt: {prompt}")
                 response = openai.chat.completions.create(
                     model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system",
-                         "content": "You are an intelligent agent participating in an economic voting simulation."},
-                        {"role": "user", "content": prompt},
-                    ]
+                    messages=[prompt],
                 )
 
                 # Extracting the text response
@@ -135,19 +192,12 @@ class WebSocketClient:
 
                 print("AI Response:", ai_response)
 
-                # Placeholder for generating a JSON response
-                # This part should be replaced with logic to convert AI response to game command
-                json_response = json.dumps({
-                    "gameId": 16,
-                    # Example gameId, should be dynamically set based on context
-                    "type": "action-type",
-                    # Placeholder type, should depend on AI's response or context
-                    "details": [
-                        "This needs to be filled with meaningful action details based on AI's response or the game's requirements."]
-                })
-
                 # Sending the JSON-formatted response
-                ws.send(json_response)
+                ws.send(ai_response)
+
+                # Reset the get_latest_message to prevent duplicate processing
+                self.get_latest_message = None
+
     def run_forever(self):
         """
         Function to start the WebSocket client and keep it running until the user

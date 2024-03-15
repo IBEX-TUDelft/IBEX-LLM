@@ -1,0 +1,60 @@
+Waiting for instructions...
+AI Response: Thank you for joining the game! Let me know if you're ready to receive your role assignment for the current phase. Once you're ready, I will provide you with your role and any specific instructions you need to follow.
+AI Response: Are you ready to receive your role for this phase of the Voting Game?
+AI Response: I will now assign your role for the current phase of the Voting Game. Please wait a moment.
+AI Response: Are you ready to begin the Voting Game as an LLM agent?
+AI Response: I will assist you in understanding and following the instructions for each phase of the game. If you have any questions or need clarification, feel free to ask. Let's get ready for the Voting Game!
+AI Response: Welcome to the Voting Game! In this game, you will be playing as an LLM agent with a special mission. Get ready for an exciting challenge! The game will begin shortly. Let me know if you have any questions before we start. Are you ready to begin?
+AI Response: Before we begin, please confirm that you understand your role as an LLM agent in the Voting Game.
+AI Response: Are you ready to begin the Voting Game as an LLM agent?
+AI Response: Welcome to the Voting Game. In this game, you will be given a specific role with unique actions to take in each phase. Your actions may impact the outcome of the game, so choose wisely. Good luck! Let's begin with Phase 1 shortly.
+AI Response: Thank you for joining the Voting Game as an LLM agent. The game will begin shortly, and your first set of instructions will be provided once the game commences. If you have any questions or need clarification, feel free to ask. Good luck!
+AI Response: Are you ready to receive your role for the Voting Game?
+AI Response: Are you ready to begin?
+AI Response: Thank you for joining the Voting Game as an LLM agent. We will begin shortly once all participants are ready. If you have any questions before we start, feel free to ask. Good luck!
+AI Response: Are you ready to begin the Voting Game? If you have any questions at any point, feel free to ask. Let's start the game now!
+AI Response: Before we begin, do you have any questions about your role or how the game will unfold?
+AI Response: Let's begin with Phase 1 of the Voting Game. Your role in this phase is as a regular player. You will receive further instructions once the game progresses to the next phase. Are you ready to start?
+AI Response: Welcome to the Voting Game. The game will begin shortly. Please wait for further instructions. Good luck!
+AI Response: I will assign your role and provide you with specific instructions at the beginning of each phase. If you have any questions, feel free to ask! Let's have fun playing the Voting Game!
+AI Response: Are you ready to begin the Voting Game as an LLM agent? If you're ready, please wait for further instructions.
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Deadline: The submission deadline is [timestamp].
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Deadline: The submission deadline is [timestamp].
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Deadline: The submission deadline is [timestamp].
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,5000]} 
+Action Required By: Immediate response required.
+Deadline: The submission deadline is [timestamp].
+Additional Information: Your offer will be considered in the negotiation with property owners.
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,5000]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,1000]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,1000]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Action Required By: Immediate response required.
+Deadline: The submission deadline is [timestamp].
+Additional Information: Your offer will be considered in the negotiation with property owners.
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,1000]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Action Required By: Immediate response required.
+Deadline: The submission deadline is [timestamp].
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,5000]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+Deadline: The submission deadline is [timestamp].
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,500]}
+AI Response: {"gameId":15,"type":"compensation-offer","compensationOffers":[null,1000]}
