@@ -1,47 +1,6 @@
- Received: {"type":"event","eventType":"assign-name","data":{"name":"Blue","number":1,"ruleset":"Voting"}}
-Received: {"type":"event","eventType":"phase-instructions","data":{}}
-Received: {"type":"info","message":"Player Blue joined. We have now 1 players in the game."}
-Received: {"type":"event","eventType":"ready-received","data":{}}
-Received: {"type":"info","message":"Player Maroon joined. We have now 2 players in the game."}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457681816}}
-Received: {"type":"event","eventType":"assign-role","data":{"role":3,"property":{"id":1,"owner":1,"name":"Future Koala Lot","v":[468000,164000,150000]},"boundaries":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"key":"noProject","range":{"low":350000,"high":600000}},{"key":"projectA","range":{"low":150000,"high":350000}}],"instructions":"You are a Owner 1. Please wait for further instructions on your next actions."}}
-Received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"}],"instructions":"Review your role and prepare for the first phase. Specific instructions will follow."}}
+Received: {"type":"event","eventType":"assign-role","data":{"role":"Owner","property":{"id":1,"owner":1,"name":"Abstract Koala Lot","v":[468000,164000,150000]},"boundaries":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"key":"noProject","range":{"low":350000,"high":600000}},{"key":"projectA","range":{"low":150000,"high":350000}}]}}
+Received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":"Owner","tag":"Owner 1"},{"number":2,"role":"Owner","tag":"Developer"}]}}
 Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
-Received: {"type":"notice","message":"Phase 1 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457691841}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
-Received: {"type":"notice","message":"Phase 2 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457701868}}
-Received: {"type":"event","eventType":"phase-initiation","data":{"phase":"3","title":"Compensation Request Phase","instructions":"All owners are now required to submit their compensation requests. Please review the project proposals and submit your request using the format provided in the game interface.","details":"Ensure your submission reflects your compensation expectations based on the developments proposed. This phase is crucial for setting the tone of negotiations."}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
-Received: {"type":"notice","message":"Phase 3 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"phase-completion","data":{"phase":"3","message":"The Compensation Request Phase is now complete. Thank you for your submissions. Please wait as we process the requests and move to the next phase where compensation offers will be made."}}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457711889}}
-Received: {"type":"event","eventType":"phase-initiation","data":{"phase":"Compensation Offer","instructions":"As a developer, submit your compensation offers now using the provided format."}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
-Received: {"type":"notice","message":"Phase 4 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"phase-completion","data":{"phase":"Compensation Offer","message":"Compensation offers submitted. Review the offers and prepare for the next phase.","compensationOffers":[]}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457721920}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
-Received: {"type":"notice","message":"Phase 5 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457731943}}
-Received: {"type":"event","eventType":"phase-initiation","data":{"phase":"Voting","title":"Voting on Compensation Offers","instructions":"Review the compensation offers carefully. Vote on each offer based on your judgment. Your decision should reflect whether you accept or reject each compensation offer made by the developers. Please submit your vote using the provided interface.","details":"This phase is critical for determining the compensation outcomes. Your decisions will directly influence the final compensation agreements."}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
-Received: {"type":"notice","message":"Phase 6 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"phase-completion","data":{"phase":"Voting","message":"The Voting Phase is now complete. Thank you for your participation. The results are being processed, and the outcome will be announced shortly. Please wait for the next instructions."}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709457741963}}
+Received: {"type":"event","eventType":"compensation-offer-made","data":{"compensationOffers":[0,0]}}
 Received: {"type":"event","eventType":"final-profit","data":{"condition":1,"tally":0,"value":164000,"compensation":0}}
-Received: {"type":"event","eventType":"end-phase-results","data":{"title":"End of Game Results","message":"The voting phase has concluded. Here are the final results:","standings":[{"counter":0,"id":0,"winner":false,"value":206000,"compensation":0,"description":"Project 0 received 0 votes. Compensation offered: 0."},{"counter":0,"id":1,"winner":true,"value":1138000,"compensation":0,"description":"Project 1 received 0 votes. Compensation offered: 0."}],"winningCondition":"Project 1 is selected with the highest votes.","nextSteps":"The game has now concluded. Thank you for participating. Await further instructions or the next game session."}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":7}}
-Received: {"type":"notice","message":"Phase 7 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"round-end","data":{"round":0}}
 Received: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":1,"value":164000,"tally":0,"compensation":0,"profit":164000}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":0}}

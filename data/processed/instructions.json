@@ -1,23 +1,23 @@
 {
     "Overview": [
-        " The experiment simulates a democratic situation where the owners are voters . If the majority votes for the project to be developed, the project gets developed . The players either implement a Project, or no Project is implemented ."
+        " Experiment simulates a democratic situation where the owners are voters . If the majority votes for the project to be developed, the project gets developed . The players either implement a Project, or no Project is implemented ."
     ],
     "\u201cPresentation\u201d": [
         " All computer screens have some common elements that we will briefly explain here . The blue bar (see item 1) at the top shows your role in the experiment -at the far left- and some information about the current state of the round . Area 2 shows the layout of the land ."
     ],
     "\u201cDeliberation\u201d": [
-        " In the \u201cdeliberation\u201d phase, every player is informed about their valuation for this round, both with Project and with No Project . Note again, that these valuations are drawn randomly for each player in each round from the same uniform distribution ."
+        " In the \u201cdeliberation\u201d phase, every player is informed about their valuation for this round, both with Project and with No Project . Note again, these valuations are drawn randomly for each player in each round from the same uniform distribution ."
     ],
     "\u201cRequest\u201d": [
         " In the \u201crequest\u201d phase the developer is inactive and waits . The owners make compensation requests . All recorded requests are shown to the developer in the next phase, requests are not shown to other voters ."
     ],
     "\u201coffer\u201d": [
-        " After all owners have submitted their requests (or the time has passed), the developer sees the requested amounts, of the owners, in area 8 . In area 10 the developer can set the *offer* amount . This is the compensation they offer to each owner if the Project is implemented . The developer sees his profit if the offer is accepted ."
+        " After all owners have submitted their requests (or the time has passed), the developer sees the requested amounts, of the owners, in area 8 . In area 10, the developer can set the *offer* amount . This is the compensation they offer to each owner if the Project is implemented . The owners will see the \u201coffer\u201d in the next phase ."
     ],
     "\u201cdeliberation\u201d": [
         " The amount of compensation offered by the developer is shown in area 12 . Just like in the first deliberation phase, you can select the participants you want to chat with by clicking the tick boxes ."
     ],
     "\u201cVoting\u201d": [
-        " In the voting phase, the developer is inactive and the owners vote on the development of the Project . Voting is done by selecting one of the options in the tick boxes in area 13 and pressing the blue \u2018vote\u2019 button If the majority of voters vote in favor, the project gets developed and the developer pays his suggested compensation amount to each of the 5 owners . After the \u201cresults\u201d phase the game moves on to the next round ."
+        " In the voting phase, the developer is inactive and the owners vote on the development of the Project . Voting is done by selecting one of the options in the tick boxes in area 13 and pressing the blue \u2018vote\u2019 button If at least as many voters vote in favor as against (excluding abstaining voters) the Project is implemented . After the \u201cresults\u201d phase the game moves on to the next round ."
     ]
 }

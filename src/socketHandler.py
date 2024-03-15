@@ -27,6 +27,7 @@ class WebSocketClient:
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
         openai.api_key = self.load_api_key()
         self.get_latest_message = None
+        self.get_instruction_message = None
 
     def on_message(self, ws, message):
         """
@@ -116,6 +117,44 @@ class WebSocketClient:
                 "content": "Error decoding instruction message."
             }, indent=2)
 
+    def instruction_reader(self):
+        """
+        Processes instructions from a DOCX file, converts them to JSON, and then formats them for the OpenAI API.
+        """
+        json_path = '../data/processed/instructions.json'
+
+        # Reading the saved JSON instructions
+        with open(json_path, 'r') as file:
+            instructions_json = json.load(file)
+
+        # Transforming the JSON to the OpenAI API format
+        formatted_instructions = self.json_to_openai_format(instructions_json)
+        print(f"Formatted instructions: {formatted_instructions}")
+        self.get_instruction_message = formatted_instructions
+
+    def json_to_openai_format(self, json_obj):
+        """
+        Transforms the JSON object into a format compatible with OpenAI's API.
+
+        Args:
+            json_obj: The JSON object containing the instruction sections.
+
+        Returns:
+            A dictionary with "role": "user" and "content": concatenated instructions.
+        """
+        content = []
+        for section, texts in json_obj.items():
+            # For each section, join its text and append to the content list
+            section_content = ' '.join(texts)
+            content.append(f"{section}: {section_content}")
+
+        # Join all section contents into a single string
+        content_str = "\n\n".join(content)
+
+        # Return the formatted dictionary for OpenAI API
+        return {"role": "user", "content": content_str}
+
+
     def on_error(self, ws, error):
         """
         Callback executed when an error occurs.
@@ -136,11 +175,16 @@ class WebSocketClient:
         self.reconnect()
 
     def reconnect(self):
-        """
-        Function to reconnect to the server.
-        :return:
-        """
-        self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
+        # Ensure the existing WebSocket connection is closed before attempting to reconnect
+        if self.ws:
+            self.ws.close()
+        self.ws = websocket.WebSocketApp(self.url,
+                                         on_message=self.on_message,
+                                         on_error=self.on_error,
+                                         on_close=self.on_close)
+        self.wst = threading.Thread(
+            target=lambda: self.ws.run_forever(ping_interval=30,
+                                               ping_timeout=10), daemon=True)
         self.wst.start()
 
     def on_open(self, ws):
@@ -177,15 +221,22 @@ class WebSocketClient:
     def send_message(self, ws):
         print("Waiting for instructions...")
         while self.should_continue:
-            sleep(2)
-
             if self.get_latest_message:
                 prompt = json.loads(self.get_latest_message)
+                if self.get_instruction_message:
+                    prompt = [prompt, self.get_instruction_message]
+                    response = openai.chat.completions.create(
+                        model="gpt-3.5-turbo",
+                        messages=prompt,
+                    )
+                    self.get_instruction_message = None
+                else:
+                    response = openai.chat.completions.create(
+                        model="gpt-3.5-turbo",
+                        messages=[prompt],
+                    )
                 print(f"prompt: {prompt}")
-                response = openai.chat.completions.create(
-                    model="gpt-3.5-turbo",
-                    messages=[prompt],
-                )
+
 
                 # Extracting the text response
                 ai_response = response.choices[0].message.content.strip()
@@ -218,7 +269,6 @@ class WebSocketClient:
         :param message: Is the ping message received from the server.
         :return:
         """
-        # TODO: Check if the ping message is received and if the connection is still alive, otherwise do a comedown should be reset to the beginning.
         # print("Ping:", message)
 
 
@@ -234,5 +284,7 @@ class WebSocketClient:
 if __name__ == "__main__":
     websocket.enableTrace(False)
     client = WebSocketClient("ws://localhost:3088")
+    client.instruction_reader()
     client.run_forever()
+
 
