@@ -24,6 +24,8 @@ class WebSocketClient:
         self.ws.on_open = self.on_open
         self.should_continue = True  # Flag to control the send_message loop
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
+        openai.api_key = self.load_api_key()
+        self.get_latest_message = None
 
 
     def on_message(self, ws, message):
@@ -48,6 +50,7 @@ class WebSocketClient:
 
             # If the message wasn't ignored, print it
             print("Received:", message)
+            self.get_latest_message = message
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
 
@@ -82,13 +85,16 @@ class WebSocketClient:
         print("### Connection is open ###")
 
         # Sending initial game-specific messages
-        initial_message = '{"gameId":16,"type":"join","recovery":"q3yrymy6y8ixicjlq241nswpi00ag74deooxedsgg0so78b5iipr6ol85v4milq0"}'
+        initial_message = '{"gameId":15,"type":"join","recovery":"q3yrymy6y8ixicjlq241nswpi00ag74deooxedsgg0so78b5iipr6ol85v4milq0"}'
         ws.send(initial_message)
         print("Sent initial game join message.")
 
-        second_message = '{"gameId":16,"type":"player-is-ready"}'
+        second_message = '{"gameId":15,"type":"player-is-ready"}'
         ws.send(second_message)
         print("Sent player is ready message.")
+
+        ws.send('{"gameId":15,"type":"join","recovery":"mei5p7p4ht1pdkdg876t2qsbj4kma5py7rhl4uvr3f3whatv71f922zhzrpij1q0"}')
+        ws.send('{"gameId":15,"type":"player-is-ready"}')
 
         # Start thread for handling incoming WebSocket messages
         threading.Thread(target=self.send_message, args=(ws,),
@@ -99,55 +105,49 @@ class WebSocketClient:
         Load the API key from an external file.
         """
         try:
-            with open('../config/token.txt',
-                      'r') as file:  # Update the path to your actual file location
+            with open('/Users/jasperbruin/Documents/IBEX-LLM/config/token.txt',
+                      'r') as file:
                 return file.read().strip()
         except FileNotFoundError:
             print("API key file not found. Please check the file path.")
             exit()
 
-
     def send_message(self, ws):
-        """
-        Function to send a message to the server.
-        :param ws: Is the WebSocketApp instance that received the message.
-        :return:
-        """
-        openai.api_key = self.load_api_key()
-
         print("Waiting for instructions...")
-
         while self.should_continue:
-            user_input = input(
-                "Enter a message to send (type 'exit' to close): ")
-            if user_input == 'exit':
-                ws.close()
-                break
+            received_message = self.get_latest_message
 
-            try:
-                print("Calling OpenAI API...")
-                # Constructing the prompt for the OpenAI API
-                # TODO: We need to modify this because its not right yet.
-                prompt = f"You are an intelligent agent participating in a simulation. Wait for instructions."
+            if received_message:
+                # Assume received_message is processed to extract relevant info if necessary
+                prompt = f"{received_message}"  # Construct a meaningful prompt as needed
 
-                # Requesting a completion from OpenAI
-                response = openai.completions.create(
+                response = openai.chat.completions.create(
                     model="gpt-3.5-turbo",
-                    prompt=prompt,
-                    temperature=0.5,
-                    max_tokens=150
+                    messages=[
+                        {"role": "system",
+                         "content": "You are an intelligent agent participating in an economic voting simulation."},
+                        {"role": "user", "content": prompt},
+                    ]
                 )
 
                 # Extracting the text response
-                text_response = response.choices[0].text.strip()
+                ai_response = response.choices[0].message.content.strip()
 
-                print("AI Response:", text_response)
+                print("AI Response:", ai_response)
 
-                # Sending the AI response over WebSocket (or modify as needed)
-                ws.send(text_response)
-            except Exception as e:
-                print(f"Error while calling OpenAI API: {e}")
+                # Placeholder for generating a JSON response
+                # This part should be replaced with logic to convert AI response to game command
+                json_response = json.dumps({
+                    "gameId": 16,
+                    # Example gameId, should be dynamically set based on context
+                    "type": "action-type",
+                    # Placeholder type, should depend on AI's response or context
+                    "details": [
+                        "This needs to be filled with meaningful action details based on AI's response or the game's requirements."]
+                })
 
+                # Sending the JSON-formatted response
+                ws.send(json_response)
     def run_forever(self):
         """
         Function to start the WebSocket client and keep it running until the user
@@ -185,3 +185,4 @@ if __name__ == "__main__":
     websocket.enableTrace(False)
     client = WebSocketClient("ws://localhost:3088")
     client.run_forever()
+
