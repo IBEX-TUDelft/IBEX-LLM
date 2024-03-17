@@ -40,7 +40,8 @@ class WebSocketClient:
             msg_data = json.loads(message)
             # Filter based on eventType; only process if eventType matches our criteria
             eventType = msg_data.get('eventType')
-            if eventType in ['introduction-instructions', 'action-required']:
+            if eventType in ['introduction-instructions', 'action-required', 'assign-role', 'players-known']:
+
                 # Process the message as needed
                 self.get_latest_message = self.instruction_to_prompt(message)
         except json.JSONDecodeError:
@@ -104,6 +105,31 @@ class WebSocketClient:
                     "content": content
                 }, indent=2)
 
+            # Handle assign-role messages
+            elif eventType == "assign-role":
+                # Extract the 'data' dictionary which contains the role and other information
+                data = msg_data.get("data", {})
+
+                role = data.get("role", "N/A")  # Default to "N/A" if not found
+                property_name = data.get("property", {}).get("name",
+                                                             "No Property")  # Example of accessing nested data
+                owner_id = data.get("property", {}).get("owner", "No Owner ID")
+                boundaries = data.get("boundaries", {})
+
+                # Constructing a detailed content string with the extracted information
+                content = (
+                    f"Your role is: {role}\n"
+                    f"Property Name: {property_name}\n"
+                    f"Owner ID: {owner_id}\n"
+                    f"Boundaries: {boundaries}"
+                )
+
+                return json.dumps({
+                    "role": "system",
+                    "content": content
+                }, indent=2)
+
+
             else:
                 # Handle unexpected eventType
                 return json.dumps({
@@ -129,7 +155,7 @@ class WebSocketClient:
 
         # Transforming the JSON to the OpenAI API format
         formatted_instructions = self.json_to_openai_format(instructions_json)
-        print(f"Formatted instructions: {formatted_instructions}")
+        # print(f"Formatted instructions: {formatted_instructions}")
         self.get_instruction_message = formatted_instructions
 
     def json_to_openai_format(self, json_obj):

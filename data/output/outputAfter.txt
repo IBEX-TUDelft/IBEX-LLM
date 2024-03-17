@@ -1,6 +1,5 @@
 Received: {"type":"event","eventType":"assign-role","data":{"role":"Owner","property":{"id":1,"owner":1,"name":"Abstract Koala Lot","v":[468000,164000,150000]},"boundaries":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"key":"noProject","range":{"low":350000,"high":600000}},{"key":"projectA","range":{"low":150000,"high":350000}}]}}
 Received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":"Owner","tag":"Owner 1"},{"number":2,"role":"Owner","tag":"Developer"}]}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
 Received: {"type":"event","eventType":"compensation-offer-made","data":{"compensationOffers":[0,0]}}
 Received: {"type":"event","eventType":"final-profit","data":{"condition":1,"tally":0,"value":164000,"compensation":0}}
 Received: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":1,"value":164000,"tally":0,"compensation":0,"profit":164000}}
