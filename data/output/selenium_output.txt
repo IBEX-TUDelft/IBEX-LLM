@@ -1,0 +1,275 @@
+Page text: Owner 1: Please wait for all players to be ready.
+Round: 0
+Phase: Introduction
+Click When You Are Ready
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+Found 1 button(s):
+ - Text: Click When You Are Ready, ID: , Class: btn btn-primary btn-lg
+Action: Clicked on the first button found.
+Page text: Owner 1: All the players are ready, the round will start shortly.
+Time left: 00:05
+Round: 0
+
+Phase: Presentation
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: All the players are ready, the round will start shortly.
+Time left: 00:10
+Round: 0
+
+Phase: Deliberation
+Moving to Deliberation phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: You can use chat box to communicate with other players.
+Time left: 00:05
+Round: 0
+
+Phase: Deliberation
+Conditions and Plot Values
+Condition Value (Project Impact)
+No Project 468.000
+Project 164.000 (-304.000)
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Chat
+Developer
+Select All
+Select Owners
+Deselect All
+Send
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Found 1 input field(s):
+ - Type: checkbox, Name: message-recipients
+Found 4 button(s):
+ - Text: Select All, ID: , Class: btn mb-1 btn-primary btn-sm btn-block
+ - Text: Select Owners, ID: , Class: btn mb-1 btn-primary btn-sm btn-block
+ - Text: Deselect All, ID: , Class: btn btn-primary btn-sm btn-block
+ - Text: Send, ID: , Class: btn btn-primary
+Action: Clicked on the first button found.
+Page text: Owner 1: You can use chat box to communicate with other players.
+Time left: 00:10
+Round: 0
+
+Phase: Request
+Moving to Request phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: Submit a compensation request to the developer. Remember to click the Submit button.
+Time left: 00:05
+Round: 0
+
+Phase: Request
+Conditions and Plot Values
+Condition Value (Project Impact) Request Profit
+No Project 468.000 468.000
+Project 164.000 (-304.000)
+164.000
+Submit Your Compensation Request
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Chat
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Found 1 input field(s):
+ - Type: text, Name: player_compensation_1
+Found 1 button(s):
+ - Text: Submit Your Compensation Request, ID: , Class: btn btn-primary
+Action: Clicked on the first button found.
+Page text: Owner 1: Submit a compensation request to the developer. Remember to click the Submit button.
+Time left: 00:10
+Round: 0
+
+Phase: Offer
+Moving to Offer phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Submit Your Compensation Request
+Are you sure? Once you have submitted, you cannot change it later
+Confirm
+Cancel
+Found 3 button(s):
+ - Text: , ID: , Class: vm-btn-close
+ - Text: Confirm, ID: , Class: btn btn-danger
+ - Text: Cancel, ID: , Class: btn btn-secondary
+Action: Clicked on the first button found.
+Page text: Owner 1: Please wait for the developer to submit a compensation offer.
+Time left: 00:05
+Round: 0
+Phase: Offer
+Conditions and Plot Values
+Condition Value (Project Impact) Request Profit
+No Project 468.000 468.000
+Project 164.000 (-304.000)
+0
+164.000
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Chat
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: Please wait for the developer to submit a compensation offer.
+Time left: 00:10
+Round: 0
+
+Phase: Deliberation
+Moving to Deliberation phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: You can use the chat box to communicate with other players.
+Time left: 00:05
+Round: 0
+Phase: Deliberation
+Conditions and Plot Values
+Condition Value (Project Impact) Request Offer Profit
+No Project 468.000
+0
+468.000
+Project 164.000 (-304.000)
+0
+0
+164.000
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Chat
+Developer
+Select All
+Select Owners
+Deselect All
+Send
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Found 1 input field(s):
+ - Type: checkbox, Name: message-recipients
+Found 4 button(s):
+ - Text: Select All, ID: , Class: btn mb-1 btn-primary btn-sm btn-block
+ - Text: Select Owners, ID: , Class: btn mb-1 btn-primary btn-sm btn-block
+ - Text: Deselect All, ID: , Class: btn btn-primary btn-sm btn-block
+ - Text: Send, ID: , Class: btn btn-primary
+Action: Clicked on the first button found.
+Page text: Owner 1: You can use the chat box to communicate with other players.
+Time left: 00:10
+Round: 0
+Phase: Voting
+Moving to Voting phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Page text: Owner 1: Vote for Project or No Project. Remember to click on the Submit button.
+Time left: 00:05
+Round: 0
+Phase: Voting
+Conditions and Plot Values
+Condition Value (Project Impact) Request Offer Profit Vote
+No Project 468.000
+0
+468.000
+Project 164.000 (-304.000)
+0
+0
+164.000
+Vote
+Your Neighborhood (Your Property Highlighted in Blue)
+Owner 1
+Developer
+Value Ranges (owner)
+Condition Minimum Value Maximum Value
+No Project 350.000 600.000
+Project 150.000 350.000
+Value Ranges (developer)
+Condition Minimum Value Maximum Value
+No Project 200.000 500.000
+Project 500.000 2.750.000
+Chat
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice To be Determined
+Found 2 input field(s):
+ - Type: radio, Name: select-condition-0
+ - Type: radio, Name: select-condition-1
+Found 1 button(s):
+ - Text: Vote, ID: , Class: btn btn-primary
+Action: Clicked on the first button found.
+Page text: Owner 1: Vote for Project or No Project. Remember to click on the Submit button.
+Time left: 00:10
+Round: 0
+Phase: Results
+Moving to Results phase
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice Project 0 164.000 0 164.000
+Submit Your Vote
+Are you sure? Once you have submitted, you cannot change it later
+Confirm
+Cancel
+Found 3 button(s):
+ - Text: , ID: , Class: vm-btn-close
+ - Text: Confirm, ID: , Class: btn btn-danger
+ - Text: Cancel, ID: , Class: btn btn-secondary
+Action: Clicked on the first button found.
+Page text: Owner 1: Review results of this round.
+Time left: 00:06
+Round: 0
+Phase: Results
+Results (Current round in yellow)
+Round Winning Condition Votes for Project Value Compensations Total
+practice Project 0 164.000 0 164.000
+Page text: Owner 1: Review results of this round.
