@@ -29,6 +29,8 @@ class WebSocketClient:
         self.get_latest_message = None
         self.get_instruction_message = None
 
+
+
     def on_message(self, ws, message):
         """
         Callback executed when a message is received from the server.

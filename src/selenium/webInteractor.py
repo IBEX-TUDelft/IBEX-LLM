@@ -24,12 +24,27 @@ class WebInteraction:
             logging.error(f"Browser '{self.browser}' is not supported.")
             return
 
+    def feed_context_to_llm(self, context):
+        llm_input = {"role": "system", "content": context}
+        # Simulate processing the context by the LLM
+        print(f"Context fed to LLM: {llm_input}")
+        # Simulated LLM response
+        return llm_input
+
+    def send_instruction_to_llm(self ,instruction):
+        llm_input = {"role": "user", "content": instruction}
+        # Simulate processing the instruction by the LLM
+        print(f"Instruction sent to LLM: {llm_input}")
+        # Simulated LLM response to the instruction
+        return llm_input
+
     def load_webpage(self, url):
         logging.info("Loading webpage...")
         self.driver.get(url)
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))  # Wait for the body to load
         page_title = self.driver.title
         logging.info(f"Webpage loaded. Title: '{page_title}'")
+        self.send_context_to_llm(page_title)
 
     def continuously_check_elements(self, url):
         self.setup_webdriver()
