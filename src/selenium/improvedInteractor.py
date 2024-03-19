@@ -67,6 +67,6 @@ class WebInteraction:
 
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
-    url = 'http://localhost:8080/voting/15/emioyk7o4ry16ea77uq8sc67iy6qnta6dglidv157xkkiw35xttjj7p31tehe030'
+    url = 'http://localhost:8080/voting/15/chw0dfiy4dk6dkhanwu2pmk1o8pfho7nugyljkw765he5kn3i3gkp6nm4kgfl6g0'
     web_interaction = WebInteraction(driver_path)
     web_interaction.continuously_check_elements(url)

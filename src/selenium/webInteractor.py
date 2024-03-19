@@ -1,8 +1,8 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import StaleElementReferenceException, WebDriverException
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import StaleElementReferenceException
 
 class WebInteraction:
     def __init__(self, driver_path):
@@ -33,12 +33,11 @@ class WebInteraction:
         finally:
             self.close_browser()
 
-    def check_and_interact_with_elements(self):
+    def check_and_interact_with_elements(self, retry_count=0):
         try:
             # Fetch and print page text
             page_text = self.driver.find_element(By.TAG_NAME, 'body').text
             print(f"Page text: {page_text}")
-
 
             # Check for input fields and print their details
             input_fields = self.driver.find_elements(By.XPATH, '//input')
@@ -60,7 +59,14 @@ class WebInteraction:
                 print("Action: Clicked on the first button found.")
         except StaleElementReferenceException:
             print("StaleElementReferenceException caught, retrying...")
-            self.check_and_interact_with_elements()  # Retry the operation
+            if retry_count < 3:  # Limit retries to avoid infinite recursion
+                self.driver.refresh()  # Refresh the page to reset state
+                self.check_and_interact_with_elements(retry_count + 1)
+        except WebDriverException as e:
+            print(f"WebDriverException caught: {e}. Retrying...")
+            if retry_count < 3:  # Limit retries to avoid infinite recursion
+                self.driver.refresh()  # Refresh the page to reset state
+                self.check_and_interact_with_elements(retry_count + 1)
 
     def close_browser(self):
         print("Closing the browser...")
@@ -70,7 +76,7 @@ class WebInteraction:
 # Usage
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
-    url = 'http://localhost:8080/voting/15/emioyk7o4ry16ea77uq8sc67iy6qnta6dglidv157xkkiw35xttjj7p31tehe030'
+    url = 'http://localhost:8080/voting/15/xladn5qiu3k3yzz2reqehvj2e7x6beg3hr6ssra87zu6721jvrff00v224qiieq0'
 
     web_interaction = WebInteraction(driver_path)
     web_interaction.continuously_check_elements(url)
