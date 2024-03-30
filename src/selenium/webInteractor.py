@@ -14,7 +14,17 @@ def read_text_from_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-# Custom Logging Handler
+class CustomLogRecord(logging.LogRecord):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.role = kwargs.get('role', 'user')  # Default role is 'user'
+
+class CustomLogger(logging.getLoggerClass()):
+    def makeRecord(self, *args, **kwargs):
+        rv = CustomLogRecord(*args, **kwargs)
+        return rv
+
+
 class LLMLoggingHandler(logging.Handler):
     def __init__(self, web_interaction_instance):
         super().__init__()
@@ -22,7 +32,9 @@ class LLMLoggingHandler(logging.Handler):
 
     def emit(self, record):
         log_entry = self.format(record)
-        self.web_interaction_instance.send_message_to_llm({"role": "system", "content": log_entry})
+        role = getattr(record, 'role', 'user')  # Fallback to 'user' if role isn't specified
+        self.web_interaction_instance.send_message_to_llm({"role": role, "content": log_entry})
+
 
 
 class WebInteraction:
@@ -43,14 +55,14 @@ class WebInteraction:
         self.logger.setLevel(logging.INFO)
 
         if initial_prompt:
-            self.send_message_to_llm({"role": "system", "content": initial_prompt}, is_initial=True)
+            self.send_message_to_llm({"role": "user", "system": initial_prompt}, is_initial=True)
 
 
 
     def load_api_key(self):
         try:
             print("Loading API key...")
-            with open('/Users/jasperbruin/Documents/IBEX-LLM/config/token.txt',
+            with open('../../config/token.txt',
                       'r') as file:
                 return file.read().strip()
         except FileNotFoundError:
@@ -148,13 +160,11 @@ class WebInteraction:
         self.driver.quit()
 
 
-
-# Usage
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
     url = 'http://localhost:8080/voting/15/tvkjdsqk0wt7bp9oalfeg428f8s8gleujijaqjgjkee9i25nrdi06x66a1zw73m0'
 
-    initial_prompt = read_text_from_file('/Users/jasperbruin/Documents/IBEX-LLM/config/initial_prompt.txt')
+    initial_prompt = read_text_from_file('../../config/initial_prompt.txt')
     print(f"Initial prompt: {initial_prompt}")
 
     web_interaction = WebInteraction(driver_path, initial_prompt=initial_prompt)

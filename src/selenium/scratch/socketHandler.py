@@ -149,7 +149,7 @@ class WebSocketClient:
         """
         Processes instructions from a DOCX file, converts them to JSON, and then formats them for the OpenAI API.
         """
-        json_path = '../data/processed/instructions.json'
+        json_path = '../../../data/processed/instructions.json'
 
         # Reading the saved JSON instructions
         with open(json_path, 'r') as file:
@@ -239,7 +239,7 @@ class WebSocketClient:
         Load the API key from an external file.
         """
         try:
-            with open('/Users/jasperbruin/Documents/IBEX-LLM/config/token.txt',
+            with open('/config/token.txt',
                       'r') as file:
                 return file.read().strip()
         except FileNotFoundError:
