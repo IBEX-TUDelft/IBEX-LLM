@@ -1,5 +1,7 @@
 import time
 import openai
+import re
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -43,12 +45,12 @@ class WebInteraction:
                 "content": content,
             }
             print(f"Sending message to LLM: {message}")
-            # response = openai.chat.completions.create(
-            #     model="gpt-3.5-turbo",
-            #     messages=[message],
-            # )
-            # print(f"LLM response: {response.choices[0].message.content.strip()}\n")
-            # return response.choices[0].message.content.strip()
+            response = openai.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[message],
+            )
+            print(f"LLM response: {response.choices[0].message.content.strip()}\n")
+            return response.choices[0].message.content.strip()
         except Exception as e:
             print(f"Failed to send message to LLM: {e}")
 
@@ -73,11 +75,43 @@ class WebInteraction:
 
     def check_and_interact_with_elements(self, retry_count=0):
         try:
+            # Retrieving the basic text from the page
+            role = "system"
             page_text = self.driver.find_element(By.TAG_NAME, 'body').text
-            print(f"Page text: {page_text}")
-            self.send_message_to_llm(page_text, "system")
-            self.find_and_interact_input_field('//input', 'input field(s)')
-            self.find_and_click_first_button()
+            elements_text = ""  # Initialize an empty string to append additional elements' text
+
+            # Finding and interacting with input fields
+            input_fields_text, elements = self.find_and_interact_input_field('//input',
+                                                                   'input field(s)')
+            if input_fields_text:
+                role = "user"
+                elements_text += "\n" + input_fields_text
+
+            # Finding and clicking the first button, also getting the text about the buttons
+            # buttons_text = self.find_and_click_first_button()
+            # if buttons_text:
+            #     elements_text += "\n" + buttons_text  # Append buttons info if any
+
+            # Combining the page text with elements text
+            combined_text = f"Page text: {page_text}{elements_text}"
+            print(combined_text)  # Logging the combined text
+            response = self.send_message_to_llm(combined_text, role)
+
+            if response and "Compensation" in response and elements:
+                try:
+                    amount = re.sub("[^0-9]", "", response)
+                    if elements and amount:
+                        elements[0].send_keys(amount)
+                        print(f"Provided compensation amount: {amount}")
+                        self.find_and_click_nth_button(0)
+                        self.find_and_click_nth_button(2)
+                except Exception as e:
+                    print(f"Error processing compensation amount: {e}")
+
+            self.find_and_click_nth_button()
+
+
+
         except (StaleElementReferenceException, WebDriverException) as e:
             self.handle_exceptions(e, retry_count)
 
@@ -88,22 +122,18 @@ class WebInteraction:
             for index, element in enumerate(elements, start=1):
                 message_content += f"{index}. {element.get_attribute('type')} - {element.get_attribute('name')}\n"
 
-            action = ("Whenever you encounter an input field related to compensation requests (e.g., 'player_compensation_1'), you should provide a reasonable compensation amount. Given the context of the game and the information available, such as project impacts and value ranges, determine a suitable compensation figure."
-                      "For providing a compensation figure, format your response as 'Compensation: [Amount]', where [Amount] is the figure you suggest based on the economic conditions and strategic objectives outlined. Remember, the compensation should reflect the value impacts and ranges discussed.)"
-                      "If the action involves other types of input fields not related to compensation, specify the appropriate action based on the field's purpose.")
+            action = (
+                "Whenever you encounter an input field related to compensation requests (e.g., 'player_compensation_1'), you should provide a reasonable compensation amount. Given the context of the game and the information available, such as project impacts and value ranges, determine a suitable compensation figure."
+                "For providing a compensation figure, format your response as 'Compensation: [Amount]', where [Amount] is the figure you suggest based on the economic conditions and strategic objectives outlined. Remember, the compensation should reflect the value impacts and ranges discussed.)"
+                "If the action involves other types of input fields not related to compensation, specify the appropriate action based on the field's purpose.")
             message_content += action
-            # Log the compiled message
-            print(message_content)
-            # Send the compiled message to the LLM in a single action
-            response = self.send_message_to_llm(message_content, "user")
 
-            # if response has a digit, then it is a compensation amount
-            # remove all the non-digit characters from the response and just want to pass it to the input field that we encountered
+            return message_content, elements
+        else:
+            # Return an empty string and an empty list if no elements are found
+            return "", []
 
-
-
-
-    def find_and_click_first_button(self):
+    def find_and_click_nth_button(self, button_nr=0):
         buttons_xpath = '//button | //input[@type="button"] | //input[@type="submit"]'
         buttons = self.driver.find_elements(By.XPATH, buttons_xpath)
         if buttons:
@@ -124,8 +154,10 @@ class WebInteraction:
             # No need to send to LLM here since we're directly interacting rather than logging
 
             # Clicking on the first button
-            buttons[0].click()
+            buttons[button_nr].click()
             print("Clicked on the first button found.")
+            return message_content + "Clicked on the first button found."
+
 
     def handle_exceptions(self, exception, retry_count):
         # print(f"Exception encountered: {exception}. Retry count: {retry_count}")
@@ -142,7 +174,7 @@ class WebInteraction:
 
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
-    url = 'http://localhost:8080/voting/4/x349oh5lz9wbukg04lx8hnkwzj7r7ez27v1v4bmysdm89xwym6ynmw26bakmk7m0'
+    url = 'http://localhost:8080/voting/5/q32llqc0toeraspirn1uzhqiwiklus90sksit7orh9rjo39it96hescjh78c5v20'
 
     initial_prompt = read_text_from_file('../../config/initial_prompt.txt')
     print(f"Initial prompt: {initial_prompt}")
