@@ -20,7 +20,7 @@ class WebInteraction:
         self.initial_prompt = initial_prompt
         openai.api_key = self.load_api_key()
         if self.initial_prompt:
-            self.send_message_to_llm(self.initial_prompt, "system", is_initial=True)
+            self.send_message_to_llm(self.initial_prompt, "user", is_initial=True)
 
     def load_api_key(self):
         try:
@@ -45,12 +45,12 @@ class WebInteraction:
                 "content": content,
             }
             print(f"Sending message to LLM: {message}")
-            response = openai.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[message],
-            )
-            print(f"LLM response: {response.choices[0].message.content.strip()}\n")
-            return response.choices[0].message.content.strip()
+            # response = openai.chat.completions.create(
+            #     model="gpt-3.5-turbo",
+            #     messages=[message],
+            # )
+            # print(f"LLM response: {response.choices[0].message.content.strip()}\n")
+            # return response.choices[0].message.content.strip()
         except Exception as e:
             print(f"Failed to send message to LLM: {e}")
 
@@ -76,7 +76,7 @@ class WebInteraction:
     def check_and_interact_with_elements(self, retry_count=0):
         try:
             # Retrieving the basic text from the page
-            role = "system"
+            role = "user"
             page_text = self.driver.find_element(By.TAG_NAME, 'body').text
             elements_text = ""  # Initialize an empty string to append additional elements' text
 
@@ -94,7 +94,7 @@ class WebInteraction:
 
             # Combining the page text with elements text
             combined_text = f"Page text: {page_text}{elements_text}"
-            print(combined_text)  # Logging the combined text
+            # print(combined_text)  # Logging the combined text
             response = self.send_message_to_llm(combined_text, role)
 
             if response and "Compensation" in response and elements:
@@ -122,10 +122,7 @@ class WebInteraction:
             for index, element in enumerate(elements, start=1):
                 message_content += f"{index}. {element.get_attribute('type')} - {element.get_attribute('name')}\n"
 
-            action = (
-                "Whenever you encounter an input field related to compensation requests (e.g., 'player_compensation_1'), you should provide a reasonable compensation amount. Given the context of the game and the information available, such as project impacts and value ranges, determine a suitable compensation figure."
-                "For providing a compensation figure, format your response as 'Compensation: [Amount]', where [Amount] is the figure you suggest based on the economic conditions and strategic objectives outlined. Remember, the compensation should reflect the value impacts and ranges discussed.)"
-                "If the action involves other types of input fields not related to compensation, specify the appropriate action based on the field's purpose.")
+            action = read_text_from_file('../../prompts/input_prompt.txt')
             message_content += action
 
             return message_content, elements
@@ -159,8 +156,9 @@ class WebInteraction:
             return message_content + "Clicked on the first button found."
 
 
-    def handle_exceptions(self, exception, retry_count):
-        # print(f"Exception encountered: {exception}. Retry count: {retry_count}")
+    def handle_exceptions(self, exception, retry_count, verbose=False):
+        if verbose:
+            print(f"Exception encountered: {exception}. Retry count: {retry_count}")
         if retry_count < 3:
             print("Retrying...")
             time.sleep(2)
@@ -174,9 +172,9 @@ class WebInteraction:
 
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
-    url = 'http://localhost:8080/voting/5/q32llqc0toeraspirn1uzhqiwiklus90sksit7orh9rjo39it96hescjh78c5v20'
+    url = input("Enter the URL to load: ")
 
-    initial_prompt = read_text_from_file('../../config/initial_prompt.txt')
+    initial_prompt = read_text_from_file('../../prompts/initial_prompt.txt')
     print(f"Initial prompt: {initial_prompt}")
 
     web_interaction = WebInteraction(driver_path, initial_prompt=initial_prompt)
