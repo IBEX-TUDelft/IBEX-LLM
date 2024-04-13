@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException
-import sys  # Import the sys module to access command line arguments
+
 
 
 def read_text_from_file(file_path):
@@ -69,7 +69,8 @@ class WebInteraction:
         try:
             while True:
                 self.check_and_interact_with_elements()
-                time.sleep(5)
+                time.sleep(
+                    5)  # Adjust timing as necessary based on the application's needs
         except KeyboardInterrupt:
             print("Program interrupted by user. Exiting...")
         finally:
@@ -138,7 +139,7 @@ class WebInteraction:
                             'innerText')
                     }
                     message_content += f"{index}. Type: {button_details['type']}, Name: {button_details['name']}, Value: {button_details['value']}, Text: '{button_details['text']}'\n"
-
+                print(message_content)
                 # Optionally add additional prompts or actions if needed
                 action = read_text_from_file('../../prompts/button_prompt.txt')
                 message_content += action
@@ -147,7 +148,8 @@ class WebInteraction:
 
         return message_content, buttons  # Ensure this is outside the 'else' clause
 
-    def process_ai_instructions(self, input_elements, buttons, extracted_compensation, extracted_buttons):
+    def process_ai_instructions(self, input_elements, buttons,
+                                extracted_compensation, extracted_buttons):
         if extracted_compensation:
             try:
                 amount = extracted_compensation.get('Compensation')
@@ -158,16 +160,17 @@ class WebInteraction:
                 print(f"Error processing compensation input: {e}")
 
         if extracted_buttons:
-            try:
-                for button_index in extracted_buttons:
-                    if buttons and 0 <= button_index - 1 < len(buttons):
+            for button_index in extracted_buttons:
+                if buttons and 0 <= button_index - 1 < len(buttons):
+                    try:
+                        print(f"Trying to click Button [{button_index}]...")
                         buttons[button_index - 1].click()
-                        print(f"Clicked Button [{button_index}] as instructed.")
+                        print(
+                            f"Clicked Button [{button_index}] as instructed.")
                         time.sleep(1)
-            except ValueError:
-                print("Invalid button number received in AI response.")
-            except Exception as e:
-                print(f"Error processing button press instructions: {e}")
+                    except Exception as e:
+                        print(
+                            f"Error processing button press instructions: {e}")
 
     def handle_exceptions(self, exception, retry_count, verbose=False):
         if verbose:
@@ -204,8 +207,6 @@ class WebInteraction:
             button_instructions.extend(buttons)
 
         return input_elements, button_instructions
-
-
 
 
 if __name__ == "__main__":
