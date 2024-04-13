@@ -13,6 +13,7 @@ Instructions:
 - Format the buttons as a list item with the appropriate number in square brackets.
 - Example Single Button: Button [1]
 - Example Multiple Buttons: Button [1, 2, 3]
+- Ignore chat related buttons for now
 
 Ensure the buttons are pressed in the correct order to complete the submission process.
 Ensure each action aligns with the specific labels and functionality of the webpage or application.
