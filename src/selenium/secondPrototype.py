@@ -96,6 +96,9 @@ class WebInteraction:
             response = self.send_message_to_llm(combined_text, role)
 
             if response:
+                input_elements, button_elements = self.extract_information_from_response(response)
+                print(f"Extracted input elements: {input_elements}")
+                print(f"Extracted button instructions: {button_elements}")
                 self.process_ai_instructions(response, input_elements, buttons)
 
         except (StaleElementReferenceException, WebDriverException) as e:
@@ -193,19 +196,34 @@ class WebInteraction:
         self.driver.quit()
 
 
+    def extract_information_from_response(self, response):
+        """
+        Parses the LLM response to extract compensation amounts and button pressing instructions.
+        """
+        input_elements = {}
+        button_instructions = []
+
+        # Extract compensation amount
+        compensation_match = re.search(r"Compensation:\s*([\d,]+)", response)
+        if compensation_match:
+            compensation = compensation_match.group(1).replace(',', '').strip()
+            input_elements['Compensation'] = compensation
+
+        # Extract button press instructions
+        button_matches = re.findall(r"Button \[([0-9, ]+)\]", response)
+        for match in button_matches:
+            buttons = [int(num.strip()) for num in match.split(',')]
+            button_instructions.extend(buttons)
+
+        return input_elements, button_instructions
+
+
+
 
 if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
-
-    if len(sys.argv) < 2:  # Check if the URL is provided as a command line argument
-        print("Usage: python script_name.py <URL>")
-        sys.exit(1)  # Exit the script if no URL is provided
-
-    url = sys.argv[1]  # Get the URL from the first command line argument
-
+    url = input("Enter the URL to load: ")
     initial_prompt = read_text_from_file('../../prompts/initial_prompt.txt')
-
-    web_interaction = WebInteraction(driver_path,
-                                     initial_prompt=initial_prompt)
+    web_interaction = WebInteraction(driver_path, initial_prompt=initial_prompt)
     web_interaction.continuously_check_elements(url)
 
