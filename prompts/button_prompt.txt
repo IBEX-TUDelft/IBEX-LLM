@@ -4,13 +4,15 @@ When entering compensation or other sensitive data, follow these steps for press
    - Example: Button [1]
 
 2. Confirm the submission by pressing the next two buttons in sequence:
-   - First confirmation: Typically labeled 'OK' or 'Yes' or 'Submit'.
-     - Example: Button [2]
-   - Final confirmation: Usually labeled 'Submit Your Compensation Request\nAre you sure?'
+   - First confirmation: Typically labeled 'Submit Your Compensation Request'
      - Example: Button [1]
+   - Final confirmation: Usually labeled 'Submit'
+     - Example: Button [3]
 
 Instructions:
-- Press Button [1] to submit the amount.
-- Then, confirm by pressing Button [2] followed by Button [3] for final verification.
+- Format the buttons as a list item with the appropriate number in square brackets.
+- Example Single Button: Button [1]
+- Example Multiple Buttons: Button [1, 2, 3]
 
+Ensure the buttons are pressed in the correct order to complete the submission process.
 Ensure each action aligns with the specific labels and functionality of the webpage or application.
