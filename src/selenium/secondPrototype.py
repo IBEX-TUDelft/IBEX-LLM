@@ -96,10 +96,10 @@ class WebInteraction:
             response = self.send_message_to_llm(combined_text, role)
 
             if response:
-                input_elements, button_elements = self.extract_information_from_response(response)
-                print(f"Extracted input elements: {input_elements}")
-                print(f"Extracted button instructions: {button_elements}")
-                self.process_ai_instructions(response, input_elements, buttons)
+                extracted_compensation, extracted_buttons = self.extract_information_from_response(response)
+                print(f"Extracted input elements: {extracted_compensation}")
+                print(f"Extracted button instructions: {extracted_buttons}")
+                self.process_ai_instructions(input_elements, buttons, extracted_compensation, extracted_buttons)
 
         except (StaleElementReferenceException, WebDriverException) as e:
             self.handle_exceptions(e, retry_count)
@@ -147,35 +147,23 @@ class WebInteraction:
 
         return message_content, buttons  # Ensure this is outside the 'else' clause
 
-    def process_ai_instructions(self, response, input_elements, buttons):
-        if "Compensation" in response:
+    def process_ai_instructions(self, input_elements, buttons, extracted_compensation, extracted_buttons):
+        if extracted_compensation:
             try:
-                amount = re.sub("[^0-9]", "", response)
+                amount = extracted_compensation.get('Compensation')
                 if input_elements and amount:
                     input_elements[0].send_keys(amount)
                     print(f"Provided compensation amount: {amount}")
-                    if buttons:
-                        buttons[0].click()
-                        print(
-                            "Submitted compensation amount by pressing Button [1]")
-                        # Re-fetch buttons as the page state may have changed
-                        time.sleep(1)  # Small delay to allow page update
-                        buttons = self.find_and_interact_with_buttons(
-                            '//button | //input[@type="button"] | //input[@type="submit"]')
             except Exception as e:
                 print(f"Error processing compensation input: {e}")
 
-        if "Button" in response:
+        if extracted_buttons:
             try:
-                button_index = int(re.sub("[^0-9]", "", response))
-                # Adjust for zero-based index since user instructions assume a one-based index
-                if buttons and 0 <= button_index - 1 < len(buttons):
-                    buttons[button_index - 1].click()
-                    print(f"Clicked Button [{button_index}] as instructed.")
-                    # Re-fetch buttons again here if you expect more changes after this click
-                    time.sleep(1)  # Small delay to allow page update
-                    buttons = self.find_and_interact_with_buttons(
-                        '//button | //input[@type="button"] | //input[@type="submit"]')
+                for button_index in extracted_buttons:
+                    if buttons and 0 <= button_index - 1 < len(buttons):
+                        buttons[button_index - 1].click()
+                        print(f"Clicked Button [{button_index}] as instructed.")
+                        time.sleep(1)
             except ValueError:
                 print("Invalid button number received in AI response.")
             except Exception as e:
