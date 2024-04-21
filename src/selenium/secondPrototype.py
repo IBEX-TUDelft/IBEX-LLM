@@ -10,6 +10,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException
 
 
+"""
+TODO:
+- Adjust prompting so that it does not do anything with chat functionalities
+- Overlays and Popups are a problem, the agent should be able to handle them
+"""
 
 def read_text_from_file(file_path):
     with open(file_path, 'r') as file:
@@ -54,7 +59,7 @@ class WebInteraction:
             print(f"LLM response: {response.choices[0].message.content.strip()}\n")
             return response.choices[0].message.content.strip()
         except Exception as e:
-            print(f"Failed to send message to LLM: {e}")
+            print(f"Failed to send message to LLM: {str(e)}")
 
     def load_webpage(self, url):
         print("Loading webpage...")
@@ -157,7 +162,7 @@ class WebInteraction:
                     input_elements[0].send_keys(amount)
                     print(f"Provided compensation amount: {amount}")
             except Exception as e:
-                print(f"Error processing compensation input: {e}")
+                print(f"Error processing compensation input: {str(e)}")
 
         if extracted_buttons:
             for button_index in extracted_buttons:
@@ -167,10 +172,11 @@ class WebInteraction:
                         buttons[button_index - 1].click()
                         print(
                             f"Clicked Button [{button_index}] as instructed.")
-                        time.sleep(1)
+                        time.sleep(1)  # Pause for a second after clicking.
                     except Exception as e:
+                        # Print just the error message without the stack trace.
                         print(
-                            f"Error processing button press instructions: {e}")
+                            f"Error processing button press instructions: {str(e)}")
 
     def handle_exceptions(self, exception, retry_count, verbose=False):
         if verbose:
