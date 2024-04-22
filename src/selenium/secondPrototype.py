@@ -20,6 +20,9 @@ def read_text_from_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
+
+
+
 class WebInteraction:
     def __init__(self, driver_path, browser='chrome', initial_prompt=None):
         self.driver_path = driver_path
@@ -86,6 +89,8 @@ class WebInteraction:
             role = "user"
             page_text = self.driver.find_element(By.TAG_NAME, 'body').text
             elements_text = ""
+
+            # self.handle_overlays()  # New function to handle overlays
 
             input_fields_text, input_elements = self.find_and_interact_input_field(
                 '//input', 'input field(s)')
@@ -177,6 +182,41 @@ class WebInteraction:
                         # Print just the error message without the stack trace.
                         print(
                             f"Error processing button press instructions: {str(e)}")
+                        self.handle_overlays()
+                        # TODO: retry_interaction() so that the agent tries the button that failed again
+
+    def handle_overlays(self):
+        """
+        TODO: Check this thoroughly to make sure it works as expected
+        Error processing button press instructions: Message: element click intercepted: Element <button type="button" class="btn mb-1 btn-primary btn-sm btn-block">..
+        .</button> is not clickable at point (769, 140). Other element would receive the click: <div data-vm-wrapper-id="vm-8" tabindex="-1"
+        role="dialog" aria-label="Check Your Messages" aria-modal="true" aria-describedby="vm-8-content" aria-labelledby="vm-8-title"
+        class="vm-wrapper" style="z-index: 1051; cursor: pointer;">...</div>
+
+        TODO: We should not close the overlay but again go through the buttons and click the correct one,
+        TODO: So we want to loop through the buttons again and click the correct one
+        Clicked on overlay: Check Your Messages
+        message-empty-description"
+        Ok
+        Overlay closed.
+        Trying to click Button [3]...
+        Clicked Button [3] as instructed.
+        """
+        overlay_selectors = [
+            ".submit-button",  # Submit buttons commonly used in modals
+            "div[role='dialog']"  # Typical selector for modals
+        ]
+        for selector in overlay_selectors:
+            overlays = self.driver.find_elements(By.CSS_SELECTOR, selector)
+            for overlay in overlays:
+                try:
+                    if overlay.is_displayed():
+                        print(f"Clicked on overlay: {overlay.text}")
+                        overlay.click()
+                        print("Overlay closed.")
+                        time.sleep(1)  # Wait for the UI to update
+                except Exception as e:
+                    print(f"Failed to close overlay: {str(e)}")
 
     def handle_exceptions(self, exception, retry_count, verbose=False):
         if verbose:
