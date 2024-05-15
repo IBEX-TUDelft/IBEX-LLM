@@ -1,10 +1,46 @@
 import websocket
 import threading
 import json
+import re
 
-# TODO: Check if this connection is reliable because it might be disconnected and we not notice this.
-# TODO: Get ping message back because then we can check if the connection is still alive.
-# TODO: I need to sort the messages that are being received because most of them are not relevant for the LLM.
+class GameHandler:
+    def __init__(self):
+        self.messages = []
+
+    def handle_message(self, message):
+        message_data = json.loads(message)
+        self.messages.append(message_data)
+
+        if message_data["type"] == "notice" and "Phase 2 has begun" in message_data["message"]:
+            return {"type": "compensationRequest", "compensationRequest": [10000]}
+        else:
+            return {"summary": self.summarize_messages()}
+
+    def summarize_messages(self):
+        # TODO: We can improve the summarization logic here with more advanced NLP techniques.
+        summaries = []
+        for msg in self.messages:
+            if msg["type"] == "event":
+                if msg["eventType"] == "assign-role":
+                    summaries.append(f"Assigned role: {msg['data']['tag']} with property {msg['data']['property']['name']}.")
+                elif msg["eventType"] == "players-known":
+                    summaries.append(f"Known players: {', '.join([player['tag'] for player in msg['data']['players']])}.")
+                elif msg["eventType"] == "compensation-offer-made":
+                    summaries.append("Compensation offer made.")
+                elif msg["eventType"] == "final-profit":
+                    summaries.append(
+                        f"Final profit information received. Condition: {msg['data']['condition']}, "
+                        f"Tally: {msg['data']['tally']}, Value: {msg['data']['value']}, Compensation: {msg['data']['compensation']}."
+                    )
+                elif msg["eventType"] == "round-summary":
+                    summaries.append(
+                        f"Round {msg['data']['round']} summary. Condition: {msg['data']['condition']}, Value: {msg['data']['value']}, "
+                        f"Tally: {msg['data']['tally']}, Compensation: {msg['data']['compensation']}, Profit: {msg['data']['profit']}."
+                    )
+            elif msg["type"] == "notice":
+                summaries.append(msg["message"])
+
+        return " ".join(summaries)
 
 class WebSocketClient:
     """
@@ -16,8 +52,11 @@ class WebSocketClient:
 
     @:param url: The URL of the WebSocket server to connect to.
     """
-    def __init__(self, url):
+    def __init__(self, url, game_id, recovery):
         self.url = url
+        self.game_id = game_id
+        self.recovery = recovery
+        self.game_handler = GameHandler()
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error,
@@ -35,21 +74,15 @@ class WebSocketClient:
         :param message: Is the message received from the server.
         :return:
         """
+        print("Received message:", message)  # Debugging: Print the received message
         try:
-            msg_data = json.loads(message)
-            # Define a set of eventTypes to ignore
-            ignore_event_types = {
-                "assign-name", "phase-instructions",
-                "set-timer", "reset-timer", "phase-transition", "round-end", "ready-received"
-            }
-            # Check if the message should be ignored
-            if msg_data.get("type") == "event" and msg_data.get("eventType") in ignore_event_types:
-                return  # Ignore these event types
-            if msg_data.get("type") == "info" and ("rejoined the game" in msg_data.get("message", "") or "joined. We have now" in msg_data.get("message", "")):
-                return  # Ignore these info messages
-
-            # If the message wasn't ignored, print it
-            print("Received:", message)
+            action = self.game_handler.handle_message(message)
+            if "compensationRequest" in action:
+                response = json.dumps(action)
+                print("Sending message:", response)  # Debugging: Print the message to be sent
+                ws.send(response)
+            else:
+                print(action["summary"])
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
 
@@ -88,13 +121,14 @@ class WebSocketClient:
         """
         print("### Connection is open ###")
         # Sending predefined message immediately upon connection
-        initial_message = '{"gameId":16,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}'
+        initial_message = json.dumps({"gameId": self.game_id, "type": "join", "recovery": self.recovery})
+        print("Sending message:", initial_message)
         ws.send(initial_message)
-        second_message = '{"gameId":16,"type":"player-is-ready"}'
+        second_message = json.dumps({"gameId": self.game_id, "type": "player-is-ready"})
+        print("Sending message:", second_message)
         ws.send(second_message)
         # Start thread for user input to send messages
-        threading.Thread(target=self.send_message, args=(ws,),
-                         daemon=True).start()
+        threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
 
     def send_message(self, ws):
         """
@@ -104,11 +138,10 @@ class WebSocketClient:
         """
         while self.should_continue:
             message = input("Enter a message to send (type 'exit' to close): ")
-            # first message would be:  {"gameId":15,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}
-
             if message == 'exit':
                 ws.close()
                 break
+            print("Sending message:", message)  # Debugging: Print the message to be sent
             ws.send(message)
 
     def on_ping(self, ws, message):
@@ -118,9 +151,8 @@ class WebSocketClient:
         :param message: Is the ping message received from the server.
         :return:
         """
-        # TODO: Check if the ping message is received and if the connection is still alive, otherwise do a comedown should be reset to the beginning.
         # print("Ping:", message)
-
+        pass
 
     def on_pong(self, ws, message):
         """
@@ -130,6 +162,7 @@ class WebSocketClient:
         :return:
         """
         # print("Pong:", message)
+        pass
 
     def run_forever(self):
         """
@@ -143,10 +176,26 @@ class WebSocketClient:
         except KeyboardInterrupt:
             self.ws.close()
 
+def parse_url(url):
+    """
+    Parse the URL to extract the gameId and recovery token.
+    :param url: The URL to parse.
+    :return: A tuple containing the gameId and recovery token.
+    """
+    match = re.search(r'/voting/(\d+)/(\w+)', url)
+    if match:
+        game_id = int(match.group(1))
+        recovery = match.group(2)
+        return game_id, recovery
+    else:
+        raise ValueError("URL format is incorrect. Expected format: http://localhost:8080/voting/<gameId>/<recovery>")
+
 if __name__ == "__main__":
-    websocket.enableTrace(False)
-    client = WebSocketClient("ws://localhost:3088")
-    client.run_forever()
-
-
-# {compensationRequest: [10000]}
+    # websocket.enableTrace(False)
+    url_input = input("Enter the URL: ")
+    try:
+        game_id, recovery = parse_url(url_input)
+        client = WebSocketClient("ws://localhost:3088", game_id, recovery)
+        client.run_forever()
+    except ValueError as e:
+        print(e)

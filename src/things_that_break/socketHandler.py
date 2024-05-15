@@ -43,7 +43,6 @@ class WebSocketClient:
             # Filter based on eventType; only process if eventType matches our criteria
             eventType = msg_data.get('eventType')
             if eventType in ['introduction-instructions', 'action-required', 'assign-role', 'players-known']:
-
                 # Process the message as needed
                 self.get_latest_message = self.instruction_to_prompt(message)
         except json.JSONDecodeError:
@@ -149,7 +148,7 @@ class WebSocketClient:
         """
         Processes instructions from a DOCX file, converts them to JSON, and then formats them for the OpenAI API.
         """
-        json_path = '../../../data/processed/instructions.json'
+        json_path = '../../data/processed/instructions.json'
 
         # Reading the saved JSON instructions
         with open(json_path, 'r') as file:

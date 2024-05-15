@@ -1,41 +1,11 @@
 {"gameId":15,"type":"join","recovery":"0tfowms3u5rjwvie4s2yphuvzf5ay30dh295ims9ssjhs02c0ybdl2czkfdcnw50"}
-Enter a message to send (type 'exit' to close): Received: {"type":"event","eventType":"assign-name","data":{"name":"Blue","number":1,"ruleset":"Voting"}}
-Received: {"type":"event","eventType":"phase-instructions","data":{}}
-Received: {"type":"info","message":"Player 1 rejoined the game"}
-Received: {"type":"info","message":"Player Maroon joined. We have now 2 players in the game."}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450020329}}
 Received: {"type":"event","eventType":"assign-role","data":{"role":"Owner","property":{"id":1,"owner":1,"name":"Abstract Koala Lot","v":[468000,164000,150000]},"boundaries":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"key":"noProject","range":{"low":350000,"high":600000}},{"key":"projectA","range":{"low":150000,"high":350000}}]}}
-Received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":"Owner","tag":"Owner 1"},{"number":2,"role":"Owner","tag":"Developer"}]}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
 Received: {"type":"notice","message":"Phase 1 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450030349}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+DO: Give the agent context about the game and the property
 Received: {"type":"notice","message":"Phase 2 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450040370}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+DO: Give summary of the the game and tell the agent that it needs to make a compensation offer here! And you have to use this format X,Y
 Received: {"type":"notice","message":"Phase 3 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450050412}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
 Received: {"type":"notice","message":"Phase 4 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"compensation-offer-made","data":{"compensationOffers":[0,0]}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450060433}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
 Received: {"type":"notice","message":"Phase 5 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450070463}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
 Received: {"type":"notice","message":"Phase 6 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"set-timer","data":{"end":1709450080491}}
-Received: {"type":"event","eventType":"final-profit","data":{"condition":1,"tally":0,"value":164000,"compensation":0}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":7}}
 Received: {"type":"notice","message":"Phase 7 has begun."}
-Received: {"type":"event","eventType":"reset-timer","data":{}}
-Received: {"type":"event","eventType":"round-end","data":{"round":0}}
-Received: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":1,"value":164000,"tally":0,"compensation":0,"profit":164000}}
-Received: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":0}}

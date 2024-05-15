@@ -151,7 +151,8 @@ class WebInteraction:
                     message_content += f"{index}. Type: {button_details['type']}, Name: {button_details['name']}, Value: {button_details['value']}, Text: '{button_details['text']}'\n"
                 print(message_content)
                 # Optionally add additional prompts or actions if needed
-                action = read_text_from_file('../../prompts/button_prompt.txt')
+                action = read_text_from_file(
+                    '../../prompts/button_prompt.txt')
                 message_content += action
         else:
             message_content = "No buttons found."
@@ -188,19 +189,14 @@ class WebInteraction:
     def handle_overlays(self):
         """
         TODO: Check this thoroughly to make sure it works as expected
-        Error processing button press instructions: Message: element click intercepted: Element <button type="button" class="btn mb-1 btn-primary btn-sm btn-block">..
-        .</button> is not clickable at point (769, 140). Other element would receive the click: <div data-vm-wrapper-id="vm-8" tabindex="-1"
-        role="dialog" aria-label="Check Your Messages" aria-modal="true" aria-describedby="vm-8-content" aria-labelledby="vm-8-title"
-        class="vm-wrapper" style="z-index: 1051; cursor: pointer;">...</div>
+        Error processing button press instructions: Message: element click intercepted: Element <button type="button" class="btn btn-primary">...
+        </button> is not clickable at point (281, 401). Other element would receive the click: <div data-vm-wrapper-id="vm-6" tabindex="-1" role="dialog"
+        aria-label="Submit Your Compensation Offer" aria-modal="true" aria-describedby="vm-6-content" aria-labelledby="vm-6-title" class="vm-wrapper"
+        style="z-index: 1051; cursor: pointer;">...</div>
+
 
         TODO: We should not close the overlay but again go through the buttons and click the correct one,
         TODO: So we want to loop through the buttons again and click the correct one
-        Clicked on overlay: Check Your Messages
-        message-empty-description"
-        Ok
-        Overlay closed.
-        Trying to click Button [3]...
-        Clicked Button [3] as instructed.
         """
         overlay_selectors = [
             ".submit-button",  # Submit buttons commonly used in modals
@@ -211,6 +207,7 @@ class WebInteraction:
             for overlay in overlays:
                 try:
                     if overlay.is_displayed():
+                        # TODO: this is not working but we want to click the correct button
                         # we want to loop over all the button elements in the overlay
                         # and we want to press the button that makes sense
                         for button in overlay.find_elements(By.TAG_NAME, 'button'):
