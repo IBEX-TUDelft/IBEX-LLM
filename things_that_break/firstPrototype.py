@@ -24,7 +24,7 @@ class WebInteraction:
 
     def load_api_key(self):
         try:
-            with open('../../config/token.txt', 'r') as file:
+            with open('../config/token.txt', 'r') as file:
                 return file.read().strip()
         except FileNotFoundError:
             print("API key file not found. Please check the file path.")
@@ -122,7 +122,7 @@ class WebInteraction:
             for index, element in enumerate(elements, start=1):
                 message_content += f"{index}. {element.get_attribute('type')} - {element.get_attribute('name')}\n"
 
-            action = read_text_from_file('../../prompts/input_prompt.txt')
+            action = read_text_from_file('../prompts/input_prompt.txt')
             message_content += action
 
             return message_content, elements
@@ -174,7 +174,7 @@ if __name__ == "__main__":
     driver_path = '/opt/homebrew/bin/chromedriver'
     url = input("Enter the URL to load: ")
 
-    initial_prompt = read_text_from_file('../../prompts/initial_prompt.txt')
+    initial_prompt = read_text_from_file('../prompts/initial_prompt.txt')
     print(f"Initial prompt: {initial_prompt}")
 
     web_interaction = WebInteraction(driver_path, initial_prompt=initial_prompt)

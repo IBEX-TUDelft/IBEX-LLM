@@ -148,7 +148,7 @@ class WebSocketClient:
         """
         Processes instructions from a DOCX file, converts them to JSON, and then formats them for the OpenAI API.
         """
-        json_path = '../../data/processed/instructions.json'
+        json_path = '../data/processed/instructions.json'
 
         # Reading the saved JSON instructions
         with open(json_path, 'r') as file:
