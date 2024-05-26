@@ -1,219 +1,54 @@
-]
-Assigned players: 0, Total players: 2
-Player 1 is [re]joining game 3
-Game 3 found
-Players in before
-[]
-Players in after
-[ 1 ]
-ROUND NUMBER 0
-Incoming WSS message
-{"gameId":3,"type":"player-is-ready"}
-{ gameId: 3, type: 'player-is-ready' }
-[
-  { type: 'player-is-ready', role: null, action: [Function: action] },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-REALLY HERE
-Player with recovery lz26a0kcsr6h11z1gvpglyya5bnes8ey7gfgo5g4kfaut2zjauke7nh2p535a6o0 not found in game 3
-Current players: 1, Total players: 2
-Incoming WSS message
-{"gameId":3,"type":"join","recovery":"lz26a0kcsr6h11z1gvpglyya5bnes8ey7gfgo5g4kfaut2zjauke7nh2p535a6o0"}
-{
-  gameId: 3,
-  type: 'join',
-  recovery: 'lz26a0kcsr6h11z1gvpglyya5bnes8ey7gfgo5g4kfaut2zjauke7nh2p535a6o0'
-}
-[
-  { type: 'player-is-ready', role: null, action: [Function: action] },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-Assigned players: 1, Total players: 2
-Player 2 is [re]joining game 3
-Game 3 found
-Players in before
-[ 1 ]
-Players in after
-[ 1, 2 ]
-ROUND NUMBER 0
-Incoming WSS message
-{"gameId":3,"type":"player-is-ready"}
-{ gameId: 3, type: 'player-is-ready' }
-[
-  { type: 'player-is-ready', role: null, action: [Function: action] },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-REALLY HERE
-Event phase-complete received with args:
-{ phase: 0, round: undefined }
-Phase 0 results:
-undefined
-Preparing phase 1
-Timer: 15s type = number
-Setting a timer that after 15000ms will trigger phase-timeout
-PHASE 1
-Phase 1 of round 0 complete? false
-Event phase-timeout received with args:
-{ phase: 1, round: 0 }
-Phase 1 results:
-{
-  players: [ { number: 1, values: [Array] }, { number: 2, values: [Array] } ]
-}
-Preparing phase 2
-Timer: 15s type = number
-Setting a timer that after 15000ms will trigger phase-timeout
-Phase 2 of round 0 complete? false
-Event phase-timeout received with args:
-{ phase: 2, round: 0 }
-Phase 2 results:
-{ chatLog: [] }
-Preparing phase 3
-Timer: 20s type = number
-Setting a timer that after 20000ms will trigger phase-timeout
-PHASE 3
-Phase 3 of round 0 complete? false
-Incoming WSS message
-{"gameId":3,"type":"compensation-request","compensationRequests":[null,10000]}
-{
-  gameId: 3,
-  type: 'compensation-request',
-  compensationRequests: [ null, 10000 ]
-}
-[
-  {
-    type: 'compensation-request',
-    role: null,
-    action: [Function: action]
-  },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-{
-  gameId: 3,
-  type: 'compensation-request',
-  compensationRequests: [ null, 10000 ]
-}
-Event phase-complete received with args:
-{ phase: 3, round: undefined }
-Phase 3 complete before its timer expired. Canceling the timer
-Phase 3 results:
-{
-  compensationRequests: [ { number: 1, compensationRequests: [Array] } ]
-}
-Preparing phase 4
-Timer: 20s type = number
-Setting a timer that after 20000ms will trigger phase-timeout
-PHASE 4
-Phase 4 of round 0 complete? false
-Incoming WSS message
-{"gameId":3,"type":"compensation-offer","compensationOffers":[null,5000]}
-{
-  gameId: 3,
-  type: 'compensation-offer',
-  compensationOffers: [ null, 5000 ]
-}
-[
-  { type: 'compensation-offer', role: 2, action: [Function: action] },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-{
-  gameId: 3,
-  type: 'compensation-offer',
-  compensationOffers: [ null, 5000 ]
-}
-Event phase-complete received with args:
-{ phase: 4, round: undefined }
-Phase 4 complete before its timer expired. Canceling the timer
-Phase 4 results:
-{ compensationOffers: [ null, 5000 ] }
-Preparing phase 5
-Timer: 15s type = number
-Setting a timer that after 15000ms will trigger phase-timeout
-Phase 5 of round 0 complete? false
-Event phase-timeout received with args:
-{ phase: 5, round: 0 }
-Phase 5 results:
-{ chatLog: [] }
-Preparing phase 6
-Timer: 20s type = number
-Setting a timer that after 20000ms will trigger phase-timeout
-VOTING PHASE
-Phase 6 of round 0 complete? false
-Incoming WSS message
-{"gameId":3,"type":"compensation-decision","compensationDecisions":[0]}
-{
-  gameId: 3,
-  type: 'compensation-decision',
-  compensationDecisions: [ 0 ]
-}
-[
-  {
-    type: 'compensation-decision',
-    role: null,
-    action: [Function: action]
-  },
-  JoinHandler {
-    type: 'join',
-    role: null,
-    requiresAuthentication: false
-  }
-]
-{
-  gameId: 3,
-  type: 'compensation-decision',
-  compensationDecisions: [ 0 ]
-}
-Event phase-complete received with args:
-{ phase: 6, round: undefined }
-Phase 6 complete before its timer expired. Canceling the timer
-Phase 6 results:
-{
-  compensationDecisions: [ { number: 1, compensationDecisions: [Array] } ]
-}
-Preparing phase 7
-Timer: 15s type = number
-Setting a timer that after 15000ms will trigger phase-timeout
-PHASE 6
-Valid votes: 1, Quorum: 0
-COMPENSATION OFFERS
-[ null, 5000 ]
-{
-  standings: [
-    {
-      counter: 1,
-      id: 0,
-      winner: true,
-      value: 206000,
-      compensation: null
-    },
-    {
-      counter: 0,
-      id: 1,
-      winner: false,
-      value: 1138000,
-      compensation: 5000
-    }
-  ],
-  winningCondition: 0
-}
-Phase 7 of round 0 complete? false
-
+Enter the URL: http://localhost:8080/voting/8/cl172444u43r2mjw0z0mrbfxpy7lpyyxzlccwvgh8owhem2r6t3odn1z5lyf8sf0
+Initial LLM response: ChatCompletion(id='chatcmpl-9T7SeqzjynpEkZSODGn5SDqJMnZdl', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content="Great! Let's get started. In this voting simulation, I will present you with a few scenarios or options, and you can vote on your preferred choice. Let me know when you are ready to begin.", role='assistant', function_call=None, tool_calls=None))], created=1716727220, model='gpt-3.5-turbo-0125', object='chat.completion', system_fingerprint=None, usage=CompletionUsage(completion_tokens=42, prompt_tokens=15, total_tokens=57))
+### Connection is open ###
+Sending message: {"gameId": 8, "type": "join", "recovery": "cl172444u43r2mjw0z0mrbfxpy7lpyyxzlccwvgh8owhem2r6t3odn1z5lyf8sf0"}
+Sending message: {"gameId": 8, "type": "player-is-ready"}
+Enter a message to send (type 'exit' to close): Received message: {"type":"event","eventType":"assign-name","data":{"name":"Sapphire","number":1,"ruleset":"Voting"}}
+Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+Received message: {"type":"info","message":"Player 1 rejoined the game"}
+Received message: {"type":"event","eventType":"ready-received","data":{}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727226539}}
+Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"property":{"id":1,"owner":1,"name":"Assistant Walrus Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+Boundaries stored for Assistant Walrus Lot: {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}
+Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"}]}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727226539}}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+Received message: {"type":"notice","message":"Phase 2 has begun."}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+Received message: {"type":"notice","message":"Phase 2 has begun."}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727231548}}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+Received message: {"type":"notice","message":"Phase 3 has begun."}
+Generated context for request: Provide a request in the format 'compensation-request: X' where X is an integer between 150000 and 350000.
+Requesting compensation from LLM for request: Provide a request in the format 'compensation-request: X' where X is an integer between 150000 and 350000.
+LLM response: compensation-request: 250000
+Sending message: {"gameId": 8, "type": "compensation-request", "compensationRequests": 250000}
+Received message: {"type":"event","eventType":"compensation-request-received","data":{"compensationRequests":250000}}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727232373}}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
+Received message: {"type":"notice","message":"Phase 4 has begun."}
+Generated context for offer: Provide a offer in the format 'compensation-offer: X' where X is an integer between 150000 and 350000.
+Requesting compensation from LLM for offer: Provide a offer in the format 'compensation-offer: X' where X is an integer between 150000 and 350000.
+LLM response: compensation-offer: 250000
+Sending message: {"gameId": 8, "type": "compensation-offer", "compensationOffers": 250000}
+Received message: {"type":"event","eventType":"compensation-offer-received","data":{"compensationOffers":250000}}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"compensation-offer-made","data":{"compensationOffers":250000}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727237380}}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
+Received message: {"type":"notice","message":"Phase 5 has begun."}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727242388}}
+Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
+Received message: {"type":"notice","message":"Phase 6 has begun."}
+Generated context for decision: Provide a decision in the format 'compensation-decision: X' where X is 0 or 1.
+Requesting compensation from LLM for decision: Provide a decision in the format 'compensation-decision: X' where X is 0 or 1.
+LLM response: compensation-decision: 1
+Sending message: {"gameId": 8, "type": "compensation-decision", "compensationDecisions": 1}
+Received message: {"type":"event","eventType":"compensation-decision-received","data":{}}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727243123}}
+Received message: {"type":"event","eventType":"final-profit","data":{"condition":1,"tally":0,"value":164000}}

@@ -13,7 +13,7 @@ class WebSocketClient:
 
     @:param url: The URL of the WebSocket server to connect to.
     """
-    def __init__(self, url, game_id, recovery, verbose=False):
+    def __init__(self, url, game_id, recovery, verbose=True):
         self.url = url
         self.game_id = game_id
         self.recovery = recovery
@@ -33,7 +33,7 @@ class WebSocketClient:
         try:
             action = self.game_handler.handle_message(message)
             if action is not None:
-                if "compensationOffers" in action or "compensationRequests" in action:
+                if "compensationOffers" in action or "compensationRequests" in action or "compensationDecisions" in action:
                     response = json.dumps(action)
                     if self.verbose:
                         print("Sending message:", response)
@@ -43,7 +43,6 @@ class WebSocketClient:
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
 
-
     def on_error(self, ws, error):
         """
         Callback executed when an error occurs.
@@ -52,7 +51,6 @@ class WebSocketClient:
         :return:
         """
         print("Error:", error)
-
 
     def reconnect(self):
         """
