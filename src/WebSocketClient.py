@@ -13,11 +13,12 @@ class WebSocketClient:
 
     @:param url: The URL of the WebSocket server to connect to.
     """
-    def __init__(self, url, game_id, recovery):
+    def __init__(self, url, game_id, recovery, verbose=False):
         self.url = url
         self.game_id = game_id
         self.recovery = recovery
-        self.game_handler = GameHandler(game_id)
+        self.verbose = verbose
+        self.game_handler = GameHandler(game_id, verbose=verbose)
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error
@@ -27,16 +28,18 @@ class WebSocketClient:
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
 
     def on_message(self, ws, message):
-        print("Received message:", message)  # Debugging: Print the received message
+        if self.verbose:
+            print("Received message:", message)  # Debugging: Print the received message
         try:
             action = self.game_handler.handle_message(message)
             if action is not None:
                 if "compensationOffers" in action or "compensationRequests" in action:
                     response = json.dumps(action)
-                    print("Sending message:", response)  # Debugging: Print the message to be sent
+                    if self.verbose:
+                        print("Sending message:", response)
                     ws.send(response)
-                else:
-                    print(action["summary"])
+                # else:
+                #     print(action["summary"])
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
 
@@ -68,10 +71,12 @@ class WebSocketClient:
         print("### Connection is open ###")
         # Sending predefined message immediately upon connection
         initial_message = json.dumps({"gameId": self.game_id, "type": "join", "recovery": self.recovery})
-        print("Sending message:", initial_message)  # Debugging: Print the message to be sent
+        if self.verbose:
+            print("Sending message:", initial_message)  # Debugging: Print the message to be sent
         ws.send(initial_message)
         second_message = json.dumps({"gameId": self.game_id, "type": "player-is-ready"})
-        print("Sending message:", second_message)  # Debugging: Print the message to be sent
+        if self.verbose:
+            print("Sending message:", second_message)  # Debugging: Print the message to be sent
         ws.send(second_message)
         # Start thread for user input to send messages
         threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
@@ -87,7 +92,8 @@ class WebSocketClient:
             if message == 'exit':
                 ws.close()
                 break
-            print("Sending message:", message)  # Debugging: Print the message to be sent
+            if self.verbose:
+                print("Sending message:", message)  # Debugging: Print the message to be sent
             ws.send(message)
 
     def run_forever(self):
@@ -101,4 +107,3 @@ class WebSocketClient:
                 self.wst.join(timeout=1)
         except KeyboardInterrupt:
             self.ws.close()
-

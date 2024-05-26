@@ -45,11 +45,11 @@ class WebInteraction:
                 "content": content,
             }
             print(f"Sending message to LLM: {message}")
-            # response = openai.chat.completions.create(
-            #     model="gpt-3.5-turbo",
-            #     messages=[message],
-            # )
-            # print(f"LLM response: {response.choices[0].message.content.strip()}\n")
+            response = openai.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[message],
+            )
+            print(f"LLM response: {response.choices[0].message.content.strip()}\n")
             # return response.choices[0].message.content.strip()
         except Exception as e:
             print(f"Failed to send message to LLM: {e}")

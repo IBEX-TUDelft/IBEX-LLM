@@ -1,30 +1,11 @@
-import logging
 import json
-from openai import OpenAI
+import openai
 
 class GameHandler:
-    def __init__(self, game_id, verbose=False):
+    def __init__(self, game_id):
         self.messages = []
         self.game_id = game_id
         self.current_phase = None
-        self.client = OpenAI()
-        self.verbose = verbose
-        self.send_initial_message()
-
-    def send_initial_message(self):
-        initial_message = {
-            "role": "system",
-            "content": "You are participating in a voting simulation."
-        }
-        try:
-            response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[initial_message],
-            )
-            if self.verbose:
-                print(f"Initial LLM response: {response}")
-        except Exception as e:
-            logging.error(f"Error sending initial message to LLM: {e}")
 
     def handle_message(self, message):
         message_data = json.loads(message)
@@ -46,41 +27,57 @@ class GameHandler:
         return {"summary": self.summarize_messages()}
 
     def prepare_compensation_request(self):
-        context = self.summarize_messages()
-        compensation_request = self.request_compensation_from_llm(context, "request")
+        # Prepare the context for the LLM
+        context = self.generate_context()
+        # Call the LLM to get the compensation request (pseudo-code)
+        compensation_request = self.call_llm_for_compensation_request(context)
         return {"gameId": self.game_id, "type": "compensation-request", "compensationRequests": compensation_request}
 
     def prepare_compensation_offer(self):
-        context = self.summarize_messages()
-        compensation_offer = self.request_compensation_from_llm(context, "offer")
+        # Prepare the context for the LLM
+        context = self.generate_context()
+        # Call the LLM to get the compensation offer (pseudo-code)
+        compensation_offer = self.call_llm_for_compensation_offer(context)
         return {"gameId": self.game_id, "type": "compensation-offer", "compensationOffers": compensation_offer}
 
     def prepare_compensation_decision(self):
-        context = self.summarize_messages()
-        compensation_decision = self.request_compensation_from_llm(context, "decision")
+        # Prepare the context for the LLM
+        context = self.generate_context()
+        # Call the LLM to get the compensation decision (pseudo-code)
+        compensation_decision = self.call_llm_for_compensation_decision(context)
         return {"gameId": self.game_id, "type": "compensation-decision", "compensationDecisions": compensation_decision}
 
-    def request_compensation_from_llm(self, context, action_type):
-        if self.verbose:
-            print(f"Requesting compensation from LLM for {action_type}: {context}")
-        logging.debug(f"Sending message to LLM: {context}")
-        try:
-            # Building the message for LLM
-            message = [
-                {"role": "user", "content": context},
-            ]
-            response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=message,
-            )
-            if self.verbose:
-                print(f"LLM response: {response}")
+    def generate_context(self):
+        # Generate a context string or object based on the message history
+        context = {
+            "game_id": self.game_id,
+            "current_phase": self.current_phase,
+            "messages": self.messages
+        }
+        return context
 
-        except Exception as e:
-            logging.error(f"Error sending message to LLM: {e}")
-            return None
+    def call_llm_for_compensation_request(self, context):
+        # Pseudo-code for calling the LLM
+        # response = llm.generate_compensation_request(context)
+        response = [None, 100000]  # Placeholder response
+        return response
+
+    def call_llm_for_compensation_offer(self, context):
+        # Pseudo-code for calling the LLM
+        # response = llm.generate_compensation_offer(context)
+        response = [None, 75000]  # Placeholder response
+        return response
+
+    def call_llm_for_compensation_decision(self, context):
+        # Pseudo-code for calling the LLM
+        # response = llm.generate_compensation_decision(context)
+        response = [0]  # Placeholder response 0 or 1
+        return response
+
 
     def summarize_messages(self):
+        # TODO: Implement a more detailed summary based on the message history
+        # TODO: Summarization model, but not to the needs of losing throughput.
         summaries = []
         for msg in self.messages:
             if msg["type"] == "event":
