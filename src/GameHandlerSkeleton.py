@@ -11,18 +11,6 @@ class GameHandler:
         message_data = json.loads(message)
         self.messages.append(message_data)
 
-        # Determine the current phase from the message
-        if message_data["type"] == "notice":
-            if "Phase 3 has begun" in message_data["message"]:
-                self.current_phase = 3
-                return self.prepare_compensation_request()
-            elif "Phase 4 has begun" in message_data["message"]:
-                self.current_phase = 4
-                return self.prepare_compensation_offer()
-            elif "Phase 6 has begun" in message_data["message"]:
-                self.current_phase = 6
-                return self.prepare_compensation_decision()
-
         # If no special handling is needed, just return a summary
         return {"summary": self.summarize_messages()}
 
@@ -76,28 +64,6 @@ class GameHandler:
 
 
     def summarize_messages(self):
-        # TODO: Implement a more detailed summary based on the message history
-        # TODO: Summarization model, but not to the needs of losing throughput.
         summaries = []
-        for msg in self.messages:
-            if msg["type"] == "event":
-                if msg["eventType"] == "assign-role":
-                    summaries.append(f"Assigned role: {msg['data']['tag']} with property {msg['data']['property']['name']}.")
-                elif msg["eventType"] == "players-known":
-                    summaries.append(f"Known players: {', '.join([player['tag'] for player in msg['data']['players']])}.")
-                elif msg["eventType"] == "compensation-offer-made":
-                    summaries.append("Compensation offer made.")
-                elif msg["eventType"] == "final-profit":
-                    summaries.append(
-                        f"Final profit information received. Condition: {msg['data']['condition']}, "
-                        f"Tally: {msg['data']['tally']}, Value: {msg['data']['value']}, Compensation: {msg['data']['compensation']}."
-                    )
-                elif msg["eventType"] == "round-summary":
-                    summaries.append(
-                        f"Round {msg['data']['round']} summary. Condition: {msg['data']['condition']}, Value: {msg['data']['value']}, "
-                        f"Tally: {msg['data']['tally']}, Compensation: {msg['data']['compensation']}, Profit: {msg['data']['profit']}."
-                    )
-            elif msg["type"] == "notice":
-                summaries.append(msg["message"])
 
         return " ".join(summaries)

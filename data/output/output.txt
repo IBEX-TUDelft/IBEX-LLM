@@ -1,54 +1,11 @@
-Enter the URL: http://localhost:8080/voting/8/cl172444u43r2mjw0z0mrbfxpy7lpyyxzlccwvgh8owhem2r6t3odn1z5lyf8sf0
-Initial LLM response: ChatCompletion(id='chatcmpl-9T7SeqzjynpEkZSODGn5SDqJMnZdl', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content="Great! Let's get started. In this voting simulation, I will present you with a few scenarios or options, and you can vote on your preferred choice. Let me know when you are ready to begin.", role='assistant', function_call=None, tool_calls=None))], created=1716727220, model='gpt-3.5-turbo-0125', object='chat.completion', system_fingerprint=None, usage=CompletionUsage(completion_tokens=42, prompt_tokens=15, total_tokens=57))
+Enter the URL: http://localhost:8080/market/10/7a547c0d-ad4a-457e-84a0-3222627f8e3a
 ### Connection is open ###
-Sending message: {"gameId": 8, "type": "join", "recovery": "cl172444u43r2mjw0z0mrbfxpy7lpyyxzlccwvgh8owhem2r6t3odn1z5lyf8sf0"}
-Sending message: {"gameId": 8, "type": "player-is-ready"}
-Enter a message to send (type 'exit' to close): Received message: {"type":"event","eventType":"assign-name","data":{"name":"Sapphire","number":1,"ruleset":"Voting"}}
-Received message: {"type":"event","eventType":"phase-instructions","data":{}}
-Received message: {"type":"info","message":"Player 1 rejoined the game"}
-Received message: {"type":"event","eventType":"ready-received","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727226539}}
-Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"property":{"id":1,"owner":1,"name":"Assistant Walrus Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"id":0,"number":1,"tag":"Owner 1","conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
-Boundaries stored for Assistant Walrus Lot: {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}
-Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"}]}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727226539}}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
-Received message: {"type":"notice","message":"Phase 2 has begun."}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
-Received message: {"type":"notice","message":"Phase 2 has begun."}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727231548}}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
-Received message: {"type":"notice","message":"Phase 3 has begun."}
-Generated context for request: Provide a request in the format 'compensation-request: X' where X is an integer between 150000 and 350000.
-Requesting compensation from LLM for request: Provide a request in the format 'compensation-request: X' where X is an integer between 150000 and 350000.
-LLM response: compensation-request: 250000
-Sending message: {"gameId": 8, "type": "compensation-request", "compensationRequests": 250000}
-Received message: {"type":"event","eventType":"compensation-request-received","data":{"compensationRequests":250000}}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727232373}}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
-Received message: {"type":"notice","message":"Phase 4 has begun."}
-Generated context for offer: Provide a offer in the format 'compensation-offer: X' where X is an integer between 150000 and 350000.
-Requesting compensation from LLM for offer: Provide a offer in the format 'compensation-offer: X' where X is an integer between 150000 and 350000.
-LLM response: compensation-offer: 250000
-Sending message: {"gameId": 8, "type": "compensation-offer", "compensationOffers": 250000}
-Received message: {"type":"event","eventType":"compensation-offer-received","data":{"compensationOffers":250000}}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"compensation-offer-made","data":{"compensationOffers":250000}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727237380}}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
-Received message: {"type":"notice","message":"Phase 5 has begun."}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727242388}}
-Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
-Received message: {"type":"notice","message":"Phase 6 has begun."}
-Generated context for decision: Provide a decision in the format 'compensation-decision: X' where X is 0 or 1.
-Requesting compensation from LLM for decision: Provide a decision in the format 'compensation-decision: X' where X is 0 or 1.
-LLM response: compensation-decision: 1
-Sending message: {"gameId": 8, "type": "compensation-decision", "compensationDecisions": 1}
-Received message: {"type":"event","eventType":"compensation-decision-received","data":{}}
-Received message: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1716727243123}}
-Received message: {"type":"event","eventType":"final-profit","data":{"condition":1,"tally":0,"value":164000}}
+Sending message: {"gameId": 10, "type": "join", "recovery": "7a547c0d-ad4a-457e-84a0-3222627f8e3a"}
+Sending message: {"gameId": 10, "type": "player-is-ready"}
+Enter a message to send (type 'exit' to close): Received message: {"type":"event","eventType":"player-joined","data":{"authority":"admin","number":1,"shares":1,"cash":100,"wallet":{"balance":100,"shares":1},"gameId":10,"role":0}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":2,"price":333,"quantity":1,"type":"ask"}}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":23,"quantity":1,"type":"ask"}}}
+Received message: {"type":"event","eventType":"asset-movement","data":{"movement":{"type":"sale","quantity":1,"price":23,"total":23,"buyerFee":0,"sellerFee":0},"balance":123,"shares":0}}
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":0,"price":23,"buyerFee":0,"sellerFee":0,"median":23}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"ask"}}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":0,"price":20,"quantity":1,"type":"bid"}}}

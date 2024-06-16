@@ -1,7 +1,9 @@
-from GameHandler import GameHandler
+from GameHandlerVoting import GameHandler
 import websocket
 import threading
 import json
+
+#TODO: Send 'ready' when going to a next phase.
 
 class WebSocketClient:
     """

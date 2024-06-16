@@ -1,14 +1,14 @@
 import logging
 import json
 import re
+import time  # Import time module
 from openai import OpenAI
-
 
 class GameHandler:
     def __init__(self, game_id, verbose=False):
         self.messages = []
         self.game_id = game_id
-        self.current_phase = None
+        self.current_phase = 1  # Start with phase 1
         self.client = OpenAI()
         self.verbose = verbose
         self.boundaries = {}
@@ -44,6 +44,19 @@ class GameHandler:
             elif "Phase 6 has begun" in message_data["message"]:
                 self.current_phase = 6
                 return self.prepare_compensation_decision()
+            elif "Phase 7 has begun" in message_data["message"]:
+                if self.verbose:
+                    print(
+                        "Phase 7 completed. Waiting 5 seconds before sending the ready message.")
+                time.sleep(5)  # Wait for 10 seconds
+                ready_message = {"gameId": self.game_id,
+                                 "type": "player-is-ready"}
+                if self.verbose:
+                    print(f"Sending message: {ready_message}")
+
+                self.current_phase = 1
+                return ready_message
+
 
         elif message_data["type"] == "event":
             if message_data["eventType"] == "assign-role":
@@ -57,43 +70,33 @@ class GameHandler:
         self.boundaries[property_name] = data["boundaries"]
 
         if self.verbose:
-            print(
-                f"Boundaries stored for {property_name}: {self.boundaries[property_name]}")
+            print(f"Boundaries stored for {property_name}: {self.boundaries[property_name]}")
 
     def prepare_compensation_request(self):
         context = self.generate_context("request")
-        compensation_request = self.request_compensation_from_llm(context,
-                                                                  "request")
-        return {"gameId": self.game_id, "type": "compensation-request",
-                "compensationRequests": compensation_request}
+        compensation_request = self.request_compensation_from_llm(context, "request")
+        return {"gameId": self.game_id, "type": "compensation-request", "compensationRequests": compensation_request}
 
     def prepare_compensation_offer(self):
         context = self.generate_context("offer")
-        compensation_offer = self.request_compensation_from_llm(context,
-                                                                "offer")
-        return {"gameId": self.game_id, "type": "compensation-offer",
-                "compensationOffers": compensation_offer}
+        compensation_offer = self.request_compensation_from_llm(context, "offer")
+        return {"gameId": self.game_id, "type": "compensation-offer", "compensationOffers": compensation_offer}
 
     def prepare_compensation_decision(self):
         context = self.generate_context("decision")
-        compensation_decision = self.request_compensation_from_llm(context,
-                                                                   "decision")
-        return {"gameId": self.game_id, "type": "compensation-decision",
-                "compensationDecisions": compensation_decision}
+        compensation_decision = self.request_compensation_from_llm(context, "decision")
+        return {"gameId": self.game_id, "type": "compensation-decision", "compensationDecisions": compensation_decision}
 
     def generate_context(self, action_type):
-        property_name = next(
-            iter(self.boundaries))  # Get the first property name
+        property_name = next(iter(self.boundaries))  # Get the first property name
         boundaries = self.boundaries.get(property_name, {})
 
         if action_type in ["request", "offer"]:
             if "owner" in boundaries and "projectA" in boundaries["owner"]:
-                low, high = boundaries["owner"]["projectA"]["low"], \
-                boundaries["owner"]["projectA"]["high"]
+                low, high = boundaries["owner"]["projectA"]["low"], boundaries["owner"]["projectA"]["high"]
                 context = f"Provide a {action_type} in the format 'compensation-{action_type}: X' where X is an integer between {low} and {high}."
             else:
-                raise ValueError(
-                    f"Invalid boundaries for property: {property_name}")
+                raise ValueError(f"Invalid boundaries for property: {property_name}")
         elif action_type == "decision":
             context = "Provide a decision in the format 'compensation-decision: X' where X is 0 or 1."
 
@@ -104,8 +107,7 @@ class GameHandler:
 
     def request_compensation_from_llm(self, context, action_type):
         if self.verbose:
-            print(
-                f"Requesting compensation from LLM for {action_type}: {context}")
+            print(f"Requesting compensation from LLM for {action_type}: {context}")
         logging.debug(f"Sending message to LLM: {context}")
         try:
             # Building the message for LLM
@@ -120,8 +122,7 @@ class GameHandler:
             if self.verbose:
                 print(f"LLM response: {response_text}")
 
-            return self.extract_integer_from_response(response_text,
-                                                      action_type)
+            return self.extract_integer_from_response(response_text, action_type)
 
         except Exception as e:
             logging.error(f"Error sending message to LLM: {e}")
@@ -134,13 +135,10 @@ class GameHandler:
             value = int(match.group())
             # Check the boundaries for validity
             if action_type in ["request", "offer"]:
-                property_name = next(
-                    iter(self.boundaries))  # Get the first property name
+                property_name = next(iter(self.boundaries))  # Get the first property name
                 boundaries = self.boundaries.get(property_name, {})
-                if boundaries and "owner" in boundaries and "projectA" in \
-                        boundaries["owner"]:
-                    low, high = boundaries["owner"]["projectA"]["low"], \
-                    boundaries["owner"]["projectA"]["high"]
+                if boundaries and "owner" in boundaries and "projectA" in boundaries["owner"]:
+                    low, high = boundaries["owner"]["projectA"]["low"], boundaries["owner"]["projectA"]["high"]
                     if low <= value <= high:
                         return value
             elif action_type == "decision":
@@ -153,11 +151,9 @@ class GameHandler:
         for msg in self.messages:
             if msg["type"] == "event":
                 if msg["eventType"] == "assign-role":
-                    summaries.append(
-                        f"Assigned role: {msg['data']['tag']} with property {msg['data']['property']['name']}.")
+                    summaries.append(f"Assigned role: {msg['data']['tag']} with property {msg['data']['property']['name']}.")
                 elif msg["eventType"] == "players-known":
-                    summaries.append(
-                        f"Known players: {', '.join([player['tag'] for player in msg['data']['players']])}.")
+                    summaries.append(f"Known players: {', '.join([player['tag'] for player in msg['data']['players']])}.")
                 elif msg["eventType"] == "compensation-offer-made":
                     summaries.append("Compensation offer made.")
                 elif msg["eventType"] == "final-profit":

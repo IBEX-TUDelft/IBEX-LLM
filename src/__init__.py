@@ -8,14 +8,14 @@ def parse_url(url):
     :param url: The URL to parse.
     :return: A tuple containing the gameId and recovery token.
     """
-    # TODO: Make this work for other simulation such as DoubleAuction etc.
-    match = re.search(r'/voting/(\d+)/(\w+)', url)
+    # Regex to work for different simulations like voting, market, etc.
+    match = re.search(r'/(voting|market)/(\d+)/([\w-]+)', url)
     if match:
-        game_id = int(match.group(1))
-        recovery = match.group(2)
+        game_id = int(match.group(2))
+        recovery = match.group(3)
         return game_id, recovery
     else:
-        raise ValueError("URL format is incorrect. Expected format: http://localhost:8080/voting/<gameId>/<recovery>")
+        raise ValueError("URL format is incorrect. Expected format: http://localhost:8080/<endpoint>/<gameId>/<recovery>")
 
 if __name__ == "__main__":
     websocket.enableTrace(False)
