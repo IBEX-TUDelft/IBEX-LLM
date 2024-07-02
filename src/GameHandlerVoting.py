@@ -1,14 +1,13 @@
 import logging
 import json
 import re
-import time  # Import time module
 from openai import OpenAI
 
 class GameHandler:
     def __init__(self, game_id, verbose=False):
         self.messages = []
         self.game_id = game_id
-        self.current_phase = 1  # Start with phase 1
+        self.current_phase = 1
         self.client = OpenAI()
         self.verbose = verbose
         self.boundaries = {}
@@ -34,6 +33,7 @@ class GameHandler:
         self.messages.append(message_data)
 
         # Determine the current phase from the message
+        # TODO: owners does compensation request, developers do the offers and owners vote (decision).
         if message_data["type"] == "notice":
             if "Phase 3 has begun" in message_data["message"]:
                 self.current_phase = 3
@@ -44,23 +44,15 @@ class GameHandler:
             elif "Phase 6 has begun" in message_data["message"]:
                 self.current_phase = 6
                 return self.prepare_compensation_decision()
-            elif "Phase 7 has begun" in message_data["message"]:
-                if self.verbose:
-                    print(
-                        "Phase 7 completed. Waiting 5 seconds before sending the ready message.")
-                time.sleep(5)  # Wait for 10 seconds
-                ready_message = {"gameId": self.game_id,
-                                 "type": "player-is-ready"}
-                if self.verbose:
-                    print(f"Sending message: {ready_message}")
-
-                self.current_phase = 1
-                return ready_message
-
 
         elif message_data["type"] == "event":
             if message_data["eventType"] == "assign-role":
                 self.store_boundaries(message_data["data"])
+
+        if message_data["type"] == "event" and message_data["eventType"] == "phase-transition":
+            if message_data["data"]["phase"] == 0:
+                print("Phase 0 has begun. Sending player-is-ready message.")
+                return {"gameId": self.game_id, "type": "player-is-ready"}
 
         # If no special handling is needed, just return a summary
         return {"summary": self.summarize_messages()}

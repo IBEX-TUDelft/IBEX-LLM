@@ -2,8 +2,8 @@ from GameHandlerVoting import GameHandler
 import websocket
 import threading
 import json
+import time
 
-#TODO: Send 'ready' when going to a next phase.
 
 class WebSocketClient:
     """
@@ -29,19 +29,25 @@ class WebSocketClient:
         self.should_continue = True  # Flag to control the send_message loop
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
 
+    import json
+
     def on_message(self, ws, message):
         if self.verbose:
-            print("Received message:", message)  # Debugging: Print the received message
+            print("Received message:",
+                  message)  # Debugging: Print the received message
         try:
             action = self.game_handler.handle_message(message)
-            if action is not None:
-                if "compensationOffers" in action or "compensationRequests" in action or "compensationDecisions" in action:
+            if action is not None and isinstance(action, dict):
+                if any(key in action for key in
+                       ["compensationOffers", "compensationRequests",
+                        "compensationDecisions"]) or action.get(
+                        'type') == 'player-is-ready':
                     response = json.dumps(action)
                     if self.verbose:
                         print("Sending message:", response)
+                    if action.get('type') == 'player-is-ready':
+                        time.sleep(5)
                     ws.send(response)
-                # else:
-                #     print(action["summary"])
         except json.JSONDecodeError:
             print("Error decoding JSON from message:", message)
 

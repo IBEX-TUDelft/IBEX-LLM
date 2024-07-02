@@ -1,0 +1,18 @@
+[Error] [Vue warn]: Error in render: "TypeError: playerCompensationDecisions.compensationDecisions.includes is not a function. (In 'playerCompensationDecisions.compensationDecisions.includes(condition)', 'playerCompensationDecisions.compensationDecisions.includes' is undefined)"
+
+found in
+
+---> <GameAnalysisVoting> at src/components/GameAnalysisVoting.vue
+       <App> at src/App.vue
+         <Root>
+	warn (vue.runtime.esm.js:4644)
+	logError (vue.runtime.esm.js:3086)
+	globalHandleError (vue.runtime.esm.js:3082)
+	handleError (vue.runtime.esm.js:3049)
+	(anonymous function) (vue.runtime.esm.js:2728)
+	updateComponent (vue.runtime.esm.js:3916)
+	(anonymous function) (vue.runtime.esm.js:3487)
+	(anonymous function) (vue.runtime.esm.js:3563)
+	flushSchedulerQueue (vue.runtime.esm.js:4162)
+	(anonymous function) (vue.runtime.esm.js:3184)
+	flushCallbacks (vue.runtime.esm.js:3106)
