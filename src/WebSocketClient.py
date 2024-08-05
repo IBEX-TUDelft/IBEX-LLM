@@ -1,8 +1,7 @@
-from GameHandlerAuction import GameHandler
+from GameHandlerVoting import GameHandler
 import websocket
 import threading
 import json
-import time
 
 
 class WebSocketClient:
@@ -29,28 +28,12 @@ class WebSocketClient:
         self.should_continue = True  # Flag to control the send_message loop
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
 
-    import json
-
     def on_message(self, ws, message):
         if self.verbose:
-            print("Received message:",
-                  message)  # Debugging: Print the received message
-        try:
-            # TODO: this contains voting logic but this should be moved to the GameHandlerVoting.py
-            action = self.game_handler.handle_message(message)
-            if action is not None and isinstance(action, dict):
-                if any(key in action for key in
-                       ["compensationOffers", "compensationRequests",
-                        "compensationDecisions"]) or action.get(
-                        'type') == 'player-is-ready':
-                    response = json.dumps(action)
-                    if self.verbose:
-                        print("Sending message:", response)
-                    if action.get('type') == 'player-is-ready':
-                        time.sleep(5)
-                    ws.send(response)
-        except json.JSONDecodeError:
-            print("Error decoding JSON from message:", message)
+            print("Received message:", message)  # Debugging: Print the received message
+        response = self.game_handler.process_websocket_message(message)
+        if response:
+            ws.send(response)
 
     def on_error(self, ws, error):
         """
