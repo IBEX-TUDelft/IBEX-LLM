@@ -55,6 +55,7 @@ class GameHandler:
                 return {"gameId": self.game_id, "type": "player-is-ready"}
 
         # If no special handling is needed, just return a summary
+        # TODO: Nothing is being done with the summarization messages atm.
         return {"summary": self.summarize_messages()}
 
     def store_boundaries(self, data):

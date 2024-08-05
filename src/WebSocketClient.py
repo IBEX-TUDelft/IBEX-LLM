@@ -1,4 +1,4 @@
-from GameHandlerVoting import GameHandler
+from GameHandlerAuction import GameHandler
 import websocket
 import threading
 import json
@@ -36,6 +36,7 @@ class WebSocketClient:
             print("Received message:",
                   message)  # Debugging: Print the received message
         try:
+            # TODO: this contains voting logic but this should be moved to the GameHandlerVoting.py
             action = self.game_handler.handle_message(message)
             if action is not None and isinstance(action, dict):
                 if any(key in action for key in
