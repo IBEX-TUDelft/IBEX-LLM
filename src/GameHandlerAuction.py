@@ -1,77 +1,93 @@
 import json
+from openai import OpenAI
+import logging
+
 
 class GameHandler:
-    def __init__(self, game_id, verbose=True):
-        self.messages = []
+    def __init__(self, game_id, verbose=False):
         self.game_id = game_id
-        self.verbose = verbose
+        self.players = {}
+        self.orders = {}
+        self.events = []
+        self.current_phase = 1
+        self.current_round = 1
+        self.client = OpenAI()
+        self.send_initial_message()
 
-    def handle_message(self, message):
-        # Convert message string to dictionary if needed
-        if isinstance(message, str):
-            message_data = json.loads(message)
-        else:
-            message_data = message
+    def send_initial_message(self):
+        initial_message = {
+            "role": "system",
+            "content": "You are participating in a double auction market economic simulation."
+        }
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[initial_message],
+            )
+            if self.verbose:
+                print(f"Initial LLM response: {response}")
+        except Exception as e:
+            logging.error(f"Error sending initial message to LLM: {e}")
 
-        # Log the message if verbose mode is on
-        if self.verbose:
-            print("Received message:", message_data)
 
-        self.messages.append(message_data)
-        # Process and respond based on message type
-        return self.process_message(message_data)
+    def process_message(self, message):
+        logging.info(f"Received message: {message}")
+        message_data = json.loads(message)
 
-    def process_message(self, message_data):
-        # Handle different types of messages based on 'type' and 'eventType'
-        msg_type = message_data.get('type')
-        if msg_type == 'event':
-            return self.handle_event(message_data['eventType'], message_data['data'])
-        return {"status": "Unhandled message type"}
+        event_type = message_data['type']
+        if event_type == 'event':
+            self.handle_event(message_data)
+        elif event_type == 'error':
+            self.handle_error(message_data)
+        elif event_type == 'notice':
+            self.handle_notice(message_data)
 
-    def handle_event(self, event_type, data):
-        # Dispatch event handling to specific methods
-        handler = {
-            'add-order': self.add_order,
-            'delete-order': self.delete_order,
-            'asset-movement': self.asset_movement,
-            'contract-fulfilled': self.contract_fulfilled
-        }.get(event_type, self.unhandled_event)
+    def handle_event(self, event_data):
+        event_type = event_data['eventType']
+        data = event_data['data']
 
-        return handler(data)
+        if event_type in ['add-order', 'delete-order', 'asset-movement',
+                          'contract-fulfilled']:
+            self.query_openai(event_type, data)
 
-    def add_order(self, data):
-        # Log or process an order addition
-        if self.verbose:
-            print("Adding order:", data)
-        return {"gameId": self.game_id, "type": "add-order", "data": data}
+    def handle_error(self, error_data):
+        logging.error(f"Game error: {error_data['message']}")
 
-    def delete_order(self, data):
-        # Log or process an order deletion
-        if self.verbose:
-            print("Deleting order:", data)
-        return {"gameId": self.game_id, "type": "delete-order", "data": data}
+    def handle_notice(self, notice_data):
+        logging.info(f"Game notice: {notice_data['message']}")
 
-    def asset_movement(self, data):
-        # Handle asset purchase or sale
-        if self.verbose:
-            print("Asset movement:", data)
-        return {"gameId": self.game_id, "type": "asset-movement", "data": data}
 
-    def contract_fulfilled(self, data):
-        # Process a completed contract
-        if self.verbose:
-            print("Contract fulfilled:", data)
-        return {"gameId": self.game_id, "type": "contract-fulfilled", "data": data}
+    def query_openai(self, event_type, data):
+        try:
+            # Prepare a context or prompt for OpenAI based on the event and data
+            prompt = self.prepare_prompt(event_type, data)
+            print(f"Querying OpenAI for event: {event_type} with prompt: {prompt}")
+            message = [{"role": "user", "content": prompt}]
 
-    def unhandled_event(self, data):
-        # Handle any unprocessed or unknown events
-        if self.verbose:
-            print("Unhandled event:", data)
-        return {"status": "Unhandled event type", "data": data}
+            response = self.client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=message,
+            )
+            self.process_openai_response(response, event_type, data)
+        except Exception as e:
+            logging.error(f"Error communicating with OpenAI: {e}")
 
-    def send_message(self, message):
-        # Simulate sending a message
-        message_str = json.dumps(message)
-        if self.verbose:
-            print("Sending message:", message_str)
-        self.messages.append(message)
+    def prepare_prompt(self, event_type, data):
+        if event_type == 'add-order':
+            return f"A new order has been added with price {data['order']['price']} and quantity {data['order']['quantity']}. How should the market react?"
+        elif event_type == 'delete-order':
+            return "An order has been deleted. How should the market adjust?"
+        elif event_type == 'asset-movement':
+            return f"An asset movement occurred with a total value of {data['movement']['total']}. What are the implications?"
+        return "What should happen next in the game?"
+
+    def process_openai_response(self, response, event_type, data):
+        response_text = response.choices[0].message.content
+        print(f"OpenAI Response: {response_text}")
+        # Here you can add logic to update game state based on response
+
+    def process_websocket_message(self, message):
+        self.process_message(message)
+        # Here you could format a response message and send it back to the server if needed
+
+
