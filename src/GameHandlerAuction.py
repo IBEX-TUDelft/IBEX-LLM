@@ -1,4 +1,6 @@
 import json
+import time
+import random
 from openai import OpenAI
 import logging
 
@@ -13,6 +15,9 @@ class GameHandler:
         self.current_round = 1
         self.client = OpenAI()
         self.send_initial_message()
+        self.verbose = verbose
+        self.message_stack = []
+        self.fixed_wait_time = 1  # fixed wait time in seconds
 
     def send_initial_message(self):
         initial_message = {
@@ -28,7 +33,6 @@ class GameHandler:
                 print(f"Initial LLM response: {response}")
         except Exception as e:
             logging.error(f"Error sending initial message to LLM: {e}")
-
 
     def process_message(self, message):
         logging.info(f"Received message: {message}")
@@ -46,9 +50,13 @@ class GameHandler:
         event_type = event_data['eventType']
         data = event_data['data']
 
+        if event_type == 'player-joined':
+            self.update_player_data(data)
+
         if event_type in ['add-order', 'delete-order', 'asset-movement',
                           'contract-fulfilled']:
             self.query_openai(event_type, data)
+            self.update_message_stack(event_type, data)
 
     def handle_error(self, error_data):
         logging.error(f"Game error: {error_data['message']}")
@@ -56,19 +64,44 @@ class GameHandler:
     def handle_notice(self, notice_data):
         logging.info(f"Game notice: {notice_data['message']}")
 
+    def update_player_data(self, data):
+        player_number = data['number']
+        self.players[player_number] = {
+            'authority': data['authority'],
+            'shares': data['shares'],
+            'cash': data['cash'],
+            'wallet': data['wallet']
+        }
+
+    def update_message_stack(self, event_type, data):
+        self.message_stack.append({'event_type': event_type, 'data': data})
+        if self.verbose:
+            print(f"Updated message stack: {self.message_stack}")
 
     def query_openai(self, event_type, data):
         try:
             # Prepare a context or prompt for OpenAI based on the event and data
             prompt = self.prepare_prompt(event_type, data)
-            print(f"Querying OpenAI for event: {event_type} with prompt: {prompt}")
+            print(
+                f"Querying OpenAI for event: {event_type} with prompt: {prompt}")
             message = [{"role": "user", "content": prompt}]
 
+            start_time = time.time()
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=message,
             )
+            end_time = time.time()
+            reaction_time = end_time - start_time
+
             self.process_openai_response(response, event_type, data)
+            if self.verbose:
+                print(f"Reaction time: {reaction_time:.2f} seconds")
+
+            # Implement wait time which is fixed at first and then random
+            time.sleep(self.fixed_wait_time)
+            self.fixed_wait_time = random.uniform(1, 5)
+
         except Exception as e:
             logging.error(f"Error communicating with OpenAI: {e}")
 
@@ -84,10 +117,39 @@ class GameHandler:
     def process_openai_response(self, response, event_type, data):
         response_text = response.choices[0].message.content
         print(f"OpenAI Response: {response_text}")
-        # Here you can add logic to update game state based on response
+        # Here we can add logic to update game state based on response
 
     def process_websocket_message(self, message):
         self.process_message(message)
         # Here you could format a response message and send it back to the server if needed
 
 
+# Initialize the GameHandler
+handler = GameHandler(game_id=308, verbose=True)
+
+# Define the example messages
+messages = [
+    '{"type":"event","eventType":"player-joined","data":{"authority":"admin","number":0,"shares":1,"cash":100,"wallet":{"balance":100,"shares":1},"gameId":305,"role":0}}',
+    '{"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":1,"price":5,"quantity":1,"type":"ask"}}}',
+    '{"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":5,"quantity":1,"type":"bid"}}}',
+    '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
+    '{"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid"}}}',
+    '{"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"bid"}}}',
+    '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":3,"buyerFee":0,"sellerFee":0,"median":4}}',
+    '{"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid"}}}',
+    '{"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":1,"price":4,"quantity":1,"type":"bid"}}}',
+    '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
+    '{"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask"}}}',
+    '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":4,"buyerFee":0,"sellerFee":0,"median":4.5}}',
+    '{"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid"}}}'
+]
+
+# Simulate receiving the messages
+for msg in messages:
+    handler.process_websocket_message(msg)
+
+# Example usage
+if __name__ == "__main__":
+    handler = GameHandler(game_id=308, verbose=True)
+    for msg in messages:
+        handler.process_websocket_message(msg)
