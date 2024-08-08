@@ -4,20 +4,19 @@ import random
 from openai import OpenAI
 import logging
 
-
 class GameHandler:
     def __init__(self, game_id, verbose=False):
         self.game_id = game_id
-        self.players = {}
+        self.player_wallet = None
         self.orders = {}
         self.events = []
         self.current_phase = 1
         self.current_round = 1
         self.client = OpenAI()
-        self.send_initial_message()
         self.verbose = verbose
         self.message_stack = []
         self.fixed_wait_time = 1  # fixed wait time in seconds
+        self.send_initial_message()
 
     def send_initial_message(self):
         initial_message = {
@@ -51,12 +50,11 @@ class GameHandler:
         data = event_data['data']
 
         if event_type == 'player-joined':
-            self.update_player_data(data)
+            self.update_player_wallet(data)
 
-        if event_type in ['add-order', 'delete-order', 'asset-movement',
-                          'contract-fulfilled']:
-            self.query_openai(event_type, data)
+        if event_type in ['add-order', 'delete-order', 'asset-movement', 'contract-fulfilled']:
             self.update_message_stack(event_type, data)
+            self.query_openai(event_type, data)
 
     def handle_error(self, error_data):
         logging.error(f"Game error: {error_data['message']}")
@@ -64,14 +62,10 @@ class GameHandler:
     def handle_notice(self, notice_data):
         logging.info(f"Game notice: {notice_data['message']}")
 
-    def update_player_data(self, data):
-        player_number = data['number']
-        self.players[player_number] = {
-            'authority': data['authority'],
-            'shares': data['shares'],
-            'cash': data['cash'],
-            'wallet': data['wallet']
-        }
+    def update_player_wallet(self, data):
+        self.player_wallet = data['wallet']
+        if self.verbose:
+            print(f"Updated player wallet: {self.player_wallet}")
 
     def update_message_stack(self, event_type, data):
         self.message_stack.append({'event_type': event_type, 'data': data})
@@ -80,10 +74,8 @@ class GameHandler:
 
     def query_openai(self, event_type, data):
         try:
-            # Prepare a context or prompt for OpenAI based on the event and data
             prompt = self.prepare_prompt(event_type, data)
-            print(
-                f"Querying OpenAI for event: {event_type} with prompt: {prompt}")
+            print(f"Querying OpenAI for event: {event_type} with prompt: {prompt}")
             message = [{"role": "user", "content": prompt}]
 
             start_time = time.time()
@@ -98,7 +90,6 @@ class GameHandler:
             if self.verbose:
                 print(f"Reaction time: {reaction_time:.2f} seconds")
 
-            # Implement wait time which is fixed at first and then random
             time.sleep(self.fixed_wait_time)
             self.fixed_wait_time = random.uniform(1, 5)
 
@@ -106,13 +97,26 @@ class GameHandler:
             logging.error(f"Error communicating with OpenAI: {e}")
 
     def prepare_prompt(self, event_type, data):
+        recent_context = "\n".join([f"{msg['event_type']} by user {msg['data'].get('order', {}).get('sender', 'unknown')}" if 'order' in msg['data'] else f"{msg['event_type']}" for msg in self.message_stack[-3:]])
+        balance = self.player_wallet['balance']
+        shares = self.player_wallet['shares']
+
         if event_type == 'add-order':
-            return f"A new order has been added with price {data['order']['price']} and quantity {data['order']['quantity']}. How should the market react?"
+            sender = data['order'].get('sender', 'unknown')
+            price = data['order']['price']
+            quantity = data['order']['quantity']
+            return (f"I currently have a wallet balance of {balance} and shares {shares}. Another user {sender} added a new order with price {price} and quantity {quantity}. "
+                    f"Based on the context: {recent_context}, should I place a bid, ask, or cancel an order? Reply with 'bid X' where X is an integer less than {balance}, "
+                    f"'ask Y' where Y is an integer representing the price you want to sell for, or 'cancel-order Z' where Z is the id of the order to cancel.")
         elif event_type == 'delete-order':
-            return "An order has been deleted. How should the market adjust?"
+            return (f"An order has been deleted. Based on the context: {recent_context}, should I place a bid, ask, or cancel an order? Reply with 'bid X' where X is an integer less than {balance}, "
+                    f"'ask Y' where Y is an integer representing the price you want to sell for, or 'cancel-order Z' where Z is the id of the order to cancel.")
         elif event_type == 'asset-movement':
-            return f"An asset movement occurred with a total value of {data['movement']['total']}. What are the implications?"
-        return "What should happen next in the game?"
+            total_value = data['movement']['total']
+            return (f"An asset movement occurred with a total value of {total_value}. Based on the context: {recent_context}, should I place a bid, ask, or cancel an order? "
+                    f"Reply with 'bid X' where X is an integer less than {balance}, 'ask Y' where Y is an integer representing the price you want to sell for, or 'cancel-order Z' where Z is the id of the order to cancel.")
+        return (f"Based on the context: {recent_context}, should I place a bid, ask, or cancel an order? Reply with 'bid X' where X is an integer less than {balance}, "
+                f"'ask Y' where Y is an integer representing the price you want to sell for, or 'cancel-order Z' where Z is the id of the order to cancel.")
 
     def process_openai_response(self, response, event_type, data):
         response_text = response.choices[0].message.content
@@ -121,7 +125,6 @@ class GameHandler:
 
     def process_websocket_message(self, message):
         self.process_message(message)
-        # Here you could format a response message and send it back to the server if needed
 
 
 # Initialize the GameHandler
