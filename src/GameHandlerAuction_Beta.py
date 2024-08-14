@@ -7,14 +7,14 @@ import logging
 
 
 class GameHandler:
-    def __init__(self, game_id, verbose=False):
+    def __init__(self, game_id, websocket_client=None, verbose=False):
         """
         Initializes the GameHandler instance.
 
         Args:
             game_id (str): The unique identifier for the game.
+            websocket_client (WebSocketClient): The WebSocket client instance to use for sending messages.
             verbose (bool): Flag to enable verbose logging. Default is False.
-            dispatch_interval (int): Interval in seconds at which to dispatch summarized queries to the LLM agent.
         """
         self.game_id = game_id
         self.verbose = verbose
@@ -25,6 +25,7 @@ class GameHandler:
         self.user_number = None
         self.current_phase = 1
         self.current_round = 1
+        self.websocket_client = websocket_client  # Store the WebSocket client instance
 
         # Start the dispatch timer
         self.dispatch_timer = threading.Timer(self.dispatch_interval,
@@ -56,6 +57,7 @@ class GameHandler:
         self.message_queue.put((priority, message))
         if self.verbose:
             print(f"Message received with priority {priority}: {message}")
+
 
     def dispatch_summary(self):
         """
@@ -149,73 +151,80 @@ class GameHandler:
             )
 
             response_text = response.choices[0].message.content
-            print(f"Received response from OpenAI: {response_text}")
+            print(f"LLM Response: {response_text}")
+
+            # Process the response and get the message to be sent back
+            ws_message = self.process_websocket_message(response_text)
+            if ws_message:
+                # This is where you would pass the message back to WebSocketClient
+                self.send_to_websocket_client(ws_message)
+
         except Exception as e:
             logging.error(f"Error communicating with OpenAI: {e}")
 
-    def process_websocket_message(self, response):
-        """
-        Processes the response from the LLM agent and converts it into an action.
+    def process_websocket_message(self, response_text):
+        action = response_text.split()[0].lower()
 
-        Args:
-            response (str): The response from the LLM agent in text format.
-        """
-        if self.verbose:
-            print(f"Processing LLM response: {response}")
-
-        action, value = response.split()
-
-        if action == 'do':
-            if self.verbose:
-                print("No action needed.")
-            return
-
-        message = None
         if action == 'bid':
+            value = int(response_text.split()[1])
             message = {
-                "type": "post-order",
-                "data": {
+                "content": {
                     "order": {
+                        "price": value,
+                        "quantity": 1,
                         "type": "bid",
-                        "price": int(value),
-                        "quantity": 1
-                    }
+                        "now": True
+                    },
+                    "gameId": self.game_id,
+                    "type": "post-order"
                 },
-                "gameId": self.game_id,
+                "number": self.user_number,
                 "phase": self.current_phase,
-                "round": self.current_round
+                "round": self.current_round,
+                "type": "message"
             }
         elif action == 'ask':
+            value = int(response_text.split()[1])
             message = {
-                "type": "post-order",
-                "data": {
+                "content": {
                     "order": {
+                        "price": value,
+                        "quantity": 1,
                         "type": "ask",
-                        "price": int(value),
-                        "quantity": 1
-                    }
+                        "now": False
+                    },
+                    "gameId": self.game_id,
+                    "type": "post-order"
                 },
-                "gameId": self.game_id,
+                "number": self.user_number,
                 "phase": self.current_phase,
-                "round": self.current_round
+                "round": self.current_round,
+                "type": "message"
             }
         elif action == 'cancel-order':
+            order_id = int(response_text.split()[1])
             message = {
-                "type": "cancel-order",
-                "data": {
+                "content": {
                     "order": {
-                        "id": int(value)
-                    }
+                        "id": order_id
+                    },
+                    "gameId": self.game_id,
+                    "type": "cancel-order"
                 },
-                "gameId": self.game_id,
+                "number": self.user_number,
                 "phase": self.current_phase,
-                "round": self.current_round
+                "round": self.current_round,
+                "type": "message"
             }
+        else:
+            if self.verbose:
+                print(
+                    "LLM suggested no action or gave an unexpected response.")
+            return None  # No action needed
 
-        if message:
-            # Convert message to JSON and return it to be sent over the WebSocket
-            return json.dumps(message)
-
+        # Convert the message to JSON and return it
+        message_json = json.dumps(message)
+        return message_json
 
     def update_player_wallet(self, data):
         """
@@ -234,6 +243,18 @@ class GameHandler:
         """
         self.dispatch_timer.cancel()
 
+    def send_to_websocket_client(self, message):
+        """
+        Sends the message to the WebSocket client.
+
+        Args:
+            message (str): The message in JSON format to be sent back to the WebSocket server.
+        """
+        if self.websocket_client and hasattr(self.websocket_client.ws, 'send'):
+            self.websocket_client.ws.send(message)
+        else:
+            if self.verbose:
+                print("WebSocket client is not available to send the message.")
 
 # # Initialize the GameHandler
 # handler = GameHandler(game_id=308, verbose=True)

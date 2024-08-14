@@ -19,7 +19,7 @@ class WebSocketClient:
         self.game_id = game_id
         self.recovery = recovery
         self.verbose = verbose
-        self.game_handler = GameHandler(game_id, verbose=verbose)
+        self.game_handler = GameHandler(game_id, verbose=verbose, websocket_client=self)
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error
@@ -33,6 +33,7 @@ class WebSocketClient:
             print("Received message:", message)
 
         self.game_handler.receive_message(message)
+
 
     def on_error(self, ws, error):
         """
