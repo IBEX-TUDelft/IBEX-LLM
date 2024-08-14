@@ -1,4 +1,4 @@
-from GameHandlerAuction import GameHandler
+from GameHandlerAuction_Beta import GameHandler
 import websocket
 import threading
 import json
