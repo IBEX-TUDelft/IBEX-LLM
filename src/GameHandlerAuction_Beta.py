@@ -148,22 +148,74 @@ class GameHandler:
                 messages=message,
             )
 
-            self.process_websocket_message(response)
+            response_text = response.choices[0].message.content
+            print(f"Received response from OpenAI: {response_text}")
         except Exception as e:
             logging.error(f"Error communicating with OpenAI: {e}")
 
     def process_websocket_message(self, response):
         """
-        Processes the response from the OpenAI agent.
+        Processes the response from the LLM agent and converts it into an action.
 
         Args:
-            response (openai.api_resources.Completion): The response from the OpenAI API.
+            response (str): The response from the LLM agent in text format.
         """
-        response_text = response.choices[0].message.content
-        print(f"OpenAI Response: {response_text}")
-        # return response_text
+        if self.verbose:
+            print(f"Processing LLM response: {response}")
 
-        # Further processing can be done here if necessary
+        action, value = response.split()
+
+        if action == 'do':
+            if self.verbose:
+                print("No action needed.")
+            return
+
+        message = None
+        if action == 'bid':
+            message = {
+                "type": "post-order",
+                "data": {
+                    "order": {
+                        "type": "bid",
+                        "price": int(value),
+                        "quantity": 1
+                    }
+                },
+                "gameId": self.game_id,
+                "phase": self.current_phase,
+                "round": self.current_round
+            }
+        elif action == 'ask':
+            message = {
+                "type": "post-order",
+                "data": {
+                    "order": {
+                        "type": "ask",
+                        "price": int(value),
+                        "quantity": 1
+                    }
+                },
+                "gameId": self.game_id,
+                "phase": self.current_phase,
+                "round": self.current_round
+            }
+        elif action == 'cancel-order':
+            message = {
+                "type": "cancel-order",
+                "data": {
+                    "order": {
+                        "id": int(value)
+                    }
+                },
+                "gameId": self.game_id,
+                "phase": self.current_phase,
+                "round": self.current_round
+            }
+
+        if message:
+            # Convert message to JSON and return it to be sent over the WebSocket
+            return json.dumps(message)
+
 
     def update_player_wallet(self, data):
         """
@@ -183,34 +235,34 @@ class GameHandler:
         self.dispatch_timer.cancel()
 
 
-# Initialize the GameHandler
-handler = GameHandler(game_id=308, verbose=True)
-
-# Define the example messages
-messages = [
-    '{"type":"event","eventType":"player-joined","data":{"authority":"admin","number":0,"shares":1,"cash":100,"wallet":{"balance":100,"shares":1},"gameId":305,"role":0}}',
-    '{"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":1,"price":5,"quantity":1,"type":"ask"}}}',
-    '{"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":5,"quantity":1,"type":"bid"}}}',
-    '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
-    '{"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid"}}}',
-    '{"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"bid"}}}',
-    '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":3,"buyerFee":0,"sellerFee":0,"median":4}}',
-    '{"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid"}}}',
-    '{"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":1,"price":4,"quantity":1,"type":"bid"}}}',
-    '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
-    '{"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask"}}}',
-    '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":4,"buyerFee":0,"sellerFee":0,"median":4.5}}',
-    '{"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid"}}}'
-]
-
-# Feed the messages to the GameHandler
-for message in messages:
-    handler.receive_message(message)
-    time.sleep(1)  # Simulate some delay between receiving messages
-
-# Allow enough time for the dispatch to occur
-time.sleep(10)
-
-# Stop the dispatcher after testing
-handler.stop_dispatcher()
+# # Initialize the GameHandler
+# handler = GameHandler(game_id=308, verbose=True)
+#
+# # Define the example messages
+# messages = [
+#     '{"type":"event","eventType":"player-joined","data":{"authority":"admin","number":0,"shares":1,"cash":100,"wallet":{"balance":100,"shares":1},"gameId":305,"role":0}}',
+#     '{"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":1,"price":5,"quantity":1,"type":"ask"}}}',
+#     '{"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":5,"quantity":1,"type":"bid"}}}',
+#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
+#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid"}}}',
+#     '{"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"bid"}}}',
+#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":3,"buyerFee":0,"sellerFee":0,"median":4}}',
+#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid"}}}',
+#     '{"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":1,"price":4,"quantity":1,"type":"bid"}}}',
+#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
+#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask"}}}',
+#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":4,"buyerFee":0,"sellerFee":0,"median":4.5}}',
+#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid"}}}'
+# ]
+#
+# # Feed the messages to the GameHandler
+# for message in messages:
+#     handler.receive_message(message)
+#     time.sleep(1)  # Simulate some delay between receiving messages
+#
+# # Allow enough time for the dispatch to occur
+# time.sleep(10)
+#
+# # Stop the dispatcher after testing
+# handler.stop_dispatcher()
 

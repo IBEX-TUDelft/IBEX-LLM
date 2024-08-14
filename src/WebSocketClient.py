@@ -30,10 +30,9 @@ class WebSocketClient:
 
     def on_message(self, ws, message):
         if self.verbose:
-            print("Received message:", message)  # Debugging: Print the received message
-        response = self.game_handler.process_websocket_message(message)
-        if response:
-            ws.send(response)
+            print("Received message:", message)
+
+        self.game_handler.receive_message(message)
 
     def on_error(self, ws, error):
         """
