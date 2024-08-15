@@ -5,6 +5,9 @@ from queue import Queue
 from openai import OpenAI
 import logging
 
+# TODO: User number is not being parsed correctly from the message data
+# TODO: let llm to use JSON so that its easier to parse
+# TODO: Give more context to the LLM for better decision making
 
 class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False):
@@ -43,11 +46,11 @@ class GameHandler:
         event_type = message_data.get('eventType', '')
 
         # Assign priority: Higher for contract-fulfilled, lower for add-order and delete-order
-        priority = 1  # Default priority
+        priority = 2  # Default priority
         if event_type == 'contract-fulfilled':
             priority = 3
         elif event_type in ['add-order', 'delete-order']:
-            priority = 2
+            priority = 1
 
         if self.message_queue.full():
             # Optionally discard or prioritize based on importance
@@ -132,8 +135,10 @@ class GameHandler:
         try:
             # Define the instructions to guide the LLM's response format
             instructions = (
+                "You are a trader in a double auction market. "
                 "Based on the following market events, please respond with one of the following actions: "
-                "'do nothing', 'bid X', 'ask Y', or 'cancel-order Z', where X, Y, and Z are order IDs. "
+                "'do nothing', 'bid X', 'ask Y', or 'cancel-order Z', where X, Y are values, and is Z a Order ID that needs to be cancelled. Also end your response with a reason with a | separator. "
+                "Contract fulfilled cannot be canceled, so don't cancel-order for contract-fulfilled events."
                 "Your response should strictly adhere to this format and only include one action."
             )
 
@@ -251,39 +256,9 @@ class GameHandler:
             message (str): The message in JSON format to be sent back to the WebSocket server.
         """
         if self.websocket_client and hasattr(self.websocket_client.ws, 'send'):
+            print(f"Message to send: {message}")
             self.websocket_client.ws.send(message)
         else:
             if self.verbose:
+                print(f"Message to send: {message}")
                 print("WebSocket client is not available to send the message.")
-
-# # Initialize the GameHandler
-# handler = GameHandler(game_id=308, verbose=True)
-#
-# # Define the example messages
-# messages = [
-#     '{"type":"event","eventType":"player-joined","data":{"authority":"admin","number":0,"shares":1,"cash":100,"wallet":{"balance":100,"shares":1},"gameId":305,"role":0}}',
-#     '{"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":1,"price":5,"quantity":1,"type":"ask"}}}',
-#     '{"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":5,"quantity":1,"type":"bid"}}}',
-#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
-#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid"}}}',
-#     '{"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"bid"}}}',
-#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":3,"buyerFee":0,"sellerFee":0,"median":4}}',
-#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid"}}}',
-#     '{"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":1,"price":4,"quantity":1,"type":"bid"}}}',
-#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":1,"to":2,"price":5,"buyerFee":0,"sellerFee":0,"median":5}}',
-#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask"}}}',
-#     '{"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":1,"price":4,"buyerFee":0,"sellerFee":0,"median":4.5}}',
-#     '{"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid"}}}'
-# ]
-#
-# # Feed the messages to the GameHandler
-# for message in messages:
-#     handler.receive_message(message)
-#     time.sleep(1)  # Simulate some delay between receiving messages
-#
-# # Allow enough time for the dispatch to occur
-# time.sleep(10)
-#
-# # Stop the dispatcher after testing
-# handler.stop_dispatcher()
-
