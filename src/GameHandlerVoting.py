@@ -16,7 +16,7 @@ class GameHandler:
     def send_initial_message(self):
         initial_message = {
             "role": "system",
-            "content": "You are participating in a voting simulation."
+            "content": "You are participating in a voting simulation. All interactions will be part of this simulation."
         }
         try:
             response = self.client.chat.completions.create(
@@ -33,7 +33,6 @@ class GameHandler:
         self.messages.append(message_data)
 
         # Determine the current phase from the message
-        # TODO: owners does compensation request, developers do the offers and owners vote (decision).
         if message_data["type"] == "notice":
             if "Phase 3 has begun" in message_data["message"]:
                 self.current_phase = 3
@@ -67,17 +66,26 @@ class GameHandler:
     def prepare_compensation_request(self):
         context = self.generate_context("request")
         compensation_request = self.request_compensation_from_llm(context, "request")
-        return {"gameId": self.game_id, "type": "compensation-request", "compensationRequests": compensation_request}
+
+        # Wrap compensation_request in an array with null for the unselected option
+        compensation_requests = [None, compensation_request] if compensation_request else [compensation_request, None]
+
+        return {"gameId": self.game_id, "type": "compensation-request", "compensationRequests": compensation_requests}
 
     def prepare_compensation_offer(self):
         context = self.generate_context("offer")
         compensation_offer = self.request_compensation_from_llm(context, "offer")
-        return {"gameId": self.game_id, "type": "compensation-offer", "compensationOffers": compensation_offer}
+
+        # Wrap compensation_offer in an array with null for the unselected option
+        compensation_offers = [None, compensation_offer] if compensation_offer else [compensation_offer, None]
+
+        return {"gameId": self.game_id, "type": "compensation-offer", "compensationOffers": compensation_offers}
 
     def prepare_compensation_decision(self):
         context = self.generate_context("decision")
         compensation_decision = self.request_compensation_from_llm(context, "decision")
-        return {"gameId": self.game_id, "type": "compensation-decision", "compensationDecisions": compensation_decision}
+
+        return {"gameId": self.game_id, "type": "compensation-decision", "compensationDecisions": [compensation_decision]}
 
     def generate_context(self, action_type):
         property_name = next(iter(self.boundaries))  # Get the first property name
@@ -92,6 +100,9 @@ class GameHandler:
         elif action_type == "decision":
             context = "Provide a decision in the format 'compensation-decision: X' where X is 0 or 1."
 
+        # Include a summary of previous messages for better context
+        context += f" Context: {self.summarize_messages()}"
+
         if self.verbose:
             print(f"Generated context for {action_type}: {context}")
 
@@ -104,6 +115,7 @@ class GameHandler:
         try:
             # Building the message for LLM
             message = [
+                {"role": "system", "content": "You are participating in a voting simulation."},
                 {"role": "user", "content": context},
             ]
             response = self.client.chat.completions.create(
