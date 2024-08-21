@@ -9,7 +9,7 @@ class GameHandler:
         self.game_id = game_id
         self.verbose = verbose
         self.message_queue = Queue(maxsize=20)
-        self.dispatch_interval = 10
+        self.dispatch_interval = 10  # Dispatch interval during the Market Phase
         self.player_wallet = {}
         self.user_number = None
         self.user_role = None
@@ -18,13 +18,23 @@ class GameHandler:
         self.websocket_client = websocket_client
         self.roles = {}
         self.properties = {}
+        self.in_market_phase = False  # Flag to check if the Market Phase is active
 
         # Start the dispatch timer
         self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
         self.dispatch_timer.start()
 
-        # Can be found in LLMCommunicator.py
+        # LLM communicator instance
         self.llm_communicator = LLMCommunicator()
+
+        # Context tracking for enhanced decision making
+        self.context = {
+            'player_actions': [],
+            'declarations': [],
+            'profits': [],
+            'market_signals': [],
+            'phase_transitions': []
+        }
 
     def receive_message(self, message):
         try:
@@ -39,6 +49,7 @@ class GameHandler:
                 self.handle_assign_role(message_data['data'])
             elif event_type == 'phase-transition':
                 self.handle_phase_transition(message_data['data'])
+                self.dispatch_summary()  # Send summary at the end of each phase
             else:
                 self.message_queue.put((2, message))  # Default priority
 
@@ -85,45 +96,6 @@ class GameHandler:
         except Exception as e:
             logging.error(f"Unexpected error in update_player_wallet: {e}")
 
-    def dispatch_summary(self):
-        """
-        Summarizes and dispatches the collected messages to the LLM agent at regular intervals.
-        """
-        print("Dispatch summary started.")
-
-        if not self.message_queue.empty():
-            print(f"Queue size before dispatch: {self.message_queue.qsize()}")
-
-            messages_to_summarize = []
-
-            while not self.message_queue.empty():
-                item = self.message_queue.get()
-                if isinstance(item, tuple) and len(item) == 2:
-                    priority, message = item
-                    messages_to_summarize.append(message)
-                else:
-                    logging.error(
-                        f"Unexpected item structure in queue: {item}")
-                    continue
-
-            if messages_to_summarize:
-                summary = self.summarize_messages(messages_to_summarize)
-                # Include the current phase description in the summary
-                phase_description = self.get_phase_description(
-                    self.current_phase, self.user_role)
-                summary += f"\nCurrent Phase ({self.current_phase}): {phase_description}\n"
-                self.dispatch_summary_to_llm(summary)
-            else:
-                print("No valid messages to summarize.")
-        else:
-            print("No messages to summarize and dispatch.")
-            if self.verbose:
-                print("No messages to summarize and dispatch (verbose mode).")
-
-        self.dispatch_timer = threading.Timer(self.dispatch_interval,
-                                              self.dispatch_summary)
-        self.dispatch_timer.start()
-
     def handle_phase_transition(self, phase_data):
         """
         Handles phase transitions and logs the phase description.
@@ -131,17 +103,72 @@ class GameHandler:
         new_phase = phase_data.get('phase', self.current_phase)
         self.current_phase = new_phase
 
-        # Get the description of the new phase
-        phase_description = self.get_phase_description(new_phase,
-                                                       self.user_role)
+        # Track phase transitions for context
+        self.context['phase_transitions'].append(new_phase)
+
+        # Ensure the phase is correctly handled, especially for unknown phases
+        phase_description = self.get_phase_description(new_phase, self.user_role)
+        if phase_description == "Unknown Phase":
+            logging.warning(f"Unknown Phase encountered: Phase {new_phase}")
+
+        # Update the market phase flag
+        self.in_market_phase = (new_phase == 5)
 
         if self.verbose:
-            print(
-                f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+            print(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
-        # You can also log this or add to the summary
-        logging.info(
-            f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+        logging.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
+    def dispatch_summary(self):
+        """
+        Summarizes and dispatches the collected messages to the LLM agent.
+        During the Market Phase, dispatches occur every X seconds or after X messages.
+        """
+        if self.in_market_phase:
+            print("Market Phase dispatch started.")
+            if not self.message_queue.empty():
+                print(f"Queue size before dispatch: {self.message_queue.qsize()}")
+
+                messages_to_summarize = []
+                while not self.message_queue.empty():
+                    item = self.message_queue.get()
+                    if isinstance(item, tuple) and len(item) == 2:
+                        priority, message = item
+                        messages_to_summarize.append(message)
+                    else:
+                        logging.error(f"Unexpected item structure in queue: {item}")
+                        continue
+
+                if messages_to_summarize:
+                    summary = self.summarize_messages(messages_to_summarize)
+                    self.dispatch_summary_to_llm(summary)
+                else:
+                    print("No valid messages to summarize.")
+            else:
+                print("No messages to summarize and dispatch.")
+
+            self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
+            self.dispatch_timer.start()
+        else:
+            print("End-of-Phase dispatch started.")
+            if not self.message_queue.empty():
+                messages_to_summarize = []
+                while not self.message_queue.empty():
+                    item = self.message_queue.get()
+                    if isinstance(item, tuple) and len(item) == 2:
+                        priority, message = item
+                        messages_to_summarize.append(message)
+                    else:
+                        logging.error(f"Unexpected item structure in queue: {item}")
+                        continue
+
+                if messages_to_summarize:
+                    summary = self.summarize_messages(messages_to_summarize)
+                    self.dispatch_summary_to_llm(summary)
+                else:
+                    print("No valid messages to summarize.")
+            else:
+                print("No messages to summarize and dispatch.")
 
     def summarize_messages(self, messages):
         """
@@ -166,15 +193,22 @@ class GameHandler:
 
                 if not phase_description_added:
                     # Include the phase description at the beginning of the summary, once per phase
-                    phase_description = self.get_phase_description(
-                        self.current_phase, self.user_role)
+                    phase_description = self.get_phase_description(self.current_phase, self.user_role)
                     summary += f"Current Phase ({self.current_phase}): {phase_description}\n"
                     phase_description_added = True
 
-                # Process other event types...
+                # Process events and store them in context
                 if message_type == 'event':
-                    # Handle events like assign-role, profit, etc.
-                    pass
+                    if event_type == 'profit':
+                        self.context['profits'].append(message_data['data'])
+                    elif event_type == 'declarations-published':
+                        self.context['declarations'].append(message_data['data']['declarations'])
+                    elif event_type == 'value-signals':
+                        self.context['market_signals'].append(message_data['data'])
+
+                # Include event and info messages in the summary
+                if message_type == 'event':
+                    summary += f"Event: {event_type} with data {message_data['data']}\n"
                 elif message_type == 'info':
                     summary += f"Info: {message_data['message']}\n"
                 elif message_type == 'notice':
@@ -186,8 +220,15 @@ class GameHandler:
                 logging.error(f"KeyError in summarize_messages: {ke}")
                 logging.error(f"Message causing the error: {message}")
             except Exception as e:
-                logging.error(
-                    f"Error processing message {index + 1}/{len(messages)}: {e}")
+                logging.error(f"Error processing message {index + 1}/{len(messages)}: {e}")
+
+        # Add cumulative context summary
+        summary += "\nCumulative Context:\n"
+        summary += f"Past Phase Transitions: {self.context['phase_transitions']}\n"
+        summary += f"Player Actions: {self.context['player_actions']}\n"
+        summary += f"Declarations: {self.context['declarations']}\n"
+        summary += f"Profits: {self.context['profits']}\n"
+        summary += f"Market Signals: {self.context['market_signals']}\n"
 
         return summary
 
@@ -215,6 +256,7 @@ class GameHandler:
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
 
+
     def dispatch_summary_to_llm(self, summary):
         """
         Dispatches the summary to the LLM communicator and handles the response.
@@ -229,5 +271,3 @@ class GameHandler:
         Stops the dispatch timer gracefully.
         """
         self.dispatch_timer.cancel()
-
-

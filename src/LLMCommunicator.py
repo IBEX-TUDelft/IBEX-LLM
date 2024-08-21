@@ -29,6 +29,9 @@ class LLMCommunicator:
             )
 
             response_text = response.choices[0].message.content
+            print(f"response: {response_text}")
+
+
             ws_message = self.process_websocket_message(response_text)
             return ws_message
 
