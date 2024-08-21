@@ -17,6 +17,9 @@ class GameHandler:
         self.websocket_client = websocket_client
         self.private_game_state = {}
 
+        self.public_game_state = {}
+
+
         # Start the dispatch timer
         self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
         self.dispatch_timer.start()
@@ -61,32 +64,36 @@ class GameHandler:
         player_state = self.get_player_state(player_id)
 
         if order_type == 'bid':
+            # Lock cash in bids, but do not deduct from cash_available yet
             player_state['cash_locked_in_bids'] += price * quantity
-            player_state['cash_available'] -= price * quantity
         elif order_type == 'ask':
             player_state['shares_offered_for_sale'] += quantity
             player_state['shares_available'] -= quantity
 
     def handle_contract_fulfilled(self, event):
-        seller_id = event['data']['from']
-        buyer_id = event['data']['to']
-        price = event['data']['price']
-        buyer_fee = event['data']['buyerFee']
-        seller_fee = event['data']['sellerFee']
-        quantity = 1  # Assuming quantity is always 1 per the event structure
+        # Extract the necessary details from the event
+        contract_data = event['data']
+        seller_id = contract_data['from']
+        buyer_id = contract_data['to']
 
-        seller_state = self.get_player_state(seller_id)
-        buyer_state = self.get_player_state(buyer_id)
+        # Ensure the game state is initialized
+        if seller_id not in self.public_game_state:
+            self.public_game_state[seller_id] = 1  # Initialize seller's shares
+        if buyer_id not in self.public_game_state:
+            self.public_game_state[buyer_id] = 1  # Initialize buyer's shares
 
-        # Update shares
-        seller_state['shares_offered_for_sale'] -= quantity
-        seller_state['shares_available'] -= quantity
-        buyer_state['shares_available'] += quantity
+        # Handle the logic of shares after a contract is fulfilled
+        # The buyer gets the quantity of shares from the seller
+        # Assuming each contract fulfillment is for 1 share unless specified otherwise
+        self.public_game_state[buyer_id] += 1
+        self.public_game_state[seller_id] -= 1
 
-        # Update cash with fees considered
-        seller_state['cash_available'] += (price - seller_fee)
-        buyer_state['cash_locked_in_bids'] -= (price + buyer_fee)
-        buyer_state['cash_available'] -= price  # Deduct the price from the buyer's available cash
+        # Ensure that shares do not fall below 1
+        if self.public_game_state[seller_id] < 1:
+            self.public_game_state[seller_id] = 1
+
+        # Print the updated game state
+        print(f"Updated Public Game State: {self.public_game_state}")
 
     def handle_delete_order(self, event):
         order = event['data']['order']
@@ -98,10 +105,12 @@ class GameHandler:
         player_state = self.get_player_state(player_id)
 
         if order_type == 'bid':
-            player_state['cash_locked_in_bids'] -= price * quantity
+            player_state['cash_locked_in_bids'] = max(0, player_state[
+                'cash_locked_in_bids'] - price * quantity)
             player_state['cash_available'] += price * quantity
         elif order_type == 'ask':
-            player_state['shares_offered_for_sale'] -= quantity
+            player_state['shares_offered_for_sale'] = max(0, player_state[
+                'shares_offered_for_sale'] - quantity)
             player_state['shares_available'] += quantity
 
     def update_private_game_state(self, events):
@@ -143,6 +152,8 @@ class GameHandler:
             if self.verbose:
                 print(f"Message received with priority {priority}: {message}")
 
+            self.update_private_game_state([message])
+
         except json.JSONDecodeError as e:
             logging.error(f"Failed to decode message JSON: {e}")
         except Exception as e:
@@ -183,33 +194,43 @@ class GameHandler:
 
                 if event_type == 'event':
                     event_name = message_data['eventType']
-                    if event_name in ['add-order', 'delete-order']:
+
+                    if event_name == 'add-order':
                         order_id = message_data['data']['order']['id']
                         order_data = message_data['data']['order']
                         order_price = order_data.get('price')
 
                         if order_price is None:
-                            logging.warning(f"Order {order_id} has a null price and will be skipped.")
+                            logging.warning(
+                                f"Order {order_id} has a null price and will be skipped.")
                             continue
 
                         if order_price > 1000:
-                            logging.warning(f"Order {order_id} has an unusually high price ({order_price}) and may skew averages.")
+                            logging.warning(
+                                f"Order {order_id} has an unusually high price ({order_price}) and may skew averages.")
 
-                        if event_name == 'add-order':
-                            order_events[order_id] = order_data
+                        order_events[order_id] = order_data
 
-                            if order_data['type'] == 'bid':
-                                total_bid_price += order_price
-                                bid_count += 1
-                            elif order_data['type'] == 'ask':
-                                total_ask_price += order_price
-                                ask_count += 1
+                        if order_data['type'] == 'bid':
+                            total_bid_price += order_price
+                            bid_count += 1
+                        elif order_data['type'] == 'ask':
+                            total_ask_price += order_price
+                            ask_count += 1
 
-                        elif event_name == 'delete-order':
-                            order_events.pop(order_id, None)
+                    elif event_name == 'delete-order':
+                        order_id = message_data['data']['order']['id']
+                        order_events.pop(order_id, None)
 
                     elif event_name == 'contract-fulfilled':
                         contract_events.append(message_data['data'])
+
+                    # Ensure to update the public game state
+                    for player_id, shares in self.public_game_state.items():
+                        if player_id in self.public_game_state:
+                            # Make sure we aren't setting any negative values
+                            if self.public_game_state[player_id] < 0:
+                                self.public_game_state[player_id] = 0
 
                 else:
                     logging.warning(f"Unhandled event type: {event_type}")
@@ -221,7 +242,7 @@ class GameHandler:
             summary += f"Order {order_id}: {order_data['type']} at price {order_data['price']} is in the book.\n"
 
         for contract in contract_events:
-            summary += f"Contract fulfilled from Order {contract['from']} to Order {contract['to']} at price {contract['price']}.\n"
+            summary += f"Contract fulfilled from Player {contract['from']} to Player {contract['to']} at price {contract['price']}.\n"
 
         if bid_count > 0:
             average_bid_price = total_bid_price / bid_count
@@ -238,9 +259,14 @@ class GameHandler:
                 f"Player {self.user_number} Current State:\n"
                 f"  Cash Available: {player_state['cash_available']}\n"
                 f"  Cash Locked in Bids: {player_state['cash_locked_in_bids']}\n"
-                f"  Shares Available: {player_state['shares_available']}\n"
                 f"  Shares Offered for Sale: {player_state['shares_offered_for_sale']}\n"
+                f"  Shares Owned: {self.public_game_state.get(self.user_number, 0)}\n"
             )
+
+        # Add summary of shares for all players
+        summary += "Player Shares Summary:\n"
+        for player_id, shares in self.public_game_state.items():
+            summary += f"  Player {player_id}: {shares} shares\n"
 
         if self.verbose:
             print(f"Message Summary: {summary}")
