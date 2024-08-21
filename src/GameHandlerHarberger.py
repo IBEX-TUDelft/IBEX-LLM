@@ -1,16 +1,13 @@
 import json
-import time
 import threading
 from queue import Queue
-from openai import OpenAI
 import logging
+from LLMCommunicator import LLMCommunicator
 
 class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False):
-        # Initialize attributes
         self.game_id = game_id
         self.verbose = verbose
-        self.client = OpenAI()
         self.message_queue = Queue(maxsize=20)
         self.dispatch_interval = 10
         self.player_wallet = {}
@@ -19,13 +16,15 @@ class GameHandler:
         self.current_phase = 1
         self.current_round = 1
         self.websocket_client = websocket_client
-        self.roles = {}  # Store player roles, e.g., {'user_number': 'owner'}
-        self.properties = {}  # Store property values for each user
+        self.roles = {}
+        self.properties = {}
 
         # Start the dispatch timer
-        self.dispatch_timer = threading.Timer(self.dispatch_interval,
-                                              self.dispatch_summary)
+        self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
         self.dispatch_timer.start()
+
+        # Can be found in LLMCommunicator.py
+        self.llm_communicator = LLMCommunicator()
 
     def receive_message(self, message):
         try:
@@ -38,6 +37,8 @@ class GameHandler:
                 self.handle_players_known(message_data['data']['players'])
             elif event_type == 'assign-role':
                 self.handle_assign_role(message_data['data'])
+            elif event_type == 'phase-transition':
+                self.handle_phase_transition(message_data['data'])
             else:
                 self.message_queue.put((2, message))  # Default priority
 
@@ -50,12 +51,14 @@ class GameHandler:
             logging.error(f"Unexpected error in receive_message: {e}")
 
     def handle_players_known(self, players):
+        role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
         for player in players:
             number = player['number']
-            role = player['role']
-            self.roles[number] = role
+            role_number = player['role']
+            role_name = role_map.get(role_number, "Unknown")
+            self.roles[number] = role_name
             if number == self.user_number:
-                self.user_role = role
+                self.user_role = role_name
         if self.verbose:
             print(f"Player roles known: {self.roles}")
 
@@ -82,64 +85,6 @@ class GameHandler:
         except Exception as e:
             logging.error(f"Unexpected error in update_player_wallet: {e}")
 
-    def summarize_messages(self, messages):
-        """
-        Summarizes the collected messages into a single query.
-
-        Args:
-            messages (list): List of messages to be summarized.
-
-        Returns:
-            str: The summarized query string.
-        """
-        summary = "Simulation Events Summary:\n"
-        role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
-
-        for index, message in enumerate(messages):
-            try:
-                print(
-                    f"Processing message {index + 1}/{len(messages)}: {message}")
-                message_data = json.loads(message)
-                event_type = message_data['eventType']
-                print(f"Event type: {event_type}")
-
-                if event_type == 'assign-role':
-                    role = message_data['data']['role']
-                    summary += f"Assigned role: {role_map.get(role, 'Unknown')}.\n"
-                elif event_type == 'players-known':
-                    summary += "Players' roles known:\n"
-                    for player in message_data['data']['players']:
-                        role = role_map.get(player['role'], 'Unknown')
-                        summary += f" - Player {player['number']} is a {role}.\n"
-                elif event_type == 'profit':
-                    total = message_data['data'].get('total', 0)
-                    summary += f"Profit recorded: {total} for Player {message_data['data'].get('owner')}.\n"
-                elif event_type == 'declarations-published':
-                    declarations = message_data['data'].get('declarations', [])
-                    for declaration in declarations:
-                        owner = declaration.get('owner')
-                        values = declaration.get('d', [])
-                        summary += f"Declaration for {owner}: {values}.\n"
-                # Add other event types as needed
-
-            except ValueError as ve:
-                print(
-                    f"ValueError: {ve} - Possibly an issue with JSON parsing.")
-                logging.error(f"ValueError in summarize_messages: {ve}")
-            except KeyError as ke:
-                print(
-                    f"KeyError: {ke} - Missing expected key in message data.")
-                logging.error(f"KeyError in summarize_messages: {ke}")
-            except Exception as e:
-                print(f"General Error: {e}")
-                logging.error(
-                    f"Error processing message {index + 1}/{len(messages)}: {e}")
-
-        if self.verbose:
-            print(f"Message Summary: {summary}")
-
-        return summary
-
     def dispatch_summary(self):
         """
         Summarizes and dispatches the collected messages to the LLM agent at regular intervals.
@@ -153,119 +98,136 @@ class GameHandler:
 
             while not self.message_queue.empty():
                 item = self.message_queue.get()
-
-                # Debugging output
-                print(f"Retrieved item from queue: {item}")
-                print(f"Item type: {type(item)}")
-
-                # Ensure the item is a tuple with exactly two elements
-                if isinstance(item, tuple):
-                    print(f"Item is a tuple of length {len(item)}")
-                    if len(item) == 2:
-                        priority, message = item  # Safely unpack the tuple
-                        print(
-                            f"Unpacked priority: {priority}, message: {message}")
-                        messages_to_summarize.append(message)
-                    else:
-                        print(f"Unexpected tuple length: {len(item)}")
+                if isinstance(item, tuple) and len(item) == 2:
+                    priority, message = item
+                    messages_to_summarize.append(message)
                 else:
-                    print(f"Unexpected item structure in queue: {item}")
                     logging.error(
                         f"Unexpected item structure in queue: {item}")
-                    continue  # Skip any improperly structured items
+                    continue
 
-            print(
-                f"Number of valid messages to summarize: {len(messages_to_summarize)}")
-
-            try:
-                if messages_to_summarize:  # Only summarize if there are valid messages
-                    summary = self.summarize_messages(messages_to_summarize)
-                    print(f"Generated summary: {summary}")
-                    self.query_openai(summary)
-                else:
-                    print("No valid messages to summarize.")
-            except Exception as e:
-                print(f"Error during dispatch_summary: {e}")
-                logging.error(f"Error during dispatch_summary: {e}")
+            if messages_to_summarize:
+                summary = self.summarize_messages(messages_to_summarize)
+                # Include the current phase description in the summary
+                phase_description = self.get_phase_description(
+                    self.current_phase, self.user_role)
+                summary += f"\nCurrent Phase ({self.current_phase}): {phase_description}\n"
+                self.dispatch_summary_to_llm(summary)
+            else:
+                print("No valid messages to summarize.")
         else:
             print("No messages to summarize and dispatch.")
             if self.verbose:
                 print("No messages to summarize and dispatch (verbose mode).")
 
-        print("Restarting dispatch timer.")
         self.dispatch_timer = threading.Timer(self.dispatch_interval,
                                               self.dispatch_summary)
         self.dispatch_timer.start()
 
-    def query_openai(self, summary):
+    def handle_phase_transition(self, phase_data):
         """
-        Sends the summarized query to the LLM agent with instructions.
+        Handles phase transitions and logs the phase description.
+        """
+        new_phase = phase_data.get('phase', self.current_phase)
+        self.current_phase = new_phase
+
+        # Get the description of the new phase
+        phase_description = self.get_phase_description(new_phase,
+                                                       self.user_role)
+
+        if self.verbose:
+            print(
+                f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
+        # You can also log this or add to the summary
+        logging.info(
+            f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
+    def summarize_messages(self, messages):
+        """
+        Summarizes the collected messages into a single query.
 
         Args:
-            summary (str): The summarized query to be sent.
-        """
-        try:
-            instructions = (
-                "You are an agent in a Harberger tax simulation. "
-                "Based on the following events, please respond with an appropriate action."
-                "Your response should be in JSON format."
-            )
-
-            prompt = f"{instructions}\n\nEvents Summary:\n{summary}"
-
-            message = [{"role": "user", "content": prompt}]
-            response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=message,
-            )
-
-            response_text = response.choices[0].message.content
-            ws_message = self.process_websocket_message(response_text)
-            if ws_message:
-                self.send_to_websocket_client(ws_message)
-
-        except Exception as e:
-            logging.error(f"Error communicating with OpenAI: {e}")
-
-    def process_websocket_message(self, response_text):
-        """
-        Processes the response text from the LLM agent and generates the appropriate WebSocket message.
-
-        Args:
-            response_text (str): The response text from the LLM agent.
+            messages (list): List of messages to be summarized.
 
         Returns:
-            str: The WebSocket message to be sent.
+            str: The summarized query string.
         """
-        try:
-            response_data = json.loads(response_text)
-            if response_data.get('type') == 'message':
-                message = response_data.get('content', '')
-                if message:
-                    return message
+        summary = "Simulation Events Summary:\n"
 
-        except json.JSONDecodeError as e:
-            logging.error(f"Failed to decode response JSON: {e}")
-        except Exception as e:
-            logging.error(f"Unexpected error in process_websocket_message: {e}")
+        # Track if the phase description has been added to avoid repetition
+        phase_description_added = False
 
-        return None
+        for index, message in enumerate(messages):
+            try:
+                message_data = json.loads(message)
+                message_type = message_data.get('type', None)
+                event_type = message_data.get('eventType', None)
 
-    def send_to_websocket_client(self, message):
+                if not phase_description_added:
+                    # Include the phase description at the beginning of the summary, once per phase
+                    phase_description = self.get_phase_description(
+                        self.current_phase, self.user_role)
+                    summary += f"Current Phase ({self.current_phase}): {phase_description}\n"
+                    phase_description_added = True
+
+                # Process other event types...
+                if message_type == 'event':
+                    # Handle events like assign-role, profit, etc.
+                    pass
+                elif message_type == 'info':
+                    summary += f"Info: {message_data['message']}\n"
+                elif message_type == 'notice':
+                    summary += f"Notice: {message_data['message']}\n"
+
+            except ValueError as ve:
+                logging.error(f"ValueError in summarize_messages: {ve}")
+            except KeyError as ke:
+                logging.error(f"KeyError in summarize_messages: {ke}")
+                logging.error(f"Message causing the error: {message}")
+            except Exception as e:
+                logging.error(
+                    f"Error processing message {index + 1}/{len(messages)}: {e}")
+
+        return summary
+
+    def get_phase_description(self, phase_number, role):
+        role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
+        role_name = role_map.get(role, "Participant")
+
+        phase_descriptions = {
+            1: f"Presentation Phase: In this phase, you are presented with the current state of the game, including your role as {role_name}, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.",
+
+            2: f"Declaration Phase: As an {role_name}, you need to declare the value of your plots of land for both potential outcomes: if the project is implemented or not. These declarations will determine the taxes you will pay and influence whether the Project or No Project condition is selected. Make sure your declarations are strategic to minimize taxes and optimize your position.",
+
+            3: f"Speculation Phase: As a {role_name}, you can choose to buy plots of land based on the declared values from the previous phase. Assess the likelihood of profit by comparing declared values to the perceived real value of the land. If you decide not to buy, you can observe how the market plays out.",
+
+            4: f"Reconciliation Phase: This phase calculates the profits and taxes based on the declarations and the chosen condition (Project or No Project). As an {role_name}, your taxes are calculated, and any snipes are processed. This phase provides a clear outcome of your earlier decisions.",
+
+            5: f"Market Phase: As a {role_name}, participate in the market to trade tax shares. Evaluate the public and private signals to decide whether to buy or sell shares. The goal is to optimize your returns based on the perceived future tax income.",
+
+            6: f"Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.",
+
+            7: f"Final Speculation Phase: Similar to the first speculation phase, but this time, your final declared values are in play. Decide whether to buy plots of land based on the final values and consider the potential for profit or loss.",
+
+            8: f"Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round."
+        }
+
+        return phase_descriptions.get(phase_number, "Unknown Phase")
+
+    def dispatch_summary_to_llm(self, summary):
         """
-        Sends a message to the WebSocket client.
-
-        Args:
-            message (str): The message to be sent.
+        Dispatches the summary to the LLM communicator and handles the response.
         """
-        if self.websocket_client:
-            self.websocket_client.send_message(message)
-        else:
-            print(f"WebSocket client not available. Message: {message}")
-            logging.error("WebSocket client not available.")
+        print(f"Summary: \n {summary}")
+        ws_message = self.llm_communicator.query_openai(summary)
+        if ws_message:
+            self.llm_communicator.send_to_websocket_client(self.websocket_client, ws_message)
 
     def stop_dispatcher(self):
         """
         Stops the dispatch timer gracefully.
         """
         self.dispatch_timer.cancel()
+
+
