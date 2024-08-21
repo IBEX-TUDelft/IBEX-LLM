@@ -58,8 +58,14 @@ class GameHandler:
 
         except json.JSONDecodeError as e:
             logging.error(f"Failed to decode message JSON: {e}")
+            self.handle_decoding_error(message)
         except Exception as e:
             logging.error(f"Unexpected error in receive_message: {e}")
+
+    def handle_decoding_error(self, message):
+        # Simplified fallback strategy for handling decoding errors
+        logging.info(f"Handling decoding error for message: {message}")
+        # Implement additional fallback logic as needed
 
     def handle_players_known(self, players):
         role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
@@ -109,7 +115,7 @@ class GameHandler:
         # Ensure the phase is correctly handled, especially for unknown phases
         phase_description = self.get_phase_description(new_phase, self.user_role)
         if phase_description == "Unknown Phase":
-            logging.warning(f"Unknown Phase encountered: Phase {new_phase}")
+            self.handle_unknown_phase(new_phase)
 
         # Update the market phase flag
         self.in_market_phase = (new_phase == 5)
@@ -118,6 +124,13 @@ class GameHandler:
             print(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
         logging.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
+    def handle_unknown_phase(self, phase_number):
+        """
+        Handle scenarios where the phase is unknown or not recognized.
+        """
+        logging.warning(f"Handling unknown phase: {phase_number}")
+        self.dispatch_summary_to_llm(f"Unknown phase encountered: {phase_number}. Please review past actions and prepare accordingly.")
 
     def dispatch_summary(self):
         """
@@ -205,6 +218,8 @@ class GameHandler:
                         self.context['declarations'].append(message_data['data']['declarations'])
                     elif event_type == 'value-signals':
                         self.context['market_signals'].append(message_data['data'])
+                    # Track player actions
+                    self.context['player_actions'].append({'type': event_type, 'data': message_data['data']})
 
                 # Include event and info messages in the summary
                 if message_type == 'event':
@@ -255,7 +270,6 @@ class GameHandler:
         }
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
-
 
     def dispatch_summary_to_llm(self, summary):
         """
