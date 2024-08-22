@@ -8,8 +8,8 @@ class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False):
         self.game_id = game_id
         self.verbose = verbose
-        self.message_queue = Queue(maxsize=20)
-        self.dispatch_interval = 10  # Dispatch interval during the Market Phase
+        self.message_queue = Queue(maxsize=10)
+        self.dispatch_interval = 5  # Dispatch interval during the Market Phase
         self.player_wallet = {}
         self.user_number = None
         self.user_role = None
@@ -137,10 +137,11 @@ class GameHandler:
         Summarizes and dispatches the collected messages to the LLM agent.
         During the Market Phase, dispatches occur every X seconds or after X messages.
         """
-        if self.in_market_phase:
+        if self.current_phase == 6:  # Market Phase
             print("Market Phase dispatch started.")
             if not self.message_queue.empty():
-                print(f"Queue size before dispatch: {self.message_queue.qsize()}")
+                print(
+                    f"Queue size before dispatch: {self.message_queue.qsize()}")
 
                 messages_to_summarize = []
                 while not self.message_queue.empty():
@@ -149,7 +150,8 @@ class GameHandler:
                         priority, message = item
                         messages_to_summarize.append(message)
                     else:
-                        logging.error(f"Unexpected item structure in queue: {item}")
+                        logging.error(
+                            f"Unexpected item structure in queue: {item}")
                         continue
 
                 if messages_to_summarize:
@@ -160,7 +162,8 @@ class GameHandler:
             else:
                 print("No messages to summarize and dispatch.")
 
-            self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
+            self.dispatch_timer = threading.Timer(self.dispatch_interval,
+                                                  self.dispatch_summary)
             self.dispatch_timer.start()
         else:
             print("End-of-Phase dispatch started.")
@@ -172,7 +175,8 @@ class GameHandler:
                         priority, message = item
                         messages_to_summarize.append(message)
                     else:
-                        logging.error(f"Unexpected item structure in queue: {item}")
+                        logging.error(
+                            f"Unexpected item structure in queue: {item}")
                         continue
 
                 if messages_to_summarize:
@@ -252,6 +256,8 @@ class GameHandler:
         role_name = role_map.get(role, "Participant")
 
         phase_descriptions = {
+            0: f"Introduction Phase: In this phase, players are introduced to the game and its rules. Familiarize yourself with the roles and objectives to prepare for the upcoming phases.",
+
             1: f"Presentation Phase: In this phase, you are presented with the current state of the game, including your role as {role_name}, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.",
 
             2: f"Declaration Phase: As an {role_name}, you need to declare the value of your plots of land for both potential outcomes: if the project is implemented or not. These declarations will determine the taxes you will pay and influence whether the Project or No Project condition is selected. Make sure your declarations are strategic to minimize taxes and optimize your position.",
@@ -260,13 +266,15 @@ class GameHandler:
 
             4: f"Reconciliation Phase: This phase calculates the profits and taxes based on the declarations and the chosen condition (Project or No Project). As an {role_name}, your taxes are calculated, and any snipes are processed. This phase provides a clear outcome of your earlier decisions.",
 
-            5: f"Market Phase: As a {role_name}, participate in the market to trade tax shares. Evaluate the public and private signals to decide whether to buy or sell shares. The goal is to optimize your returns based on the perceived future tax income.",
+            5: f"Transition Phase: This is a short phase allowing for the transition between major game phases. Prepare for the next phase based on the outcomes of the previous one.",
 
-            6: f"Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.",
+            6: f"Market Phase: As a {role_name}, participate in the market to trade tax shares. Evaluate the public and private signals to decide whether to buy or sell shares. The goal is to optimize your returns based on the perceived future tax income.",
 
-            7: f"Final Speculation Phase: Similar to the first speculation phase, but this time, your final declared values are in play. Decide whether to buy plots of land based on the final values and consider the potential for profit or loss.",
+            7: f"Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.",
 
-            8: f"Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round."
+            8: f"Final Speculation Phase: Similar to the first speculation phase, but this time, your final declared values are in play. Decide whether to buy plots of land based on the final values and consider the potential for profit or loss.",
+
+            9: f"Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round."
         }
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
