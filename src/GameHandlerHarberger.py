@@ -5,9 +5,10 @@ import logging
 from LLMCommunicator import LLMCommunicator
 
 class GameHandler:
-    def __init__(self, game_id, websocket_client=None, verbose=False):
+    def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):
         self.game_id = game_id
         self.verbose = verbose
+        self.recovery = recovery  # Store the recovery value
         self.message_queue = Queue(maxsize=10)
         self.dispatch_interval = 5  # Dispatch interval during the Market Phase
         self.player_wallet = {}
@@ -24,10 +25,8 @@ class GameHandler:
         self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
         self.dispatch_timer.start()
 
-        # LLM communicator instance
         self.llm_communicator = LLMCommunicator()
 
-        # Context tracking for enhanced decision making
         self.context = {
             'player_actions': [],
             'declarations': [],
@@ -109,11 +108,24 @@ class GameHandler:
         new_phase = phase_data.get('phase', self.current_phase)
         self.current_phase = new_phase
 
+        # Send "is ready" message when Phase 0 occurs
+        if new_phase == 0:
+            is_ready_message = json.dumps({
+                "gameId": self.game_id,
+                "type": "join",
+                "recovery": self.recovery
+            })
+            if self.websocket_client:
+                self.websocket_client.send(is_ready_message)
+            if self.verbose:
+                print(f"Sent 'is ready' message: {is_ready_message}")
+
         # Track phase transitions for context
         self.context['phase_transitions'].append(new_phase)
 
         # Ensure the phase is correctly handled, especially for unknown phases
-        phase_description = self.get_phase_description(new_phase, self.user_role)
+        phase_description = self.get_phase_description(new_phase,
+                                                       self.user_role)
         if phase_description == "Unknown Phase":
             self.handle_unknown_phase(new_phase)
 
@@ -121,9 +133,11 @@ class GameHandler:
         self.in_market_phase = (new_phase == 5)
 
         if self.verbose:
-            print(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+            print(
+                f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
-        logging.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+        logging.info(
+            f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
     def handle_unknown_phase(self, phase_number):
         """

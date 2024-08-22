@@ -5,21 +5,12 @@ import json
 
 
 class WebSocketClient:
-    """
-    A simple WebSocket client that sends a message to the server every second
-    and prints the messages received from the server.
-
-    The client is implemented using the websocket-client library, which is a
-    WebSocket client for Python. The library can be installed using pip:
-
-    @:param url: The URL of the WebSocket server to connect to.
-    """
     def __init__(self, url, game_id, recovery, verbose=True):
         self.url = url
         self.game_id = game_id
         self.recovery = recovery
         self.verbose = verbose
-        self.game_handler = GameHandler(game_id, verbose=verbose, websocket_client=self)
+        self.game_handler = GameHandler(game_id, verbose=verbose, websocket_client=self, recovery=recovery)
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
                                          on_error=self.on_error
@@ -27,6 +18,7 @@ class WebSocketClient:
         self.ws.on_open = self.on_open
         self.should_continue = True  # Flag to control the send_message loop
         self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
+
 
     def on_message(self, ws, message):
         if self.verbose:
