@@ -1,6 +1,6 @@
 import re
 import websocket
-from WebSocketClient import WebSocketClient
+from src.WebSocketClient import WebSocketClient
 
 def parse_url(url):
     """

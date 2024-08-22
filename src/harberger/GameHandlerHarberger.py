@@ -2,7 +2,7 @@ import json
 import threading
 from queue import Queue
 import logging
-from LLMCommunicator import LLMCommunicator
+from src.LLMCommunicator import LLMCommunicator
 
 class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):

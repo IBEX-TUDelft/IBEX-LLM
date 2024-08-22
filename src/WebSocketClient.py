@@ -1,4 +1,4 @@
-from GameHandlerHarberger import GameHandler
+from src.harberger.GameHandlerHarberger import GameHandler
 import websocket
 import threading
 import json
