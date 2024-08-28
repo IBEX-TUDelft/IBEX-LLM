@@ -1,4 +1,4 @@
-from GameHandlerAuction_Beta2 import GameHandler
+from GameHandlerAuction import GameHandler
 import time
 
 # Initialize the GameHandler

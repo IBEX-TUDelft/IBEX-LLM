@@ -111,9 +111,15 @@ class GameHandler:
         # Send "is ready" message when Phase 0 occurs
         if new_phase == 0:
             is_ready_message = json.dumps({
-                "gameId": self.game_id,
-                "type": "join",
-                "recovery": self.recovery
+                "content": {
+                    "gameId": self.game_id,
+                    "type": "player-is-ready"
+                },
+                "number": self.user_number,
+                "tag": str(self.user_number),
+                "phase": 0,
+                "round": 0,
+                "type": "message"
             })
             if self.websocket_client:
                 self.websocket_client.send(is_ready_message)
