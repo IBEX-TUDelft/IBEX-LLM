@@ -1,6 +1,7 @@
 import json
 from openai import OpenAI
 import logging
+import re
 
 class LLMCommunicator:
     def __init__(self):
@@ -29,14 +30,13 @@ class LLMCommunicator:
             )
 
             response_text = response.choices[0].message.content
-            print(f"response: {response_text}")
 
 
             ws_message = self.process_websocket_message(response_text)
             return ws_message
 
         except Exception as e:
-            logging.error(f"Error communicating with OpenAI: {e}")
+            logging.error(f"Error communicating with OpenAI: {e} (LLMCommunicator.query_openai)")
             return None
 
     def process_websocket_message(self, response_text):
@@ -48,20 +48,35 @@ class LLMCommunicator:
 
         Returns:
             str: The WebSocket message to be sent.
+
         """
+        cleaned_response_text = None
         try:
-            response_data = json.loads(response_text)
-            if response_data.get('type') == 'message':
-                message = response_data.get('content', '')
-                if message:
-                    return message
+            # Remove the triple backticks and any leading or trailing whitespace
+            cleaned_response_text = response_text.strip().strip('```').strip()
+
+            # Remove the "json" label if it exists
+            if cleaned_response_text.startswith("json"):
+                cleaned_response_text = cleaned_response_text[
+                                        len("json"):].strip()
+
+            # Attempt to parse the cleaned JSON
+            response_json = json.loads(cleaned_response_text)
+
+            if response_json:
+                return response_json
+            else:
+                logging.error("Message field not found in the response JSON.")
+                return None
 
         except json.JSONDecodeError as e:
-            logging.error(f"Failed to decode response JSON: {e}")
+            logging.error(
+                f"Failed to decode JSON: {e} - Response text: {cleaned_response_text}")
+            return None
         except Exception as e:
-            logging.error(f"Unexpected error in process_websocket_message: {e}")
-
-        return None
+            logging.error(
+                f"Error processing WebSocket message: {e} (LLMCommunicator.process_websocket_message)")
+            return None
 
     def send_to_websocket_client(self, websocket_client, message):
         """
@@ -72,6 +87,7 @@ class LLMCommunicator:
             message (str): The message to be sent.
         """
         if websocket_client:
+            print(f"Sending to WS: {message}")
             websocket_client.send_message(message)
         else:
             logging.error("WebSocket client not available.")

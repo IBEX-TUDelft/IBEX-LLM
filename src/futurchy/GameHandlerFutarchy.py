@@ -4,6 +4,8 @@ from queue import Queue
 import logging
 from src.LLMCommunicator import LLMCommunicator
 
+# TODO: Use process_websocket_message & send_to_websocket_client from LLMCommunicator
+
 class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):
         self.game_id = game_id
@@ -56,7 +58,7 @@ class GameHandler:
                 print(f"Message received: {message}")
 
         except json.JSONDecodeError as e:
-            logging.error(f"Failed to decode message JSON: {e}")
+            logging.error(f"Failed to decode message JSON: {e} (GameHandler receive_message)")
             self.handle_decoding_error(message)
         except Exception as e:
             logging.error(f"Unexpected error in receive_message: {e}")
@@ -303,6 +305,7 @@ class GameHandler:
         """
         print(f"Summary: \n {summary}")
         ws_message = self.llm_communicator.query_openai(summary)
+
         if ws_message:
             self.llm_communicator.send_to_websocket_client(self.websocket_client, ws_message)
 
