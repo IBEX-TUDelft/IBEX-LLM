@@ -122,7 +122,7 @@ class GameHandler:
                 "type": "message"
             })
             if self.websocket_client:
-                self.websocket_client.send(is_ready_message)
+                self.websocket_client.send_message(is_ready_message)
             if self.verbose:
                 print(f"Sent 'is ready' message: {is_ready_message}")
 

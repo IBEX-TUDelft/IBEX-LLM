@@ -1,122 +1,913 @@
-Received message: {"type":"event","eventType":"assign-name","data":{"name":"Tan","number":1,"ruleset":"Harberger"}}
-Message received: {"type":"event","eventType":"assign-name","data":{"name":"Tan","number":1,"ruleset":"Harberger"}}
+/opt/anaconda3/envs/IBEX-LLM/bin/python /Users/jasperbruin/Documents/IBEX-LLM/src/__init__.py 
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Enter the URL: https://yary.eu/board/348/ai29s3o938wnq3tox3yro04pbhfu1obvnf622kmwg4lc564ens5io1adc8fh8vk0
+### Connection is open ###
+Sending message: {"gameId": 348, "type": "join", "recovery": "ai29s3o938wnq3tox3yro04pbhfu1obvnf622kmwg4lc564ens5io1adc8fh8vk0"}
+Sending message: {"gameId": 348, "type": "player-is-ready"}
+Enter a message to send (type 'exit' to close): Received message: {"type":"event","eventType":"assign-name","data":{"name":"Violet","number":1,"ruleset":"Futarchy"}}
+Message received: {"type":"event","eventType":"assign-name","data":{"name":"Violet","number":1,"ruleset":"Futarchy"}}
 Received message: {"type":"event","eventType":"phase-instructions","data":{}}
 Message received: {"type":"event","eventType":"phase-instructions","data":{}}
 Received message: {"type":"info","message":"Player 1 rejoined the game"}
 Message received: {"type":"info","message":"Player 1 rejoined the game"}
 Received message: {"type":"event","eventType":"ready-received","data":{}}
 Message received: {"type":"event","eventType":"ready-received","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723797949162}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723797949162}}
-Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Mathematical Antlion Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
-Message received: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Mathematical Antlion Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
-Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"},{"number":4,"role":1,"tag":"Speculator 2"}]}}
-Message received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"},{"number":4,"role":1,"tag":"Speculator 2"}]}}
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (1): Presentation Phase: In this phase, you are presented with the current state of the game, including your role as Participant, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.
+Event: phase-instructions with data {}
+Info: Player 1 rejoined the game
+Event: ready-received with data {}
+
+Cumulative Context:
+Past Phase Transitions: []
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}]
+Declarations: []
+Profits: []
+Market Signals: []
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "action": "acknowledge-phase-instructions",
+  "data": {
+    "message": "Familiarized with the current state of the game during the Presentation Phase."
+  }
+}
+```
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724837867035}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724837867035}}
+Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Integral Crocodile Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+User assigned role: 3
+Updated player wallet: [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}]
+Message received: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Integral Crocodile Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+Message received: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+Phase Transitioned to Phase 1: Presentation Phase: In this phase, you are presented with the current state of the game, including your role as Participant, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (1): Presentation Phase: In this phase, you are presented with the current state of the game, including your role as Participant, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.
+Event: set-timer with data {'end': 1724837867035}
+
+Cumulative Context:
+Past Phase Transitions: [1]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}]
+Declarations: []
+Profits: []
+Market Signals: []
+
+response: ```json
+{
+  "action": "acknowledge",
+  "data": {
+    "message": "I have familiarized myself with the current state of the game, including my role as Participant, my plots of land, and potential values of land under different conditions."
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
 Received message: {"type":"notice","message":"Phase 1 has begun."}
 Message received: {"type":"notice","message":"Phase 1 has begun."}
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723797964178}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723797964178}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724837957069}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724837957069}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+Phase Transitioned to Phase 2: Declaration Phase: As an Participant, you need to declare the value of your plots of land for both potential outcomes: if the project is implemented or not. These declarations will influence the initial market signals and help determine which outcome will be favored. Ensure your declarations align with your market expectations.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (2): Declaration Phase: As an Participant, you need to declare the value of your plots of land for both potential outcomes: if the project is implemented or not. These declarations will influence the initial market signals and help determine which outcome will be favored. Ensure your declarations align with your market expectations.
+Notice: Phase 1 has begun.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724837957069}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}]
+Declarations: []
+Profits: []
+Market Signals: []
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "action": "declare-value",
+  "data": {
+    "implemented": [
+      {"plot_id": 1, "value": 1000},
+      {"plot_id": 2, "value": 2000},
+      {"plot_id": 3, "value": 1500}
+    ],
+    "not_implemented": [
+      {"plot_id": 1, "value": 900},
+      {"plot_id": 2, "value": 1900},
+      {"plot_id": 3, "value": 1400}
+    ]
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
 Received message: {"type":"notice","message":"Phase 2 has begun."}
 Message received: {"type":"notice","message":"Phase 2 has begun."}
-Received message: {"type":"info","message":"Player Gray submitted a declaration of values."}
-Message received: {"type":"info","message":"Player Gray submitted a declaration of values."}
+Received message: {"type":"info","message":"Player White submitted a declaration of values."}
+Message received: {"type":"info","message":"Player White submitted a declaration of values."}
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723797979192}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723797979192}}
-Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Mathematical Antlion Lot","owner":"Tan","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Mechanical Mite Lot","owner":"Gray","role":2,"number":2,"d":[3,4,0],"available":[true,true,true]}],"winningCondition":0}}
-Message received: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Mathematical Antlion Lot","owner":"Tan","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Mechanical Mite Lot","owner":"Gray","role":2,"number":2,"d":[3,4,0],"available":[true,true,true]}],"winningCondition":0}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724838077086}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724838077086}}
+Received message: {"type":"info","message":"Wait for the speculators to  make their decisions."}
+Message received: {"type":"info","message":"Wait for the speculators to  make their decisions."}
+Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Integral Crocodile Lot","owner":"Violet","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Electric Catfish Lot","owner":"White","role":2,"number":2,"d":[4,2,0],"available":[true,true,true]}]}}
+Message received: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Integral Crocodile Lot","owner":"Violet","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Electric Catfish Lot","owner":"White","role":2,"number":2,"d":[4,2,0],"available":[true,true,true]}]}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+Phase Transitioned to Phase 3: Speculation Phase: As a Participant, you can choose to buy or sell shares in the markets based on the declared values from the previous phase. Assess the likelihood of each outcome (Project or No Project) being selected based on the market activity and adjust your strategy accordingly.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (3): Speculation Phase: As a Participant, you can choose to buy or sell shares in the markets based on the declared values from the previous phase. Assess the likelihood of each outcome (Project or No Project) being selected based on the market activity and adjust your strategy accordingly.
+Notice: Phase 2 has begun.
+Info: Player White submitted a declaration of values.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724838077086}
+Info: Wait for the speculators to  make their decisions.
+Event: declarations-published with data {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: []
+
+response: ```json
+{
+  "action": "assess_market",
+  "data": {
+    "declarations": [
+      {
+        "id": 1,
+        "name": "Integral Crocodile Lot",
+        "owner": "Violet",
+        "role": 3,
+        "number": 1,
+        "declared_values": [350000, 150000],
+        "available": [true, true, true]
+      },
+      {
+        "id": 2,
+        "name": "Electric Catfish Lot",
+        "owner": "White",
+        "role": 2,
+        "number": 2,
+        "declared_values": [4, 2, 0],
+        "available": [true, true, true]
+      }
+    ]
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
 Received message: {"type":"notice","message":"Phase 3 has begun."}
 Message received: {"type":"notice","message":"Phase 3 has begun."}
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723797994209}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723797994209}}
-Received message: {"type":"info","message":"Reconciliation in progress ..."}
-Message received: {"type":"info","message":"Reconciliation in progress ..."}
-Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":3500,"owner":1,"role":3,"total":464500}}
-Message received: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":3500,"owner":1,"role":3,"total":464500}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724837970565}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724837970565}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
+Phase Transitioned to Phase 4: Market Phase: This is the critical phase where you trade shares in two parallel markets—one for each possible outcome (Project or No Project). The outcome with the highest median price at the end of the phase determines the project's fate. Trade wisely to influence and benefit from the final decision.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (4): Market Phase: This is the critical phase where you trade shares in two parallel markets—one for each possible outcome (Project or No Project). The outcome with the highest median price at the end of the phase determines the project's fate. Trade wisely to influence and benefit from the final decision.
+Notice: Phase 3 has begun.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724837970565}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: []
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "type": "trade",
+  "data": {
+    "market": "Project",
+    "asset_id": 1,
+    "shares": 100,
+    "price": 360000
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
 Received message: {"type":"notice","message":"Phase 4 has begun."}
 Message received: {"type":"notice","message":"Phase 4 has begun."}
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
-Message received: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723798009221}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723798009221}}
-Received message: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[1155.0099,0,0],"condition":0,"taxRate":33}}
-Message received: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[1155.0099,0,0],"condition":0,"taxRate":33}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724837973575}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724837973575}}
+Received message: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[1155.0132,495.00660000000005,0],"taxRate":33}}
+Message received: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[1155.0132,495.00660000000005,0],"taxRate":33}}
 Received message: {"type":"info","message":"Prepare for the trading phase"}
 Message received: {"type":"info","message":"Prepare for the trading phase"}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
+Phase Transitioned to Phase 5: Reconciliation Phase: This phase calculates the profits and taxes based on the final market outcome and the final declarations. As an Participant, review the results to see how your market actions impacted your earnings.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (5): Reconciliation Phase: This phase calculates the profits and taxes based on the final market outcome and the final declarations. As an Participant, review the results to see how your market actions impacted your earnings.
+Notice: Phase 4 has begun.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724837973575}
+Event: value-signals with data {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}
+Info: Prepare for the trading phase
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+    "action": "review-results",
+    "data": {
+        "marketSignals": {
+            "signals": [8623, 6734, 0],
+            "publicSignal": [1155.0132, 495.00660000000005, 0],
+            "taxRate": 33
+        },
+        "declarations": [
+            {
+                "id": 1,
+                "name": "Integral Crocodile Lot",
+                "owner": "Violet",
+                "role": 3,
+                "number": 1,
+                "d": [350000, 150000],
+                "available": [true, true, true]
+            },
+            {
+                "id": 2,
+                "name": "Electric Catfish Lot",
+                "owner": "White",
+                "role": 2,
+                "number": 2,
+                "d": [4, 2, 0],
+                "available": [true, true, true]
+            }
+        ],
+        "profits": []
+    }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
 Received message: {"type":"notice","message":"Phase 5 has begun."}
 Message received: {"type":"notice","message":"Phase 5 has begun."}
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723798039236}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723798039236}}
-Received message: {"type":"info","message":"The trading phase has started"}
-Message received: {"type":"info","message":"The trading phase has started"}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724838243589}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724838243589}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
+Phase Transitioned to Phase 6: Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Market Phase dispatch started.
+Queue size before dispatch: 3
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Notice: Phase 5 has begun.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724838243589}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "type": "submit-declaration",
+  "data": {
+    "propertyId": 1,
+    "valuation": {
+      "Project": 350000,
+      "No Project": 150000
+    }
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
 Received message: {"type":"notice","message":"Phase 6 has begun."}
 Message received: {"type":"notice","message":"Phase 6 has begun."}
-Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":2,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":2,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":2,"price":5,"quantity":1,"type":"bid","condition":0}}}
-Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":2,"price":5,"quantity":1,"type":"bid","condition":0}}}
-Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":4,"to":2,"price":5,"condition":0,"median":5}}
-Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":4,"to":2,"price":5,"condition":0,"median":5}}
-Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid","condition":0}}}
-Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid","condition":0}}}
-Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":4,"price":5,"condition":0,"median":5}}
-Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":4,"price":5,"condition":0,"median":5}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":3,"price":2,"quantity":1,"type":"ask","condition":1}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":3,"price":2,"quantity":1,"type":"ask","condition":1}}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+Market Phase dispatch started.
+Queue size before dispatch: 3
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Notice: Phase 6 has begun.
+Event: add-order with data {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}
+Event: add-order with data {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+response: ```json
+{
+  "type": "submit-declaration",
+  "data": {
+    "propertyId": 1,
+    "values": {
+      "projectCondition": 350000,
+      "noProjectCondition": 150000
+    }
+  }
+}
+```
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":2,"condition":1,"median":2}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":2,"condition":1,"median":2}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask","condition":1}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask","condition":1}}}
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
 Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask","condition":0}}}
 Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":1,"type":"ask","condition":0}}}
-Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":3,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":3,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":3,"price":5,"quantity":1,"type":"bid","condition":0}}}
-Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":3,"price":5,"quantity":1,"type":"bid","condition":0}}}
-Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":5,"condition":0,"median":5}}
-Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":5,"condition":0,"median":5}}
-Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"ask","condition":0}}}
-Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"ask","condition":0}}}
-Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":5,"condition":0,"median":5}}
-Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":5,"condition":0,"median":5}}
-Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid","condition":0}}}
-Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid","condition":0}}}
+Market Phase dispatch started.
+Queue size before dispatch: 4
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: contract-fulfilled with data {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}
+Event: delete-order with data {'order': {'id': 1, 'type': 'ask', 'condition': 1}}
+Event: contract-fulfilled with data {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}
+Event: delete-order with data {'order': {'id': 1, 'type': 'ask', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: Based on the given events and the context, my final declaration for the value of my property will take into account the increased tax rate of 33%. It is essential to balance the declared value to minimize taxation while maintaining reasonable accuracy relative to market signals and transactions.
+
+Here's the action I will take, formatted in JSON:
+
+```json
+{
+    "action": "submit-final-declaration",
+    "data": {
+        "properties": [
+            {
+                "id": 1,
+                "finalValue": 340000,
+                "condition": "Project"
+            },
+            {
+                "id": 2,
+                "finalValue": 145000,
+                "condition": "No Project"
+            }
+        ]
+    }
+}
+```
+
+### Explanation:
+1. **Integral Crocodile Lot (id: 1):**
+   - The initial declaration was [350000, 150000].
+   - With the tax rate set at 33%, I slightly lower the declared value to 340000 to minimize taxation while still maintaining a reasonable value, assuming a favorable condition (Project).
+
+2. **Electric Catfish Lot (id: 2):**
+   - The initial declaration was [4, 2, 0].
+   - The final value is set to 145000 for the condition of No Project, reflecting market activities and the need to balance taxation.
+  
+By slightly adjusting the values downward, I aim to strategically balance accuracy with tax minimization.
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":3,"price":5,"quantity":1,"type":"bid","condition":1}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":3,"price":5,"quantity":1,"type":"bid","condition":1}}}
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"ask","condition":0}}}
+Market Phase dispatch started.
+Queue size before dispatch: 4
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}
+Event: add-order with data {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}
+Event: contract-fulfilled with data {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}
+Event: delete-order with data {'order': {'id': 2, 'type': 'ask', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":4,"quantity":1,"type":"bid","condition":1}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":4,"quantity":1,"type":"bid","condition":1}}}
+response: ```json
+{
+  "type": "final-declaration",
+  "data": {
+    "property_id": 2,
+    "final_value": 4.2,
+    "condition": 0
+  }
+}
+```
+
+In this JSON response, I'm declaring the final value of the property "Electric Catfish Lot" based on the condition 'No Project'. The value is inferred from the previously fulfilled contract price and slightly adjusted to account for strategic considerations and potential taxation.
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+Market Phase dispatch started.
+Queue size before dispatch: 1
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+    "type": "submit-declaration",
+    "data": {
+        "propertyDeclarations": [
+            {
+                "propertyId": 1,
+                "condition": "No Project",
+                "value": 150000
+            },
+            {
+                "propertyId": 2,
+                "condition": "No Project",
+                "value": 2
+            }
+        ]
+    }
+}
+```
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":2,"price":3,"quantity":1,"type":"ask","condition":0}}}
+Market Phase dispatch started.
+Queue size before dispatch: 1
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":2,"price":4,"quantity":1,"type":"bid","condition":0}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":2,"price":4,"quantity":1,"type":"bid","condition":0}}}
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "type": "submit-declaration",
+  "data": {
+    "properties": [
+      {
+        "id": 1,
+        "name": "Integral Crocodile Lot",
+        "owner": "Violet",
+        "valueProject": 350000,
+        "valueNoProject": 150000,
+        "taxRate": 33
+      },
+      {
+        "id": 2,
+        "name": "Electric Catfish Lot",
+        "owner": "White",
+        "valueProject": 4,
+        "valueNoProject": 2,
+        "taxRate": 33
+      }
+    ]
+  }
+}
+```
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":5,"condition":1,"median":3.5}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":5,"condition":1,"median":3.5}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid","condition":1}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":2,"type":"bid","condition":1}}}
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":3,"price":4,"quantity":1,"type":"bid","condition":1}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":3,"price":4,"quantity":1,"type":"bid","condition":1}}}
+Market Phase dispatch started.
+Queue size before dispatch: 4
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}
+Event: contract-fulfilled with data {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}
+Event: delete-order with data {'order': {'id': 2, 'type': 'bid', 'condition': 1}}
+Event: add-order with data {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":5,"sender":3,"price":5,"quantity":1,"type":"ask","condition":1}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":5,"sender":3,"price":5,"quantity":1,"type":"ask","condition":1}}}
 Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":5,"sender":3,"price":5,"quantity":1,"type":"ask","condition":0}}}
 Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":5,"sender":3,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":6,"sender":4,"price":5,"quantity":1,"type":"ask","condition":0}}}
-Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":6,"sender":4,"price":5,"quantity":1,"type":"ask","condition":0}}}
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":3,"condition":0,"median":4}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":3,"condition":0,"median":4}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"ask","condition":0}}}
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+    "type": "submit-declaration",
+    "data": {
+        "declarations": [
+            {
+                "id": 1,
+                "value": 350000
+            },
+            {
+                "id": 2,
+                "value": 4
+            }
+        ]
+    }
+}
+```
+
+Explanation:
+In the final declaration phase, you need to submit final declarations of the value of your properties based on the given conditions. The available declarations for properties are provided in the cumulative context. Given that the Harberger tax rate is 33%, strategically setting the values is essential. Here, two property declarations were found:
+- "Integral Crocodile Lot" with values [350000, 150000]
+- "Electric Catfish Lot" with values [4, 2, 0]
+
+For now, based on the given values during the declaration:
+- "Integral Crocodile Lot" is submitted with the higher value of 350000 for the project condition.
+- "Electric Catfish Lot" is submitted with the given highest value of 4 for the project condition.
+
+Market Phase dispatch started.
+Queue size before dispatch: 4
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}
+Event: add-order with data {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}
+Event: contract-fulfilled with data {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}
+Event: delete-order with data {'order': {'id': 3, 'type': 'ask', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+response: Based on the provided events and context, the appropriate action in the Harberger tax simulation's final declaration phase would be to submit a declaration of the value of my property. Given that the declared value will be taxed at a higher rate (33%), I need to strategically set the value of my property.
+
+Here is the JSON formatted response for my action:
+
+```json
+{
+  "type": "submit-declaration",
+  "data": {
+    "id": 1,  // Assuming I am responding on behalf of the owner of "Integral Crocodile Lot"
+    "values": [250000, 125000]  // New strategic values based on the condition "Project" and "No Project"
+  }
+}
+```
+
+- `id`: Refers to the property "Integral Crocodile Lot" owned by Violet (role 3).
+- `values`: The first value is the declared value if the project proceeds and the second value if it does not proceed. These values need to be strategic to minimize the tax burden while reflecting a true valuation of the property. The chosen values are lower than the initially provided values to account for the high tax rate.
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":0,"median":4}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid","condition":0}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":4,"type":"bid","condition":0}}}
+Market Phase dispatch started.
+Queue size before dispatch: 2
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: contract-fulfilled with data {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}
+Event: delete-order with data {'order': {'id': 4, 'type': 'bid', 'condition': 0}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 4, 'type': 'bid', 'condition': 0}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":6,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+Message received: {"type":"event","eventType":"add-order","data":{"order":{"id":6,"sender":3,"price":4,"quantity":1,"type":"ask","condition":0}}}
+response: ```json
+{
+    "type": "submit-declaration",
+    "data": {
+        "property_id": 2,
+        "owner": "White",
+        "value": {
+            "project": 4,
+            "no_project": 2
+        }
+    }
+}
+```
+This action makes the final declaration for the property identified as "Electric Catfish Lot", owned by "White". The submission includes the respective values for conditions where the project goes ahead ("project") and where it does not ("no_project"), in alignment with the final declaration phase requirements.
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":1,"median":4}}
+Message received: {"type":"event","eventType":"contract-fulfilled","data":{"from":3,"to":2,"price":4,"condition":1,"median":4}}
+Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid","condition":1}}}
+Message received: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid","condition":1}}}
+Market Phase dispatch started.
+Queue size before dispatch: 3
+Summary: 
+ Simulation Events Summary:
+Current Phase (6): Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.
+Event: add-order with data {'order': {'id': 6, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}
+Event: contract-fulfilled with data {'from': 3, 'to': 2, 'price': 4, 'condition': 1, 'median': 4}
+Event: delete-order with data {'order': {'id': 3, 'type': 'bid', 'condition': 1}}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 4, 'type': 'bid', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 6, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 1, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'bid', 'condition': 1}}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: []
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "type": "submit-declaration",
+  "data": {
+    "declarations": [
+      {
+        "id": 1,
+        "value": 232128
+      },
+      {
+        "id": 2,
+        "value": 2.68
+      }
+    ]
+  }
+}
+```
+
+Explanation:
+1. **Integral Crocodile Lot**:
+   - The data shows a valuation history of `[350000, 150000]`.
+   - Choose a value that lies strategically between these values, considering the higher tax rate of 33%.
+   - **Declaration Value**: \( \sqrt{350000 \times 150000} \approx 229128 \) (Using geometric mean for a strategic value, adjusting slightly for tax considerations to 232128).
+
+2. **Electric Catfish Lot**:
+   - The values provided are `[4, 2, 0]`.
+   - Using a strategy for moderate tax efficiency, select a mean value adjusted for a consideration of a strategic choice.
+   - **Declaration Value**: Adjust median value slightly considering 33% tax rate. Median is \(2\), so declaring\(`\text{2.68}\`\).
+
+These values are chosen to balance minimizing the tax burden while avoiding undervaluation which could trigger a sale.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
+Market Phase dispatch started.
+No messages to summarize and dispatch.
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723798054252}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723798054252}}
+Received message: {"type":"event","eventType":"reset-timer","data":{}}
+Message received: {"type":"event","eventType":"reset-timer","data":{}}
+Received message: {"type":"event","eventType":"winning-condition","data":{"winningCondition":0}}
+Message received: {"type":"event","eventType":"winning-condition","data":{"winningCondition":0}}
+Received message: {"type":"info","message":"Reconciliation in progress ..."}
+Message received: {"type":"info","message":"Reconciliation in progress ..."}
+Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[],"snipeProfit":null,"taxes":3500,"owner":1,"role":3,"total":null}}
+Message received: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[],"snipeProfit":null,"taxes":3500,"owner":1,"role":3,"total":null}}
+Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
+Message received: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724838303618}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724838303618}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":7}}
+Phase Transitioned to Phase 7: Final Speculation Phase: Similar to the earlier speculation phase, but this time, your final declared values are in play. Decide whether to buy or sell shares based on the final market conditions and consider the potential for profit or loss.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (7): Final Speculation Phase: Similar to the earlier speculation phase, but this time, your final declared values are in play. Decide whether to buy or sell shares based on the final market conditions and consider the potential for profit or loss.
+Event: reset-timer with data {}
+Event: reset-timer with data {}
+Event: winning-condition with data {'winningCondition': 0}
+Info: Reconciliation in progress ...
+Event: profit with data {'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}
+Event: first-snipes with data {'snipes': []}
+Event: set-timer with data {'end': 1724838303618}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6, 7]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 4, 'type': 'bid', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 6, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 1, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'bid', 'condition': 1}}}, {'type': 'reset-timer', 'data': {}}, {'type': 'reset-timer', 'data': {}}, {'type': 'winning-condition', 'data': {'winningCondition': 0}}, {'type': 'profit', 'data': {'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}}, {'type': 'first-snipes', 'data': {'snipes': []}}, {'type': 'set-timer', 'data': {'end': 1724838303618}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]]
+Profits: [{'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}]
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+End-of-Phase dispatch started.
+No messages to summarize and dispatch.
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "action": "finalize-speculation-phase",
+  "data": {
+    "decision": "hold",
+    "rationale": "Given the current information, specifically the profit data for round 0 phase 4 and the final declared values in play, holding shares of 'Integral Crocodile Lot' appears to be the optimal decision. The property showed a significant profit, and since the final declared values are in play, it is prudent to maximize the potential return from this property."
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":7}}
 Received message: {"type":"notice","message":"Phase 7 has begun."}
 Message received: {"type":"notice","message":"Phase 7 has begun."}
-Received message: {"type":"info","message":"Player Gray submitted a declaration of values."}
-Message received: {"type":"info","message":"Player Gray submitted a declaration of values."}
+Received message: {"type":"info","message":"Player White submitted a declaration of values."}
+Message received: {"type":"info","message":"Player White submitted a declaration of values."}
 Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723798069269}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723798069269}}
-Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Mathematical Antlion Lot","owner":"Tan","role":3,"number":1,"d":[350000,150000],"available":[true,false,false]},{"id":2,"name":"Mechanical Mite Lot","owner":"Gray","role":2,"number":2,"d":[3,0,0],"available":[true,false,false]}],"winningCondition":0}}
-Message received: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Mathematical Antlion Lot","owner":"Tan","role":3,"number":1,"d":[350000,150000],"available":[true,false,false]},{"id":2,"name":"Mechanical Mite Lot","owner":"Gray","role":2,"number":2,"d":[3,0,0],"available":[true,false,false]}],"winningCondition":0}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724838393651}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724838393651}}
+Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Integral Crocodile Lot","owner":"Violet","role":3,"number":1,"d":[350000,150000],"available":[true,false,false]},{"id":2,"name":"Electric Catfish Lot","owner":"White","role":2,"number":2,"d":[4,0,0],"available":[true,false,false]}],"winningCondition":0}}
+Message received: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Integral Crocodile Lot","owner":"Violet","role":3,"number":1,"d":[350000,150000],"available":[true,false,false]},{"id":2,"name":"Electric Catfish Lot","owner":"White","role":2,"number":2,"d":[4,0,0],"available":[true,false,false]}],"winningCondition":0}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":8}}
+Phase Transitioned to Phase 8: Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round.
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (8): Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round.
+Notice: Phase 7 has begun.
+Info: Player White submitted a declaration of values.
+Event: reset-timer with data {}
+Event: set-timer with data {'end': 1724838393651}
+Event: declarations-published with data {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 0, 0], 'available': [True, False, False]}], 'winningCondition': 0}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6, 7, 8]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 4, 'type': 'bid', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 6, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 1, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'bid', 'condition': 1}}}, {'type': 'reset-timer', 'data': {}}, {'type': 'reset-timer', 'data': {}}, {'type': 'winning-condition', 'data': {'winningCondition': 0}}, {'type': 'profit', 'data': {'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}}, {'type': 'first-snipes', 'data': {'snipes': []}}, {'type': 'set-timer', 'data': {'end': 1724838303618}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838393651}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 0, 0], 'available': [True, False, False]}], 'winningCondition': 0}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}], [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 0, 0], 'available': [True, False, False]}]]
+Profits: [{'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}]
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "action": "analyze-results",
+  "data": {
+    "earnings": {
+      "round": 0,
+      "phase": 4,
+      "property": 1,
+      "condition": 0,
+      "value": 468000,
+      "declaration": 350000,
+      "sniped": true,
+      "speculator": [],
+      "snipeProfit": null,
+      "taxes": 3500,
+      "owner": 1,
+      "role": 3,
+      "total": null
+    },
+    "marketSignals": {
+      "signals": [8623, 6734, 0],
+      "publicSignal": [1155.0132, 495.00660000000005, 0],
+      "taxRate": 33
+    },
+    "declarations": [
+      {
+        "id": 1,
+        "name": "Integral Crocodile Lot",
+        "owner": "Violet",
+        "role": 3,
+        "number": 1,
+        "d": [350000, 150000],
+        "available": [True, False, False]
+      },
+      {
+        "id": 2,
+        "name": "Electric Catfish Lot",
+        "owner": "White",
+        "role": 2,
+        "number": 2,
+        "d": [4, 0, 0],
+        "available": [True, False, False]
+      }
+    ]
+  }
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":8}}
 Received message: {"type":"notice","message":"Phase 8 has begun."}
 Message received: {"type":"notice","message":"Phase 8 has begun."}
@@ -124,21 +915,62 @@ Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
 Received message: {"type":"info","message":"Final phase. Tax rate: 33"}
 Message received: {"type":"info","message":"Final phase. Tax rate: 33"}
-Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[4],"snipeProfit":59000,"taxes":115500,"owner":1,"role":3,"total":293500}}
-Message received: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[4],"snipeProfit":59000,"taxes":115500,"owner":1,"role":3,"total":293500}}
-Received message: {"type":"event","eventType":"final-price","data":{"price":1155.0099,"winningCondition":0}}
-Message received: {"type":"event","eventType":"final-price","data":{"price":1155.0099,"winningCondition":0}}
+Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[3],"snipeProfit":59000,"taxes":115500,"owner":1,"role":3,"total":293500}}
+Message received: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":true,"speculator":[3],"snipeProfit":59000,"taxes":115500,"owner":1,"role":3,"total":293500}}
+Received message: {"type":"event","eventType":"final-price","data":{"price":1155.0132,"winningCondition":0}}
+Message received: {"type":"event","eventType":"final-price","data":{"price":1155.0132,"winningCondition":0}}
 Received message: {"type":"event","eventType":"tax-income","data":{"amount":6930,"condition":0}}
 Message received: {"type":"event","eventType":"tax-income","data":{"amount":6930,"condition":0}}
 Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"condition":0,"owner":1,"role":3,"taxes":0,"snipeProfit":0,"total":6930}}
 Message received: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"condition":0,"owner":1,"role":3,"taxes":0,"snipeProfit":0,"total":6930}}
-Received message: {"type":"event","eventType":"total-profit","data":{"amount":764930}}
-Message received: {"type":"event","eventType":"total-profit","data":{"amount":764930}}
-Received message: {"type":"event","eventType":"second-snipes","data":{"snipes":[{"player":{"number":4,"role":1},"target":{"number":1,"role":3},"profit":59000}]}}
-Message received: {"type":"event","eventType":"second-snipes","data":{"snipes":[{"player":{"number":4,"role":1},"target":{"number":1,"role":3},"profit":59000}]}}
-Received message: {"type":"event","eventType":"set-timer","data":{"end":1723798080864}}
-Message received: {"type":"event","eventType":"set-timer","data":{"end":1723798080864}}
+Received message: {"type":"event","eventType":"total-profit","data":{"amount":null}}
+Message received: {"type":"event","eventType":"total-profit","data":{"amount":null}}
+Received message: {"type":"event","eventType":"second-snipes","data":{"snipes":[{"player":{"number":3,"role":1},"target":{"number":1,"role":3},"profit":59000}]}}
+Message received: {"type":"event","eventType":"second-snipes","data":{"snipes":[{"player":{"number":3,"role":1},"target":{"number":1,"role":3},"profit":59000}]}}
+Received message: {"type":"event","eventType":"set-timer","data":{"end":1724838362141}}
+Message received: {"type":"event","eventType":"set-timer","data":{"end":1724838362141}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":9}}
+Summary: 
+ Unknown phase encountered: 9. Please review past actions and prepare accordingly.
+WARNING:root:Handling unknown phase: 9
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+  "action": {
+    "type": "review_past_actions"
+  }
+}
+```
+Phase Transitioned to Phase 9: Unknown Phase
+End-of-Phase dispatch started.
+Summary: 
+ Simulation Events Summary:
+Current Phase (9): Unknown Phase
+Notice: Phase 8 has begun.
+Event: reset-timer with data {}
+Info: Final phase. Tax rate: 33
+Event: profit with data {'round': 0, 'phase': 9, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [3], 'snipeProfit': 59000, 'taxes': 115500, 'owner': 1, 'role': 3, 'total': 293500}
+Event: final-price with data {'price': 1155.0132, 'winningCondition': 0}
+Event: tax-income with data {'amount': 6930, 'condition': 0}
+Event: profit with data {'round': 0, 'phase': 9, 'condition': 0, 'owner': 1, 'role': 3, 'taxes': 0, 'snipeProfit': 0, 'total': 6930}
+Event: total-profit with data {'amount': None}
+Event: second-snipes with data {'snipes': [{'player': {'number': 3, 'role': 1}, 'target': {'number': 1, 'role': 3}, 'profit': 59000}]}
+Event: set-timer with data {'end': 1724838362141}
+
+Cumulative Context:
+Past Phase Transitions: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+Player Actions: [{'type': 'phase-instructions', 'data': {}}, {'type': 'ready-received', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837867035}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837957069}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838077086}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}]}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837970565}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724837973575}}, {'type': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838243589}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 2, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 1, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 2, 'condition': 1, 'median': 2}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 2, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 3, 'sender': 2, 'price': 3, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 2, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 5, 'condition': 1, 'median': 3.5}}, {'type': 'delete-order', 'data': {'order': {'id': 2, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 4, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'bid', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 1}}}, {'type': 'add-order', 'data': {'order': {'id': 5, 'sender': 3, 'price': 5, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 3, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 0, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 4, 'type': 'bid', 'condition': 0}}}, {'type': 'add-order', 'data': {'order': {'id': 6, 'sender': 3, 'price': 4, 'quantity': 1, 'type': 'ask', 'condition': 0}}}, {'type': 'contract-fulfilled', 'data': {'from': 3, 'to': 2, 'price': 4, 'condition': 1, 'median': 4}}, {'type': 'delete-order', 'data': {'order': {'id': 3, 'type': 'bid', 'condition': 1}}}, {'type': 'reset-timer', 'data': {}}, {'type': 'reset-timer', 'data': {}}, {'type': 'winning-condition', 'data': {'winningCondition': 0}}, {'type': 'profit', 'data': {'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}}, {'type': 'first-snipes', 'data': {'snipes': []}}, {'type': 'set-timer', 'data': {'end': 1724838303618}}, {'type': 'reset-timer', 'data': {}}, {'type': 'set-timer', 'data': {'end': 1724838393651}}, {'type': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 0, 0], 'available': [True, False, False]}], 'winningCondition': 0}}, {'type': 'reset-timer', 'data': {}}, {'type': 'profit', 'data': {'round': 0, 'phase': 9, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [3], 'snipeProfit': 59000, 'taxes': 115500, 'owner': 1, 'role': 3, 'total': 293500}}, {'type': 'final-price', 'data': {'price': 1155.0132, 'winningCondition': 0}}, {'type': 'tax-income', 'data': {'amount': 6930, 'condition': 0}}, {'type': 'profit', 'data': {'round': 0, 'phase': 9, 'condition': 0, 'owner': 1, 'role': 3, 'taxes': 0, 'snipeProfit': 0, 'total': 6930}}, {'type': 'total-profit', 'data': {'amount': None}}, {'type': 'second-snipes', 'data': {'snipes': [{'player': {'number': 3, 'role': 1}, 'target': {'number': 1, 'role': 3}, 'profit': 59000}]}}, {'type': 'set-timer', 'data': {'end': 1724838362141}}]
+Declarations: [[{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 2, 0], 'available': [True, True, True]}], [{'id': 1, 'name': 'Integral Crocodile Lot', 'owner': 'Violet', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Electric Catfish Lot', 'owner': 'White', 'role': 2, 'number': 2, 'd': [4, 0, 0], 'available': [True, False, False]}]]
+Profits: [{'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [], 'snipeProfit': None, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': None}, {'round': 0, 'phase': 9, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': True, 'speculator': [3], 'snipeProfit': 59000, 'taxes': 115500, 'owner': 1, 'role': 3, 'total': 293500}, {'round': 0, 'phase': 9, 'condition': 0, 'owner': 1, 'role': 3, 'taxes': 0, 'snipeProfit': 0, 'total': 6930}]
+Market Signals: [{'signals': [8623, 6734, 0], 'publicSignal': [1155.0132, 495.00660000000005, 0], 'taxRate': 33}]
+
+ERROR:root:Failed to decode response JSON: Expecting value: line 1 column 1 (char 0)
+response: ```json
+{
+    "action": "reset-timer",
+    "data": {}
+}
+```
 Message received: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":9}}
 Received message: {"type":"notice","message":"Phase 9 has begun."}
 Message received: {"type":"notice","message":"Phase 9 has begun."}
@@ -146,7 +978,7 @@ Received message: {"type":"event","eventType":"reset-timer","data":{}}
 Message received: {"type":"event","eventType":"reset-timer","data":{}}
 Received message: {"type":"event","eventType":"round-end","data":{"round":0}}
 Message received: {"type":"event","eventType":"round-end","data":{"round":0}}
-Received message: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":0,"value":468000,"firstDeclaration":350000,"firstTaxes":3500,"firstRepurchase":0,"snipes":[{"player":{"number":4,"role":1},"target":{"number":1,"role":3},"profit":59000}],"market":{"balance":60000,"shares":6,"price":1155.0099},"secondDeclaration":350000,"secondTaxes":115500,"secondRepurchase":-59000}}
-Message received: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":0,"value":468000,"firstDeclaration":350000,"firstTaxes":3500,"firstRepurchase":0,"snipes":[{"player":{"number":4,"role":1},"target":{"number":1,"role":3},"profit":59000}],"market":{"balance":60000,"shares":6,"price":1155.0099},"secondDeclaration":350000,"secondTaxes":115500,"secondRepurchase":-59000}}
+Received message: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":0,"value":468000,"firstDeclaration":350000,"firstTaxes":3500,"firstRepurchase":0,"snipes":[{"player":{"number":3,"role":1},"target":{"number":1,"role":3},"profit":59000}],"market":{"balance":60000,"shares":6,"price":1155.0132},"secondDeclaration":350000,"secondTaxes":115500,"secondRepurchase":-59000}}
+Message received: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":0,"value":468000,"firstDeclaration":350000,"firstTaxes":3500,"firstRepurchase":0,"snipes":[{"player":{"number":3,"role":1},"target":{"number":1,"role":3},"profit":59000}],"market":{"balance":60000,"shares":6,"price":1155.0132},"secondDeclaration":350000,"secondTaxes":115500,"secondRepurchase":-59000}}
 Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":0}}
-Message received: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":0}}
+ERROR:root:Unexpected error in receive_message: 'WebSocketClient' object has no attribute 'send'
