@@ -8,20 +8,15 @@ class LLMCommunicator:
         self.client = OpenAI()
 
     def query_openai(self, summary):
-        """
-        Sends the summarized query to the LLM agent with instructions.
-
-        Args:
-            summary (str): The summarized query to be sent.
-        """
         try:
             instructions = (
                 "You are an agent in a Harberger tax simulation. "
-                "Based on the following events, please respond with an appropriate action."
-                "Your response should be in JSON format."
+                "Based on the following events, please respond with an appropriate action. "
+                "Your response should be in valid JSON format without any extra text, explanation, or formatting."
             )
 
             prompt = f"{instructions}\n\nEvents Summary:\n{summary}"
+            logging.debug(f"Sending prompt to LLM: {prompt}")
 
             message = [{"role": "user", "content": prompt}]
             response = self.client.chat.completions.create(
@@ -30,48 +25,40 @@ class LLMCommunicator:
             )
 
             response_text = response.choices[0].message.content
-
+            logging.debug(f"Received response from LLM: {response_text}")
 
             ws_message = self.process_websocket_message(response_text)
             return ws_message
 
         except Exception as e:
-            logging.error(f"Error communicating with OpenAI: {e} (LLMCommunicator.query_openai)")
+            logging.error(
+                f"Error communicating with OpenAI: {e} (LLMCommunicator.query_openai)")
             return None
 
     def process_websocket_message(self, response_text):
-        """
-        Processes the response text from the LLM agent and generates the appropriate WebSocket message.
-
-        Args:
-            response_text (str): The response text from the LLM agent.
-
-        Returns:
-            str: The WebSocket message to be sent.
-
-        """
         cleaned_response_text = None
         try:
-            # Remove the triple backticks and any leading or trailing whitespace
+            # Remove any extraneous formatting
             cleaned_response_text = response_text.strip().strip('```').strip()
 
-            # Remove the "json" label if it exists
-            if cleaned_response_text.startswith("json"):
-                cleaned_response_text = cleaned_response_text[
-                                        len("json"):].strip()
+            # Remove labels like "json" if they exist
+            cleaned_response_text = re.sub(r'^json', '', cleaned_response_text,
+                                           flags=re.IGNORECASE).strip()
 
-            # Attempt to parse the cleaned JSON
+            # Check if the response text is valid JSON
             response_json = json.loads(cleaned_response_text)
 
-            if response_json:
+            # Additional validation if needed
+            if "content" in response_json and isinstance(
+                    response_json["content"], dict):
                 return response_json
             else:
-                logging.error("Message field not found in the response JSON.")
+                logging.error("Unexpected JSON structure.")
                 return None
 
         except json.JSONDecodeError as e:
             logging.error(
-                f"Failed to decode JSON: {e} - Response text: {cleaned_response_text}")
+                f"LLMCommunicator: Failed to decode JSON: {e} - Response text: {cleaned_response_text}")
             return None
         except Exception as e:
             logging.error(
@@ -88,6 +75,6 @@ class LLMCommunicator:
         """
         if websocket_client:
             print(f"Sending to WS: {message}")
-            websocket_client.send_message(message)
+            websocket_client.send_message(json.dumps(message))  # Ensure message is in JSON string format
         else:
             logging.error("WebSocket client not available.")

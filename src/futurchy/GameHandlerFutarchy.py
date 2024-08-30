@@ -4,7 +4,6 @@ from queue import Queue
 import logging
 from src.LLMCommunicator import LLMCommunicator
 
-# TODO: Use process_websocket_message & send_to_websocket_client from LLMCommunicator
 
 class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):
@@ -54,11 +53,9 @@ class GameHandler:
             else:
                 self.message_queue.put((2, message))  # Default priority
 
-            if self.verbose:
-                print(f"Message received: {message}")
 
         except json.JSONDecodeError as e:
-            logging.error(f"Failed to decode message JSON: {e} (GameHandler receive_message)")
+            logging.error(f"GameHandler: Failed to decode message JSON: {e} (GameHandler receive_message)")
             self.handle_decoding_error(message)
         except Exception as e:
             logging.error(f"Unexpected error in receive_message: {e}")
@@ -273,28 +270,30 @@ class GameHandler:
 
         return summary
 
-    def get_phase_description(self, phase_number, role):
+    def get_phase_description(self, phase_number, role=None):
         role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
         role_name = role_map.get(role, "Participant")
 
         phase_descriptions = {
-            0: f"Introduction Phase: In this phase, players are introduced to the game and its rules. Familiarize yourself with the roles and objectives to prepare for the upcoming phases.",
+            0: f"Player is Ready: The game waits until all players declare themselves ready. No direct interaction is required from the player in this phase.\n\nExpected JSON Output:\n```json\n{{\n    \"content\": {{\n        \"gameId\": {self.game_id},\n        \"type\": \"player-is-ready\"\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 0,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
 
-            1: f"Presentation Phase: In this phase, you are presented with the current state of the game, including your role as {role_name}, your plots of land, and potential values of land under different conditions (Project or No Project). No direct interaction is required, but familiarize yourself with the information for upcoming decisions.",
+            1: f"Observation Phase: In this phase, nothing in particular happens. All players are shown their private and some public data. This is a passive phase where players gather information for the upcoming rounds. No JSON message is generated in this phase.",
 
-            2: f"Declaration Phase: As an {role_name}, you need to declare the value of your plots of land for both potential outcomes: if the project is implemented or not. These declarations will influence the initial market signals and help determine which outcome will be favored. Ensure your declarations align with your market expectations.",
+            2: f"Declaration Phase: Each player owning a property must declare the expected revenue for the round. The declaration should be an array, with the first two items representing the revenue under different conditions (status quo and project development). The third item, although initially intended for a different project, should be set to 0.\n\nExpected JSON Output:\n```json\n{{\n    \"content\": {{\n        \"gameId\": {self.game_id},\n        \"type\": \"declare\",\n        \"declaration\": [\n            598000,\n            215000,\n            0\n        ]\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 2,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
 
-            3: f"Speculation Phase: As a {role_name}, you can choose to buy or sell shares in the markets based on the declared values from the previous phase. Assess the likelihood of each outcome (Project or No Project) being selected based on the market activity and adjust your strategy accordingly.",
+            3: f"Speculation Phase: At this stage in Futarchy, speculators may challenge declarations by property owners if they believe the declared revenue is underestimated. This is done by submitting an array of arrays where each sub-array corresponds to a condition and lists the owners being challenged. A penalty is applied based on whether the declaration was below or above the expected revenue.\n\nExpected JSON Output:\n```json\n{{\n    \"content\": {{\n        \"gameId\": {self.game_id},\n        \"type\": \"done-speculating\",\n        \"snipe\": [\n            [\n                2,\n                3\n            ],\n            [\n                1\n            ]\n        ]\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 3,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
 
-            4: f"Market Phase: This is the critical phase where you trade shares in two parallel markets—one for each possible outcome (Project or No Project). The outcome with the highest median price at the end of the phase determines the project's fate. Trade wisely to influence and benefit from the final decision.",
+            4: f"Waiting Phase: Players wait during this phase. No active player input is required, and no specific actions take place. No JSON message is generated in this phase.",
 
-            5: f"Reconciliation Phase: This phase calculates the profits and taxes based on the final market outcome and the final declarations. As an {role_name}, review the results to see how your market actions impacted your earnings.",
+            5: f"Waiting Phase: Similar to Phase 4, this phase is another waiting period where no active player input is required. No JSON message is generated in this phase.",
 
-            6: f"Final Declaration Phase: Submit your final declarations of the value of your property based on the chosen condition (Project or No Project). This declaration will be taxed at a higher rate (33%), so be strategic in setting your values.",
+            6: f"Market Phase: During this phase, players can post and cancel orders in two parallel markets, one for each condition: 0 (status quo) and 1 (development of the project). Players may buy (bid) or sell (ask) shares of the social revenue associated with each condition. The condition, price, quantity, and type (ask or bid) must be specified for each order. The 'now' parameter allows orders to be executed immediately at the best available price if set to true.\n\nExpected JSON Output (Post Order):\n```json\n{{\n    \"content\": {{\n        \"order\": {{\n            \"price\": 3560,\n            \"quantity\": 1,\n            \"condition\": 0,\n            \"type\": \"ask\",\n            \"now\": false\n        }},\n        \"gameId\": {self.game_id},\n        \"type\": \"post-order\"\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 6,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```\n\nExpected JSON Output (Cancel Order):\n```json\n{{\n    \"content\": {{\n        \"order\": {{\n            \"id\": 4,\n            \"condition\": 0\n        }},\n        \"gameId\": {self.game_id},\n        \"type\": \"cancel-order\"\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 6,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
 
-            7: f"Final Speculation Phase: Similar to the earlier speculation phase, but this time, your final declared values are in play. Decide whether to buy or sell shares based on the final market conditions and consider the potential for profit or loss.",
+            7: f"Final Declaration Phase: After the market phase, the winning condition is revealed, and players must make a final declaration of expected revenue under this condition. Only the winning condition's declaration is required in this phase.\n\nExpected JSON Output:\n```json\n{{\n    \"content\": {{\n        \"gameId\": {self.game_id},\n        \"type\": \"declare\",\n        \"declaration\": [\n            598000,\n            215000,\n            0\n        ]\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 7,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
 
-            8: f"Results Phase: This phase summarizes the outcomes of the round. You can see your earnings and how well you performed compared to others. Use this information to adjust your strategy for the next round."
+            8: f"Final Speculation Phase: Similar to Phase 3, but this occurs after the final declaration. Speculators may challenge the final declarations, and penalties are applied based on the accuracy of those declarations.\n\nExpected JSON Output:\n```json\n{{\n    \"content\": {{\n        \"gameId\": {self.game_id},\n        \"type\": \"done-speculating\",\n        \"snipe\": [\n            [\n                2,\n                3\n            ],\n            []\n        ]\n    }},\n    \"number\": {self.user_number},\n    \"tag\": \"{role_name}\",\n    \"phase\": 8,\n    \"round\": {self.current_round},\n    \"type\": \"message\"\n}}\n```",
+
+            9: f"Results Phase: In this phase, players are shown their results and wait for the next round to start. This phase serves as a summary and reflection period where players can see the outcomes of their actions. No JSON message is generated in this phase."
         }
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
@@ -303,11 +302,16 @@ class GameHandler:
         """
         Dispatches the summary to the LLM communicator and handles the response.
         """
-        print(f"Summary: \n {summary}")
+        # print(f"Summary: \n {summary}")
         ws_message = self.llm_communicator.query_openai(summary)
 
+        # Only send to WebSocket in phases 2, 3, 6, 7, and 8
+        # if ws_message and self.current_phase in [2, 3, 6, 7, 8]:
+        #     self.llm_communicator.send_to_websocket_client(
+        #         self.websocket_client, ws_message)
         if ws_message:
-            self.llm_communicator.send_to_websocket_client(self.websocket_client, ws_message)
+            self.llm_communicator.send_to_websocket_client(
+                self.websocket_client, ws_message)
 
     def stop_dispatcher(self):
         """

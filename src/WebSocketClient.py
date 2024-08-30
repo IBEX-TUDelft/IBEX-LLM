@@ -13,19 +13,16 @@ class WebSocketClient:
         self.game_handler = GameHandler(game_id, verbose=verbose, websocket_client=self, recovery=recovery)
         self.ws = websocket.WebSocketApp(url,
                                          on_message=self.on_message,
-                                         on_error=self.on_error
-                                         )
+                                         on_error=self.on_error)
         self.ws.on_open = self.on_open
         self.should_continue = True  # Flag to control the send_message loop
-        self.wst = threading.Thread(target=lambda : self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
-
+        self.wst = threading.Thread(target=lambda: self.ws.run_forever(ping_interval=30, ping_timeout=10), daemon=True)
 
     def on_message(self, ws, message):
         if self.verbose:
             print("Received message:", message)
 
         self.game_handler.receive_message(message)
-
 
     def on_error(self, ws, error):
         """
@@ -60,27 +57,20 @@ class WebSocketClient:
         if self.verbose:
             print("Sending message:", second_message)  # Debugging: Print the message to be sent
         ws.send(second_message)
-        # Start thread for user input to send messages
-        threading.Thread(target=self.send_message, args=(ws,), daemon=True).start()
 
-    def send_message(self, ws):
+    def send_message(self, message):
         """
         Function to send a message to the server.
-        :param ws: Is the WebSocketApp instance that received the message.
+        :param message: The message to be sent.
         :return:
         """
-        while self.should_continue:
-            message = input("Enter a message to send (type 'exit' to close): ")
-            if message == 'exit':
-                ws.close()
-                break
-            if self.verbose:
-                print("Sending message:", message)  # Debugging: Print the message to be sent
-            ws.send(message)
+        if self.verbose:
+            print("Sending message:", message)  # Debugging: Print the message to be sent
+        self.ws.send(message)
 
     def run_forever(self):
         """
-        Function to start the WebSocket client and keep it running until the user
+        Function to start the WebSocket client and keep it running.
         :return:
         """
         self.wst.start()
