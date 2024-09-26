@@ -47,14 +47,7 @@ class LLMCommunicator:
 
             # Check if the response text is valid JSON
             response_json = json.loads(cleaned_response_text)
-
-            # Additional validation if needed
-            if "content" in response_json and isinstance(
-                    response_json["content"], dict):
-                return response_json
-            else:
-                logging.error("Unexpected JSON structure.")
-                return None
+            return response_json
 
         except json.JSONDecodeError as e:
             logging.error(
@@ -74,7 +67,6 @@ class LLMCommunicator:
             message (str): The message to be sent.
         """
         if websocket_client:
-            print(f"Sending to WS: {message}")
             websocket_client.send_message(json.dumps(message))  # Ensure message is in JSON string format
         else:
             logging.error("WebSocket client not available.")

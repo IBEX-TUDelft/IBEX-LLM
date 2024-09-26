@@ -48,15 +48,12 @@ class WebSocketClient:
         :return:
         """
         print("### Connection is open ###")
-        # Sending predefined message immediately upon connection
+
         initial_message = json.dumps({"gameId": self.game_id, "type": "join", "recovery": self.recovery})
+
         if self.verbose:
             print("Sending message:", initial_message)  # Debugging: Print the message to be sent
         ws.send(initial_message)
-        second_message = json.dumps({"gameId": self.game_id, "type": "player-is-ready"})
-        if self.verbose:
-            print("Sending message:", second_message)  # Debugging: Print the message to be sent
-        ws.send(second_message)
 
     def send_message(self, message):
         """
