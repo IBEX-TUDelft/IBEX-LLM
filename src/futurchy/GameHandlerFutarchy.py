@@ -9,22 +9,18 @@ class GameHandler:
     def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):
         self.game_id = game_id
         self.verbose = verbose
-        self.recovery = recovery  # Store the recovery value
-        self.message_queue = Queue(maxsize=10)
-        self.dispatch_interval = 5  # Dispatch interval during the Market Phase
+        self.recovery = recovery
+        self.message_queue = Queue(maxsize=100)
+        self.dispatch_interval = 5
         self.player_wallet = {}
         self.user_number = None
         self.user_role = None
-        self.current_phase = 0
+        self.current_phase = None
         self.current_round = 1
         self.websocket_client = websocket_client
         self.roles = {}
         self.properties = {}
-        self.in_market_phase = False  # Flag to check if the Market Phase is active
-
-        # Start the dispatch timer
-        self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
-        self.dispatch_timer.start()
+        self.in_market_phase = False
 
         self.llm_communicator = LLMCommunicator()
 
@@ -40,34 +36,41 @@ class GameHandler:
         try:
             message_data = json.loads(message)
             event_type = message_data.get('eventType', '')
+            message_type = message_data.get('type', '')
+
+            self.message_queue.put((2, message))
 
             if event_type == 'assign-name':
                 print(f"User assigned name: {message_data['data']['name']}")
                 self.user_number = message_data['data']['number']
+                is_ready_message = json.dumps({
+                    "gameId": self.game_id,
+                    "type": "player-is-ready"
+                })
+                if self.websocket_client:
+                    self.websocket_client.send_message(is_ready_message)
+                if self.verbose:
+                    print(f"Sent 'player-is-ready' message: {is_ready_message}")
             elif event_type == 'players-known':
                 self.handle_players_known(message_data['data']['players'])
             elif event_type == 'assign-role':
                 self.handle_assign_role(message_data['data'])
             elif event_type == 'phase-transition':
                 self.handle_phase_transition(message_data['data'])
-                self.dispatch_summary()  # Send summary at the end of each phase
             else:
-                self.message_queue.put((2, message))  # Default priority
-
+                pass
 
         except json.JSONDecodeError as e:
-            logging.error(f"GameHandler: Failed to decode message JSON: {e} (GameHandler receive_message)")
+            logging.error(f"GameHandler: Failed to decode message JSON: {e}")
             self.handle_decoding_error(message)
         except Exception as e:
             logging.error(f"Unexpected error in receive_message: {e}")
 
     def handle_decoding_error(self, message):
-        # Simplified fallback strategy for handling decoding errors
         logging.info(f"Handling decoding error for message: {message}")
-        # Implement additional fallback logic as needed
 
     def handle_players_known(self, players):
-        role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
+        role_map = {1: "Owner", 2: "Developer", 3: "Owner", 4: "Owner", 5: "Owner", 6: "Owner", 7: "Speculator", 8: "Speculator", 9: "Speculator", 10: "Speculator", 11: "Speculator", 12: "Speculator"}
         for player in players:
             number = player['number']
             role_number = player['role']
@@ -80,12 +83,12 @@ class GameHandler:
 
     def handle_assign_role(self, data):
         try:
-            role = data['role']
-            self.user_role = role
+            role_number = data['role']
+            role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
+            self.user_role = role_map.get(role_number, "Unknown")
             if self.verbose:
                 print(f"User assigned role: {self.user_role}")
 
-            # Additional logic to handle wallet, property, and other data
             self.update_player_wallet(data.get('wallet'))
             self.properties[self.user_number] = data.get('property', {})
 
@@ -102,198 +105,100 @@ class GameHandler:
             logging.error(f"Unexpected error in update_player_wallet: {e}")
 
     def handle_phase_transition(self, phase_data):
-        """
-        Handles phase transitions and logs the phase description.
-        """
         new_phase = phase_data.get('phase', self.current_phase)
         self.current_phase = new_phase
 
-        # Send "is ready" message when Phase 0 occurs
-        if new_phase == 0:
-            is_ready_message = json.dumps({
-                    "gameId": self.game_id,
-                    "type": "player-is-ready"
-                })
-            if self.websocket_client:
-                self.websocket_client.send_message(is_ready_message)
-            if self.verbose:
-                print(f"Sent 'is ready' message: {is_ready_message}")
-
-        # Track phase transitions for context
-        self.context['phase_transitions'].append(new_phase)
-
-        # Ensure the phase is correctly handled, especially for unknown phases
-        phase_description = self.get_phase_description(new_phase,
-                                                       self.user_role)
+        phase_description = self.get_phase_description(new_phase)
         if phase_description == "Unknown Phase":
             self.handle_unknown_phase(new_phase)
 
-        # Update the market phase flag
-        self.in_market_phase = (new_phase == 6)
-
         if self.verbose:
-            print(
-                f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+            print(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
-        logging.info(
-            f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+        logging.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
+        self.dispatch_summary()
 
     def handle_unknown_phase(self, phase_number):
-        """
-        Handle scenarios where the phase is unknown or not recognized.
-        """
         logging.warning(f"Handling unknown phase: {phase_number}")
         self.dispatch_summary_to_llm(f"Unknown phase encountered: {phase_number}. Please review past actions and prepare accordingly.")
 
     def dispatch_summary(self):
-        """
-        Summarizes and dispatches the collected messages to the LLM agent.
-        During the Market Phase, dispatches occur every X seconds or after X messages.
-        """
-        action_required_phases = [2, 3, 7, 8]
+        action_required_phases = {
+            0: ["Owner", "Developer", "Speculator"],
+            1: [],
+            2: ["Owner", "Developer"],
+            3: ["Speculator"],
+            4: [],
+            5: [],
+            6: ["Owner", "Developer", "Speculator"],
+            7: ["Owner", "Developer"],
+            8: ["Speculator"],
+            9: []
+        }
 
-        if self.current_phase in action_required_phases:
-            print(f"Phase {self.current_phase} dispatch started.")
-            if not self.message_queue.empty():
-                messages_to_summarize = []
-                while not self.message_queue.empty():
-                    item = self.message_queue.get()
-                    if isinstance(item, tuple) and len(item) == 2:
-                        priority, message = item
-                        messages_to_summarize.append(message)
-                    else:
-                        logging.error(
-                            f"Unexpected item structure in queue: {item}")
-                        continue
+        roles_requiring_action = action_required_phases.get(self.current_phase, [])
 
-                if messages_to_summarize:
-                    summary = self.summarize_messages(messages_to_summarize)
-                    self.dispatch_summary_to_llm(summary)
+        if self.user_role in roles_requiring_action:
+            print(f"Phase {self.current_phase} dispatch started for role {self.user_role}.")
+            messages_to_summarize = []
+            while not self.message_queue.empty():
+                item = self.message_queue.get()
+                if isinstance(item, tuple) and len(item) == 2:
+                    priority, message = item
+                    messages_to_summarize.append(message)
                 else:
-                    print("No valid messages to summarize.")
-            else:
-                print("No messages to summarize and dispatch.")
+                    logging.error(f"Unexpected item structure in queue: {item}")
+                    continue
 
-        elif self.current_phase == 6:  # Market Phase
-            print("Market Phase dispatch started.")
-            if not self.message_queue.empty():
-                print(
-                    f"Queue size before dispatch: {self.message_queue.qsize()}")
+            summary = self.summarize_messages(messages_to_summarize)
+            self.dispatch_summary_to_llm(summary)
 
-                messages_to_summarize = []
-                while not self.message_queue.empty():
-                    item = self.message_queue.get()
-                    if isinstance(item, tuple) and len(item) == 2:
-                        priority, message = item
-                        messages_to_summarize.append(message)
-                    else:
-                        logging.error(
-                            f"Unexpected item structure in queue: {item}")
-                        continue
-
-                if messages_to_summarize:
-                    summary = self.summarize_messages(messages_to_summarize)
-                    self.dispatch_summary_to_llm(summary)
-                else:
-                    print("No valid messages to summarize.")
-            else:
-                print("No messages to summarize and dispatch.")
-
-            self.dispatch_timer = threading.Timer(self.dispatch_interval,
-                                                  self.dispatch_summary)
-            self.dispatch_timer.start()
-
-        elif self.current_phase == 0:
-            print("End-of-Phase dispatch started.")
-            if not self.message_queue.empty():
-                messages_to_summarize = []
-                while not self.message_queue.empty():
-                    item = self.message_queue.get()
-                    if isinstance(item, tuple) and len(item) == 2:
-                        priority, message = item
-                        try:
-                            # Parse the message into a dictionary
-                            message_data = json.loads(message)
-                            # Check if the message is a "player-rejoined" message, skip it during phase 0
-                            if message_data.get('type') == 'player-rejoined':
-                                print(
-                                    "Skipping player-rejoined message in Phase 0.")
-                                continue
-                        except json.JSONDecodeError as e:
-                            logging.error(f"Failed to decode JSON: {e}")
-                            continue
-                        messages_to_summarize.append(message)
-                    else:
-                        logging.error(
-                            f"Unexpected item structure in queue: {item}")
-                        continue
-
-                if messages_to_summarize:
-                    summary = self.summarize_messages(messages_to_summarize)
-                    self.dispatch_summary_to_llm(summary)
-                else:
-                    print("No valid messages to summarize.")
-            else:
-                print("No messages to summarize and dispatch.")
+            if self.current_phase == 6:
+                self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
+                self.dispatch_timer.start()
         else:
-            # Handle other phases, if necessary
-            pass
+            print(f"No action required for Phase {self.current_phase} for role {self.user_role}.")
 
     def summarize_messages(self, messages):
-        """
-        Summarizes the collected messages into a single query.
-
-        Args:
-            messages (list): List of messages to be summarized.
-
-        Returns:
-            str: The summarized query string.
-        """
         summary = "Simulation Events Summary:\n"
 
-        # Track if the phase description has been added to avoid repetition
-        phase_description_added = False
+        phase_description = self.get_phase_description(self.current_phase, self.user_role)
+        summary += f"Current Phase ({self.current_phase}): {phase_description}\n"
 
-        for index, message in enumerate(messages):
-            try:
-                message_data = json.loads(message)
-                message_type = message_data.get('type', None)
-                event_type = message_data.get('eventType', None)
+        if messages:
+            for index, message in enumerate(messages):
+                try:
+                    message_data = json.loads(message)
+                    message_type = message_data.get('type', None)
+                    event_type = message_data.get('eventType', None)
 
-                if not phase_description_added:
-                    # Include the phase description at the beginning of the summary, once per phase
-                    phase_description = self.get_phase_description(self.current_phase, self.user_role)
-                    summary += f"Current Phase ({self.current_phase}): {phase_description}\n"
-                    phase_description_added = True
+                    if message_type == 'event':
+                        if event_type == 'profit':
+                            self.context['profits'].append(message_data['data'])
+                        elif event_type == 'declarations-published':
+                            self.context['declarations'].append(message_data['data']['declarations'])
+                        elif event_type == 'value-signals':
+                            self.context['market_signals'].append(message_data['data'])
+                        self.context['player_actions'].append({'type': event_type, 'data': message_data['data']})
 
-                # Process events and store them in context
-                if message_type == 'event':
-                    if event_type == 'profit':
-                        self.context['profits'].append(message_data['data'])
-                    elif event_type == 'declarations-published':
-                        self.context['declarations'].append(message_data['data']['declarations'])
-                    elif event_type == 'value-signals':
-                        self.context['market_signals'].append(message_data['data'])
-                    # Track player actions
-                    self.context['player_actions'].append({'type': event_type, 'data': message_data['data']})
+                    if message_type == 'event':
+                        summary += f"Event: {event_type} with data {message_data['data']}\n"
+                    elif message_type == 'info':
+                        summary += f"Info: {message_data['message']}\n"
+                    elif message_type == 'notice':
+                        summary += f"Notice: {message_data['message']}\n"
 
-                # Include event and info messages in the summary
-                if message_type == 'event':
-                    summary += f"Event: {event_type} with data {message_data['data']}\n"
-                elif message_type == 'info':
-                    summary += f"Info: {message_data['message']}\n"
-                elif message_type == 'notice':
-                    summary += f"Notice: {message_data['message']}\n"
+                except ValueError as ve:
+                    logging.error(f"ValueError in summarize_messages: {ve}")
+                except KeyError as ke:
+                    logging.error(f"KeyError in summarize_messages: {ke}")
+                    logging.error(f"Message causing the error: {message}")
+                except Exception as e:
+                    logging.error(f"Error processing message {index + 1}/{len(messages)}: {e}")
+        else:
+            summary += "No new messages received.\n"
 
-            except ValueError as ve:
-                logging.error(f"ValueError in summarize_messages: {ve}")
-            except KeyError as ke:
-                logging.error(f"KeyError in summarize_messages: {ke}")
-                logging.error(f"Message causing the error: {message}")
-            except Exception as e:
-                logging.error(f"Error processing message {index + 1}/{len(messages)}: {e}")
-
-        # Add cumulative context summary
         summary += "\nCumulative Context:\n"
         summary += f"Past Phase Transitions: {self.context['phase_transitions']}\n"
         summary += f"Player Actions: {self.context['player_actions']}\n"
@@ -304,29 +209,24 @@ class GameHandler:
         return summary
 
     def get_phase_description(self, phase_number, role=None):
-        role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
-        role_name = role_map.get(role, "Participant")
+        role_name = role or self.user_role or "Participant"
 
         phase_descriptions = {
-            0: f"Player is Ready: The game waits until all players declare themselves ready. No direct interaction is required from the player in this phase.\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"player-is-ready\"\n}}",
-            1: f"Observation Phase: In this phase, players are shown their private and some public data. This is a passive phase where players gather information for the upcoming rounds. No JSON message is generated in this phase.",
-            2: f"Declaration Phase: Each player owning a property must declare the expected revenue for the round. The declaration should reflect accurate and strategic revenue estimates based on current market conditions.\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        598000,\n        215000,\n        0\n    ]\n}}",
-            3: f"Speculation Phase: At this stage, speculators may challenge declarations by property owners. Submit an array of arrays where each sub-array corresponds to a condition and lists the owners being challenged.\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [\n            2,\n            3\n        ],\n        [\n            1\n        ]\n    ]\n}}",
-            4: "Waiting Phase: No active player input is required.",
-            5: "Waiting Phase: No active player input is required.",
-            6: f"Market Phase: Players can post and cancel orders in two parallel markets.\n\nExpected JSON Output (Post Order):\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"post-order\",\n    \"order\": {{\n        \"price\": 3560,\n        \"quantity\": 1,\n        \"condition\": 0,\n        \"type\": \"ask\",\n        \"now\": false\n    }}\n}}\n\nExpected JSON Output (Cancel Order):\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"cancel-order\",\n    \"order\": {{\n        \"id\": 4,\n        \"condition\": 0\n    }}\n}}",
-            7: f"Final Declaration Phase: Players make a final declaration of expected revenue under the winning condition.\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        598000,\n        215000,\n        0\n    ]\n}}",
-            8: f"Final Speculation Phase: Similar to Phase 3.\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [\n            2,\n            3\n        ],\n        []\n    ]\n}}",
+            0: "Player is Ready: The game waits until all players declare themselves ready. No action is required.\n\nExpected JSON Output:\n{\n    \"gameId\": %s,\n    \"type\": \"player-is-ready\"\n}" % self.game_id,
+            1: "Presentation Phase: Players are shown private and public data. This is a passive phase.",
+            2: "Declaration Phase: Owners and Developer should declare their expected revenue for the round.\n\nExpected JSON Output:\n{\n    \"gameId\": %s,\n    \"type\": \"declare\",\n    \"declaration\": [\n        value_for_no_project,\n        value_for_project,\n        0\n    ]\n}" % self.game_id,
+            3: "Speculation Phase: Speculators may decide to challenge declarations by Owners and Developer.\n\nExpected JSON Output:\n{\n    \"gameId\": %s,\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge_no_project],\n        [owners_to_challenge_project]\n    ]\n}" % self.game_id,
+            4: "Waiting Phase: Players wait in this phase.",
+            5: "Waiting Phase: Players wait in this phase.",
+            6: "Market Phase: All players can post and cancel orders.\n\nExpected JSON Output (Post Order):\n{\n    \"gameId\": %s,\n    \"type\": \"post-order\",\n    \"order\": {\n        \"price\": price_value,\n        \"quantity\": 1,\n        \"condition\": condition_number,\n        \"type\": \"ask_or_bid\",\n        \"now\": true_or_false\n    }\n}" % self.game_id,
+            7: "Final Declaration Phase: Owners and Developer submit their final declaration for the winning condition.\n\nExpected JSON Output:\n{\n    \"gameId\": %s,\n    \"type\": \"declare\",\n    \"declaration\": [\n        final_value_for_winning_condition\n    ]\n}" % self.game_id,
+            8: "Final Speculation Phase: Speculators may speculate again.\n\nExpected JSON Output:\n{\n    \"gameId\": %s,\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge]\n    ]\n}" % self.game_id,
             9: "Results Phase: Players are shown their results and wait for the next round."
         }
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
 
     def dispatch_summary_to_llm(self, summary):
-        """
-        Dispatches the summary to the LLM communicator and handles the response.
-        """
-        # print(f"Summary: \n {summary}")
         ws_message = self.llm_communicator.query_openai(summary)
 
         if ws_message:
@@ -334,7 +234,5 @@ class GameHandler:
                 self.websocket_client, ws_message)
 
     def stop_dispatcher(self):
-        """
-        Stops the dispatch timer gracefully.
-        """
-        self.dispatch_timer.cancel()
+        if hasattr(self, 'dispatch_timer'):
+            self.dispatch_timer.cancel()
