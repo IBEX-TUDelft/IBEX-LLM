@@ -150,7 +150,31 @@ class GameHandler:
         Summarizes and dispatches the collected messages to the LLM agent.
         During the Market Phase, dispatches occur every X seconds or after X messages.
         """
-        if self.current_phase == 6:  # Market Phase
+        action_required_phases = [2, 3, 7, 8]
+
+        if self.current_phase in action_required_phases:
+            print(f"Phase {self.current_phase} dispatch started.")
+            if not self.message_queue.empty():
+                messages_to_summarize = []
+                while not self.message_queue.empty():
+                    item = self.message_queue.get()
+                    if isinstance(item, tuple) and len(item) == 2:
+                        priority, message = item
+                        messages_to_summarize.append(message)
+                    else:
+                        logging.error(
+                            f"Unexpected item structure in queue: {item}")
+                        continue
+
+                if messages_to_summarize:
+                    summary = self.summarize_messages(messages_to_summarize)
+                    self.dispatch_summary_to_llm(summary)
+                else:
+                    print("No valid messages to summarize.")
+            else:
+                print("No messages to summarize and dispatch.")
+
+        elif self.current_phase == 6:  # Market Phase
             print("Market Phase dispatch started.")
             if not self.message_queue.empty():
                 print(
