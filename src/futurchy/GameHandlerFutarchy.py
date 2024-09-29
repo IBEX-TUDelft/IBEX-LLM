@@ -178,7 +178,8 @@ class GameHandler:
             self.dispatch_timer = threading.Timer(self.dispatch_interval,
                                                   self.dispatch_summary)
             self.dispatch_timer.start()
-        else:
+
+        elif self.current_phase == 0:
             print("End-of-Phase dispatch started.")
             if not self.message_queue.empty():
                 messages_to_summarize = []
@@ -186,6 +187,17 @@ class GameHandler:
                     item = self.message_queue.get()
                     if isinstance(item, tuple) and len(item) == 2:
                         priority, message = item
+                        try:
+                            # Parse the message into a dictionary
+                            message_data = json.loads(message)
+                            # Check if the message is a "player-rejoined" message, skip it during phase 0
+                            if message_data.get('type') == 'player-rejoined':
+                                print(
+                                    "Skipping player-rejoined message in Phase 0.")
+                                continue
+                        except json.JSONDecodeError as e:
+                            logging.error(f"Failed to decode JSON: {e}")
+                            continue
                         messages_to_summarize.append(message)
                     else:
                         logging.error(
@@ -199,6 +211,9 @@ class GameHandler:
                     print("No valid messages to summarize.")
             else:
                 print("No messages to summarize and dispatch.")
+        else:
+            # Handle other phases, if necessary
+            pass
 
     def summarize_messages(self, messages):
         """

@@ -2,6 +2,8 @@ import re
 import websocket
 from WebSocketClient import WebSocketClient
 
+
+
 def parse_url(url):
     """
     Parse the URL to extract the hostname, gameId and recovery token.
