@@ -20,7 +20,7 @@ class LLMCommunicator:
 
             message = [{"role": "user", "content": prompt}]
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-3.5-turbo",
                 messages=message,
             )
 
