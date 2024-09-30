@@ -70,7 +70,7 @@ class GameHandler:
         logging.info(f"Handling decoding error for message: {message}")
 
     def handle_players_known(self, players):
-        role_map = {1: "Owner", 2: "Developer", 3: "Owner", 4: "Owner", 5: "Owner", 6: "Owner", 7: "Speculator", 8: "Speculator", 9: "Speculator", 10: "Speculator", 11: "Speculator", 12: "Speculator"}
+        role_map = {1: "Owner", 2: "Developer", 3: "Owner"}
         for player in players:
             number = player['number']
             role_number = player['role']
