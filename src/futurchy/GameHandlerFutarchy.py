@@ -206,6 +206,19 @@ class GameHandler:
         summary += f"Profits: {self.context['profits']}\n"
         summary += f"Market Signals: {self.context['market_signals']}\n"
 
+        summary += "\nPlayer Status:\n"
+        summary += f"Wallet Balance: {self.player_wallet}\n"
+        summary += f"Properties Owned: {self.properties.get(self.user_number, {})}\n"
+
+        # Include recent market activity if available
+        if self.context['market_signals']:
+            summary += f"Recent Market Signals: {self.context['market_signals'][-1]}\n"
+
+        # Include recent profits or losses
+        if self.context['profits']:
+            summary += f"Recent Profits: {self.context['profits'][-1]}\n"
+
+        print(f"Summary: {summary}")
         return summary
 
     def get_phase_description(self, phase_number, role=None):
