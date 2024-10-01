@@ -72,7 +72,8 @@ class GameHandler:
         elif action_type == 'profit':
             return (
                 f"Profit: Round {data.get('round')}, Phase {data.get('phase')}, "
-                f"Property {data.get('property')}, Total = {data.get('total')}")
+                f"Property {data.get('property')}, Total = {data.get('total')}"
+            )
 
         elif action_type == 'value-signals':
             return (f"Market Signals: Signals={data.get('signals')}, "
@@ -82,16 +83,20 @@ class GameHandler:
             return (
                 f"Add Order: ID={data.get('order', {}).get('id')}, Sender={data.get('order', {}).get('sender')}, "
                 f"Price={data.get('order', {}).get('price')}, Type={data.get('order', {}).get('type')}, "
-                f"Condition={data.get('order', {}).get('condition')}")
+                f"Condition={data.get('order', {}).get('condition')}"
+            )
 
         elif action_type == 'contract-fulfilled':
             return (
                 f"Contract Fulfilled: From={data.get('from')}, To={data.get('to')}, "
-                f"Price={data.get('price')}, Condition={data.get('condition')}, Median={data.get('median')}")
+                f"Price={data.get('price')}, Condition={data.get('condition')}, Median={data.get('median')}"
+            )
 
         elif action_type == 'delete-order':
-            return (f"Delete Order: ID={data.get('order', {}).get('id')}, "
-                    f"Type={data.get('order', {}).get('type')}, Condition={data.get('order', {}).get('condition')}")
+            return (
+                f"Delete Order: ID={data.get('order', {}).get('id')}, "
+                f"Type={data.get('order', {}).get('type')}, Condition={data.get('order', {}).get('condition')}"
+            )
 
         else:
             # For other action types, return only the type with formatting
@@ -113,12 +118,12 @@ class GameHandler:
                 self.context[category].append(item)
 
             # Enforce max context size
-            if len(self.context[category]) > self.max_context.get(category,
-                                                                  10):
+            if len(self.context[category]) > self.max_context.get(category, 10):
                 self.context[category].pop(0)
         else:
             logging.warning(
-                f"Attempted to add to unknown context category: {category}")
+                f"Attempted to add to unknown context category: {category}"
+            )
 
     def receive_message(self, message):
         try:
@@ -146,7 +151,8 @@ class GameHandler:
                     self.websocket_client.send_message(is_ready_message)
                 if self.verbose:
                     print(
-                        f"Sent 'player-is-ready' message: {is_ready_message}")
+                        f"Sent 'player-is-ready' message: {is_ready_message}"
+                    )
             elif event_type == 'players-known':
                 self.handle_players_known(message_data['data']['players'])
             elif event_type == 'assign-role':
@@ -196,7 +202,8 @@ class GameHandler:
             if wallet_data:
                 # Assuming wallet_data is a list of wallets, sum them up
                 total_balance = sum(
-                    wallet['balance'] for wallet in wallet_data)
+                    wallet['balance'] for wallet in wallet_data
+                )
                 self.player_wallet['total_balance'] = total_balance
                 if self.verbose:
                     print(f"Updated player wallet: {self.player_wallet}")
@@ -213,10 +220,12 @@ class GameHandler:
 
         if self.verbose:
             print(
-                f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+                f"Phase Transitioned to Phase {new_phase}: {phase_description}"
+            )
 
         logging.info(
-            f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+            f"Phase Transitioned to Phase {new_phase}: {phase_description}"
+        )
 
         # Add to context only if it's a relevant action
         if 'phase-transition' in self.relevant_actions:
@@ -231,6 +240,16 @@ class GameHandler:
                 'market_signals': [],
                 'phase_transitions': []
             }
+            is_ready_message = json.dumps({
+                "gameId": self.game_id,
+                "type": "player-is-ready"
+            })
+            if self.websocket_client:
+                self.websocket_client.send_message(is_ready_message)
+                if self.verbose:
+                    print(
+                        f"Sent 'player-is-ready' message: {is_ready_message}"
+                    )
 
         self.dispatch_summary()
 
@@ -253,7 +272,8 @@ class GameHandler:
 
         if self.user_role in roles_requiring_action:
             print(
-                f"Phase {self.current_phase} dispatch started for role {self.user_role}.")
+                f"Phase {self.current_phase} dispatch started for role {self.user_role}."
+            )
             messages_to_summarize = []
             while not self.message_queue.empty():
                 item = self.message_queue.get()
@@ -262,7 +282,8 @@ class GameHandler:
                     messages_to_summarize.append(message)
                 else:
                     logging.error(
-                        f"Unexpected item structure in queue: {item}")
+                        f"Unexpected item structure in queue: {item}"
+                    )
                     continue
 
             summary = self.summarize_messages(messages_to_summarize)
@@ -274,7 +295,8 @@ class GameHandler:
                 self.dispatch_timer.start()
         else:
             print(
-                f"No action required for Phase {self.current_phase} for role {self.user_role}.")
+                f"No action required for Phase {self.current_phase} for role {self.user_role}."
+            )
 
     def summarize_messages(self, messages):
         summary = "Simulation Events Summary:\n"
@@ -340,7 +362,8 @@ class GameHandler:
                     logging.error(f"Message causing the error: {message}")
                 except Exception as e:
                     logging.error(
-                        f"Error processing message {index + 1}/{len(messages)}: {e}")
+                        f"Error processing message {index + 1}/{len(messages)}: {e}"
+                    )
         else:
             summary += "No new messages received.\n"
 
@@ -394,12 +417,12 @@ class GameHandler:
             latest_signal = self.context['market_signals'][-1]
             summary += (
                 f"Latest Market Signal: Signals={latest_signal['signals']}, "
-                f"Tax Rate={latest_signal['taxRate']}\n")
+                f"Tax Rate={latest_signal['taxRate']}\n"
+            )
         # Recent Profits
         if self.context['profits']:
             recent_profit = self.context['profits'][-1]
             summary += f"Recent Profits: Total={recent_profit['total']}\n"
-
 
         print(f"Summary: {summary}")
         return summary
@@ -417,8 +440,11 @@ class GameHandler:
             6: (
                 "Market Phase: All players can post and cancel orders. "
                 "You may choose to post 'bid' orders to buy assets or 'ask' orders to sell assets you own. "
-                "There are two conditions in this phase: Condition 0 and Condition 1. "
-                "Condition 0 typically refers to the standard market operations, while Condition 1 may involve special rules or exceptions. "
+                "There are two conditions in this phase:\n"
+                "- **Condition 0**: Standard market operations where 'bid' and 'ask' orders are matched directly based on price and type. "
+                "This condition follows the typical supply and demand dynamics of the market.\n"
+                "- **Condition 1**: Special market operations that may involve priority rules, auction-based matching, or other exceptions. "
+                "Under this condition, orders might be matched based on additional criteria or rules that differ from standard operations.\n\n"
                 "Consider the current market conditions, your objectives, and potential profitability when deciding whether to bid or ask. "
                 "If you wish to acquire assets, posting 'bid' orders might be advantageous. "
                 "If you want to sell assets you own, consider posting 'ask' orders. "
@@ -448,7 +474,8 @@ class GameHandler:
 
         if ws_message:
             self.llm_communicator.send_to_websocket_client(
-                self.websocket_client, ws_message)
+                self.websocket_client, ws_message
+            )
 
     def stop_dispatcher(self):
         if hasattr(self, 'dispatch_timer'):

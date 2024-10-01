@@ -23,7 +23,7 @@ class LLMCommunicator:
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=message,
-                temperature=0.7,
+                # temperature=0.7,
             )
 
             response_text = response.choices[0].message.content
