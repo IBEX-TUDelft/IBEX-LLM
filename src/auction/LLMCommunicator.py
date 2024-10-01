@@ -1,28 +1,13 @@
-# LLMCommunicator.py
-
 import json
+from openai import OpenAI
 import logging
 import re
-from openai import OpenAI
-
-# Configure Logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
 
 class LLMCommunicator:
-    def __init__(self, openai_api_key=None):
-        self.logger = logging.getLogger(self.__class__.__name__)
+    def __init__(self):
         self.client = OpenAI()
 
     def query_openai(self, summary):
-        """
-        Sends the summary to OpenAI and retrieves the response.
-        """
         try:
             instructions = (
                 "You are an agent participating in a Harberger tax simulation game. "
@@ -32,7 +17,7 @@ class LLMCommunicator:
             )
 
             prompt = f"{instructions}\n\nEvents Summary:\n{summary}"
-            self.logger.debug(f"Sending prompt to LLM: {prompt}")
+            logging.debug(f"Sending prompt to LLM: {prompt}")
 
             message = [{"role": "user", "content": prompt}]
             response = self.client.chat.completions.create(
@@ -42,46 +27,48 @@ class LLMCommunicator:
             )
 
             response_text = response.choices[0].message.content
-            self.logger.debug(f"Received response from LLM: {response_text}")
+            logging.debug(f"Received response from LLM: {response_text}")
 
             ws_message = self.process_websocket_message(response_text)
             return ws_message
 
         except Exception as e:
-            self.logger.error(f"Error communicating with OpenAI: {e}")
+            logging.error(
+                f"Error communicating with OpenAI: {e} (LLMCommunicator.query_openai)")
             return None
 
     def process_websocket_message(self, response_text):
-        """
-        Processes the LLM's response to ensure it's valid JSON.
-        """
+        cleaned_response_text = None
         try:
-            # Clean the response text
+            # Remove any extraneous formatting
             cleaned_response_text = response_text.strip().strip('```').strip()
-            cleaned_response_text = re.sub(r'^json', '', cleaned_response_text, flags=re.IGNORECASE).strip()
 
-            # Validate JSON
+            # Remove labels like "json" if they exist
+            cleaned_response_text = re.sub(r'^json', '', cleaned_response_text,
+                                           flags=re.IGNORECASE).strip()
+
+            # Check if the response text is valid JSON
             response_json = json.loads(cleaned_response_text)
-            self.logger.debug(f"Processed WebSocket message: {response_json}")
             return response_json
 
         except json.JSONDecodeError as e:
-            self.logger.error(f"Failed to decode JSON: {e} - Response text: {response_text}")
+            logging.error(
+                f"LLMCommunicator: Failed to decode JSON: {e} - Response text: {cleaned_response_text}")
             return None
         except Exception as e:
-            self.logger.error(f"Error processing WebSocket message: {e}")
+            logging.error(
+                f"Error processing WebSocket message: {e} (LLMCommunicator.process_websocket_message)")
             return None
 
     def send_to_websocket_client(self, websocket_client, message):
         """
         Sends a message to the WebSocket client.
+
+        Args:
+            websocket_client: The WebSocket client to send the message to.
+            message (str): The message to be sent.
         """
-        try:
-            if websocket_client:
-                json_message = json.dumps(message)
-                websocket_client.send_message(json_message)
-                self.logger.debug(f"Sent message to WebSocket client: {json_message}")
-            else:
-                self.logger.error("WebSocket client is not available.")
-        except Exception as e:
-            self.logger.error(f"Error sending message to WebSocket client: {e}")
+        if websocket_client:
+            websocket_client.send_message(json.dumps(message))  # Ensure message is in JSON string format
+        else:
+            logging.error("WebSocket client not available.")
