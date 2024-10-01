@@ -25,30 +25,14 @@ class WebSocketClient:
         self.game_handler.receive_message(message)
 
     def on_error(self, ws, error):
-        """
-        Callback executed when an error occurs.
-        :param ws: Is the WebSocketApp instance that received the message.
-        :param error: is the error that occurred.
-        :return:
-        """
         print("Error:", error)
 
     def reconnect(self):
-        """
-        Function to reconnect to the server.
-        :return:
-        """
         self.wst = threading.Thread(target=self.ws.run_forever, daemon=True)
         self.wst.start()
 
     def on_open(self, ws):
-        """
-        Callback executed when the connection is open.
-        :param ws: Is the WebSocketApp instance that received the message.
-        :return:
-        """
         print("### Connection is open ###")
-
         initial_message = json.dumps({"gameId": self.game_id, "type": "join", "recovery": self.recovery})
 
         if self.verbose:
@@ -56,20 +40,11 @@ class WebSocketClient:
         ws.send(initial_message)
 
     def send_message(self, message):
-        """
-        Function to send a message to the server.
-        :param message: The message to be sent.
-        :return:
-        """
         if self.verbose:
             print("Sending message:", message)  # Debugging: Print the message to be sent
         self.ws.send(message)
 
     def run_forever(self):
-        """
-        Function to start the WebSocket client and keep it running.
-        :return:
-        """
         self.wst.start()
         try:
             while self.wst.is_alive():
