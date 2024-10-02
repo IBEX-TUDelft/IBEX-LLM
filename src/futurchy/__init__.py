@@ -19,29 +19,38 @@ def parse_url(url):
     else:
         raise ValueError("Invalid URL format. Expected format: http://<hostname>/<endpoint>/<gameId>/<recovery>")
 
-
 def start_simulation(url, agent_id):
-    # Ensure output directory exists
-    if not os.path.exists('output'):
-        os.makedirs('output')
-
-    logger = logging.getLogger(f"Simulation-Agent{agent_id}")
-    logger.setLevel(logging.DEBUG)
-
-    fh = logging.FileHandler(f'output/agent{agent_id}.txt')
-    fh.setLevel(logging.DEBUG)
-
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-
-    formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
-    fh.setFormatter(formatter)
-    ch.setFormatter(formatter)
-
-    logger.addHandler(fh)
-    logger.addHandler(ch)
-
     try:
+        # Ensure output directory exists
+        if not os.path.exists('output'):
+            os.makedirs('output')
+
+            # clear the output directory
+            for file in os.listdir('output'):
+                os.remove(os.path.join('output', file))
+
+        # Create a logger for this agent
+        logger = logging.getLogger(f"Simulation-Agent{agent_id}")
+        logger.setLevel(logging.DEBUG)
+
+        # Create a file handler which logs even debug messages
+        fh = logging.FileHandler(f'output/agent{agent_id}.txt')
+        fh.setLevel(logging.DEBUG)
+
+        # Optional: Create console handler if you want to also output to console
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+
+        # Create formatter and add it to the handlers
+        formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(name)s: %(message)s')
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+
+        # Add the handlers to the logger
+        logger.addHandler(fh)
+        logger.addHandler(ch)
+
+        # Use this logger in the rest of the function
         hostname, endpoint, game_id, recovery = parse_url(url)
         logger.info(f"Parsed URL successfully: Hostname={hostname}, Endpoint={endpoint}, Game ID={game_id}, Recovery={recovery}")
 
@@ -49,6 +58,7 @@ def start_simulation(url, agent_id):
         logger.info(f"Constructed WebSocket URL: {ws_url}")
         logger.info(f"Connecting to WebSocket URL: {ws_url}")
 
+        # Pass the logger to WebSocketClient
         client = WebSocketClient(url=ws_url, game_id=game_id, recovery=recovery, verbose=True, logger=logger)
         client.start()
         logger.info("WebSocket client is running.")
@@ -57,9 +67,10 @@ def start_simulation(url, agent_id):
             time.sleep(1)
 
     except Exception as e:
-        logger.error(f"Error in simulation: {e}")
+        # Since the logger might not be set up, print the exception directly
+        print(f"Error in simulation for agent {agent_id}: {e}")
 
-
+# In your main function, assign an agent ID and pass it to start_simulation
 def main():
     parser = argparse.ArgumentParser(description="Start multiple WebSocket simulations.")
     parser.add_argument('urls', nargs='+', help='List of URLs for each agent')
@@ -68,11 +79,11 @@ def main():
 
     N = len(args.urls)
 
+    # Use ThreadPoolExecutor to run the simulations in parallel
     with ThreadPoolExecutor(max_workers=N) as executor:
         for idx, url in enumerate(args.urls):
-            agent_id = idx + 1
+            agent_id = idx + 1  # Assign a unique agent ID
             executor.submit(start_simulation, url, agent_id)
-
 
 if __name__ == "__main__":
     main()
