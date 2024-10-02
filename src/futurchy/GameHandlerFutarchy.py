@@ -49,7 +49,8 @@ class GameHandler:
             'add-order',
             'contract-fulfilled',
             'delete-order',
-            'phase-transition'
+            'phase-transition',
+            'order-refused'
         ]
 
         self.llm_communicator = LLMCommunicator(logger=self.logger)
