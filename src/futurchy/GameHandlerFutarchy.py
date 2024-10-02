@@ -100,6 +100,10 @@ class GameHandler:
                     f"Type={order.get('type')}, Condition={order.get('condition')}"
                 )
 
+            elif action_type == 'order-refused':
+                message = data.get('message', 'Order was refused.')
+                return f"Order Refused: {message}"
+
             else:
                 return action_type.replace('-', ' ').capitalize()
         except Exception as e:
@@ -300,12 +304,10 @@ class GameHandler:
         }
 
         # Get the list of roles that need to act in the current phase
-        roles_requiring_action = action_required_phases.get(self.current_phase,
-                                                            [])
+        roles_requiring_action = action_required_phases.get(self.current_phase, [])
 
         # Standardize the user's role name by removing any numbers or extra text
-        base_user_role = self.user_role.split()[
-            0]  # Extract base role (e.g., "Owner" from "Owner 1")
+        base_user_role = self.user_role.split()[0]  # Extract base role (e.g., "Owner" from "Owner 1")
 
         if base_user_role in roles_requiring_action:
             self.logger.debug(
@@ -321,7 +323,8 @@ class GameHandler:
                     messages_to_summarize.append(message)
                 else:
                     self.logger.error(
-                        f"Unexpected item structure in queue: {item}")
+                        f"Unexpected item structure in queue: {item}"
+                    )
 
             # Generate the summary
             summary = self.summarize_messages(messages_to_summarize)
@@ -331,8 +334,7 @@ class GameHandler:
             if self.current_phase == 6:
                 if self.dispatch_timer and self.dispatch_timer.is_alive():
                     self.dispatch_timer.cancel()
-                self.dispatch_timer = threading.Timer(self.dispatch_interval,
-                                                      self.dispatch_summary)
+                self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
                 self.dispatch_timer.start()
                 self.logger.debug("Dispatch timer set for periodic summary.")
         else:
@@ -406,7 +408,7 @@ class GameHandler:
             }
             self.context['market_signals'].append(signals)
 
-        elif event_type in ['add-order', 'contract-fulfilled', 'delete-order']:
+        elif event_type in ['add-order', 'contract-fulfilled', 'delete-order', 'order-refused']:
             self.context['player_actions'].append({
                 'type': event_type,
                 'data': data
