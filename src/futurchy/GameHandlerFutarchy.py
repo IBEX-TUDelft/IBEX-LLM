@@ -6,24 +6,14 @@ from queue import Queue
 import logging
 from LLMCommunicator import LLMCommunicator
 
-# Configure Logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
-
 class GameHandler:
-    def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None):
-        self.logger = logging.getLogger(self.__class__.__name__)
+    def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None, logger=None):
+        self.logger = logger or logging.getLogger(f"GameHandler-{game_id}")
         self.game_id = game_id
         self.verbose = verbose
         self.recovery = recovery
         self.websocket_client = websocket_client
 
-        # Game State
         self.current_phase = None
         self.current_round = 1
         self.user_number = None
@@ -33,11 +23,9 @@ class GameHandler:
         self.roles = {}
         self.in_market_phase = False
 
-        # Message Queue
         self.message_queue = Queue(maxsize=100)
-        self.dispatch_interval = 5  # seconds
+        self.dispatch_interval = 5
 
-        # Context Tracking
         self.context = {
             'player_actions': [],
             'declarations': [],
@@ -46,7 +34,6 @@ class GameHandler:
             'phase_transitions': []
         }
 
-        # Maximum context sizes
         self.max_context = {
             'player_actions': 20,
             'declarations': 5,
@@ -55,7 +42,6 @@ class GameHandler:
             'phase_transitions': 10
         }
 
-        # Relevant action types
         self.relevant_actions = [
             'declarations-published',
             'profit',
@@ -66,16 +52,11 @@ class GameHandler:
             'phase-transition'
         ]
 
-        # Initialize LLM Communicator
-        self.llm_communicator = LLMCommunicator()
+        self.llm_communicator = LLMCommunicator(logger=self.logger)
 
-        # Dispatch Timer
         self.dispatch_timer = None
 
     def format_action(self, action_type, data):
-        """
-        Formats the action details based on the action type.
-        """
         try:
             if action_type == 'declarations-published':
                 decls = data.get('declarations', [])
@@ -125,15 +106,11 @@ class GameHandler:
             return action_type.replace('-', ' ').capitalize()
 
     def add_to_context(self, category, item):
-        """
-        Adds an item to the specified context category, maintaining the maximum size.
-        """
         if category not in self.context:
             self.logger.warning(f"Unknown context category: {category}")
             return
 
         if category == 'phase_transitions':
-            # Simplify phase transitions
             flattened_item = {
                 'phase': item.get('phase'),
                 'round': item.get('round')
@@ -144,33 +121,26 @@ class GameHandler:
         else:
             self.context[category].append(item)
 
-        # Maintain maximum context size
         if len(self.context[category]) > self.max_context.get(category, 10):
             removed_item = self.context[category].pop(0)
             self.logger.debug(f"Removed oldest item from {category}: {removed_item}")
 
     def receive_message(self, message):
-        """
-        Processes an incoming message from the WebSocket.
-        """
         try:
             message_data = json.loads(message)
             event_type = message_data.get('eventType', '')
             message_type = message_data.get('type', '')
 
-            self.logger.debug(f"Received message: {message_data}")
+            self.logger.debug(f"Received message data: {message_data}")
 
-            # Queue the message for dispatching
             self.message_queue.put((2, message))
 
-            # Add to context if relevant
             if event_type in self.relevant_actions:
                 self.add_to_context('player_actions', {
                     'type': event_type,
                     'data': message_data.get('data', {})
                 })
 
-            # Handle specific event types
             if event_type == 'assign-name':
                 self.handle_assign_name(message_data.get('data', {}))
             elif event_type == 'players-known':
@@ -188,16 +158,12 @@ class GameHandler:
             self.logger.error(f"Unexpected error in receive_message: {e}")
 
     def handle_assign_name(self, data):
-        """
-        Handles the 'assign-name' event.
-        """
         try:
             name = data['name']
             number = data['number']
             self.user_number = number
             self.logger.info(f"User assigned name: {name}, number: {number}")
 
-            # Send 'player-is-ready' message
             self.send_player_ready()
         except KeyError as e:
             self.logger.error(f"Missing key in handle_assign_name: {e}")
@@ -205,15 +171,6 @@ class GameHandler:
             self.logger.error(f"Error in handle_assign_name: {e}")
 
     def handle_players_known(self, players):
-        """
-        Handles the 'players-known' event dynamically, mapping player numbers to roles based on the message.
-
-        Example message:
-        {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},
-        {"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
-
-        This method dynamically maps roles to players based on the 'tag' field.
-        """
         for player in players:
             number = player.get('number')
             role_name = player.get('tag', "Unknown")
@@ -223,13 +180,8 @@ class GameHandler:
                 self.user_role = role_name
 
         self.logger.info(f"Player roles known: {self.roles}")
-        if self.verbose:
-            print(f"Player roles known: {self.roles}")
 
     def handle_assign_role(self, data):
-        """
-        Handles the 'assign-role' event.
-        """
         try:
             role_number = data['role']
             role_map = {1: "Speculator", 2: "Developer", 3: "Owner"}
@@ -240,16 +192,13 @@ class GameHandler:
             self.properties[self.user_number] = data.get('property', {})
 
             if self.verbose:
-                print(f"User assigned role: {self.user_role}")
+                self.logger.info(f"User assigned role: {self.user_role}")
         except KeyError as e:
             self.logger.error(f"Missing key in handle_assign_role: {e}")
         except Exception as e:
             self.logger.error(f"Error in handle_assign_role: {e}")
 
     def update_player_wallet(self, wallet_data):
-        """
-        Updates the player's wallet based on provided data.
-        """
         try:
             if wallet_data:
                 total_balance = sum(wallet.get('balance', 0) for wallet in wallet_data)
@@ -257,14 +206,11 @@ class GameHandler:
                 self.logger.info(f"Updated player wallet: {self.player_wallet}")
 
                 if self.verbose:
-                    print(f"Updated player wallet: {self.player_wallet}")
+                    self.logger.info(f"Updated player wallet: {self.player_wallet}")
         except Exception as e:
             self.logger.error(f"Error updating player wallet: {e}")
 
     def handle_phase_transition(self, phase_data):
-        """
-        Handles the 'phase-transition' event.
-        """
         try:
             new_phase = int(phase_data.get('phase', self.current_phase))
             self.current_phase = new_phase
@@ -275,33 +221,26 @@ class GameHandler:
                 self.handle_unknown_phase(new_phase)
 
             self.logger.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
-            if self.verbose:
-                print(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
 
-            # Add to context
+            if self.verbose:
+                self.logger.info(f"Phase Transitioned to Phase {new_phase}: {phase_description}")
+
             if 'phase-transition' in self.relevant_actions:
                 self.add_to_context('phase_transitions', phase_data)
 
-            # If new phase is 0, send 'player-is-ready' and handle accordingly
             if new_phase == 0:
                 self.reset_context()
                 self.send_player_ready()
-                # Print the required message without dispatching the full summary
                 ready_message = (
                     f"Phase Transitioned to Phase {new_phase}: {phase_description}\n\n"
                     f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"player-is-ready\"\n}}"
                 )
-                print(ready_message)
+                self.logger.info(ready_message)
                 self.logger.debug("Game context has been reset.")
-                print("Game context has been reset.")
-                # Print phase dispatch started message
                 dispatch_message = f"Phase {new_phase} dispatch started for role {self.user_role}."
-                print(dispatch_message)
                 self.logger.info(dispatch_message)
-                # Do not call dispatch_summary()
                 return
 
-            # Dispatch summary for other phases
             self.dispatch_summary()
 
         except ValueError as e:
@@ -310,16 +249,9 @@ class GameHandler:
             self.logger.error(f"Error handling phase transition: {e}")
 
     def handle_unknown_phase(self, phase_number):
-        """
-        Handles unknown phases.
-        """
         self.logger.warning(f"Encountered unknown phase: {phase_number}")
-        # Implement any additional logic for unknown phases if necessary
 
     def reset_context(self):
-        """
-        Resets the game context.
-        """
         self.context = {
             'player_actions': [],
             'declarations': [],
@@ -328,13 +260,8 @@ class GameHandler:
             'phase_transitions': []
         }
         self.logger.debug("Game context has been reset.")
-        if self.verbose:
-            print("Game context has been reset.")
 
     def send_player_ready(self):
-        """
-        Sends the 'player-is-ready' message to the server.
-        """
         try:
             is_ready_message = json.dumps({
                 "gameId": self.game_id,
@@ -344,16 +271,13 @@ class GameHandler:
                 self.websocket_client.send_message(is_ready_message)
                 self.logger.info(f"Sent 'player-is-ready' message: {is_ready_message}")
                 if self.verbose:
-                    print(f"Sent 'player-is-ready' message: {is_ready_message}")
+                    self.logger.info(f"Sent 'player-is-ready' message: {is_ready_message}")
             else:
                 self.logger.error("WebSocket client is not available to send 'player-is-ready'.")
         except Exception as e:
             self.logger.error(f"Error sending 'player-is-ready' message: {e}")
 
     def dispatch_summary(self):
-        """
-        Dispatches a summary of events to the LLM for processing.
-        """
         action_required_phases = {
             0: ["Owner", "Developer", "Speculator"],
             1: [],
@@ -373,7 +297,6 @@ class GameHandler:
             self.logger.debug(
                 f"Phase {self.current_phase} dispatch started for role {self.user_role}."
             )
-            print(f"Phase {self.current_phase} dispatch started for role {self.user_role}.")
 
             messages_to_summarize = []
             while not self.message_queue.empty():
@@ -387,7 +310,6 @@ class GameHandler:
             summary = self.summarize_messages(messages_to_summarize)
             self.dispatch_summary_to_llm(summary)
 
-            # If in phase 6, set up periodic dispatching
             if self.current_phase == 6:
                 if self.dispatch_timer and self.dispatch_timer.is_alive():
                     self.dispatch_timer.cancel()
@@ -398,12 +320,8 @@ class GameHandler:
             self.logger.info(
                 f"No action required for Phase {self.current_phase} for role {self.user_role}."
             )
-            print(f"No action required for Phase {self.current_phase} for role {self.user_role}.")
 
     def summarize_messages(self, messages):
-        """
-        Creates a summary of the received messages.
-        """
         summary = "Simulation Events Summary:\n"
 
         phase_description = self.get_phase_description(self.current_phase)
@@ -430,18 +348,13 @@ class GameHandler:
         else:
             summary += "No new messages received.\n"
 
-        # Append cumulative context
         summary += "\nCumulative Context:\n"
         summary += self.build_cumulative_context()
 
         self.logger.debug(f"Summary created: {summary}")
-        print(f"Summary: {summary}")
         return summary
 
     def process_event_for_summary(self, event_type, data):
-        """
-        Processes individual events to update context for the summary.
-        """
         if event_type == 'profit':
             profit = {
                 'round': data.get('round'),
@@ -481,43 +394,34 @@ class GameHandler:
             })
 
     def build_cumulative_context(self):
-        """
-        Builds a string representing the cumulative context.
-        """
         context_str = ""
 
-        # Past Phase Transitions
         if self.context['phase_transitions']:
             context_str += f"Past Phase Transitions (last {self.max_context['phase_transitions']}): "
             phases = [f"Phase {pt['phase']} (Round {pt.get('round', 'N/A')})" for pt in self.context['phase_transitions']]
             context_str += ", ".join(phases) + "\n"
 
-        # Recent Player Actions
         if self.context['player_actions']:
             context_str += f"Recent Player Actions (last {self.max_context['player_actions']}):\n"
             for action in self.context['player_actions']:
                 formatted_action = self.format_action(action['type'], action.get('data', {}))
                 context_str += f"- {formatted_action}\n"
 
-        # Recent Declarations
         if self.context['declarations']:
             context_str += f"Recent Declarations (last {self.max_context['declarations']}):\n"
             for decl in self.context['declarations'][-self.max_context['declarations']:]:
                 context_str += f"  * {decl['name']} by {decl['owner']} - Declarations: {decl['d']}\n"
 
-        # Recent Profits
         if self.context['profits']:
             context_str += f"Recent Profits (last {self.max_context['profits']}):\n"
             for profit in self.context['profits'][-self.max_context['profits']:]:
                 context_str += f"  * Round {profit['round']}, Phase {profit['phase']}: Total = {profit['total']}\n"
 
-        # Recent Market Signals
         if self.context['market_signals']:
             context_str += f"Recent Market Signals (last {self.max_context['market_signals']}):\n"
             for signal in self.context['market_signals'][-self.max_context['market_signals']:]:
                 context_str += f"  * Signals: {signal['signals']}, Tax Rate: {signal['taxRate']}\n"
 
-        # Player Status
         context_str += "\nPlayer Status:\n"
         total_balance = self.player_wallet.get('total_balance', 0)
         context_str += f"Total Wallet Balance: {total_balance}\n"
@@ -539,9 +443,6 @@ class GameHandler:
         return context_str
 
     def get_phase_description(self, phase_number):
-        """
-        Returns a description for the given phase number with clear JSON format expectations.
-        """
         phase_descriptions = {
             0: (
                 "Player is Ready: The game waits until all players declare themselves ready. No action is required.\n\n"
@@ -566,7 +467,7 @@ class GameHandler:
             4: "Waiting Phase: Players wait in this phase. No specific actions required.",
             5: "Waiting Phase: Players wait in this phase. No specific actions required.",
             6: (
-                "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.\n\n"
+                "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.\n\n"
                 "The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.\n\n"
                 "Market Signals:\n"
                 "- 'signals': Your private signals, visible only to you\n"
@@ -589,9 +490,6 @@ class GameHandler:
         return phase_descriptions.get(phase_number, "Unknown Phase")
 
     def dispatch_summary_to_llm(self, summary):
-        """
-        Sends the summary to the LLM and dispatches the response.
-        """
         try:
             ws_message = self.llm_communicator.query_openai(summary)
 
@@ -604,9 +502,6 @@ class GameHandler:
             self.logger.error(f"Error dispatching summary to LLM: {e}")
 
     def stop_dispatcher(self):
-        """
-        Stops the dispatch timer if it's running.
-        """
         if self.dispatch_timer and self.dispatch_timer.is_alive():
             self.dispatch_timer.cancel()
             self.logger.debug("Dispatch timer stopped.")

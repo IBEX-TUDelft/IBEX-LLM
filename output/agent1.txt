@@ -1,0 +1,120 @@
+2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
+2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:07:40,449 [INFO] Simulation-Agent1: WebSocket client started.
+2024-10-02 13:07:40,449 [INFO] Simulation-Agent1: WebSocket client is running.
+2024-10-02 13:07:40,495 [INFO] Simulation-Agent1: WebSocket connection opened.
+2024-10-02 13:07:40,495 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:07:40,495 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:07:40,510 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
+2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
+2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
+2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
+2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
+2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:07:40,517 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 3 rejoined the game"}
+2024-10-02 13:07:40,517 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 3 rejoined the game'}
+2024-10-02 13:07:40,517 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:07:40,533 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-10-02 13:07:40,533 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
+2024-10-02 13:07:40,533 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
+2024-10-02 13:09:24,115 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
+2024-10-02 13:09:24,115 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:09:24,116 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:09:24,195 [INFO] Simulation-Agent1: WebSocket client started.
+2024-10-02 13:09:24,195 [INFO] Simulation-Agent1: WebSocket client is running.
+2024-10-02 13:09:24,247 [INFO] Simulation-Agent1: WebSocket connection opened.
+2024-10-02 13:09:24,247 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:09:24,247 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
+2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
+2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
+2024-10-02 13:09:24,268 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
+2024-10-02 13:09:24,268 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
+2024-10-02 13:09:24,269 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:09:24,284 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-10-02 13:09:24,284 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
+2024-10-02 13:09:24,284 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
+2024-10-02 13:09:24,328 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867369828}}
+2024-10-02 13:09:24,328 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867369828}}
+2024-10-02 13:09:24,328 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-02 13:09:24,328 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Xenogeneic Sturgeon Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-10-02 13:09:24,329 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-role', 'data': {'role': 3, 'wallet': [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}], 'property': {'id': 1, 'owner': 1, 'name': 'Xenogeneic Sturgeon Lot', 'v': [468000, 164000, 150000]}, 'boundaries': {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}, 'taxRate': 1, 'initialTaxRate': 1, 'finalTaxRate': 33, 'conditions': [{'name': 'No Project', 'id': 0, 'parameter': 'no_project', 'key': 'noProject'}, {'name': 'Project', 'id': 1, 'parameter': 'project_a', 'key': 'projectA'}]}}
+2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
+2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
+2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-02 13:09:24,330 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-10-02 13:09:24,330 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'players-known', 'data': {'players': [{'number': 1, 'role': 3, 'tag': 'Owner 1'}, {'number': 2, 'role': 2, 'tag': 'Developer'}, {'number': 3, 'role': 1, 'tag': 'Speculator 1'}]}}
+2024-10-02 13:09:24,330 [INFO] Simulation-Agent1: Player roles known: {1: 'Owner 1', 2: 'Developer', 3: 'Speculator 1'}
+2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-10-02 13:09:24,368 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 1}}
+2024-10-02 13:09:24,368 [DEBUG] Simulation-Agent1: New phase received: 1 (Type: <class 'int'>)
+2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: No action required for Phase 1 for role Owner 1.
+2024-10-02 13:09:24,369 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-10-02 13:09:24,369 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 1 has begun.'}
+2024-10-02 13:09:24,369 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:09:39,331 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-02 13:09:39,334 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-02 13:09:39,334 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-02 13:09:39,360 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867459861}}
+2024-10-02 13:09:39,366 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867459861}}
+2024-10-02 13:09:39,367 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-02 13:09:39,391 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-10-02 13:09:39,392 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 2}}
+2024-10-02 13:09:39,392 [DEBUG] Simulation-Agent1: New phase received: 2 (Type: <class 'int'>)
+2024-10-02 13:09:39,392 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 51,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+2024-10-02 13:09:39,393 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 51,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+2024-10-02 13:09:39,395 [INFO] Simulation-Agent1: No action required for Phase 2 for role Owner 1.
+2024-10-02 13:09:39,395 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-10-02 13:09:39,395 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 2 has begun.'}
+2024-10-02 13:09:39,395 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:09:40,602 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tomato submitted a declaration of values."}
+2024-10-02 13:09:40,602 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player Tomato submitted a declaration of values.'}
+2024-10-02 13:09:40,602 [DEBUG] Simulation-Agent1: No specific handler for event type: 

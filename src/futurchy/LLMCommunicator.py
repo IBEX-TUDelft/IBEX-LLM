@@ -5,24 +5,12 @@ import logging
 import re
 from openai import OpenAI
 
-# Configure Logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
-
 class LLMCommunicator:
-    def __init__(self, openai_api_key=None):
-        self.logger = logging.getLogger(self.__class__.__name__)
+    def __init__(self, openai_api_key=None, logger=None):
+        self.logger = logger or logging.getLogger("LLMCommunicator")
         self.client = OpenAI()
 
     def query_openai(self, summary):
-        """
-        Sends the summary to OpenAI and retrieves the response.
-        """
         try:
             instructions = (
                 "You are an agent participating in a Harberger tax simulation game. "
@@ -38,7 +26,6 @@ class LLMCommunicator:
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=message,
-                # temperature=0.7,
             )
 
             response_text = response.choices[0].message.content
@@ -52,15 +39,10 @@ class LLMCommunicator:
             return None
 
     def process_websocket_message(self, response_text):
-        """
-        Processes the LLM's response to ensure it's valid JSON.
-        """
         try:
-            # Clean the response text
             cleaned_response_text = response_text.strip().strip('```').strip()
             cleaned_response_text = re.sub(r'^json', '', cleaned_response_text, flags=re.IGNORECASE).strip()
 
-            # Validate JSON
             response_json = json.loads(cleaned_response_text)
             self.logger.debug(f"Processed WebSocket message: {response_json}")
             return response_json
@@ -73,9 +55,6 @@ class LLMCommunicator:
             return None
 
     def send_to_websocket_client(self, websocket_client, message):
-        """
-        Sends a message to the WebSocket client.
-        """
         try:
             if websocket_client:
                 json_message = json.dumps(message)
