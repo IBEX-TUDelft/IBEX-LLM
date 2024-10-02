@@ -1,83 +1,57 @@
-2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
-2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:07:40,401 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:07:40,449 [INFO] Simulation-Agent1: WebSocket client started.
-2024-10-02 13:07:40,449 [INFO] Simulation-Agent1: WebSocket client is running.
-2024-10-02 13:07:40,495 [INFO] Simulation-Agent1: WebSocket connection opened.
-2024-10-02 13:07:40,495 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:07:40,495 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:07:40,510 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
-2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
-2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
-2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
-2024-10-02 13:07:40,511 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
-2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
-2024-10-02 13:07:40,511 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:07:40,517 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 3 rejoined the game"}
-2024-10-02 13:07:40,517 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 3 rejoined the game'}
-2024-10-02 13:07:40,517 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:07:40,533 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
-2024-10-02 13:07:40,533 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
-2024-10-02 13:07:40,533 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
-2024-10-02 13:09:24,115 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
-2024-10-02 13:09:24,115 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:09:24,116 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:09:24,195 [INFO] Simulation-Agent1: WebSocket client started.
-2024-10-02 13:09:24,195 [INFO] Simulation-Agent1: WebSocket client is running.
-2024-10-02 13:09:24,247 [INFO] Simulation-Agent1: WebSocket connection opened.
-2024-10-02 13:09:24,247 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:09:24,247 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
-2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:09:24,266 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
-2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
-2024-10-02 13:09:24,266 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
-2024-10-02 13:09:24,268 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
-2024-10-02 13:09:24,268 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
-2024-10-02 13:09:24,269 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:09:24,284 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
-2024-10-02 13:09:24,284 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
-2024-10-02 13:09:24,284 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
-2024-10-02 13:09:24,328 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867369828}}
-2024-10-02 13:09:24,328 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867369828}}
-2024-10-02 13:09:24,328 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:09:24,328 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Xenogeneic Sturgeon Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
-2024-10-02 13:09:24,329 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-role', 'data': {'role': 3, 'wallet': [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}], 'property': {'id': 1, 'owner': 1, 'name': 'Xenogeneic Sturgeon Lot', 'v': [468000, 164000, 150000]}, 'boundaries': {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}, 'taxRate': 1, 'initialTaxRate': 1, 'finalTaxRate': 33, 'conditions': [{'name': 'No Project', 'id': 0, 'parameter': 'no_project', 'key': 'noProject'}, {'name': 'Project', 'id': 1, 'parameter': 'project_a', 'key': 'projectA'}]}}
-2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: User assigned role: Owner
-2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
-2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
-2024-10-02 13:09:24,329 [INFO] Simulation-Agent1: User assigned role: Owner
-2024-10-02 13:09:24,330 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
-2024-10-02 13:09:24,330 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'players-known', 'data': {'players': [{'number': 1, 'role': 3, 'tag': 'Owner 1'}, {'number': 2, 'role': 2, 'tag': 'Developer'}, {'number': 3, 'role': 1, 'tag': 'Speculator 1'}]}}
-2024-10-02 13:09:24,330 [INFO] Simulation-Agent1: Player roles known: {1: 'Owner 1', 2: 'Developer', 3: 'Speculator 1'}
-2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
-2024-10-02 13:09:24,368 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 1}}
-2024-10-02 13:09:24,368 [DEBUG] Simulation-Agent1: New phase received: 1 (Type: <class 'int'>)
-2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
-2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
-2024-10-02 13:09:24,368 [INFO] Simulation-Agent1: No action required for Phase 1 for role Owner 1.
-2024-10-02 13:09:24,369 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 1 has begun."}
-2024-10-02 13:09:24,369 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 1 has begun.'}
-2024-10-02 13:09:24,369 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:09:39,331 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:09:39,334 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:09:39,334 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:09:39,360 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867459861}}
-2024-10-02 13:09:39,366 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867459861}}
-2024-10-02 13:09:39,367 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:09:39,391 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
-2024-10-02 13:09:39,392 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 2}}
-2024-10-02 13:09:39,392 [DEBUG] Simulation-Agent1: New phase received: 2 (Type: <class 'int'>)
-2024-10-02 13:09:39,392 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+2024-10-02 13:34:31,535 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
+2024-10-02 13:34:31,535 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:34:31,535 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-02 13:34:31,610 [INFO] Simulation-Agent1: WebSocket client started.
+2024-10-02 13:34:31,610 [INFO] Simulation-Agent1: WebSocket client is running.
+2024-10-02 13:34:31,673 [INFO] Simulation-Agent1: WebSocket connection opened.
+2024-10-02 13:34:31,673 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:34:31,673 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
+2024-10-02 13:34:31,708 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
+2024-10-02 13:34:31,708 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
+2024-10-02 13:34:31,708 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
+2024-10-02 13:34:31,708 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:34:31,709 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:34:31,709 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
+2024-10-02 13:34:31,709 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-10-02 13:34:31,709 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
+2024-10-02 13:34:31,709 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
+2024-10-02 13:34:31,709 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
+2024-10-02 13:34:31,710 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Player 1 rejoined the game'}
+2024-10-02 13:34:31,710 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:34:31,733 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-10-02 13:34:31,733 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
+2024-10-02 13:34:31,733 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
+2024-10-02 13:34:31,762 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868877263}}
+2024-10-02 13:34:31,762 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868877263}}
+2024-10-02 13:34:31,762 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-02 13:34:31,763 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Xenogeneic Sturgeon Lot","v":[498000,276000,150000],"d":[350000,150000],"speculators":[[],[],[]]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-10-02 13:34:31,764 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'assign-role', 'data': {'role': 3, 'wallet': [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}], 'property': {'id': 1, 'owner': 1, 'name': 'Xenogeneic Sturgeon Lot', 'v': [498000, 276000, 150000], 'd': [350000, 150000], 'speculators': [[], [], []]}, 'boundaries': {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}, 'taxRate': 1, 'initialTaxRate': 1, 'finalTaxRate': 33, 'conditions': [{'name': 'No Project', 'id': 0, 'parameter': 'no_project', 'key': 'noProject'}, {'name': 'Project', 'id': 1, 'parameter': 'project_a', 'key': 'projectA'}]}}
+2024-10-02 13:34:31,764 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-02 13:34:31,764 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
+2024-10-02 13:34:31,764 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
+2024-10-02 13:34:31,764 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-02 13:34:31,771 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-10-02 13:34:31,771 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'players-known', 'data': {'players': [{'number': 1, 'role': 3, 'tag': 'Owner 1'}, {'number': 2, 'role': 2, 'tag': 'Developer'}, {'number': 3, 'role': 1, 'tag': 'Speculator 1'}]}}
+2024-10-02 13:34:31,771 [INFO] Simulation-Agent1: Player roles known: {1: 'Owner 1', 2: 'Developer', 3: 'Speculator 1'}
+2024-10-02 13:34:31,796 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":2,"phase":1}}
+2024-10-02 13:34:31,796 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 2, 'phase': 1}}
+2024-10-02 13:34:31,796 [DEBUG] Simulation-Agent1: New phase received: 1 (Type: <class 'int'>)
+2024-10-02 13:34:31,796 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-02 13:34:31,797 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-02 13:34:31,797 [INFO] Simulation-Agent1: No action required for Phase 1 for role Owner 1.
+2024-10-02 13:34:31,797 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-10-02 13:34:31,798 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 1 has begun.'}
+2024-10-02 13:34:31,798 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:34:46,774 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-02 13:34:46,775 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-02 13:34:46,775 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-02 13:34:46,796 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868967296}}
+2024-10-02 13:34:46,797 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868967296}}
+2024-10-02 13:34:46,797 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-02 13:34:46,827 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":2,"phase":2}}
+2024-10-02 13:34:46,827 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 2, 'phase': 2}}
+2024-10-02 13:34:46,827 [DEBUG] Simulation-Agent1: New phase received: 2 (Type: <class 'int'>)
+2024-10-02 13:34:46,827 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
 
 The 'declaration' array should contain three values:
 - Value for the status quo condition (no project)
@@ -94,7 +68,7 @@ Expected JSON Output:
         0                     # Integer, always set to 0
     ]
 }
-2024-10-02 13:09:39,393 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+2024-10-02 13:34:46,828 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
 
 The 'declaration' array should contain three values:
 - Value for the status quo condition (no project)
@@ -111,588 +85,10 @@ Expected JSON Output:
         0                     # Integer, always set to 0
     ]
 }
-2024-10-02 13:09:39,395 [INFO] Simulation-Agent1: No action required for Phase 2 for role Owner 1.
-2024-10-02 13:09:39,395 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 2 has begun."}
-2024-10-02 13:09:39,395 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 2 has begun.'}
-2024-10-02 13:09:39,395 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:09:40,602 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tomato submitted a declaration of values."}
-2024-10-02 13:09:40,602 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player Tomato submitted a declaration of values.'}
-2024-10-02 13:09:40,602 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:11:09,362 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:11:09,363 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:11:09,363 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:11:09,400 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867579901}}
-2024-10-02 13:11:09,405 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867579901}}
-2024-10-02 13:11:09,405 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:11:09,406 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Xenogeneic Sturgeon Lot","owner":"Maroon","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Colorful Planarian Lot","owner":"Tomato","role":2,"number":2,"d":[50000,75000,0],"available":[true,true,true]}],"winningCondition":0}}
-2024-10-02 13:11:09,406 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Xenogeneic Sturgeon Lot', 'owner': 'Maroon', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Colorful Planarian Lot', 'owner': 'Tomato', 'role': 2, 'number': 2, 'd': [50000, 75000, 0], 'available': [True, True, True]}], 'winningCondition': 0}}
-2024-10-02 13:11:09,407 [DEBUG] Simulation-Agent1: No specific handler for event type: declarations-published
-2024-10-02 13:11:09,443 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
-2024-10-02 13:11:09,444 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 3}}
-2024-10-02 13:11:09,444 [DEBUG] Simulation-Agent1: New phase received: 3 (Type: <class 'int'>)
-2024-10-02 13:11:09,447 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
-
-The 'snipe' array should contain two arrays:
-- First array lists owners to challenge for the status quo condition
-- Second array lists owners to challenge for the project development condition
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge_no_project],  # List of integers (player numbers)
-        [owners_to_challenge_project]     # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:11:09,448 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
-
-The 'snipe' array should contain two arrays:
-- First array lists owners to challenge for the status quo condition
-- Second array lists owners to challenge for the project development condition
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge_no_project],  # List of integers (player numbers)
-        [owners_to_challenge_project]     # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:11:09,449 [INFO] Simulation-Agent1: No action required for Phase 3 for role Owner 1.
-2024-10-02 13:11:09,449 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 3 has begun."}
-2024-10-02 13:11:09,450 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 3 has begun.'}
-2024-10-02 13:11:09,450 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:09,402 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:13:09,402 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:13:09,402 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:13:09,437 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867582936}}
-2024-10-02 13:13:09,439 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867582936}}
-2024-10-02 13:13:09,439 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:13:09,440 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Reconciliation in progress ..."}
-2024-10-02 13:13:09,441 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Reconciliation in progress ...'}
-2024-10-02 13:13:09,441 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:09,442 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":3500,"owner":1,"role":3,"total":464500}}
-2024-10-02 13:13:09,443 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'profit', 'data': {'round': 0, 'phase': 4, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': False, 'speculator': None, 'snipeProfit': 0, 'taxes': 3500, 'owner': 1, 'role': 3, 'total': 464500}}
-2024-10-02 13:13:09,443 [DEBUG] Simulation-Agent1: No specific handler for event type: profit
-2024-10-02 13:13:09,474 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
-2024-10-02 13:13:09,476 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 4}}
-2024-10-02 13:13:09,476 [DEBUG] Simulation-Agent1: New phase received: 4 (Type: <class 'int'>)
-2024-10-02 13:13:09,476 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:13:09,477 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:13:09,477 [INFO] Simulation-Agent1: No action required for Phase 4 for role Owner 1.
-2024-10-02 13:13:09,478 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 4 has begun."}
-2024-10-02 13:13:09,478 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 4 has begun.'}
-2024-10-02 13:13:09,478 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:12,529 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:13:12,530 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:13:12,530 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:13:12,530 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
-2024-10-02 13:13:12,531 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'first-snipes', 'data': {'snipes': []}}
-2024-10-02 13:13:12,531 [DEBUG] Simulation-Agent1: No specific handler for event type: first-snipes
-2024-10-02 13:13:12,531 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867585942}}
-2024-10-02 13:13:12,533 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867585942}}
-2024-10-02 13:13:12,533 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:13:12,533 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[1320,0,0],"condition":0,"taxRate":33}}
-2024-10-02 13:13:12,536 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'value-signals', 'data': {'signals': [8623, 6734, 0], 'publicSignal': [1320, 0, 0], 'condition': 0, 'taxRate': 33}}
-2024-10-02 13:13:12,536 [DEBUG] Simulation-Agent1: No specific handler for event type: value-signals
-2024-10-02 13:13:12,536 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Prepare for the trading phase"}
-2024-10-02 13:13:12,537 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Prepare for the trading phase'}
-2024-10-02 13:13:12,537 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:12,538 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
-2024-10-02 13:13:12,539 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 5}}
-2024-10-02 13:13:12,539 [DEBUG] Simulation-Agent1: New phase received: 5 (Type: <class 'int'>)
-2024-10-02 13:13:12,539 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:13:12,539 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:13:12,540 [INFO] Simulation-Agent1: No action required for Phase 5 for role Owner 1.
-2024-10-02 13:13:12,540 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 5 has begun."}
-2024-10-02 13:13:12,540 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 5 has begun.'}
-2024-10-02 13:13:12,540 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:15,446 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:13:15,446 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:13:15,446 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:13:15,452 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867855947}}
-2024-10-02 13:13:15,453 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867855947}}
-2024-10-02 13:13:15,453 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:13:15,453 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"The trading phase has started"}
-2024-10-02 13:13:15,454 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'The trading phase has started'}
-2024-10-02 13:13:15,454 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:13:15,454 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
-2024-10-02 13:13:15,454 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 6}}
-2024-10-02 13:13:15,454 [DEBUG] Simulation-Agent1: New phase received: 6 (Type: <class 'int'>)
-2024-10-02 13:13:15,454 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.
-
-The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
-
-Market Signals:
-- 'signals': Your private signals, visible only to you
-- 'publicSignal': Signals visible to all players
-Use this data to inform your decision. You are responsible for setting the prices based on these signals.
-
-Expected JSON Output (Post Order):
-{
-    "gameId": 51,
-    "type": "post-order",
-    "order": {
-        "price": your_chosen_price,   # Integer, price you decide based on signals
-        "quantity": 1,                # Integer, always 1
-        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
-        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
-        "now": true_or_false          # Boolean, true for immediate execution
-    }
-}
-2024-10-02 13:13:15,455 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.
-
-The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
-
-Market Signals:
-- 'signals': Your private signals, visible only to you
-- 'publicSignal': Signals visible to all players
-Use this data to inform your decision. You are responsible for setting the prices based on these signals.
-
-Expected JSON Output (Post Order):
-{
-    "gameId": 51,
-    "type": "post-order",
-    "order": {
-        "price": your_chosen_price,   # Integer, price you decide based on signals
-        "quantity": 1,                # Integer, always 1
-        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
-        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
-        "now": true_or_false          # Boolean, true for immediate execution
-    }
-}
-2024-10-02 13:13:15,456 [INFO] Simulation-Agent1: No action required for Phase 6 for role Owner 1.
-2024-10-02 13:13:15,456 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 6 has begun."}
-2024-10-02 13:13:15,457 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 6 has begun.'}
-2024-10-02 13:13:15,457 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:17:45,451 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:17:45,452 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:17:45,453 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:17:45,491 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727867915990}}
-2024-10-02 13:17:45,492 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727867915990}}
-2024-10-02 13:17:45,492 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:17:45,525 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":7}}
-2024-10-02 13:17:45,525 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 7}}
-2024-10-02 13:17:45,526 [DEBUG] Simulation-Agent1: New phase received: 7 (Type: <class 'int'>)
-2024-10-02 13:17:45,526 [INFO] Simulation-Agent1: Phase Transitioned to Phase 7: Final Declaration Phase: Owners and Developers submit their final declaration for the winning condition.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "declare",
-    "declaration": [
-        final_value_for_winning_condition  # Integer, expected revenue for the winning condition
-    ]
-}
-2024-10-02 13:17:45,526 [INFO] Simulation-Agent1: Phase Transitioned to Phase 7: Final Declaration Phase: Owners and Developers submit their final declaration for the winning condition.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "declare",
-    "declaration": [
-        final_value_for_winning_condition  # Integer, expected revenue for the winning condition
-    ]
-}
-2024-10-02 13:17:45,527 [INFO] Simulation-Agent1: No action required for Phase 7 for role Owner 1.
-2024-10-02 13:17:45,533 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 7 has begun."}
-2024-10-02 13:17:45,533 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 7 has begun.'}
-2024-10-02 13:17:45,533 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:17:46,299 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tomato submitted a declaration of values."}
-2024-10-02 13:17:46,300 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player Tomato submitted a declaration of values.'}
-2024-10-02 13:17:46,300 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:18:45,492 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:18:45,494 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:18:45,494 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:18:45,540 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868006039}}
-2024-10-02 13:18:45,540 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868006039}}
-2024-10-02 13:18:45,540 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:18:45,540 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Xenogeneic Sturgeon Lot","owner":"Maroon","role":3,"number":1,"d":[350000,150000],"available":[true,false,false]},{"id":2,"name":"Colorful Planarian Lot","owner":"Tomato","role":2,"number":2,"d":[75000],"available":[true,false,false]}],"winningCondition":0}}
-2024-10-02 13:18:45,541 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Xenogeneic Sturgeon Lot', 'owner': 'Maroon', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, False, False]}, {'id': 2, 'name': 'Colorful Planarian Lot', 'owner': 'Tomato', 'role': 2, 'number': 2, 'd': [75000], 'available': [True, False, False]}], 'winningCondition': 0}}
-2024-10-02 13:18:45,541 [DEBUG] Simulation-Agent1: No specific handler for event type: declarations-published
-2024-10-02 13:18:45,581 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":8}}
-2024-10-02 13:18:45,582 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 8}}
-2024-10-02 13:18:45,582 [DEBUG] Simulation-Agent1: New phase received: 8 (Type: <class 'int'>)
-2024-10-02 13:18:45,582 [INFO] Simulation-Agent1: Phase Transitioned to Phase 8: Final Speculation Phase: Speculators can challenge the final declarations.
-
-The 'snipe' array works similarly to Phase 3, where speculators list owners to challenge.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge]  # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:18:45,582 [INFO] Simulation-Agent1: Phase Transitioned to Phase 8: Final Speculation Phase: Speculators can challenge the final declarations.
-
-The 'snipe' array works similarly to Phase 3, where speculators list owners to challenge.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge]  # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:18:45,583 [INFO] Simulation-Agent1: No action required for Phase 8 for role Owner 1.
-2024-10-02 13:18:45,583 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 8 has begun."}
-2024-10-02 13:18:45,583 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 8 has begun.'}
-2024-10-02 13:18:45,583 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:08,785 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
-2024-10-02 13:20:08,785 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:20:08,786 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:20:08,860 [INFO] Simulation-Agent1: WebSocket client started.
-2024-10-02 13:20:08,860 [INFO] Simulation-Agent1: WebSocket client is running.
-2024-10-02 13:20:08,913 [INFO] Simulation-Agent1: WebSocket connection opened.
-2024-10-02 13:20:08,914 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:20:08,914 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
-2024-10-02 13:20:08,929 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:08,929 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
-2024-10-02 13:20:08,929 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
-2024-10-02 13:20:08,929 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:08,933 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 3 rejoined the game"}
-2024-10-02 13:20:08,933 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 3 rejoined the game'}
-2024-10-02 13:20:08,933 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:08,947 [INFO] Simulation-Agent1: Received message: {"type":"error","message":"Game 51: could not find an handler for player-is-ready"}
-2024-10-02 13:20:08,947 [DEBUG] Simulation-Agent1: Received message data: {'type': 'error', 'message': 'Game 51: could not find an handler for player-is-ready'}
-2024-10-02 13:20:08,947 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:15,648 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:20:15,649 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:20:15,649 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:20:15,649 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Final phase. Tax rate: 33"}
-2024-10-02 13:20:15,649 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Final phase. Tax rate: 33'}
-2024-10-02 13:20:15,649 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:15,649 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"property":1,"condition":0,"value":468000,"declaration":350000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":115500,"owner":1,"role":3,"total":352500}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'profit', 'data': {'round': 0, 'phase': 9, 'property': 1, 'condition': 0, 'value': 468000, 'declaration': 350000, 'sniped': False, 'speculator': None, 'snipeProfit': 0, 'taxes': 115500, 'owner': 1, 'role': 3, 'total': 352500}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: No specific handler for event type: profit
-2024-10-02 13:20:15,650 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"final-price","data":{"price":1402.5,"winningCondition":0}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'final-price', 'data': {'price': 1402.5, 'winningCondition': 0}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: No specific handler for event type: final-price
-2024-10-02 13:20:15,650 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"tax-income","data":{"amount":8415,"condition":0}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'tax-income', 'data': {'amount': 8415, 'condition': 0}}
-2024-10-02 13:20:15,650 [DEBUG] Simulation-Agent1: No specific handler for event type: tax-income
-2024-10-02 13:20:15,651 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":9,"condition":0,"owner":1,"role":3,"taxes":0,"snipeProfit":0,"total":8415}}
-2024-10-02 13:20:15,651 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'profit', 'data': {'round': 0, 'phase': 9, 'condition': 0, 'owner': 1, 'role': 3, 'taxes': 0, 'snipeProfit': 0, 'total': 8415}}
-2024-10-02 13:20:15,651 [DEBUG] Simulation-Agent1: No specific handler for event type: profit
-2024-10-02 13:20:15,651 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"total-profit","data":{"amount":825415}}
-2024-10-02 13:20:15,652 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'total-profit', 'data': {'amount': 825415}}
-2024-10-02 13:20:15,652 [DEBUG] Simulation-Agent1: No specific handler for event type: total-profit
-2024-10-02 13:20:15,652 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"second-snipes","data":{"snipes":[]}}
-2024-10-02 13:20:15,653 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'second-snipes', 'data': {'snipes': []}}
-2024-10-02 13:20:15,653 [DEBUG] Simulation-Agent1: No specific handler for event type: second-snipes
-2024-10-02 13:20:15,653 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868021092}}
-2024-10-02 13:20:15,653 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868021092}}
-2024-10-02 13:20:15,653 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:20:15,653 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":9}}
-2024-10-02 13:20:15,654 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 0, 'phase': 9}}
-2024-10-02 13:20:15,654 [DEBUG] Simulation-Agent1: New phase received: 9 (Type: <class 'int'>)
-2024-10-02 13:20:15,654 [INFO] Simulation-Agent1: Phase Transitioned to Phase 9: Results Phase: Players are shown their results, and the next round begins shortly.
-2024-10-02 13:20:15,654 [INFO] Simulation-Agent1: Phase Transitioned to Phase 9: Results Phase: Players are shown their results, and the next round begins shortly.
-2024-10-02 13:20:15,654 [INFO] Simulation-Agent1: No action required for Phase 9 for role None.
-2024-10-02 13:20:15,676 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 9 has begun."}
-2024-10-02 13:20:15,676 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 9 has begun.'}
-2024-10-02 13:20:15,676 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:20:30,595 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:20:30,596 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:20:30,596 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:20:30,631 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"round-end","data":{"round":0}}
-2024-10-02 13:20:30,631 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'round-end', 'data': {'round': 0}}
-2024-10-02 13:20:30,631 [DEBUG] Simulation-Agent1: No specific handler for event type: round-end
-2024-10-02 13:20:30,632 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"round-summary","data":{"round":0,"condition":0,"value":468000,"firstDeclaration":350000,"firstTaxes":3500,"firstRepurchase":0,"snipes":[],"market":{"balance":60000,"shares":6,"price":1402.5},"secondDeclaration":350000,"secondTaxes":115500,"secondRepurchase":0}}
-2024-10-02 13:20:30,633 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'round-summary', 'data': {'round': 0, 'condition': 0, 'value': 468000, 'firstDeclaration': 350000, 'firstTaxes': 3500, 'firstRepurchase': 0, 'snipes': [], 'market': {'balance': 60000, 'shares': 6, 'price': 1402.5}, 'secondDeclaration': 350000, 'secondTaxes': 115500, 'secondRepurchase': 0}}
-2024-10-02 13:20:30,634 [DEBUG] Simulation-Agent1: No specific handler for event type: round-summary
-2024-10-02 13:20:30,634 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":0}}
-2024-10-02 13:20:30,635 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 0}}
-2024-10-02 13:20:30,635 [DEBUG] Simulation-Agent1: New phase received: 0 (Type: <class 'int'>)
-2024-10-02 13:20:30,635 [INFO] Simulation-Agent1: Phase Transitioned to Phase 0: Player is Ready: The game waits until all players declare themselves ready. No action is required.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "player-is-ready"
-}
-2024-10-02 13:20:30,636 [INFO] Simulation-Agent1: Phase Transitioned to Phase 0: Player is Ready: The game waits until all players declare themselves ready. No action is required.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "player-is-ready"
-}
-2024-10-02 13:20:30,636 [DEBUG] Simulation-Agent1: Game context has been reset.
-2024-10-02 13:20:30,636 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:30,637 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:30,637 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:20:30,638 [INFO] Simulation-Agent1: Phase Transitioned to Phase 0: Player is Ready: The game waits until all players declare themselves ready. No action is required.
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "player-is-ready"
-}
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "player-is-ready"
-}
-2024-10-02 13:20:30,638 [DEBUG] Simulation-Agent1: Game context has been reset.
-2024-10-02 13:20:30,638 [INFO] Simulation-Agent1: Phase 0 dispatch started for role None.
-2024-10-02 13:21:45,082 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=51, Recovery=uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0
-2024-10-02 13:21:45,083 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:21:45,083 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-02 13:21:45,159 [INFO] Simulation-Agent1: WebSocket client started.
-2024-10-02 13:21:45,160 [INFO] Simulation-Agent1: WebSocket client is running.
-2024-10-02 13:21:45,203 [INFO] Simulation-Agent1: WebSocket connection opened.
-2024-10-02 13:21:45,203 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:21:45,203 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "join", "recovery": "uix3h7kdmpltbys20cyzrbczyfnpqrpll4jbi96dxvgmcpscxytp6h26cndy1vz0"}
-2024-10-02 13:21:45,216 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Maroon","number":1,"ruleset":"Harberger"}}
-2024-10-02 13:21:45,216 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Maroon', 'number': 1, 'ruleset': 'Harberger'}}
-2024-10-02 13:21:45,216 [INFO] Simulation-Agent1: User assigned name: Maroon, number: 1
-2024-10-02 13:21:45,217 [INFO] Simulation-Agent1: Sending message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:21:45,217 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:21:45,217 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 51, "type": "player-is-ready"}
-2024-10-02 13:21:45,217 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
-2024-10-02 13:21:45,217 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
-2024-10-02 13:21:45,217 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
-2024-10-02 13:21:45,217 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
-2024-10-02 13:21:45,217 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 1 rejoined the game'}
-2024-10-02 13:21:45,217 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:21:45,240 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 3 rejoined the game"}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 3 rejoined the game'}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:21:45,241 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
-2024-10-02 13:21:45,241 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 2 rejoined the game"}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player 2 rejoined the game'}
-2024-10-02 13:21:45,241 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:21:45,304 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868110805}}
-2024-10-02 13:21:45,305 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868110805}}
-2024-10-02 13:21:45,305 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:21:45,306 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Xenogeneic Sturgeon Lot","v":[586000,216000,150000],"d":[350000,150000],"speculators":[[],[],[]]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
-2024-10-02 13:21:45,306 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'assign-role', 'data': {'role': 3, 'wallet': [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}], 'property': {'id': 1, 'owner': 1, 'name': 'Xenogeneic Sturgeon Lot', 'v': [586000, 216000, 150000], 'd': [350000, 150000], 'speculators': [[], [], []]}, 'boundaries': {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}, 'taxRate': 1, 'initialTaxRate': 1, 'finalTaxRate': 33, 'conditions': [{'name': 'No Project', 'id': 0, 'parameter': 'no_project', 'key': 'noProject'}, {'name': 'Project', 'id': 1, 'parameter': 'project_a', 'key': 'projectA'}]}}
-2024-10-02 13:21:45,307 [INFO] Simulation-Agent1: User assigned role: Owner
-2024-10-02 13:21:45,307 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
-2024-10-02 13:21:45,307 [INFO] Simulation-Agent1: Updated player wallet: {'total_balance': 180000}
-2024-10-02 13:21:45,307 [INFO] Simulation-Agent1: User assigned role: Owner
-2024-10-02 13:21:45,308 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
-2024-10-02 13:21:45,308 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'players-known', 'data': {'players': [{'number': 1, 'role': 3, 'tag': 'Owner 1'}, {'number': 2, 'role': 2, 'tag': 'Developer'}, {'number': 3, 'role': 1, 'tag': 'Speculator 1'}]}}
-2024-10-02 13:21:45,308 [INFO] Simulation-Agent1: Player roles known: {1: 'Owner 1', 2: 'Developer', 3: 'Speculator 1'}
-2024-10-02 13:21:45,341 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":1}}
-2024-10-02 13:21:45,342 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 1}}
-2024-10-02 13:21:45,342 [DEBUG] Simulation-Agent1: New phase received: 1 (Type: <class 'int'>)
-2024-10-02 13:21:45,342 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
-2024-10-02 13:21:45,342 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
-2024-10-02 13:21:45,342 [INFO] Simulation-Agent1: No action required for Phase 1 for role Owner 1.
-2024-10-02 13:21:45,344 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 1 has begun."}
-2024-10-02 13:21:45,344 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 1 has begun.'}
-2024-10-02 13:21:45,344 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:22:00,404 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:22:00,405 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:22:00,405 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:22:00,405 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868200845}}
-2024-10-02 13:22:00,406 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868200845}}
-2024-10-02 13:22:00,406 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:22:00,406 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":2}}
-2024-10-02 13:22:00,406 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 2}}
-2024-10-02 13:22:00,406 [DEBUG] Simulation-Agent1: New phase received: 2 (Type: <class 'int'>)
-2024-10-02 13:22:00,406 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
-
-The 'declaration' array should contain three values:
-- Value for the status quo condition (no project)
-- Value for the project development
-- Optional third value, set to 0 (for future use)
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "declare",
-    "declaration": [
-        value_for_no_project,  # Integer, expected revenue for no project
-        value_for_project,    # Integer, expected revenue for project development
-        0                     # Integer, always set to 0
-    ]
-}
-2024-10-02 13:22:00,406 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
-
-The 'declaration' array should contain three values:
-- Value for the status quo condition (no project)
-- Value for the project development
-- Optional third value, set to 0 (for future use)
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "declare",
-    "declaration": [
-        value_for_no_project,  # Integer, expected revenue for no project
-        value_for_project,    # Integer, expected revenue for project development
-        0                     # Integer, always set to 0
-    ]
-}
-2024-10-02 13:22:00,407 [INFO] Simulation-Agent1: No action required for Phase 2 for role Owner 1.
-2024-10-02 13:22:00,407 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 2 has begun."}
-2024-10-02 13:22:00,407 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 2 has begun.'}
-2024-10-02 13:22:00,407 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:22:01,478 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tomato submitted a declaration of values."}
-2024-10-02 13:22:01,479 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Player Tomato submitted a declaration of values.'}
-2024-10-02 13:22:01,479 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:23:30,416 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:23:30,417 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:23:30,417 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:23:30,418 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868320883}}
-2024-10-02 13:23:30,418 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868320883}}
-2024-10-02 13:23:30,419 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:23:30,419 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Xenogeneic Sturgeon Lot","owner":"Maroon","role":3,"number":1,"d":[350000,150000],"available":[true,true,true]},{"id":2,"name":"Colorful Planarian Lot","owner":"Tomato","role":2,"number":2,"d":[300000,600000,0],"available":[true,true,true]}],"winningCondition":1}}
-2024-10-02 13:23:30,420 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Xenogeneic Sturgeon Lot', 'owner': 'Maroon', 'role': 3, 'number': 1, 'd': [350000, 150000], 'available': [True, True, True]}, {'id': 2, 'name': 'Colorful Planarian Lot', 'owner': 'Tomato', 'role': 2, 'number': 2, 'd': [300000, 600000, 0], 'available': [True, True, True]}], 'winningCondition': 1}}
-2024-10-02 13:23:30,420 [DEBUG] Simulation-Agent1: No specific handler for event type: declarations-published
-2024-10-02 13:23:30,420 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":3}}
-2024-10-02 13:23:30,421 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 3}}
-2024-10-02 13:23:30,421 [DEBUG] Simulation-Agent1: New phase received: 3 (Type: <class 'int'>)
-2024-10-02 13:23:30,421 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
-
-The 'snipe' array should contain two arrays:
-- First array lists owners to challenge for the status quo condition
-- Second array lists owners to challenge for the project development condition
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge_no_project],  # List of integers (player numbers)
-        [owners_to_challenge_project]     # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:23:30,421 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
-
-The 'snipe' array should contain two arrays:
-- First array lists owners to challenge for the status quo condition
-- Second array lists owners to challenge for the project development condition
-
-Expected JSON Output:
-{
-    "gameId": 51,
-    "type": "done-speculating",
-    "snipe": [
-        [owners_to_challenge_no_project],  # List of integers (player numbers)
-        [owners_to_challenge_project]     # List of integers (player numbers)
-    ]
-}
-2024-10-02 13:23:30,422 [INFO] Simulation-Agent1: No action required for Phase 3 for role Owner 1.
-2024-10-02 13:23:30,423 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 3 has begun."}
-2024-10-02 13:23:30,423 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 3 has begun.'}
-2024-10-02 13:23:30,423 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:30,384 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:25:30,390 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:25:30,390 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:25:30,420 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868323915}}
-2024-10-02 13:25:30,422 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868323915}}
-2024-10-02 13:25:30,422 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:25:30,422 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Reconciliation in progress ..."}
-2024-10-02 13:25:30,423 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Reconciliation in progress ...'}
-2024-10-02 13:25:30,423 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:30,426 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"profit","data":{"round":1,"phase":4,"property":1,"condition":1,"value":216000,"declaration":150000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":1500,"owner":1,"role":3,"total":214500}}
-2024-10-02 13:25:30,427 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'profit', 'data': {'round': 1, 'phase': 4, 'property': 1, 'condition': 1, 'value': 216000, 'declaration': 150000, 'sniped': False, 'speculator': None, 'snipeProfit': 0, 'taxes': 1500, 'owner': 1, 'role': 3, 'total': 214500}}
-2024-10-02 13:25:30,427 [DEBUG] Simulation-Agent1: No specific handler for event type: profit
-2024-10-02 13:25:30,448 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":4}}
-2024-10-02 13:25:30,449 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 4}}
-2024-10-02 13:25:30,450 [DEBUG] Simulation-Agent1: New phase received: 4 (Type: <class 'int'>)
-2024-10-02 13:25:30,450 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:25:30,450 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:25:30,450 [INFO] Simulation-Agent1: No action required for Phase 4 for role Owner 1.
-2024-10-02 13:25:30,450 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 4 has begun."}
-2024-10-02 13:25:30,450 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 4 has begun.'}
-2024-10-02 13:25:30,450 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:33,501 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:25:33,510 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:25:33,511 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:25:33,511 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
-2024-10-02 13:25:33,512 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'first-snipes', 'data': {'snipes': []}}
-2024-10-02 13:25:33,512 [DEBUG] Simulation-Agent1: No specific handler for event type: first-snipes
-2024-10-02 13:25:33,512 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868326921}}
-2024-10-02 13:25:33,512 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868326921}}
-2024-10-02 13:25:33,512 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:25:33,512 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"value-signals","data":{"signals":[10425,6092,0],"publicSignal":[0,2475,0],"condition":1,"taxRate":33}}
-2024-10-02 13:25:33,513 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'value-signals', 'data': {'signals': [10425, 6092, 0], 'publicSignal': [0, 2475, 0], 'condition': 1, 'taxRate': 33}}
-2024-10-02 13:25:33,520 [DEBUG] Simulation-Agent1: No specific handler for event type: value-signals
-2024-10-02 13:25:33,521 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Prepare for the trading phase"}
-2024-10-02 13:25:33,526 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'Prepare for the trading phase'}
-2024-10-02 13:25:33,527 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:33,529 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":5}}
-2024-10-02 13:25:33,530 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 5}}
-2024-10-02 13:25:33,530 [DEBUG] Simulation-Agent1: New phase received: 5 (Type: <class 'int'>)
-2024-10-02 13:25:33,530 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:25:33,530 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
-2024-10-02 13:25:33,530 [INFO] Simulation-Agent1: No action required for Phase 5 for role Owner 1.
-2024-10-02 13:25:33,531 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 5 has begun."}
-2024-10-02 13:25:33,531 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 5 has begun.'}
-2024-10-02 13:25:33,531 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:36,471 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
-2024-10-02 13:25:36,472 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
-2024-10-02 13:25:36,477 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
-2024-10-02 13:25:36,479 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1727868596925}}
-2024-10-02 13:25:36,479 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1727868596925}}
-2024-10-02 13:25:36,479 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
-2024-10-02 13:25:36,479 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"The trading phase has started"}
-2024-10-02 13:25:36,480 [DEBUG] Simulation-Agent1: Received message data: {'type': 'info', 'message': 'The trading phase has started'}
-2024-10-02 13:25:36,480 [DEBUG] Simulation-Agent1: No specific handler for event type: 
-2024-10-02 13:25:36,480 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":6}}
-2024-10-02 13:25:36,480 [DEBUG] Simulation-Agent1: Received message data: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 6}}
-2024-10-02 13:25:36,480 [DEBUG] Simulation-Agent1: New phase received: 6 (Type: <class 'int'>)
-2024-10-02 13:25:36,480 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.
-
-The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
-
-Market Signals:
-- 'signals': Your private signals, visible only to you
-- 'publicSignal': Signals visible to all players
-Use this data to inform your decision. You are responsible for setting the prices based on these signals.
-
-Expected JSON Output (Post Order):
-{
-    "gameId": 51,
-    "type": "post-order",
-    "order": {
-        "price": your_chosen_price,   # Integer, price you decide based on signals
-        "quantity": 1,                # Integer, always 1
-        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
-        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
-        "now": true_or_false          # Boolean, true for immediate execution
-    }
-}
-2024-10-02 13:25:36,481 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.
-
-The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
-
-Market Signals:
-- 'signals': Your private signals, visible only to you
-- 'publicSignal': Signals visible to all players
-Use this data to inform your decision. You are responsible for setting the prices based on these signals.
-
-Expected JSON Output (Post Order):
-{
-    "gameId": 51,
-    "type": "post-order",
-    "order": {
-        "price": your_chosen_price,   # Integer, price you decide based on signals
-        "quantity": 1,                # Integer, always 1
-        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
-        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
-        "now": true_or_false          # Boolean, true for immediate execution
-    }
-}
-2024-10-02 13:25:36,481 [INFO] Simulation-Agent1: No action required for Phase 6 for role Owner 1.
-2024-10-02 13:25:36,482 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 6 has begun."}
-2024-10-02 13:25:36,482 [DEBUG] Simulation-Agent1: Received message data: {'type': 'notice', 'message': 'Phase 6 has begun.'}
-2024-10-02 13:25:36,482 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:34:46,828 [INFO] Simulation-Agent1: No action required for Phase 2 for role Owner 1.
+2024-10-02 13:34:46,828 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-10-02 13:34:46,828 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 2 has begun.'}
+2024-10-02 13:34:46,829 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-02 13:34:47,934 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tomato submitted a declaration of values."}
+2024-10-02 13:34:47,935 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Player Tomato submitted a declaration of values.'}
+2024-10-02 13:34:47,935 [DEBUG] Simulation-Agent1: No specific handler for event type: 

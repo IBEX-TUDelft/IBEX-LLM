@@ -21,13 +21,9 @@ def parse_url(url):
 
 def start_simulation(url, agent_id):
     try:
-        # Ensure output directory exists
+        # Ensure output directory exists (no need to remove files here, it will be done in main)
         if not os.path.exists('output'):
             os.makedirs('output')
-
-            # clear the output directory
-            for file in os.listdir('output'):
-                os.remove(os.path.join('output', file))
 
         # Create a logger for this agent
         logger = logging.getLogger(f"Simulation-Agent{agent_id}")
@@ -76,6 +72,16 @@ def main():
     parser.add_argument('urls', nargs='+', help='List of URLs for each agent')
 
     args = parser.parse_args()
+
+    # Clear the output directory at the start of the program
+    output_dir = 'output'
+    if os.path.exists(output_dir):
+        for file in os.listdir(output_dir):
+            file_path = os.path.join(output_dir, file)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+    else:
+        os.makedirs(output_dir)
 
     N = len(args.urls)
 

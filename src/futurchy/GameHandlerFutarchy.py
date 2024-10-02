@@ -131,7 +131,7 @@ class GameHandler:
             event_type = message_data.get('eventType', '')
             message_type = message_data.get('type', '')
 
-            self.logger.debug(f"Received message data: {message_data}")
+            self.logger.debug(f"Received message: {message_data}")
 
             self.message_queue.put((2, message))
 
