@@ -1,4 +1,4 @@
-# GameHandler.py
+# GameHandlerFutarchy.py
 
 import json
 import threading
@@ -206,13 +206,17 @@ class GameHandler:
 
     def handle_players_known(self, players):
         """
-        Handles the 'players-known' event.
+        Handles the 'players-known' event dynamically, mapping player numbers to roles based on the message.
+
+        Example message:
+        {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},
+        {"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+
+        This method dynamically maps roles to players based on the 'tag' field.
         """
-        role_map = {1: "Owner", 2: "Developer", 3: "Speculator"}
         for player in players:
             number = player.get('number')
-            role_number = player.get('role')
-            role_name = role_map.get(role_number, "Unknown")
+            role_name = player.get('tag', "Unknown")
             self.roles[number] = role_name
 
             if number == self.user_number:
@@ -536,46 +540,50 @@ class GameHandler:
 
     def get_phase_description(self, phase_number):
         """
-        Returns a description for the given phase number.
+        Returns a description for the given phase number with clear JSON format expectations.
         """
         phase_descriptions = {
             0: (
                 "Player is Ready: The game waits until all players declare themselves ready. No action is required.\n\n"
                 f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"player-is-ready\"\n}}"
             ),
-            1: "Presentation Phase: Players are shown private and public data. This is a passive phase.",
+            1: "Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.",
             2: (
                 "Declaration Phase: Owners and Developer should declare their expected revenue for the round.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        value_for_no_project,\n        value_for_project,\n        0\n    ]\n}}"
+                "The 'declaration' array should contain three values:\n"
+                "- Value for the status quo condition (no project)\n"
+                "- Value for the project development\n"
+                "- Optional third value, set to 0 (for future use)\n\n"
+                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        value_for_no_project,  # Integer, expected revenue for no project\n        value_for_project,    # Integer, expected revenue for project development\n        0                     # Integer, always set to 0\n    ]\n}}"
             ),
             3: (
-                "Speculation Phase: Speculators may decide to challenge declarations by Owners and Developer.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge_no_project],\n        [owners_to_challenge_project]\n    ]\n}}"
+                "Speculation Phase: Speculators may challenge declarations by Owners and Developers.\n\n"
+                "The 'snipe' array should contain two arrays:\n"
+                "- First array lists owners to challenge for the status quo condition\n"
+                "- Second array lists owners to challenge for the project development condition\n\n"
+                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge_no_project],  # List of integers (player numbers)\n        [owners_to_challenge_project]     # List of integers (player numbers)\n    ]\n}}"
             ),
-            4: "Waiting Phase: Players wait in this phase.",
-            5: "Waiting Phase: Players wait in this phase.",
+            4: "Waiting Phase: Players wait in this phase. No specific actions required.",
+            5: "Waiting Phase: Players wait in this phase. No specific actions required.",
             6: (
-                "Market Phase: All players can post and cancel orders. You may choose to post 'bid' orders to buy assets or 'ask' orders to sell assets you own. "
-                "There are two conditions in this phase:\n"
-                "- **Condition 0**: Standard market operations where 'bid' and 'ask' orders are matched directly based on price and type. "
-                "This condition follows the typical supply and demand dynamics of the market.\n"
-                "- **Condition 1**: Special market operations that may involve priority rules, auction-based matching, or other exceptions. "
-                "Under this condition, orders might be matched based on additional criteria or rules that differ from standard operations.\n\n"
-                "Consider the current market conditions, your objectives, and potential profitability when deciding whether to bid or ask. "
-                "If you wish to acquire assets, posting 'bid' orders might be advantageous. "
-                "If you want to sell assets you own, consider posting 'ask' orders. "
-                "Make your decision based on the events and context provided.\n\n"
-                f"Expected JSON Output (Post Order):\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"post-order\",\n    \"order\": {{\n        \"price\": price_value (within 1-9),\n        \"quantity\": 1,\n        \"condition\": condition_number,  # 0 or 1 as defined\n        \"type\": \"ask\" or \"bid\",  # Choose 'ask' or 'bid' based on your strategy\n        \"now\": true_or_false\n    }}\n}}"
+                "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.\n\n"
+                "The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.\n\n"
+                "Market Signals:\n"
+                "- 'signals': Your private signals, visible only to you\n"
+                "- 'publicSignal': Signals visible to all players\n"
+                "Use this data to inform your decision. You are responsible for setting the prices based on these signals.\n\n"
+                f"Expected JSON Output (Post Order):\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"post-order\",\n    \"order\": {{\n        \"price\": your_chosen_price,   # Integer, price you decide based on signals\n        \"quantity\": 1,                # Integer, always 1\n        \"condition\": condition_number,  # Integer, 0 for status quo, 1 for project\n        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n        \"now\": true_or_false          # Boolean, true for immediate execution\n    }}\n}}"
             ),
             7: (
-                "Final Declaration Phase: Owners and Developer submit their final declaration for the winning condition.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        final_value_for_winning_condition\n    ]\n}}"
+                "Final Declaration Phase: Owners and Developers submit their final declaration for the winning condition.\n\n"
+                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        final_value_for_winning_condition  # Integer, expected revenue for the winning condition\n    ]\n}}"
             ),
             8: (
-                "Final Speculation Phase: Speculators may speculate again.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge]\n    ]\n}}"
+                "Final Speculation Phase: Speculators can challenge the final declarations.\n\n"
+                "The 'snipe' array works similarly to Phase 3, where speculators list owners to challenge.\n\n"
+                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge]  # List of integers (player numbers)\n    ]\n}}"
             ),
-            9: "Results Phase: Players are shown their results and wait for the next round."
+            9: "Results Phase: Players are shown their results, and the next round begins shortly."
         }
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
