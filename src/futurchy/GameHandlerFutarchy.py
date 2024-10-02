@@ -174,10 +174,11 @@ class GameHandler:
         for player in players:
             number = player.get('number')
             role_name = player.get('tag', "Unknown")
-            self.roles[number] = role_name
+            base_role = role_name.split()[0]  # Extract the base role
+            self.roles[number] = base_role
 
             if number == self.user_number:
-                self.user_role = role_name
+                self.user_role = base_role
 
         self.logger.info(f"Player roles known: {self.roles}")
 
@@ -278,6 +279,12 @@ class GameHandler:
             self.logger.error(f"Error sending 'player-is-ready' message: {e}")
 
     def dispatch_summary(self):
+        """
+        This method determines whether the agent needs to act in the current phase,
+        summarizes recent messages and context, and dispatches the summary to the LLM if action is required.
+        """
+
+        # Mapping of phases to roles that are required to act in each phase
         action_required_phases = {
             0: ["Owner", "Developer", "Speculator"],
             1: [],
@@ -291,13 +298,20 @@ class GameHandler:
             9: []
         }
 
-        roles_requiring_action = action_required_phases.get(self.current_phase, [])
+        # Get the list of roles that need to act in the current phase
+        roles_requiring_action = action_required_phases.get(self.current_phase,
+                                                            [])
 
-        if self.user_role in roles_requiring_action:
+        # Standardize the user's role name by removing any numbers or extra text
+        base_user_role = self.user_role.split()[
+            0]  # Extract base role (e.g., "Owner" from "Owner 1")
+
+        if base_user_role in roles_requiring_action:
             self.logger.debug(
                 f"Phase {self.current_phase} dispatch started for role {self.user_role}."
             )
 
+            # Collect messages to summarize
             messages_to_summarize = []
             while not self.message_queue.empty():
                 item = self.message_queue.get()
@@ -305,15 +319,19 @@ class GameHandler:
                     priority, message = item
                     messages_to_summarize.append(message)
                 else:
-                    self.logger.error(f"Unexpected item structure in queue: {item}")
+                    self.logger.error(
+                        f"Unexpected item structure in queue: {item}")
 
+            # Generate the summary
             summary = self.summarize_messages(messages_to_summarize)
             self.dispatch_summary_to_llm(summary)
 
+            # Set up periodic dispatching if in a phase that requires it
             if self.current_phase == 6:
                 if self.dispatch_timer and self.dispatch_timer.is_alive():
                     self.dispatch_timer.cancel()
-                self.dispatch_timer = threading.Timer(self.dispatch_interval, self.dispatch_summary)
+                self.dispatch_timer = threading.Timer(self.dispatch_interval,
+                                                      self.dispatch_summary)
                 self.dispatch_timer.start()
                 self.logger.debug("Dispatch timer set for periodic summary.")
         else:
