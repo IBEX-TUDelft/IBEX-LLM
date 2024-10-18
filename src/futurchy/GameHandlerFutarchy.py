@@ -1,5 +1,3 @@
-# GameHandlerFutarchy.py
-
 import json
 import threading
 from queue import Queue
@@ -23,7 +21,7 @@ class GameHandler:
         self.roles = {}
         self.in_market_phase = False
 
-        self.message_queue = Queue(maxsize=100)
+        self.message_queue = Queue(maxsize=50)
         self.dispatch_interval = 5
 
         self.context = {
@@ -140,6 +138,11 @@ class GameHandler:
 
             self.message_queue.put((2, message))
 
+            # Check if the message data contains updated wallet data
+            wallet_data = message_data.get('data', {}).get('wallet')
+            if wallet_data:
+                self.update_player_wallet(wallet_data)
+
             if event_type in self.relevant_actions:
                 self.add_to_context('player_actions', {
                     'type': event_type,
@@ -207,12 +210,31 @@ class GameHandler:
     def update_player_wallet(self, wallet_data):
         try:
             if wallet_data:
-                total_balance = sum(wallet.get('balance', 0) for wallet in wallet_data)
-                self.player_wallet['total_balance'] = total_balance
-                self.logger.info(f"Updated player wallet: {self.player_wallet}")
-
-                if self.verbose:
+                # Assuming the first wallet is for condition 0 (left market)
+                # and the second wallet is for condition 1 (right market)
+                # The third wallet should be ignored
+                if len(wallet_data) >= 2:
+                    balance_condition_0 = wallet_data[0].get('balance', 0)
+                    balance_condition_1 = wallet_data[1].get('balance', 0)
+                    shares_condition_0 = wallet_data[0].get('shares', 0)
+                    shares_condition_1 = wallet_data[1].get('shares', 0)
+                    cash_for_sniping_0 = wallet_data[0].get('cashForSniping', 0)
+                    cash_for_sniping_1 = wallet_data[1].get('cashForSniping', 0)
+                    total_balance = balance_condition_0 + balance_condition_1
+                    total_shares = shares_condition_0 + shares_condition_1
+                    self.player_wallet['balance_condition_0'] = balance_condition_0
+                    self.player_wallet['balance_condition_1'] = balance_condition_1
+                    self.player_wallet['shares_condition_0'] = shares_condition_0
+                    self.player_wallet['shares_condition_1'] = shares_condition_1
+                    self.player_wallet['cash_for_sniping_0'] = cash_for_sniping_0
+                    self.player_wallet['cash_for_sniping_1'] = cash_for_sniping_1
+                    self.player_wallet['total_balance'] = total_balance
+                    self.player_wallet['total_shares'] = total_shares
                     self.logger.info(f"Updated player wallet: {self.player_wallet}")
+                    if self.verbose:
+                        self.logger.info(f"Updated player wallet: {self.player_wallet}")
+                else:
+                    self.logger.error("Wallet data does not contain enough entries.")
         except Exception as e:
             self.logger.error(f"Error updating player wallet: {e}")
 
@@ -284,12 +306,6 @@ class GameHandler:
             self.logger.error(f"Error sending 'player-is-ready' message: {e}")
 
     def dispatch_summary(self):
-        """
-        This method determines whether the agent needs to act in the current phase,
-        summarizes recent messages and context, and dispatches the summary to the LLM if action is required.
-        """
-
-        # Mapping of phases to roles that are required to act in each phase
         action_required_phases = {
             0: ["Owner", "Developer", "Speculator"],
             1: [],
@@ -303,18 +319,15 @@ class GameHandler:
             9: []
         }
 
-        # Get the list of roles that need to act in the current phase
         roles_requiring_action = action_required_phases.get(self.current_phase, [])
 
-        # Standardize the user's role name by removing any numbers or extra text
-        base_user_role = self.user_role.split()[0]  # Extract base role (e.g., "Owner" from "Owner 1")
+        base_user_role = self.user_role.split()[0]
 
         if base_user_role in roles_requiring_action:
             self.logger.debug(
                 f"Phase {self.current_phase} dispatch started for role {self.user_role}."
             )
 
-            # Collect messages to summarize
             messages_to_summarize = []
             while not self.message_queue.empty():
                 item = self.message_queue.get()
@@ -326,11 +339,9 @@ class GameHandler:
                         f"Unexpected item structure in queue: {item}"
                     )
 
-            # Generate the summary
             summary = self.summarize_messages(messages_to_summarize)
             self.dispatch_summary_to_llm(summary)
 
-            # Set up periodic dispatching if in a phase that requires it
             if self.current_phase == 6:
                 if self.dispatch_timer and self.dispatch_timer.is_alive():
                     self.dispatch_timer.cancel()
@@ -443,23 +454,35 @@ class GameHandler:
             for signal in self.context['market_signals'][-self.max_context['market_signals']:]:
                 context_str += f"  * Signals: {signal['signals']}, Tax Rate: {signal['taxRate']}\n"
 
-        context_str += "\nPlayer Status:\n"
+        context_str += "\n**Player Status:**\n"
         total_balance = self.player_wallet.get('total_balance', 0)
-        context_str += f"Total Wallet Balance: {total_balance}\n"
+        balance_cond_0 = self.player_wallet.get('balance_condition_0', 0)
+        balance_cond_1 = self.player_wallet.get('balance_condition_1', 0)
+        shares_cond_0 = self.player_wallet.get('shares_condition_0', 0)
+        shares_cond_1 = self.player_wallet.get('shares_condition_1', 0)
+        cash_sniping_0 = self.player_wallet.get('cash_for_sniping_0', 0)
+        cash_sniping_1 = self.player_wallet.get('cash_for_sniping_1', 0)
+        context_str += f"- Total Wallet Balance: {total_balance}\n"
+        context_str += f"- Balance for Condition 0 (Left Market): {balance_cond_0}\n"
+        context_str += f"- Balance for Condition 1 (Right Market): {balance_cond_1}\n"
+        context_str += f"- Shares for Condition 0 (Left Market): {shares_cond_0}\n"
+        context_str += f"- Shares for Condition 1 (Right Market): {shares_cond_1}\n"
+        context_str += f"- Cash for Sniping Condition 0: {cash_sniping_0}\n"
+        context_str += f"- Cash for Sniping Condition 1: {cash_sniping_1}\n"
 
         props = self.properties.get(self.user_number, {})
-        context_str += f"Properties Owned: {props.get('name', 'None')}\n"
+        context_str += f"- Properties Owned: {props.get('name', 'None')}\n"
 
         if self.context['market_signals']:
             latest_signal = self.context['market_signals'][-1]
             context_str += (
-                f"Latest Market Signal: Signals={latest_signal['signals']}, "
+                f"- Latest Market Signal: Signals={latest_signal['signals']}, "
                 f"Tax Rate={latest_signal['taxRate']}\n"
             )
 
         if self.context['profits']:
             recent_profit = self.context['profits'][-1]
-            context_str += f"Recent Profits: Total={recent_profit['total']}\n"
+            context_str += f"- Recent Profits: Total={recent_profit['total']}\n"
 
         return context_str
 
@@ -487,15 +510,7 @@ class GameHandler:
             ),
             4: "Waiting Phase: Players wait in this phase. No specific actions required.",
             5: "Waiting Phase: Players wait in this phase. No specific actions required.",
-            6: (
-                "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move, so don't exceed the market signals.\n\n"
-                "The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.\n\n"
-                "Market Signals:\n"
-                "- 'signals': Your private signals, visible only to you\n"
-                "- 'publicSignal': Signals visible to all players\n"
-                "Use this data to inform your decision. You are responsible for setting the prices based on these signals.\n\n"
-                f"Expected JSON Output (Post Order):\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"post-order\",\n    \"order\": {{\n        \"price\": your_chosen_price,   # Integer, price you decide based on signals\n        \"quantity\": 1,                # Integer, always 1\n        \"condition\": condition_number,  # Integer, 0 for status quo, 1 for project\n        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n        \"now\": true_or_false          # Boolean, true for immediate execution\n    }}\n}}"
-            ),
+            6: self.get_market_phase_description(),
             7: (
                 "Final Declaration Phase: Owners and Developers submit their final declaration for the winning condition.\n\n"
                 f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        final_value_for_winning_condition  # Integer, expected revenue for the winning condition\n    ]\n}}"
@@ -510,9 +525,44 @@ class GameHandler:
 
         return phase_descriptions.get(phase_number, "Unknown Phase")
 
+    def get_market_phase_description(self):
+        total_balance = self.player_wallet.get('total_balance', 0)
+        max_price = max(1, int(total_balance))
+
+        return (
+            "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.\n\n"
+            f"**Your available balance is {total_balance}. You cannot place a bid or ask that exceeds this amount.**\n\n"
+            "The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.\n\n"
+            "Market Signals:\n"
+            "- 'signals': Your private signals, visible only to you\n"
+            "- 'publicSignal': Signals visible to all players\n"
+            "Use this data to inform your decision. You are responsible for setting the prices based on these signals.\n\n"
+            "**You must ensure that the 'price' in your order does not exceed your available balance.**\n\n"
+            f"Expected JSON Output (Post Order):\n{{\n"
+            f"    \"gameId\": {self.game_id},\n"
+            "    \"type\": \"post-order\",\n"
+            "    \"order\": {\n"
+            f"        \"price\": your_chosen_price if 1 <= your_chosen_price <= {max_price},  # Integer, price you decide based on signals, limited to range 1-{max_price}\n"
+            "        \"quantity\": 1,                # Integer, always 1\n"
+            "        \"condition\": condition_number,  # Integer, 0 for status quo, 1 for project\n"
+            "        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n"
+            "        \"now\": false          # Boolean, false\n"
+            "    }\n"
+            "}}"
+        )
+
     def dispatch_summary_to_llm(self, summary):
         try:
-            ws_message = self.llm_communicator.query_openai(summary)
+            instructions = (
+                "\n\n**Important Instructions:**\n"
+                "- When generating your response, ensure that any bid or ask price does not exceed your available wallet balance.\n"
+                "- Your available balance is provided in the 'Player Status' section above.\n"
+                "- Make sure to consider your balance when deciding on the price for bids or asks.\n"
+                "- Do not attempt to place orders that you cannot afford.\n"
+            )
+            full_prompt = summary + instructions
+
+            ws_message = self.llm_communicator.query_openai(full_prompt)
 
             if ws_message:
                 self.llm_communicator.send_to_websocket_client(self.websocket_client, ws_message)
