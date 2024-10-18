@@ -1,8 +1,817 @@
-2024-10-18 10:21:02,303 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=54, Recovery=11ls5yn3tldn6fbw7fo3udclx8bygn5haowhy3gmh2yee4hmb5k2f73sxuv4ww40
-2024-10-18 10:21:02,303 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-18 10:21:02,303 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
-2024-10-18 10:21:02,377 [INFO] Simulation-Agent1: WebSocket client started.
-2024-10-18 10:21:02,377 [INFO] Simulation-Agent1: WebSocket client is running.
-2024-10-18 10:21:02,420 [INFO] Simulation-Agent1: WebSocket connection opened.
-2024-10-18 10:21:02,420 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 54, "type": "join", "recovery": "11ls5yn3tldn6fbw7fo3udclx8bygn5haowhy3gmh2yee4hmb5k2f73sxuv4ww40"}
-2024-10-18 10:21:02,420 [INFO] Simulation-Agent1: Sending message: {"gameId": 54, "type": "join", "recovery": "11ls5yn3tldn6fbw7fo3udclx8bygn5haowhy3gmh2yee4hmb5k2f73sxuv4ww40"}
+2024-10-18 10:54:10,254 [INFO] Simulation-Agent1: Parsed URL successfully: Hostname=188.166.34.67, Endpoint=board, Game ID=55, Recovery=s3huh9ctgc85x3sqm0k1afxr5h1xiwy0budet7fg2qkr1mcb2pt0wflspjsbrzh0
+2024-10-18 10:54:10,254 [INFO] Simulation-Agent1: Constructed WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-18 10:54:10,254 [INFO] Simulation-Agent1: Connecting to WebSocket URL: ws://188.166.34.67:3088/board
+2024-10-18 10:54:10,255 [INFO] Simulation-Agent1: WebSocket client started.
+2024-10-18 10:54:10,255 [INFO] Simulation-Agent1: WebSocket client is running.
+2024-10-18 10:54:10,291 [INFO] Simulation-Agent1: WebSocket connection opened.
+2024-10-18 10:54:10,291 [DEBUG] Simulation-Agent1: Sending initial message: {"gameId": 55, "type": "join", "recovery": "s3huh9ctgc85x3sqm0k1afxr5h1xiwy0budet7fg2qkr1mcb2pt0wflspjsbrzh0"}
+2024-10-18 10:54:10,291 [INFO] Simulation-Agent1: Sending message: {"gameId": 55, "type": "join", "recovery": "s3huh9ctgc85x3sqm0k1afxr5h1xiwy0budet7fg2qkr1mcb2pt0wflspjsbrzh0"}
+2024-10-18 10:54:10,314 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-name","data":{"name":"Tan","number":1,"ruleset":"Futarchy"}}
+2024-10-18 10:54:10,315 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'assign-name', 'data': {'name': 'Tan', 'number': 1, 'ruleset': 'Futarchy'}}
+2024-10-18 10:54:10,315 [INFO] Simulation-Agent1: User assigned name: Tan, number: 1
+2024-10-18 10:54:10,370 [INFO] Simulation-Agent1: Sending message: {"gameId": 55, "type": "player-is-ready"}
+2024-10-18 10:54:10,371 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 55, "type": "player-is-ready"}
+2024-10-18 10:54:10,371 [INFO] Simulation-Agent1: Sent 'player-is-ready' message: {"gameId": 55, "type": "player-is-ready"}
+2024-10-18 10:54:10,371 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-10-18 10:54:10,371 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-instructions', 'data': {}}
+2024-10-18 10:54:10,372 [DEBUG] Simulation-Agent1: No specific handler for event type: phase-instructions
+2024-10-18 10:54:10,372 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player 1 rejoined the game"}
+2024-10-18 10:54:10,372 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Player 1 rejoined the game'}
+2024-10-18 10:54:10,372 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:10,385 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-10-18 10:54:10,385 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'ready-received', 'data': {}}
+2024-10-18 10:54:10,385 [DEBUG] Simulation-Agent1: No specific handler for event type: ready-received
+2024-10-18 10:54:10,424 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729241669276}}
+2024-10-18 10:54:10,424 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729241669276}}
+2024-10-18 10:54:10,425 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:54:10,425 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Lesser Albatross Lot","v":[586000,216000,150000],"d":[350000,150000],"speculators":[[],[],[]]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-10-18 10:54:10,425 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'assign-role', 'data': {'role': 3, 'wallet': [{'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}, {'balance': 60000, 'shares': 6, 'cashForSniping': 250000}], 'property': {'id': 1, 'owner': 1, 'name': 'Lesser Albatross Lot', 'v': [586000, 216000, 150000], 'd': [350000, 150000], 'speculators': [[], [], []]}, 'boundaries': {'developer': {'noProject': {'low': 200000, 'high': 500000}, 'projectA': {'low': 500000, 'high': 2750000}}, 'owner': {'noProject': {'low': 350000, 'high': 600000}, 'projectA': {'low': 150000, 'high': 350000}}}, 'taxRate': 1, 'initialTaxRate': 1, 'finalTaxRate': 33, 'conditions': [{'name': 'No Project', 'id': 0, 'parameter': 'no_project', 'key': 'noProject'}, {'name': 'Project', 'id': 1, 'parameter': 'project_a', 'key': 'projectA'}]}}
+2024-10-18 10:54:10,425 [INFO] Simulation-Agent1: Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-10-18 10:54:10,425 [INFO] Simulation-Agent1: Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-10-18 10:54:10,426 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-18 10:54:10,426 [INFO] Simulation-Agent1: Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-10-18 10:54:10,426 [INFO] Simulation-Agent1: Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-10-18 10:54:10,426 [INFO] Simulation-Agent1: User assigned role: Owner
+2024-10-18 10:54:10,427 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-10-18 10:54:10,427 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'players-known', 'data': {'players': [{'number': 1, 'role': 3, 'tag': 'Owner 1'}, {'number': 2, 'role': 2, 'tag': 'Developer'}, {'number': 3, 'role': 1, 'tag': 'Speculator 1'}]}}
+2024-10-18 10:54:10,427 [INFO] Simulation-Agent1: Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-10-18 10:54:10,458 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":1}}
+2024-10-18 10:54:10,458 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 1}}
+2024-10-18 10:54:10,458 [DEBUG] Simulation-Agent1: New phase received: 1 (Type: <class 'int'>)
+2024-10-18 10:54:10,458 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-18 10:54:10,458 [INFO] Simulation-Agent1: Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-10-18 10:54:10,459 [INFO] Simulation-Agent1: No action required for Phase 1 for role Owner.
+2024-10-18 10:54:10,459 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-10-18 10:54:10,459 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 1 has begun.'}
+2024-10-18 10:54:10,459 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:40,519 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-18 10:54:40,520 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-18 10:54:40,520 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-18 10:54:40,521 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729241699309}}
+2024-10-18 10:54:40,525 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729241699309}}
+2024-10-18 10:54:40,525 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:54:40,525 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":2}}
+2024-10-18 10:54:40,526 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 2}}
+2024-10-18 10:54:40,526 [DEBUG] Simulation-Agent1: New phase received: 2 (Type: <class 'int'>)
+2024-10-18 10:54:40,526 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+2024-10-18 10:54:40,526 [INFO] Simulation-Agent1: Phase Transitioned to Phase 2: Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+2024-10-18 10:54:40,548 [DEBUG] Simulation-Agent1: Phase 2 dispatch started for role Owner.
+2024-10-18 10:54:40,549 [DEBUG] Simulation-Agent1: Summary created: Simulation Events Summary:
+Current Phase (2): Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+Info: Player 1 rejoined the game
+Notice: Phase 1 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+
+2024-10-18 10:54:40,549 [DEBUG] Simulation-Agent1: Sending prompt to LLM: You are agent 1 participating in a Harberger tax simulation game. Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. Consider the current market conditions, your objectives, and any potential profits when making your decision. Your response should be in valid JSON format without any extra text, explanation, or formatting.
+
+Events Summary:
+Simulation Events Summary:
+Current Phase (2): Declaration Phase: Owners and Developer should declare their expected revenue for the round.
+
+The 'declaration' array should contain three values:
+- Value for the status quo condition (no project)
+- Value for the project development
+- Optional third value, set to 0 (for future use)
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}
+Info: Player 1 rejoined the game
+Notice: Phase 1 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+
+
+**Important Instructions:**
+- When generating your response, ensure that any bid or ask price does not exceed your available wallet balance.
+- Your available balance is provided in the 'Player Status' section above.
+- Make sure to consider your balance when deciding on the price for bids or asks.
+- Do not attempt to place orders that you cannot afford.
+
+2024-10-18 10:54:45,145 [DEBUG] Simulation-Agent1: Received response from LLM: {
+    "gameId": 55,
+    "type": "declare",
+    "declaration": [
+        30000,
+        50000,
+        0
+    ]
+}
+2024-10-18 10:54:45,145 [DEBUG] Simulation-Agent1: Processed WebSocket message: {'gameId': 55, 'type': 'declare', 'declaration': [30000, 50000, 0]}
+2024-10-18 10:54:45,145 [INFO] Simulation-Agent1: Sending message: {"gameId": 55, "type": "declare", "declaration": [30000, 50000, 0]}
+2024-10-18 10:54:45,145 [DEBUG] Simulation-Agent1: Sent message to WebSocket client: {"gameId": 55, "type": "declare", "declaration": [30000, 50000, 0]}
+2024-10-18 10:54:45,146 [INFO] Simulation-Agent1: Dispatched summary to LLM and sent response: {'gameId': 55, 'type': 'declare', 'declaration': [30000, 50000, 0]}
+2024-10-18 10:54:45,146 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-10-18 10:54:45,146 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 2 has begun.'}
+2024-10-18 10:54:45,147 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:45,160 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Blue submitted a declaration of values."}
+2024-10-18 10:54:45,161 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Player Blue submitted a declaration of values.'}
+2024-10-18 10:54:45,161 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:45,161 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Player Tan submitted a declaration of values."}
+2024-10-18 10:54:45,161 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Player Tan submitted a declaration of values.'}
+2024-10-18 10:54:45,161 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:45,162 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"declaration-received","data":{}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'declaration-received', 'data': {}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: No specific handler for event type: declaration-received
+2024-10-18 10:54:45,162 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-18 10:54:45,162 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729241704014}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729241704014}}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:54:45,162 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Wait for the speculators to  make their decisions."}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Wait for the speculators to  make their decisions.'}
+2024-10-18 10:54:45,162 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:45,163 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Lesser Albatross Lot","owner":"Tan","role":3,"number":1,"d":[30000,50000,0],"available":[true,true,true]},{"id":2,"name":"Bloody Llama Lot","owner":"Blue","role":2,"number":2,"d":[200000,400000,0],"available":[true,true,true]}]}}
+2024-10-18 10:54:45,163 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'declarations-published', 'data': {'declarations': [{'id': 1, 'name': 'Lesser Albatross Lot', 'owner': 'Tan', 'role': 3, 'number': 1, 'd': [30000, 50000, 0], 'available': [True, True, True]}, {'id': 2, 'name': 'Bloody Llama Lot', 'owner': 'Blue', 'role': 2, 'number': 2, 'd': [200000, 400000, 0], 'available': [True, True, True]}]}}
+2024-10-18 10:54:45,163 [DEBUG] Simulation-Agent1: No specific handler for event type: declarations-published
+2024-10-18 10:54:45,164 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":3}}
+2024-10-18 10:54:45,164 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 3}}
+2024-10-18 10:54:45,164 [DEBUG] Simulation-Agent1: New phase received: 3 (Type: <class 'int'>)
+2024-10-18 10:54:45,164 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
+
+The 'snipe' array should contain two arrays:
+- First array lists owners to challenge for the status quo condition
+- Second array lists owners to challenge for the project development condition
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}
+2024-10-18 10:54:45,164 [INFO] Simulation-Agent1: Phase Transitioned to Phase 3: Speculation Phase: Speculators may challenge declarations by Owners and Developers.
+
+The 'snipe' array should contain two arrays:
+- First array lists owners to challenge for the status quo condition
+- Second array lists owners to challenge for the project development condition
+
+Expected JSON Output:
+{
+    "gameId": 55,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}
+2024-10-18 10:54:45,165 [INFO] Simulation-Agent1: No action required for Phase 3 for role Owner.
+2024-10-18 10:54:45,165 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-10-18 10:54:45,165 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 3 has begun.'}
+2024-10-18 10:54:45,165 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:54:46,459 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-18 10:54:46,460 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-18 10:54:46,460 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-18 10:54:46,460 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729241705304}}
+2024-10-18 10:54:46,460 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729241705304}}
+2024-10-18 10:54:46,460 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:54:46,460 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":4}}
+2024-10-18 10:54:46,461 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 4}}
+2024-10-18 10:54:46,462 [DEBUG] Simulation-Agent1: New phase received: 4 (Type: <class 'int'>)
+2024-10-18 10:54:46,462 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
+2024-10-18 10:54:46,462 [INFO] Simulation-Agent1: Phase Transitioned to Phase 4: Waiting Phase: Players wait in this phase. No specific actions required.
+2024-10-18 10:54:46,462 [INFO] Simulation-Agent1: No action required for Phase 4 for role Owner.
+2024-10-18 10:54:46,462 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 4 has begun."}
+2024-10-18 10:54:46,462 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 4 has begun.'}
+2024-10-18 10:54:46,463 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:55:16,460 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-18 10:55:16,461 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-18 10:55:16,461 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-18 10:55:16,498 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729241735346}}
+2024-10-18 10:55:16,498 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729241735346}}
+2024-10-18 10:55:16,500 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:55:16,501 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"value-signals","data":{"signals":[10425,6092,0],"publicSignal":[759,1485,0],"taxRate":33}}
+2024-10-18 10:55:16,501 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'value-signals', 'data': {'signals': [10425, 6092, 0], 'publicSignal': [759, 1485, 0], 'taxRate': 33}}
+2024-10-18 10:55:16,501 [DEBUG] Simulation-Agent1: No specific handler for event type: value-signals
+2024-10-18 10:55:16,503 [INFO] Simulation-Agent1: Received message: {"type":"info","message":"Prepare for the trading phase"}
+2024-10-18 10:55:16,503 [DEBUG] Simulation-Agent1: Received message: {'type': 'info', 'message': 'Prepare for the trading phase'}
+2024-10-18 10:55:16,503 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:55:16,503 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":5}}
+2024-10-18 10:55:16,504 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 5}}
+2024-10-18 10:55:16,504 [DEBUG] Simulation-Agent1: New phase received: 5 (Type: <class 'int'>)
+2024-10-18 10:55:16,504 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
+2024-10-18 10:55:16,504 [INFO] Simulation-Agent1: Phase Transitioned to Phase 5: Waiting Phase: Players wait in this phase. No specific actions required.
+2024-10-18 10:55:16,504 [INFO] Simulation-Agent1: No action required for Phase 5 for role Owner.
+2024-10-18 10:55:16,505 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 5 has begun."}
+2024-10-18 10:55:16,505 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 5 has begun.'}
+2024-10-18 10:55:16,505 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:55:46,570 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-10-18 10:55:46,571 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'reset-timer', 'data': {}}
+2024-10-18 10:55:46,571 [DEBUG] Simulation-Agent1: No specific handler for event type: reset-timer
+2024-10-18 10:55:46,572 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"set-timer","data":{"end":1729242005383}}
+2024-10-18 10:55:46,573 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'set-timer', 'data': {'end': 1729242005383}}
+2024-10-18 10:55:46,574 [DEBUG] Simulation-Agent1: No specific handler for event type: set-timer
+2024-10-18 10:55:46,574 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"phase-transition","data":{"round":1,"phase":6}}
+2024-10-18 10:55:46,575 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'phase-transition', 'data': {'round': 1, 'phase': 6}}
+2024-10-18 10:55:46,575 [DEBUG] Simulation-Agent1: New phase received: 6 (Type: <class 'int'>)
+2024-10-18 10:55:46,575 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+2024-10-18 10:55:46,576 [INFO] Simulation-Agent1: Phase Transitioned to Phase 6: Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+2024-10-18 10:55:46,576 [DEBUG] Simulation-Agent1: Phase 6 dispatch started for role Owner.
+2024-10-18 10:55:46,577 [DEBUG] Simulation-Agent1: Summary created: Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+Notice: Phase 2 has begun.
+Info: Player Blue submitted a declaration of values.
+Info: Player Tan submitted a declaration of values.
+Info: Wait for the speculators to  make their decisions.
+Notice: Phase 3 has begun.
+Notice: Phase 4 has begun.
+Info: Prepare for the trading phase
+Notice: Phase 5 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+2024-10-18 10:55:46,577 [DEBUG] Simulation-Agent1: Sending prompt to LLM: You are agent 1 participating in a Harberger tax simulation game. Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. Consider the current market conditions, your objectives, and any potential profits when making your decision. Your response should be in valid JSON format without any extra text, explanation, or formatting.
+
+Events Summary:
+Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+Notice: Phase 2 has begun.
+Info: Player Blue submitted a declaration of values.
+Info: Player Tan submitted a declaration of values.
+Info: Wait for the speculators to  make their decisions.
+Notice: Phase 3 has begun.
+Notice: Phase 4 has begun.
+Info: Prepare for the trading phase
+Notice: Phase 5 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+
+**Important Instructions:**
+- When generating your response, ensure that any bid or ask price does not exceed your available wallet balance.
+- Your available balance is provided in the 'Player Status' section above.
+- Make sure to consider your balance when deciding on the price for bids or asks.
+- Do not attempt to place orders that you cannot afford.
+
+2024-10-18 10:55:51,015 [DEBUG] Simulation-Agent1: Received response from LLM: {
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": 60000,
+        "quantity": 1,
+        "condition": 0,
+        "type": "ask",
+        "now": false
+    }
+}
+2024-10-18 10:55:51,016 [DEBUG] Simulation-Agent1: Processed WebSocket message: {'gameId': 55, 'type': 'post-order', 'order': {'price': 60000, 'quantity': 1, 'condition': 0, 'type': 'ask', 'now': False}}
+2024-10-18 10:55:51,016 [INFO] Simulation-Agent1: Sending message: {"gameId": 55, "type": "post-order", "order": {"price": 60000, "quantity": 1, "condition": 0, "type": "ask", "now": false}}
+2024-10-18 10:55:51,016 [DEBUG] Simulation-Agent1: Sent message to WebSocket client: {"gameId": 55, "type": "post-order", "order": {"price": 60000, "quantity": 1, "condition": 0, "type": "ask", "now": false}}
+2024-10-18 10:55:51,016 [INFO] Simulation-Agent1: Dispatched summary to LLM and sent response: {'gameId': 55, 'type': 'post-order', 'order': {'price': 60000, 'quantity': 1, 'condition': 0, 'type': 'ask', 'now': False}}
+2024-10-18 10:55:51,018 [DEBUG] Simulation-Agent1: Dispatch timer set for periodic summary.
+2024-10-18 10:55:51,018 [INFO] Simulation-Agent1: Received message: {"type":"notice","message":"Phase 6 has begun."}
+2024-10-18 10:55:51,019 [DEBUG] Simulation-Agent1: Received message: {'type': 'notice', 'message': 'Phase 6 has begun.'}
+2024-10-18 10:55:51,019 [DEBUG] Simulation-Agent1: No specific handler for event type: 
+2024-10-18 10:55:51,019 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":1,"sender":2,"price":6840,"quantity":1,"type":"bid","condition":0}}}
+2024-10-18 10:55:51,020 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'add-order', 'data': {'order': {'id': 1, 'sender': 2, 'price': 6840, 'quantity': 1, 'type': 'bid', 'condition': 0}}}
+2024-10-18 10:55:51,020 [DEBUG] Simulation-Agent1: No specific handler for event type: add-order
+2024-10-18 10:55:51,040 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":2,"sender":1,"price":60000,"quantity":1,"type":"ask","condition":0}}}
+2024-10-18 10:55:51,040 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'add-order', 'data': {'order': {'id': 2, 'sender': 1, 'price': 60000, 'quantity': 1, 'type': 'ask', 'condition': 0}}}
+2024-10-18 10:55:51,040 [DEBUG] Simulation-Agent1: No specific handler for event type: add-order
+2024-10-18 10:55:51,715 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":3,"sender":3,"price":50000,"quantity":1,"type":"bid","condition":0}}}
+2024-10-18 10:55:51,715 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'add-order', 'data': {'order': {'id': 3, 'sender': 3, 'price': 50000, 'quantity': 1, 'type': 'bid', 'condition': 0}}}
+2024-10-18 10:55:51,715 [DEBUG] Simulation-Agent1: No specific handler for event type: add-order
+2024-10-18 10:55:56,021 [DEBUG] Simulation-Agent1: Phase 6 dispatch started for role Owner.
+2024-10-18 10:55:56,021 [DEBUG] Simulation-Agent1: Summary created: Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+Notice: Phase 6 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+2024-10-18 10:55:56,022 [DEBUG] Simulation-Agent1: Sending prompt to LLM: You are agent 1 participating in a Harberger tax simulation game. Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. Consider the current market conditions, your objectives, and any potential profits when making your decision. Your response should be in valid JSON format without any extra text, explanation, or formatting.
+
+Events Summary:
+Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+Notice: Phase 6 has begun.
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+
+**Important Instructions:**
+- When generating your response, ensure that any bid or ask price does not exceed your available wallet balance.
+- Your available balance is provided in the 'Player Status' section above.
+- Make sure to consider your balance when deciding on the price for bids or asks.
+- Do not attempt to place orders that you cannot afford.
+
+2024-10-18 10:55:57,420 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"contract-fulfilled","data":{"from":2,"to":3,"price":50000,"condition":0,"median":50000}}
+2024-10-18 10:55:57,420 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'contract-fulfilled', 'data': {'from': 2, 'to': 3, 'price': 50000, 'condition': 0, 'median': 50000}}
+2024-10-18 10:55:57,421 [DEBUG] Simulation-Agent1: No specific handler for event type: contract-fulfilled
+2024-10-18 10:55:57,421 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"delete-order","data":{"order":{"id":3,"type":"bid","condition":0}}}
+2024-10-18 10:55:57,421 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'delete-order', 'data': {'order': {'id': 3, 'type': 'bid', 'condition': 0}}}
+2024-10-18 10:55:57,421 [DEBUG] Simulation-Agent1: No specific handler for event type: delete-order
+2024-10-18 10:55:57,676 [DEBUG] Simulation-Agent1: Received response from LLM: {
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": 60000,
+        "quantity": 1,
+        "condition": 0,
+        "type": "ask",
+        "now": false
+    }
+}
+2024-10-18 10:55:57,677 [DEBUG] Simulation-Agent1: Processed WebSocket message: {'gameId': 55, 'type': 'post-order', 'order': {'price': 60000, 'quantity': 1, 'condition': 0, 'type': 'ask', 'now': False}}
+2024-10-18 10:55:57,677 [INFO] Simulation-Agent1: Sending message: {"gameId": 55, "type": "post-order", "order": {"price": 60000, "quantity": 1, "condition": 0, "type": "ask", "now": false}}
+2024-10-18 10:55:57,678 [DEBUG] Simulation-Agent1: Sent message to WebSocket client: {"gameId": 55, "type": "post-order", "order": {"price": 60000, "quantity": 1, "condition": 0, "type": "ask", "now": false}}
+2024-10-18 10:55:57,678 [INFO] Simulation-Agent1: Dispatched summary to LLM and sent response: {'gameId': 55, 'type': 'post-order', 'order': {'price': 60000, 'quantity': 1, 'condition': 0, 'type': 'ask', 'now': False}}
+2024-10-18 10:55:57,679 [DEBUG] Simulation-Agent1: Dispatch timer set for periodic summary.
+2024-10-18 10:55:57,702 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":4,"sender":1,"price":60000,"quantity":1,"type":"ask","condition":0}}}
+2024-10-18 10:55:57,702 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'add-order', 'data': {'order': {'id': 4, 'sender': 1, 'price': 60000, 'quantity': 1, 'type': 'ask', 'condition': 0}}}
+2024-10-18 10:55:57,702 [DEBUG] Simulation-Agent1: No specific handler for event type: add-order
+2024-10-18 10:56:02,680 [DEBUG] Simulation-Agent1: Phase 6 dispatch started for role Owner.
+2024-10-18 10:56:02,682 [DEBUG] Simulation-Agent1: Summary created: Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Contract Fulfilled: From=2, To=3, Price=50000, Condition=0, Median=50000
+- Delete Order: ID=3, Type=bid, Condition=0
+- Add Order: ID=4, Sender=1, Price=60000, Type=ask, Condition=0
+- Contract Fulfilled: From=2, To=3, Price=50000, Condition=0, Median=50000
+- Delete Order: ID=3, Type=bid, Condition=0
+- Add Order: ID=4, Sender=1, Price=60000, Type=ask, Condition=0
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+2024-10-18 10:56:02,682 [DEBUG] Simulation-Agent1: Sending prompt to LLM: You are agent 1 participating in a Harberger tax simulation game. Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. Consider the current market conditions, your objectives, and any potential profits when making your decision. Your response should be in valid JSON format without any extra text, explanation, or formatting.
+
+Events Summary:
+Simulation Events Summary:
+Current Phase (6): Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.
+
+**Your available balance is 120000. You cannot place a bid or ask that exceeds this amount.**
+
+The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.
+
+Market Signals:
+- 'signals': Your private signals, visible only to you
+- 'publicSignal': Signals visible to all players
+Use this data to inform your decision. You are responsible for setting the prices based on these signals.
+
+**You must ensure that the 'price' in your order does not exceed your available balance.**
+
+Expected JSON Output (Post Order):
+{
+    "gameId": 55,
+    "type": "post-order",
+    "order": {
+        "price": your_chosen_price if 1 <= your_chosen_price <= 120000,  # Integer, price you decide based on signals, limited to range 1-120000
+        "quantity": 1,                # Integer, always 1
+        "condition": condition_number,  # Integer, 0 for status quo, 1 for project
+        "type": "ask" or "bid",    # String, 'ask' to sell, 'bid' to buy
+        "now": false          # Boolean, false
+    }
+}}
+
+Cumulative Context:
+Past Phase Transitions (last 10): Phase 1 (Round 1), Phase 2 (Round 1), Phase 3 (Round 1), Phase 4 (Round 1), Phase 5 (Round 1), Phase 6 (Round 1)
+Recent Player Actions (last 20):
+- Phase transition
+- Phase transition
+- Declarations Published: Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]; Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+- Phase transition
+- Phase transition
+- Market Signals: Signals=[10425, 6092, 0], PublicSignal=[759, 1485, 0], Tax Rate=33
+- Phase transition
+- Phase transition
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Add Order: ID=1, Sender=2, Price=6840, Type=bid, Condition=0
+- Add Order: ID=2, Sender=1, Price=60000, Type=ask, Condition=0
+- Add Order: ID=3, Sender=3, Price=50000, Type=bid, Condition=0
+- Contract Fulfilled: From=2, To=3, Price=50000, Condition=0, Median=50000
+- Delete Order: ID=3, Type=bid, Condition=0
+- Add Order: ID=4, Sender=1, Price=60000, Type=ask, Condition=0
+- Contract Fulfilled: From=2, To=3, Price=50000, Condition=0, Median=50000
+- Delete Order: ID=3, Type=bid, Condition=0
+- Add Order: ID=4, Sender=1, Price=60000, Type=ask, Condition=0
+Recent Declarations (last 5):
+  * Lesser Albatross Lot by Tan - Declarations: [30000, 50000, 0]
+  * Bloody Llama Lot by Blue - Declarations: [200000, 400000, 0]
+Recent Market Signals (last 5):
+  * Signals: [10425, 6092, 0], Tax Rate: 33
+
+**Player Status:**
+- Total Wallet Balance: 120000
+- Balance for Condition 0 (Left Market): 60000
+- Balance for Condition 1 (Right Market): 60000
+- Shares for Condition 0 (Left Market): 6
+- Shares for Condition 1 (Right Market): 6
+- Cash for Sniping Condition 0: 250000
+- Cash for Sniping Condition 1: 250000
+- Properties Owned: Lesser Albatross Lot
+- Latest Market Signal: Signals=[10425, 6092, 0], Tax Rate=33
+
+
+**Important Instructions:**
+- When generating your response, ensure that any bid or ask price does not exceed your available wallet balance.
+- Your available balance is provided in the 'Player Status' section above.
+- Make sure to consider your balance when deciding on the price for bids or asks.
+- Do not attempt to place orders that you cannot afford.
+
+2024-10-18 10:56:03,719 [INFO] Simulation-Agent1: Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":5,"sender":2,"price":200000,"quantity":1,"type":"ask","condition":0}}}
+2024-10-18 10:56:03,720 [DEBUG] Simulation-Agent1: Received message: {'type': 'event', 'eventType': 'add-order', 'data': {'order': {'id': 5, 'sender': 2, 'price': 200000, 'quantity': 1, 'type': 'ask', 'condition': 0}}}
+2024-10-18 10:56:03,720 [DEBUG] Simulation-Agent1: Removed oldest item from player_actions: {'type': 'phase-transition', 'data': {'round': 1, 'phase': 1}}
+2024-10-18 10:56:03,720 [DEBUG] Simulation-Agent1: No specific handler for event type: add-order

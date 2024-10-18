@@ -6,14 +6,15 @@ import re
 from openai import OpenAI
 
 class LLMCommunicator:
-    def __init__(self, openai_api_key=None, logger=None):
+    def __init__(self, agent_id, openai_api_key=None, logger=None):
         self.logger = logger or logging.getLogger("LLMCommunicator")
         self.client = OpenAI()
+        self.agent_id = agent_id  # Set the agent's unique ID
 
     def query_openai(self, summary):
         try:
             instructions = (
-                "You are an agent participating in a Harberger tax simulation game. "
+                f"You are agent {self.agent_id} participating in a Harberger tax simulation game. "
                 "Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. "
                 "Consider the current market conditions, your objectives, and any potential profits when making your decision. "
                 "Your response should be in valid JSON format without any extra text, explanation, or formatting."
@@ -26,6 +27,7 @@ class LLMCommunicator:
             response = self.client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=message,
+                temperature=0.9,
             )
 
             response_text = response.choices[0].message.content

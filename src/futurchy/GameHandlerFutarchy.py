@@ -12,6 +12,7 @@ class GameHandler:
         self.recovery = recovery
         self.websocket_client = websocket_client
 
+
         self.current_phase = None
         self.current_round = 1
         self.user_number = None
@@ -29,7 +30,8 @@ class GameHandler:
             'declarations': [],
             'profits': [],
             'market_signals': [],
-            'phase_transitions': []
+            'phase_transitions': [],
+            'asset_movements': []
         }
 
         self.max_context = {
@@ -37,7 +39,8 @@ class GameHandler:
             'declarations': 5,
             'profits': 10,
             'market_signals': 5,
-            'phase_transitions': 10
+            'phase_transitions': 10,
+            'asset_movements': 10
         }
 
         self.relevant_actions = [
@@ -48,10 +51,11 @@ class GameHandler:
             'contract-fulfilled',
             'delete-order',
             'phase-transition',
-            'order-refused'
+            'order-refused',
+            'asset-movement'
         ]
 
-        self.llm_communicator = LLMCommunicator(logger=self.logger)
+        self.llm_communicator = None
 
         self.dispatch_timer = None
 
@@ -102,6 +106,14 @@ class GameHandler:
                 message = data.get('message', 'Order was refused.')
                 return f"Order Refused: {message}"
 
+            elif action_type == 'asset-movement':
+                movement = data.get('movement', {})
+                return (
+                    f"Asset Movement: Type={movement.get('type')}, Quantity={movement.get('quantity')}, "
+                    f"Price={movement.get('price')}, Total={movement.get('total')}, "
+                    f"Condition={data.get('condition')}, Balance={data.get('balance')}, Shares={data.get('shares')}"
+                )
+
             else:
                 return action_type.replace('-', ' ').capitalize()
         except Exception as e:
@@ -149,6 +161,9 @@ class GameHandler:
                     'data': message_data.get('data', {})
                 })
 
+            if event_type == 'asset-movement':
+                self.handle_asset_movement(message_data.get('data', {}))
+
             if event_type == 'assign-name':
                 self.handle_assign_name(message_data.get('data', {}))
             elif event_type == 'players-known':
@@ -165,6 +180,31 @@ class GameHandler:
         except Exception as e:
             self.logger.error(f"Unexpected error in receive_message: {e}")
 
+    def handle_asset_movement(self, data):
+        try:
+            condition = data.get('condition')
+            balance = data.get('balance')
+            shares = data.get('shares')
+
+            if condition == 0:
+                self.player_wallet['balance_condition_0'] = balance
+                self.player_wallet['shares_condition_0'] = shares
+            elif condition == 1:
+                self.player_wallet['balance_condition_1'] = balance
+                self.player_wallet['shares_condition_1'] = shares
+
+            # Update total balance and shares
+            total_balance = self.player_wallet.get('balance_condition_0', 0) + self.player_wallet.get('balance_condition_1', 0)
+            total_shares = self.player_wallet.get('shares_condition_0', 0) + self.player_wallet.get('shares_condition_1', 0)
+            self.player_wallet['total_balance'] = total_balance
+            self.player_wallet['total_shares'] = total_shares
+
+            self.logger.info(f"Updated player wallet after asset movement: {self.player_wallet}")
+            self.add_to_context('asset_movements', data)
+
+        except Exception as e:
+            self.logger.error(f"Error handling asset movement: {e}")
+
     def handle_assign_name(self, data):
         try:
             name = data['name']
@@ -172,17 +212,21 @@ class GameHandler:
             self.user_number = number
             self.logger.info(f"User assigned name: {name}, number: {number}")
 
+            # Initialize LLMCommunicator with agent_id
+            self.llm_communicator = LLMCommunicator(agent_id=self.user_number, logger=self.logger)
+
             self.send_player_ready()
         except KeyError as e:
             self.logger.error(f"Missing key in handle_assign_name: {e}")
         except Exception as e:
             self.logger.error(f"Error in handle_assign_name: {e}")
 
+
     def handle_players_known(self, players):
         for player in players:
             number = player.get('number')
             role_name = player.get('tag', "Unknown")
-            base_role = role_name.split()[0]  # Extract the base role
+            base_role = role_name.split()[0]
             self.roles[number] = base_role
 
             if number == self.user_number:
@@ -210,9 +254,6 @@ class GameHandler:
     def update_player_wallet(self, wallet_data):
         try:
             if wallet_data:
-                # Assuming the first wallet is for condition 0 (left market)
-                # and the second wallet is for condition 1 (right market)
-                # The third wallet should be ignored
                 if len(wallet_data) >= 2:
                     balance_condition_0 = wallet_data[0].get('balance', 0)
                     balance_condition_1 = wallet_data[1].get('balance', 0)
@@ -285,7 +326,8 @@ class GameHandler:
             'declarations': [],
             'profits': [],
             'market_signals': [],
-            'phase_transitions': []
+            'phase_transitions': [],
+            'asset_movements': []
         }
         self.logger.debug("Game context has been reset.")
 
@@ -419,6 +461,9 @@ class GameHandler:
             }
             self.context['market_signals'].append(signals)
 
+        elif event_type == 'asset-movement':
+            self.handle_asset_movement(data)
+
         elif event_type in ['add-order', 'contract-fulfilled', 'delete-order', 'order-refused']:
             self.context['player_actions'].append({
                 'type': event_type,
@@ -453,6 +498,12 @@ class GameHandler:
             context_str += f"Recent Market Signals (last {self.max_context['market_signals']}):\n"
             for signal in self.context['market_signals'][-self.max_context['market_signals']:]:
                 context_str += f"  * Signals: {signal['signals']}, Tax Rate: {signal['taxRate']}\n"
+
+        if self.context['asset_movements']:
+            context_str += f"Recent Asset Movements (last {self.max_context['asset_movements']}):\n"
+            for movement in self.context['asset_movements'][-self.max_context['asset_movements']:]:
+                movement_str = self.format_action('asset-movement', movement)
+                context_str += f"  * {movement_str}\n"
 
         context_str += "\n**Player Status:**\n"
         total_balance = self.player_wallet.get('total_balance', 0)
