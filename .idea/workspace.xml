@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/futurchy/GameHandlerFutarchy.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/futurchy/GameHandlerFutarchy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/futurchy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/futurchy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harberger/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/__init__.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jasperbruin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jasperbruin/IBEX-LLM.git&quot;,
+    &quot;accountId&quot;: &quot;87402ef9-4954-4e68-9420-fc81bb0b587e&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2coUpkeZo3jqkvC4J2EWNns60XG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for GameHandlerAuction.test_game_handler.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for HarbergerTestExtreme.TestGameHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in HarbergerTestExtreme.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.AuctionTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.AuctionTestExtreme.executor&quot;: &quot;Run&quot;,
+    &quot;Python.FuturchyTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.FuturchyTestExtreme.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerAuction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerAuction_Beta.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerAuction_Beta2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerFutarchy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerHarberger.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameHandlerLLM.executor&quot;: &quot;Run&quot;,
+    &quot;Python.HarbergerTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.HarbergerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.HarbergerTestExtreme.executor&quot;: &quot;Run&quot;,
+    &quot;Python.HarbergerTest_Market.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LLMAgentLogic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SockethandlerNoGPT.executor&quot;: &quot;Run&quot;,
+    &quot;Python.WebSocketClient.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__ (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.buttonFinder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.firstPrototype.executor&quot;: &quot;Run&quot;,
+    &quot;Python.improvedInteractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.inputFinder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.instructionReader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.newButtonWebInteractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.newWebInteractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.openAIAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.plot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.re.executor&quot;: &quot;Run&quot;,
+    &quot;Python.secondPrototype.executor&quot;: &quot;Run&quot;,
+    &quot;Python.secondPrototype2.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.socketHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.webInteraction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.webInteractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.webInteractor2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.webInteractorJSON.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;futurchyV2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jasperbruin/Documents/IBEX-LLM/src/harberger&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/harberger" />
+      <recent name="$PROJECT_DIR$/src/auction" />
+      <recent name="$PROJECT_DIR$/src/futurchy" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/selenium" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/futurchy" />
+      <recent name="$PROJECT_DIR$/src/auction" />
+      <recent name="$PROJECT_DIR$/src/voting" />
+      <recent name="$PROJECT_DIR$/src/harberger" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.FuturchyTestExtreme">
+    <configuration name="FuturchyTestExtreme" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IBEX-LLM" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/futurchy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/futurchy/FuturchyTestExtreme.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GameHandlerFutarchy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IBEX-LLM" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/futurchy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/futurchy/GameHandlerFutarchy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IBEX-LLM" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/futurchy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/futurchy/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IBEX-LLM" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IBEX-LLM" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/things_that_break" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.FuturchyTestExtreme" />
+        <item itemvalue="Python.plot" />
+        <item itemvalue="Python.__init__ (1)" />
+        <item itemvalue="Python.GameHandlerFutarchy" />
+        <item itemvalue="Python.__init__" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="" />
+      <created>1708777609803</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708777609803</updated>
+      <workItem from="1708777610917" duration="3377000" />
+      <workItem from="1708944265091" duration="4290000" />
+      <workItem from="1709028586784" duration="2164000" />
+      <workItem from="1709047680328" duration="2548000" />
+      <workItem from="1709293149197" duration="119000" />
+      <workItem from="1709415062099" duration="18431000" />
+      <workItem from="1709471477244" duration="6215000" />
+      <workItem from="1709534409936" duration="54000" />
+      <workItem from="1709548572508" duration="2938000" />
+      <workItem from="1709558606123" duration="346000" />
+      <workItem from="1709629263560" duration="6056000" />
+      <workItem from="1709667534625" duration="22000" />
+      <workItem from="1709667624316" duration="7000" />
+      <workItem from="1709669449373" duration="600000" />
+      <workItem from="1709713261982" duration="599000" />
+      <workItem from="1709720983821" duration="1355000" />
+      <workItem from="1709737829652" duration="399000" />
+      <workItem from="1709879876588" duration="345000" />
+      <workItem from="1709880242447" duration="112000" />
+      <workItem from="1709894105617" duration="492000" />
+      <workItem from="1709914247345" duration="976000" />
+      <workItem from="1709917684627" duration="103000" />
+      <workItem from="1709970050378" duration="4214000" />
+      <workItem from="1709986818663" duration="6630000" />
+      <workItem from="1710064724900" duration="3465000" />
+      <workItem from="1710069999016" duration="1635000" />
+      <workItem from="1710071819994" duration="2543000" />
+      <workItem from="1710164940208" duration="239000" />
+      <workItem from="1710348761090" duration="795000" />
+      <workItem from="1710349588040" duration="620000" />
+      <workItem from="1710354831221" duration="1040000" />
+      <workItem from="1710356114033" duration="2203000" />
+      <workItem from="1710432410506" duration="8962000" />
+      <workItem from="1710485352460" duration="6992000" />
+      <workItem from="1710502581465" duration="1491000" />
+      <workItem from="1710504074010" duration="4193000" />
+      <workItem from="1710525341564" duration="2690000" />
+      <workItem from="1710666678892" duration="17816000" />
+      <workItem from="1710753372353" duration="6000" />
+      <workItem from="1710756633216" duration="18000" />
+      <workItem from="1710827073028" duration="6512000" />
+      <workItem from="1710834867269" duration="4922000" />
+      <workItem from="1710917070861" duration="5000" />
+      <workItem from="1710943001255" duration="825000" />
+      <workItem from="1710944662364" duration="18000" />
+      <workItem from="1711055323466" duration="7000" />
+      <workItem from="1711272293848" duration="138000" />
+      <workItem from="1711361122163" duration="27000" />
+      <workItem from="1711361150627" duration="4651000" />
+      <workItem from="1711366544288" duration="193000" />
+      <workItem from="1711369820129" duration="2000" />
+      <workItem from="1711445126441" duration="56000" />
+      <workItem from="1711608050910" duration="1662000" />
+      <workItem from="1711780713559" duration="41000" />
+      <workItem from="1711799856609" duration="22294000" />
+      <workItem from="1711968647513" duration="15000" />
+      <workItem from="1712227867172" duration="1897000" />
+      <workItem from="1712230529088" duration="6000" />
+      <workItem from="1712297211458" duration="924000" />
+      <workItem from="1712558407932" duration="125000" />
+      <workItem from="1712558574175" duration="1008000" />
+      <workItem from="1712559591169" duration="4544000" />
+      <workItem from="1712745254436" duration="264000" />
+      <workItem from="1712750605492" duration="61000" />
+      <workItem from="1712866661100" duration="557000" />
+      <workItem from="1712902184623" duration="4471000" />
+      <workItem from="1712919715854" duration="8840000" />
+      <workItem from="1712935230614" duration="8588000" />
+      <workItem from="1713014183819" duration="16896000" />
+      <workItem from="1713533186510" duration="2734000" />
+      <workItem from="1713689417657" duration="10000" />
+      <workItem from="1713727326069" duration="12377000" />
+      <workItem from="1713793362787" duration="3000" />
+      <workItem from="1713861813964" duration="5758000" />
+      <workItem from="1714751526149" duration="43000" />
+      <workItem from="1714985091465" duration="551000" />
+      <workItem from="1714988661008" duration="18000" />
+      <workItem from="1715323868245" duration="2659000" />
+      <workItem from="1715515059148" duration="706000" />
+      <workItem from="1715582815456" duration="5000" />
+      <workItem from="1715751204890" duration="6752000" />
+      <workItem from="1715768010265" duration="1200000" />
+      <workItem from="1715792813099" duration="3393000" />
+      <workItem from="1715841019065" duration="1609000" />
+      <workItem from="1715844357337" duration="12000" />
+      <workItem from="1715930247756" duration="2460000" />
+      <workItem from="1716580311280" duration="1751000" />
+      <workItem from="1716620888640" duration="5572000" />
+      <workItem from="1716637117161" duration="19000" />
+      <workItem from="1716723741065" duration="5308000" />
+      <workItem from="1716741690737" duration="180000" />
+      <workItem from="1716966722220" duration="1661000" />
+      <workItem from="1716980599940" duration="190000" />
+      <workItem from="1716980802274" duration="3000" />
+      <workItem from="1717143119464" duration="4000" />
+      <workItem from="1717150121605" duration="14000" />
+      <workItem from="1717341035291" duration="2641000" />
+      <workItem from="1717355737006" duration="104000" />
+      <workItem from="1717408658276" duration="1853000" />
+      <workItem from="1717572078205" duration="2000" />
+      <workItem from="1717594406446" duration="49000" />
+      <workItem from="1717660124739" duration="1861000" />
+      <workItem from="1717748627972" duration="122000" />
+      <workItem from="1718106730179" duration="1002000" />
+      <workItem from="1718537162640" duration="6178000" />
+      <workItem from="1718617454285" duration="5258000" />
+      <workItem from="1718631988991" duration="374000" />
+      <workItem from="1718705438653" duration="1243000" />
+      <workItem from="1718717735392" duration="369000" />
+      <workItem from="1719172734668" duration="660000" />
+      <workItem from="1719315479207" duration="3793000" />
+      <workItem from="1719387751812" duration="17000" />
+      <workItem from="1719430695878" duration="23000" />
+      <workItem from="1719922361350" duration="1984000" />
+      <workItem from="1722847599889" duration="2543000" />
+      <workItem from="1722852229218" duration="25431000" />
+      <workItem from="1723029545631" duration="5100000" />
+      <workItem from="1723099858866" duration="14052000" />
+      <workItem from="1723285538635" duration="3958000" />
+      <workItem from="1723543833109" duration="318000" />
+      <workItem from="1723544158199" duration="30328000" />
+      <workItem from="1723701264149" duration="8841000" />
+      <workItem from="1723712654535" duration="15912000" />
+      <workItem from="1723802474270" duration="4123000" />
+      <workItem from="1723814302972" duration="9036000" />
+      <workItem from="1723828791590" duration="2280000" />
+      <workItem from="1724070860431" duration="14576000" />
+      <workItem from="1724221968368" duration="35403000" />
+      <workItem from="1724833897409" duration="28646000" />
+      <workItem from="1725020108362" duration="6832000" />
+      <workItem from="1725094056036" duration="2000" />
+      <workItem from="1725271427877" duration="1477000" />
+      <workItem from="1725623517845" duration="2308000" />
+      <workItem from="1727253290883" duration="17000" />
+      <workItem from="1727330461812" duration="1590000" />
+      <workItem from="1727333794603" duration="3000" />
+      <workItem from="1727343641873" duration="72000" />
+      <workItem from="1727591661220" duration="18568000" />
+      <workItem from="1727761177635" duration="5580000" />
+      <workItem from="1727778301143" duration="7526000" />
+      <workItem from="1727786580676" duration="5140000" />
+      <workItem from="1727849140846" duration="24209000" />
+      <workItem from="1728122939385" duration="150000" />
+      <workItem from="1729234941903" duration="12077000" />
+      <workItem from="1729323702757" duration="14000" />
+      <workItem from="1730210208330" duration="8971000" />
+      <workItem from="1730270302405" duration="3896000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerAuction_Beta2.coverage" NAME="GameHandlerAuction_Beta2 Coverage Results" MODIFIED="1724085951352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$constructDataset.coverage" NAME="constructDataset Coverage Results" MODIFIED="1708803460090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$HarbergerTest.coverage" NAME="HarbergerTest Coverage Results" MODIFIED="1724308778499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$AuctionTestExtreme.coverage" NAME="AuctionTestExtreme Coverage Results" MODIFIED="1724398122130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$.coverage" NAME=" Coverage Results" MODIFIED="1724310013774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$HarbergerTest_Market.coverage" NAME="HarbergerTest_Market Coverage Results" MODIFIED="1724309279202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/harberger" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$handler.coverage" NAME="handler Coverage Results" MODIFIED="1709497203864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$plot.coverage" NAME="plot Coverage Results" MODIFIED="1727875514173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/things_that_break" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1727866633903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandler.coverage" NAME="GameHandler Coverage Results" MODIFIED="1716629208497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$socketHandler.coverage" NAME="socketHandler Coverage Results" MODIFIED="1715751346690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerHarberger.coverage" NAME="GameHandlerHarberger Coverage Results" MODIFIED="1724332623203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/harberger" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerAuction.coverage" NAME="GameHandlerAuction Coverage Results" MODIFIED="1723632547858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$webInteractor2.coverage" NAME="webInteractor2 Coverage Results" MODIFIED="1710674647637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$LLMAgentLogic.coverage" NAME="LLMAgentLogic Coverage Results" MODIFIED="1713014502945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$FuturchyTest.coverage" NAME="FuturchyTest Coverage Results" MODIFIED="1724913108132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$secondPrototype.coverage" NAME="secondPrototype Coverage Results" MODIFIED="1713862121797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$instructionReader.coverage" NAME="instructionReader Coverage Results" MODIFIED="1711365505615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$improvedInteractor.coverage" NAME="improvedInteractor Coverage Results" MODIFIED="1710827781764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerAuction_Beta.coverage" NAME="GameHandlerAuction_Beta Coverage Results" MODIFIED="1723701358347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$firstPrototype.coverage" NAME="firstPrototype Coverage Results" MODIFIED="1712228756137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$re.coverage" NAME="openAIAPI Coverage Results" MODIFIED="1716724401725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$webInteractor.coverage" NAME="webInteractor Coverage Results" MODIFIED="1711366180578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$webInteractorJSON.coverage" NAME="webInteractorJSON Coverage Results" MODIFIED="1710689574904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$SockethandlerNoGPT.coverage" NAME="SockethandlerNoGPT Coverage Results" MODIFIED="1715761971600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$FuturchyTestExtreme.coverage" NAME="FuturchyTestExtreme Coverage Results" MODIFIED="1729240942159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$handlerNoGPT.coverage" NAME="handlerNoGPT Coverage Results" MODIFIED="1709036167267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerFutarchy.coverage" NAME="GameHandlerFutarchy Coverage Results" MODIFIED="1727763827852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$inputFinder.coverage" NAME="inputFinder Coverage Results" MODIFIED="1710669319883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$test.coverage" NAME="test Coverage Results" MODIFIED="1711812101538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$HarbergerTest__1_.coverage" NAME="HarbergerTest Coverage Results" MODIFIED="1724395907084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$webInteraction.coverage" NAME="buttonFinder Coverage Results" MODIFIED="1710668976992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$newButtonWebInteractor.coverage" NAME="newButtonWebInteractor Coverage Results" MODIFIED="1711881480970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$newWebInteractor.coverage" NAME="firstPrototype Coverage Results" MODIFIED="1711881645691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$AuctionTest.coverage" NAME="AuctionTest Coverage Results" MODIFIED="1723822527420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerLLM.coverage" NAME="GameHandlerLLM Coverage Results" MODIFIED="1716580815715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1725025014726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$secondPrototype2_0.coverage" NAME="secondPrototype2.0 Coverage Results" MODIFIED="1714985245423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$WebSocketClient.coverage" NAME="WebSocketClient Coverage Results" MODIFIED="1723626216563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$HarbergerTestExtreme.coverage" NAME="HarbergerTestExtreme Coverage Results" MODIFIED="1724397885393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+</project>

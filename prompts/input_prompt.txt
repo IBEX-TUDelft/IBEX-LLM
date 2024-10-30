@@ -1,3 +1,0 @@
-Whenever you encounter an input field related to compensation requests (e.g., 'player_compensation_1'), you should provide a reasonable compensation amount. Given the context of the game and the information available, such as project impacts and value ranges, determine a suitable compensation figure.
-For providing a compensation request, format your response as 'Compensation: [Amount]', where [Amount] is the figure you suggest based on the economic conditions and strategic objectives outlined. Remember, the compensation should reflect the value impacts and ranges discussed in the game scenario.
-If the action involves other types of input fields not related to compensation, specify the appropriate action based on the field's purpose.
