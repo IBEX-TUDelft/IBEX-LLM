@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/futurchy/LLMCommunicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/futurchy/LLMCommunicator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/game.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/game.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent3.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
