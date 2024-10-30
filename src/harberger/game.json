@@ -10,7 +10,7 @@
             "generate": false
         },
         "speculators": {
-            "count": 6,
+            "count": 1,
             "balance": 50000,
             "shares": 5,
             "max_lot_purchases": 3,
@@ -43,7 +43,7 @@
             }
         },
         "owners": {
-            "count": 5,
+            "count": 1,
             "balance": 60000,
             "shares": 6,
             "base_points": 200000,
@@ -68,7 +68,7 @@
         },
         "timers": {
             "phase_0": null,
-            "phase_1": 15,
+            "phase_1": 10,
             "phase_2": 90,
             "phase_3": 120,
             "phase_4": 3,
@@ -76,7 +76,7 @@
             "phase_6": 270,
             "phase_7": 60,
             "phase_8": 90,
-            "phase_9": 15
+            "phase_9": 10
         },
         "round_count": "1",
         "game_type": "harberger",
