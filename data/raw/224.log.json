@@ -1,0 +1,5118 @@
+{
+  "parameters": [
+    {
+      "key": "show_up_fee",
+      "type": "number",
+      "value": "5"
+    },
+    {
+      "key": "timer_phase_7",
+      "type": "number",
+      "value": "15"
+    },
+    {
+      "key": "timer_phase_6",
+      "type": "number",
+      "value": "60"
+    },
+    {
+      "key": "timer_phase_5",
+      "type": "number",
+      "value": "120"
+    },
+    {
+      "key": "timer_phase_4",
+      "type": "number",
+      "value": "120"
+    },
+    {
+      "key": "timer_phase_3",
+      "type": "number",
+      "value": "120"
+    },
+    {
+      "key": "timer_phase_2",
+      "type": "number",
+      "value": "180"
+    },
+    {
+      "key": "timer_phase_1",
+      "type": "number",
+      "value": "15"
+    },
+    {
+      "key": "seconds_for_deliberation",
+      "type": "number",
+      "value": "30"
+    },
+    {
+      "key": "owners_reward_scale_factor",
+      "type": "number",
+      "value": "20000"
+    },
+    {
+      "key": "owners_base_points",
+      "type": "number",
+      "value": "0"
+    },
+    {
+      "key": "owner_project_b_high",
+      "type": "number",
+      "value": "200000"
+    },
+    {
+      "key": "owner_project_b_fixed",
+      "type": "number",
+      "value": "150000"
+    },
+    {
+      "key": "owner_project_b_low",
+      "type": "number",
+      "value": "100000"
+    },
+    {
+      "key": "owner_project_a_high",
+      "type": "number",
+      "value": "350000"
+    },
+    {
+      "key": "owner_project_a_fixed",
+      "type": "number",
+      "value": "275000"
+    },
+    {
+      "key": "owner_project_a_low",
+      "type": "number",
+      "value": "150000"
+    },
+    {
+      "key": "owner_no_project_high",
+      "type": "number",
+      "value": "600000"
+    },
+    {
+      "key": "owner_no_project_fixed",
+      "type": "number",
+      "value": "425000"
+    },
+    {
+      "key": "owner_no_project_low",
+      "type": "number",
+      "value": "350000"
+    },
+    {
+      "key": "owner_shares",
+      "type": "number",
+      "value": "6"
+    },
+    {
+      "key": "owner_balance",
+      "type": "number",
+      "value": "60000"
+    },
+    {
+      "key": "owners_count",
+      "type": "number",
+      "value": "5"
+    },
+    {
+      "key": "developers_reward_scale_factor",
+      "type": "number",
+      "value": "50000"
+    },
+    {
+      "key": "developers_base_points",
+      "type": "number",
+      "value": "500000"
+    },
+    {
+      "key": "developer_project_b_high",
+      "type": "number",
+      "value": "2000000"
+    },
+    {
+      "key": "developer_project_b_fixed",
+      "type": "number",
+      "value": "1750000"
+    },
+    {
+      "key": "developer_project_b_low",
+      "type": "number",
+      "value": "1500000"
+    },
+    {
+      "key": "developer_project_a_high",
+      "type": "number",
+      "value": "2750000"
+    },
+    {
+      "key": "developer_project_a_fixed",
+      "type": "number",
+      "value": "1150000"
+    },
+    {
+      "key": "developer_project_a_low",
+      "type": "number",
+      "value": "500000"
+    },
+    {
+      "key": "developer_no_project_high",
+      "type": "number",
+      "value": "500000"
+    },
+    {
+      "key": "developer_no_project_fixed",
+      "type": "number",
+      "value": "350000"
+    },
+    {
+      "key": "developer_no_project_low",
+      "type": "number",
+      "value": "200000"
+    },
+    {
+      "key": "developer_shares",
+      "type": "number",
+      "value": "30"
+    },
+    {
+      "key": "developer_balance",
+      "type": "number",
+      "value": "300000"
+    },
+    {
+      "key": "developers_count",
+      "type": "number",
+      "value": "1"
+    },
+    {
+      "key": "speculators_reward_scale_factor",
+      "type": "number",
+      "value": "1"
+    },
+    {
+      "key": "speculators_base_points",
+      "type": "number",
+      "value": "0"
+    },
+    {
+      "key": "cash_for_snipers",
+      "type": "number",
+      "value": "250000"
+    },
+    {
+      "key": "max_lot_purchases",
+      "type": "number",
+      "value": "3"
+    },
+    {
+      "key": "speculator_shares",
+      "type": "number",
+      "value": "5"
+    },
+    {
+      "key": "speculator_balance",
+      "type": "number",
+      "value": "50000"
+    },
+    {
+      "key": "speculators_count",
+      "type": "number",
+      "value": "0"
+    },
+    {
+      "key": "generate_signals",
+      "type": "boolean",
+      "value": "false"
+    },
+    {
+      "key": "signal_high",
+      "type": "float",
+      "value": "1.05"
+    },
+    {
+      "key": "signal_low",
+      "type": "float",
+      "value": "0.95"
+    },
+    {
+      "key": "tax_rate_final",
+      "type": "number",
+      "value": "33"
+    },
+    {
+      "key": "tax_rate_initial",
+      "type": "number",
+      "value": "1"
+    },
+    {
+      "key": "minutes_for_sniping",
+      "type": "number",
+      "value": "2"
+    },
+    {
+      "key": "minutes_for_trading",
+      "type": "number",
+      "value": "10"
+    },
+    {
+      "key": "practice_round",
+      "type": "boolean",
+      "value": "true"
+    },
+    {
+      "key": "round_count",
+      "type": "number",
+      "value": "5"
+    },
+    {
+      "key": "session_number",
+      "type": "number",
+      "value": "2"
+    },
+    {
+      "key": "game_type",
+      "type": "string",
+      "value": "voting"
+    },
+    {
+      "key": "simulation_parent_id",
+      "type": "number",
+      "value": "224"
+    },
+    {
+      "key": "simulation_reward_round",
+      "type": "number",
+      "value": "5"
+    }
+  ],
+  "log": [
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "r94sncr8t4njsybbj75qkb9m0s9t2psm4vut0vj8wqunfuxoowxgdpxcy524qnc0"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "q3r3hpvy5p6ku79lbvyzihqcklx8l0lq1sbcqqe02j0j6c3h7p8cb0sa6ctmrex1"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "e0d5xk5cxljo9mearnjqw2793g1w84p2y3il5igir08aaw8skql8eunype8910n1"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "g9x75wj1uuvltdgq43kikxe5z1ngzjch5lhkv3j7yya4k9qqcw3ooyecdal9e5t2"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "tc0hqbl15fcknnwcv1xg3br3o1xsj2ah3h66uzjv3nzguu0w34wulx5ylx3a5ki4"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "join",
+        "recovery": "wv1zh8m2grky56ky0ub7ad13rf997zk6y0mftbxi5xt1vcu496b03o7xzdciye95"
+      },
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 0
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 0
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "text": "just for the rest of the game. Is everyone Dutch speaking?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "text": "ja"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "text": "ja\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "text": "ja\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "text": "mooizo"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "text": "hebben alle owners nu dan meer waarde bij geen project?\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "waarschijnlijk wel"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "dat moet, max voor project is 350 wat minimum is voor geen"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Vgm verschilt het per owner hoeveel winst/verlies ze hebben bij geen project, maar de developer wil sws een project "
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 0
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 0
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          300000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          300000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          270000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          152000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          236000
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          235000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Wat vinden jullie van de offer? Voor mij aan de lage kant."
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ja same\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "ik vind dit wel een mooi bod,, levert mij een goede waarde vermeerdering op\n"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "voor mij is no project voordeliger"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "ondanks het bod?"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik vind het ook te laag"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ja\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "hij verdient er veel meer geld op dan ook"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Same hier, in deze fase is mijn land echt bijna niks waard, maar dat is het spel dat wss een paar een hoge value hebben en paar niet bij project"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "ja idd"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 0
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 0
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 0,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 0
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 0
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 1
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 1
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Dit project levert mij een grote waarde vermindering op"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "mij ook"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Is het best dat we altijd hetzelfde stemmen of maakt dat niet uit?"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "mij ook"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Voor mij moet er een hele grote compensation komen, het is erger dan vorige ronde. Ik geef dat gwn aan en zie wel wat de developer zegt"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ligt eraan of het voordelig is voor jou\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "Ik zie nu wel dat ze gem. 2,2 mil krijgen. Dus verdeel dat over 6 is echt de max wat we kunnen vragen. Als het te hog is no project\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Krijgen developers 2.2 mil standaard of is dat gewoon de range?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "range\n\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "De range"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "wacht is bs kan niet rekenen wtf\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6,
+          2
+        ],
+        "text": "hij kan ook 500.000 krijgen\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja prcs"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "ai interessant tot zo\n"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 1
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 1
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          612000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          260000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          425000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          375000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          230000
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          425000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "ik ben hiervoor, vrij hoge compensation. Als het goed is voor iedereen wel toch?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "marco prima"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          1,
+          5,
+          6
+        ],
+        "text": "Ik heb heel magere winst dan heb ik liever geen project"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja dit is een heel hoog offer\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ik vind het ook prima"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "hoe kan dat? ikzelf heb een project value die aan de onderkant van de range zit"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "dus ik stem voor"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "maar de developer pakt ook lage winst nu "
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "in favour, magere winst... dus nog wel winst right?\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "dus iedereen speelt kiet "
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          1,
+          5,
+          6
+        ],
+        "text": "ja 10.000"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "de developer maakt nu ook niet veel winst denk ik"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "maar is alsnog winst dus ga ervoor\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 1
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 1
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 1,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 1
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 1
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 2
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 2
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ook weer best hoge vermindering bij mij"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "text": "bij mij ook veel vermindering \n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik zit zeer laag. dus ik ga vragen voor veel compensatie."
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "hij kan max 2,75 mil krijgen bij mij ook"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "misschien wel gwn met zijn allen rond de 400.000 hangen\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "owner 2 zorg dat je developer uitschakelt, hij hoeft di niet te weten"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "gem heeft hij 1.350 te verdelen over ons en dan wordt no project ongeveer even interessant"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "text": "Niet om grind te strooien, maar de developer (hoi developer) heeft 500k basepoints EN hogere exchange rate. Natuurlijk verschilt het per ronde hoeveel hij ook krijgt. Think about it. Kan natuurlijk ook zijn dat hij een ronde minder te geven heeft, om maar nuance te brengen."
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja heb ik voor dit gedaan maar hij mag best weten dat het voor ons niet lucratief is"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "hoi\n"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja klopt"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "We kunnen rond de 400k vragen?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Daar ben ik wel voor"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 2
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 2
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          400000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          350000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          300000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          402000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          270000
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          217000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "wel laag zeg"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Bij mij weer maar 10k winst"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "niet lekker, maar wel in favour"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja zeker"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          2
+        ],
+        "text": "Hey, hoezo is dit zo laag"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ik ben tegen\n"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik tegen"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Bij mij zwaar tegen"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ik ook tegen"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "350.000 ging echt niet lukken, dan had ik meer dan 2 ton verlies"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "na dan zij we er al uit"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "blijft winst tho"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "pushed our luck"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6,
+          2
+        ],
+        "text": "Ja dat snap ik, maar heeft de developer geen buffer door die basepoints?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "als we laag scoren willen we liever project dus gek genoeg lager vragen\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ik vind 10k het niet waard voor later eventueel overlast"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "owner 3 bonus punten voor de roleplay"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6,
+          2
+        ],
+        "text": "Ik draai iig verlies anders"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 2
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 2
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 2,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 2
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 2
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 3
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 3
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Wat werd er net gezegd over die basepoints?"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Als ik eerlijk ben, is mijn compensationgrens veel lager dan vorige x"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik heb weer heel veel verlies\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja dat verschilt best wel per ronde"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik zit hoog hoe zitten jullie? als we allemaal hoog zitten kunnen we aangeven dat we juist laag zitten en daarom iets meer compensatie willen. vervolgens nemen we wat risico maar kans op vette winst"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "als developer begin je met meer basepoints en wij als owner beginnen met 0"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ga naar pagina 9 van de instructions. De developer kan als het goed is een beetje verlies draaien (want die moet compenseren) en dan heeft hij 500k basepoints met exchange rate 50k. Ik weet ook niet hoe dat werkt precies"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ik ga rond 3 ton vragen"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik ga hoger dan 3 ton."
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "maar je kan gemiddeld wel 3 ton vragen want hij zal gemiddeld ook rond de 1,5 mil zweven\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Maar ik weet dat niet zeker, want misschien draait de developer al verlies, maarja dat is beetje aan hem om zijn keus te verdedigen"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "of toe te lichten"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "anders een no go wat mij betreft"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6,
+          2
+        ],
+        "text": "Wat vindt developer van dit project?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "gemiddelde winst\n"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 3
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 3
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          400000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          301000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          275000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          329000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          330000
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          324000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Voor mij is dit top"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ik ook"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "I am in favour, niet great maar onboard"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ja same"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik snap dat dit een prima offer is maar maak er nog steeds veel verlies op\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "denk dat ie loog met gem winst"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "idd"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "hmmm denk dat hij wel echt winst maakt met dit tho"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "but who knows, het lastige is dat het zo variabel is voor de developer"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Muah niet per se, maar als we allemaal dus net iets meer dan 3 ton hadden gevraagd, dan is dittoch logisch?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "en denk dat de developer gwn heeft gekeken naar de laagste 3 request en daar zijn winst op heeft bepaald\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Dus we moeten elkaar hier niet mee verneuken, maari k heb hierdoor wel marginale winst"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "met gemiddelde winst kan je dit niet bieden\n"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja ik 2 ton verlies"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "dus prima wat mij betreft, als t niet doorgaat is t ook prima (want toch marginaal)"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 3
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 3
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          1
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 3,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 3
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 3
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 4
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 4
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "2.5 ton verlies hier"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "oke niet teveel verwachten deze ronde\n"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "voor mij is een project  2,6 ton verlies\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Damn oke, mijn no project value en project value liggen best dicht bij elkaar"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik zit wel prima zonder project. 2.7 verlies"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik 3 ton"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "ja voor mij 2.4"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ik ga 4 ton vragen"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "kunnen het even tegen de developer zeggen\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Maar goed, de developer heeft misschien ook niet zoveel temakken, maar gevaar daarvan is als we hetzeggen"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ok dus laten we aangeven dat wij veel verlies zouden maken, en dat wij bij een te lage compensatie het bod dus afkeuren."
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Is dat hij denkt: ai ze hebben niet zoveel te makken, dus dan hoef ik niet veel te bieden"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik zou geen 4 ton vragen dan komt het er niet door wrs"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "nee eerder 3 ton"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "doe anders 2 mensen 3 ton en de ander 4\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ik denk zelf wat we een beetje kunnen pushen, en dat we dan daarna zien dat developer zegt: sorry ik kan niet zoveel want ...\n\nmaar we kunnen echt geen 4 ton vragen, dat zou miss ongeloofwaardig zijn?"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "4 ton is dus 1/3 meer kosten voor hem"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "dan gaat die er tussen zweven \n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja is onrea"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik vraag rond 3t"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "same als owner 1"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 4
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 4
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          350000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          295000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          270000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          397000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          330000
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          154000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "dit zeker niet toch"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "neee"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ja nee ik maak nu ontzettend verlies"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "oof erg laag. dikke nee wat mij betreft"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "weetje developer zei dat ie niet veel kon geven, maar deze ronde hadden wij ook niet zoveel compensation nodig, maar dit is wel ver ondermaats"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "4/5 nee dus"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Ik had behoorlijk wat nodig"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "nee is niet erg. als wij hoog zitten en hij laag is dit natuurlijk"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ja prc, ik heb ook het idee dat no project voor ons bijna allemaal veel voordeliger is"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "dus gewoon nee priem"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "jammer voor dev"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "zo is t spel, al hadden wij onszelf al redelijk opportunistisch opgesteld met hogere compensation. jammer dat developer niet meer toelicht miss, miss volgende ronde meer chatten met diegene"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 4
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 4
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 4,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 4
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 4
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "player-is-ready"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 0,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 1,
+        "round": 5
+      },
+      "type": "phase-timeout",
+      "phase": 1,
+      "round": 5
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Weer 2+ ton verlies"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ik maak 3t verlies op het project:("
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "oke deze ronde is nog dramatischer dan de vorige"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ik 3,5 verlies\n"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          2
+        ],
+        "text": "voor ons ook "
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "text": "Wij draaien grote verliezen hier dus je gaat moeten compenseren"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "we moeten dreigen voor geen project om meer geld uit hem te persen stiekem. Dat is dan ons risico\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "text": "Misschien handig om meer te communiceren met developer. Thanks voor de toelichting"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "idd"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ik ga jullie max 120k kunnen geven om zelf nog winst te maken"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          2
+        ],
+        "text": "dan maken wij allemaal verlies\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6,
+          2
+        ],
+        "text": "Voor ons veel te weinig"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "en dan is die winst maar 2k \n"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6,
+          2
+        ],
+        "text": "ja dan moet gwn 0 aangeven denk ik"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ja maar wees ook even eerlijk, want als iedereen zich als een eikel opstelt, wordt het sws kut. Maar ik heb idd wel echt 2t nodig"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "wat mij betref dus dan al geen project nu al... als dat waar is. miss heeft ie meer. dus gewoon mikken op quitte spelen zou ik zeggen"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "120k echt wienig"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6,
+          2
+        ],
+        "text": "Ja maar heb jij geen basepoints van 500k en wij 0? Wij hebben oprecht gewoon meer compensation nodig dan dat"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja prcs same. in dit geval anders. het dreiegn was meer algemeen niet voor deze ronde"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Wij hoeven dat project niet perse voor ons maakt het niet uit als het er niet komt wanneer we verlies draaien"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "Dus ik zou altijd voor winst gaan vragen bij hem en dan zien we wel"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 2,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 2,
+        "round": 5
+      },
+      "type": "phase-timeout",
+      "phase": 2,
+      "round": 5
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          400000
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 3,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          200000
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 3,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          300000
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 3,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          350000
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 3,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-request",
+        "compensationRequests": [
+          null,
+          210069
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 3,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-offer",
+        "compensationOffers": [
+          null,
+          120000
+        ]
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 4,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "dikke nee bij mij\n"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "nee maar zit wel laag.. maar tja als er weinig is dan houdt. ja nee wordt m niet"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "text": "ja dit gaat hem gwn niet worden vor mij"
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "voor mij een nee\n"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "ja maar ik moet wel 5 mensen uit betalen, en ik zou nu winst maken van ongeveer 600 k\ndus 5* 120k = 600k"
+      },
+      "number": 2,
+      "tag": "Developer",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Hoezo levert deze developer niks in van zijn winst? Hij heeft juist basepoints zodat hij beetje verlies kan draaien"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "text": "ja prc"
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "4/5 nee\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Voor mij ook een nee"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "text": "owner 4, hij krijgt dus base points maar besef dat hij 5* dit bedrag compenseert tegenover geen project\n"
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "text": "volgens mij snapt de developer dat niet dat verlies ok is soms"
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ik heb oprecht 2t compensation gevraagd terwijl ik 1,96t nodig had"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "chat-with-players",
+        "to": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "text": "Ja dat is waar, owner 1"
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 5,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 5,
+        "round": 5
+      },
+      "type": "phase-timeout",
+      "phase": 5,
+      "round": 5
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 5,
+      "tag": "Owner 4",
+      "phase": 6,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 6,
+      "tag": "Owner 5",
+      "phase": 6,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 4,
+      "tag": "Owner 3",
+      "phase": 6,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 3,
+      "tag": "Owner 2",
+      "phase": 6,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "gameId": 224,
+        "type": "compensation-decision",
+        "compensationDecisions": [
+          0
+        ]
+      },
+      "number": 1,
+      "tag": "Owner 1",
+      "phase": 6,
+      "round": 5,
+      "type": "message"
+    },
+    {
+      "content": {
+        "phase": 7,
+        "round": 5
+      },
+      "type": "phase-timeout",
+      "phase": 7,
+      "round": 5
+    }
+  ]
+}

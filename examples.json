@@ -1,0 +1,47 @@
+[
+    {
+        "content": {
+            "order": {
+                "price": 82.67,
+                "quantity": 1,
+                "type": "ask",
+                "now": false
+            },
+            "gameId": 954,
+            "type": "post-order"
+        },
+        "number": 3,
+        "phase": 1,
+        "round": 1,
+        "type": "message"
+    },
+    {
+        "content": {
+            "order": {
+                "price": 0,
+                "quantity": 1,
+                "type": "bid",
+                "now": true
+            },
+            "gameId": 954,
+            "type": "post-order"
+        },
+        "number": 4,
+        "phase": 1,
+        "round": 1,
+        "type": "message"
+    },
+    {
+        "content": {
+            "order": {
+                "id": 1
+            },
+            "gameId": 945,
+            "type": "cancel-order"
+        },
+        "number": 3,
+        "phase": 1,
+        "round": 1,
+        "type": "message"
+    }
+]

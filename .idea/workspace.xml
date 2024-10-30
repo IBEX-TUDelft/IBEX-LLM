@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/futurchy/GameHandlerFutarchy.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/futurchy/GameHandlerFutarchy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/futurchy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/futurchy/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/__init__.py" afterDir="false" />
-    </list>
+    <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +103,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;futurchyV2&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/jasperbruin/Documents/IBEX-LLM/src/harberger&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -429,7 +424,7 @@
       <workItem from="1729234941903" duration="12077000" />
       <workItem from="1729323702757" duration="14000" />
       <workItem from="1730210208330" duration="8971000" />
-      <workItem from="1730270302405" duration="3896000" />
+      <workItem from="1730270302405" duration="4209000" />
     </task>
     <servers />
   </component>
