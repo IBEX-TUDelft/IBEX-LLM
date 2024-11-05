@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent3.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,6 +429,9 @@
       <workItem from="1730270302405" duration="4209000" />
       <workItem from="1730277327978" duration="575000" />
       <workItem from="1730367329179" duration="4000" />
+      <workItem from="1730468276268" duration="373000" />
+      <workItem from="1730795148733" duration="15000" />
+      <workItem from="1730804475331" duration="319000" />
     </task>
     <servers />
   </component>
