@@ -7,7 +7,7 @@ These are the instructions for Harberger for each phase and each role:
 
 ### 1. **Phase 1: Presentation Phase Prompt**:
 ```plaintext
-"As a speculator in the "Presentation" phase, my primary objective is to prepare effectively for the upcoming phases where I can make decisions that will maximize my total number of points. Here are the strategies I will employ:
+"As a speculator in the Presentation phase, my primary objective is to prepare effectively for the upcoming phases where I can make decisions that will maximize my total number of points. Here are the strategies I will employ:
 
 Study the Value Ranges:
 Understand the Minimum and Maximum Values: Carefully note the value ranges for the properties owned by the developer and the owners. These ranges are constant throughout the experiment.
@@ -48,7 +48,7 @@ Adjust Accordingly: Be flexible and adapt strategies based on what works and wha
 Compliance and Attention to Rules:
 Follow Instructions Carefully: Ensure all actions comply with the experiment's rules to avoid penalties.
 Avoid Mistakes: Double-check selections and declarations to prevent unintentional errors that could reduce earnings.
-By implementing these strategies during the "Presentation" phase, I position myself to make informed and strategic decisions in the upcoming phases, ultimately aiming to maximize my total points by the end of the experiment.\n\n"
+By implementing these strategies during the Presentation phase, I position myself to make informed and strategic decisions in the upcoming phases, ultimately aiming to maximize my total points by the end of the experiment.\n\n"
 
 
 
@@ -159,7 +159,7 @@ By thoughtfully evaluating your options and planning ahead, you'll position your
 
 ### 2. **Phase 2: Declaration Phase Prompt**:
 ```plaintext
-"As a speculator in the "Declaration" phase, even though I do not have any direct actions to perform, I can strategically prepare for the upcoming phases to maximize my total points. Here's how I plan to do that:
+"As a speculator in the Declaration phase, even though I do not have any direct actions to perform, I can strategically prepare for the upcoming phases to maximize my total points. Here's how I plan to do that:
 
 Anticipate the Project Outcome:
 Understand the Decision Mechanism: The project will be implemented or not based on the sum of the declarations from the owners and the developer for each condition (Project or No Project). The condition with the higher total declared value is chosen.
@@ -200,7 +200,7 @@ Diversification Strategy: Consider spreading investments across multiple propert
 Stay Compliant and Informed:
 Understand All Rules: Ensure I fully understand how profits and losses are calculated to avoid mistakes.
 Avoid Penalties: Ensure all future actions comply with the experiment's rules.
-By employing these strategies during the "Declaration" phase, I position myself to make informed and strategic decisions in the upcoming "Speculation" and "Market" phases. This proactive approach will help me identify profitable opportunities and maximize my total points by the end of the experiment. \n\n"
+By employing these strategies during the Declaration phase, I position myself to make informed and strategic decisions in the upcoming Speculation and Market phases. This proactive approach will help me identify profitable opportunities and maximize my total points by the end of the experiment. \n\n"
 
 
 
@@ -420,7 +420,7 @@ By following this strategy, you align your declarations to favor your preferred 
 
 ### 3. **Phase 3: Speculation Phase Prompt**:
 ```plaintext
-"As a speculator in the "Speculation" phase, my objective is to maximize my expected profit by strategically selecting which plots of land to purchase. Below is a detailed, step-by-step strategy that can be implemented by a model to achieve this goal:
+"As a speculator in the Speculation phase, my objective is to maximize my expected profit by strategically selecting which plots of land to purchase. Below is a detailed, step-by-step strategy that can be implemented by a model to achieve this goal:
 
 1. Understand the Profit Mechanism
 Profit Calculation:
@@ -540,7 +540,7 @@ Rank Plots by expected profit.
 Exclude High-Risk Plots where declared value is too high.
 Select Plots starting from highest expected profit.
 Confirm Selections before the phase ends.
-By following this strategy, I aim to maximize my expected profits in the "Speculation" phase while managing risk effectively. This approach is based on quantitative analysis and can be readily implemented by a model to make informed purchasing decisions. \n\n"
+By following this strategy, I aim to maximize my expected profits in the Speculation phase while managing risk effectively. This approach is based on quantitative analysis and can be readily implemented by a model to make informed purchasing decisions. \n\n"
 
 
 
@@ -751,7 +751,7 @@ By carefully managing your declarations and understanding the dynamics of the Sp
 
 ### 4. **Phase 4: Market Phase Prompt**:
 ```plaintext
-"As a speculator in the "Market" phase, your objective is to maximize your total points by strategically buying and selling tax shares. Below is a detailed strategy designed for implementation by a model to help you achieve this goal.
+"As a speculator in the Market phase, your objective is to maximize your total points by strategically buying and selling tax shares. Below is a detailed strategy designed for implementation by a model to help you achieve this goal.
 
 Understanding the Market Mechanics
 Tax Shares:
@@ -904,7 +904,7 @@ Prepare for Next Phases:
 
 Keep in mind that the value of shares will be realized after the final declarations.
 B
-y following this structured strategy, you aim to maximize your points by making informed decisions based on calculated estimates and market observations. This approach balances profit potential with risk management, suitable for implementation by a model in the "Market" phase as a speculator.\n\n"
+y following this structured strategy, you aim to maximize your points by making informed decisions based on calculated estimates and market observations. This approach balances profit potential with risk management, suitable for implementation by a model in the Market phase as a speculator.\n\n"
 
 
 
@@ -1218,7 +1218,7 @@ The final declarations influence:
 Tax Revenue: Affects the value of tax shares.
 Potential Profit in Final Speculation: Determines the price you'll pay for properties and potential profit or loss.
 Objective
-Maximize Profit in the upcoming "Final Speculation" phase by:
+Maximize Profit in the upcoming Final Speculation phase by:
 Identifying undervalued properties.
 Estimating real property values based on final declarations.
 Planning purchases to capitalize on discrepancies between declared and real values.
@@ -1300,11 +1300,11 @@ Set a threshold for minimum expected profit to justify the risk.
 Anticipate Share Value Changes:
 Final declarations affect tax revenue and share values.
 Adjust Trading Strategy:
-Be cautious in the "Final Speculation" if tax share values are expected to decrease due to under-declarations.
+Be cautious in the Final Speculation if tax share values are expected to decrease due to under-declarations.
 
 10. Time Management
 Be Ready to Act Quickly:
-The "Final Speculation" phase has a time limit.
+The Final Speculation phase has a time limit.
 Finalize Decisions:
 Ensure all calculations and property selections are ready for immediate action.
 
@@ -1324,12 +1324,12 @@ Limit Exposure:
 Do not commit all resources to a single property unless the expected profit justifies the risk.
 Final Preparations
 Compile a Purchase List:
-Create a prioritized list of properties to buy in the "Final Speculation" phase.
+Create a prioritized list of properties to buy in the Final Speculation phase.
 Prepare for Quick Execution:
 Have all calculations ready to make swift decisions within the time limit.
 Stay Informed:
 Be ready to adjust your strategy if new information becomes available.
-By following this strategy during the "Final Declaration" phase, you position yourself to make informed and strategic decisions in the upcoming "Final Speculation" phase. This proactive approach aims to maximize your total points by identifying the most profitable opportunities based on the latest available data.
+By following this strategy during the Final Declaration phase, you position yourself to make informed and strategic decisions in the upcoming Final Speculation phase. This proactive approach aims to maximize your total points by identifying the most profitable opportunities based on the latest available data.
 
 
 
@@ -1610,7 +1610,7 @@ Implementing this strategy ensures that the GPT-4o model can make decisions that
 
 ### 6. **Phase 6: Final Speculation Phase Prompt**:
 ```plaintext
-"As a speculator in the "Final Speculation" phase, your objective is to maximize your total points by strategically deciding which plots of land to purchase based on the final declarations made by the owners and the developer. Below is a detailed, step-by-step strategy designed for implementation by a model to help you achieve this goal.
+"As a speculator in the Final Speculation phase, your objective is to maximize your total points by strategically deciding which plots of land to purchase based on the final declarations made by the owners and the developer. Below is a detailed, step-by-step strategy designed for implementation by a model to help you achieve this goal.
 
 Understanding the Profit Mechanism
 Purchase Price:
@@ -1754,8 +1754,7 @@ When in doubt, opt for safer choices with reasonable expected profits.
 Balance Risk and Reward:
 High expected profits may come with higher risks due to potential competition or owner strategies.
 
-By following this structured strategy, you aim to maximize your expected profits in the "Final Speculation" phase while effectively managing risk. This approach relies on quantitative analysis and can be implemented by a model to make informed purchasing decisions based on the information available.\n\n"
-"The 'snipe' array works similarly to Phase 3, where speculators list owners to challenge.\n\n"
+By following this structured strategy, you aim to maximize your expected profits in the Final Speculation phase while effectively managing risk. This approach relies on quantitative analysis and can be implemented by a model to make informed purchasing decisions based on the information available.\n\n"
 
 
 
@@ -1939,7 +1938,7 @@ Implementing this strategy ensures that you, as the developer, maximize your tot
 
 ### 7. **Phase 7: Results Phase Prompt**:
 ```plaintext
-"As a speculator in the "Results" phase, your primary objective is to analyze the outcomes of your actions in the current round to inform and enhance your strategies for subsequent rounds. Although you do not take any direct actions during the "Results" phase, this is a crucial time to reflect on your performance and adjust your strategies to maximize your total points in future rounds. Below is a detailed strategy designed for implementation by a model to help you achieve this goal.
+"As a speculator in the Results phase, your primary objective is to analyze the outcomes of your actions in the current round to inform and enhance your strategies for subsequent rounds. Although you do not take any direct actions during the Results phase, this is a crucial time to reflect on your performance and adjust your strategies to maximize your total points in future rounds. Below is a detailed strategy designed for implementation by a model to help you achieve this goal.
 
 Understanding the Phase Mechanics
 Outcome Display:
@@ -1952,7 +1951,7 @@ Value of tax shares.
 Any gains or losses from property transactions.
 No Direct Actions Required:
 
-The "Results" phase is informative; you cannot change past actions.
+The Results phase is informative; you cannot change past actions.
 Use this time for analysis and planning.
 Objective
 Maximize Future Earnings by:
@@ -2062,7 +2061,7 @@ Stay focused and avoid being influenced by past losses or overconfident from pas
 Final Thoughts
 By thoroughly analyzing the results from each round, you can continuously refine your strategies to better predict outcomes and make more informed decisions. This iterative process is key to maximizing your total points as a speculator in the experiment.
 
-Remember: The "Results" phase is not just about viewing your performance—it's an essential opportunity to learn and improve. Use this time wisely to enhance your strategies for future success.\n\n"
+Remember: The Results phase is not just about viewing your performance—it's an essential opportunity to learn and improve. Use this time wisely to enhance your strategies for future success.\n\n"
 
 
 
