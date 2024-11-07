@@ -5,7 +5,7 @@ These are the instructions for Harberger for each phase and each role:
 ## Phase-Specific Prompts:
 
 
-### 1. **Phase 1: Presentation**:
+### 1. **Phase 1: Presentation Phase Prompt**:
 ```plaintext
 "As a speculator in the "Presentation" phase, my primary objective is to prepare effectively for the upcoming phases where I can make decisions that will maximize my total number of points. Here are the strategies I will employ:
 
