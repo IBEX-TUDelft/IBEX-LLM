@@ -1937,7 +1937,7 @@ Implementing this strategy ensures that you, as the developer, maximize your tot
 
 
 
-### 6. **Phase 6: Final Speculation Phase Prompt**:
+### 7. **Phase 7: Results Phase Prompt**:
 ```plaintext
 "As a speculator in the "Results" phase, your primary objective is to analyze the outcomes of your actions in the current round to inform and enhance your strategies for subsequent rounds. Although you do not take any direct actions during the "Results" phase, this is a crucial time to reflect on your performance and adjust your strategies to maximize your total points in future rounds. Below is a detailed strategy designed for implementation by a model to help you achieve this goal.
 
@@ -2289,7 +2289,7 @@ Optimizes Decision-Making: Balances risks and rewards to maximize total points.
 By programming the GPT-4o model with these considerations, it can simulate a developer who learns from past results and continually refines strategies to achieve the highest possible earnings throughout the experiment.\n\n"
 "Expected JSON Output:\n{{\n"
 " \"gameId\": {self.game_id},\n"
-" \"type\": \"done-speculating\",\n"
+" \"type\": ,\n"
 " \"snipe\": [\n"
 " [owners_to_challenge]\n"
 " ]\n}}"
