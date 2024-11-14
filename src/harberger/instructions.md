@@ -1,3 +1,53 @@
+## **To Start the Game and Play:**
+
+### **Step 1: Install the Dependency Manager**
+Make sure `poetry` is installed to manage dependencies:
+```bash
+pip install poetry
+```
+
+---
+
+### **Step 2: Install Project Dependencies**
+Run the following command in the root directory of your project to install all dependencies:
+```bash
+poetry lock
+poetry install
+```
+
+---
+
+### **Step 3: Start the Server**
+Start the server using `poetry`:
+```bash
+poetry run python __init__.py
+```
+
+Or, if running directly with Python:
+```bash
+python3 __init__.py
+```
+
+The server will start on the default port `10341` (or the port defined in your `.env` file).
+
+---
+
+### **Step 4: Start the Game**
+Open another terminal and use the `curl` command to send a `POST` request to the server to spawn agents and start the game. Replace `X` with your username and `Y` with your password:
+
+```bash
+curl -X POST "http://localhost:10341/spawn-agents" \
+-H "Content-Type: application/json" \
+-d '{
+    "username": "X",
+    "password": "Y",
+    "players": 3,
+    "hostname": "188.166.34.67",
+    "game_params": "game.json"
+}'
+```
+
+
 # Futarchy Phase Instructions
 
 These are the instructions that I use for Futarchy for each phase:

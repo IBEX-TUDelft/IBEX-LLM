@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "harberger-game"
+version = "1.0.0"
+description = "A server for Harberger Tax simulation game."
+authors = ["Jasper Bruin <jasperbruin@me.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+flask = "^3.0.0"
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
+websocket-client = "^1.6.0"
+jsonschema = "^4.19.0"
+openai = "1.54.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4.0"
+black = "^23.9.0"
+flake8 = "^6.1.0"
