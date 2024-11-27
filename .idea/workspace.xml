@@ -7,7 +7,6 @@
     <list default="true" id="576af8b7-cd0e-4f38-ad56-6f3ab4b9945d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/instructions.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/instructions.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -471,6 +470,7 @@
     <SUITE FILE_PATH="coverage/IBEX_LLM$FuturchyTestExtreme.coverage" NAME="FuturchyTestExtreme Coverage Results" MODIFIED="1729240942159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
     <SUITE FILE_PATH="coverage/IBEX_LLM$handlerNoGPT.coverage" NAME="handlerNoGPT Coverage Results" MODIFIED="1709036167267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IBEX_LLM$GameHandlerFutarchy.coverage" NAME="GameHandlerFutarchy Coverage Results" MODIFIED="1727763827852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/futurchy" />
+    <SUITE FILE_PATH="coverage/IBEX_LLM$__init____2_.coverage" NAME="__init__ (2) Coverage Results" MODIFIED="1732690968890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/harberger" />
     <SUITE FILE_PATH="coverage/IBEX_LLM$inputFinder.coverage" NAME="inputFinder Coverage Results" MODIFIED="1710669319883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/selenium" />
     <SUITE FILE_PATH="coverage/IBEX_LLM$test.coverage" NAME="test Coverage Results" MODIFIED="1711812101538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IBEX_LLM$HarbergerTest__1_.coverage" NAME="HarbergerTest Coverage Results" MODIFIED="1724395907084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
