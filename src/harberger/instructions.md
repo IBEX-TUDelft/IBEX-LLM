@@ -37,20 +37,18 @@ Open another terminal and use the `curl` command to send a `POST` request to the
 
 ```bash
 curl -X POST "http://localhost:10341/spawn-agents" \
--H "Content-Type: application/json" \
--d '{
-    "username": "X",
-    "password": "Y",
-    "players": 3,
-    "hostname": "188.166.34.67",
-    "game_params": "game.json"
-}'
+     -H "Content-Type: application/json" \
+     -d '{
+        "game_id": 141,
+        "agents": 12,
+        "game_type": "harberger"
+     }'
 ```
 
 
-# Futarchy Phase Instructions
+# Harberger Phase Instructions
 
-These are the instructions that I use for Futarchy for each phase:
+These are the instructions that I use for Harberger for each phase:
 
 ## Phase-Specific Prompts:
 

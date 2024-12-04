@@ -13,7 +13,6 @@ curl -X POST "http://localhost:10341/spawn-agents" \
 """
 
 import os
-import json
 import logging
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
