@@ -596,7 +596,7 @@ class GameHandler:
             "    \"order\": {\n"
             f"        \"price\": your_chosen_price if 1 <= your_chosen_price <= {max_price},  # Integer, price you decide based on signals, limited to range 1-{max_price}\n"
             "        \"quantity\": 1,                # Integer, always 1\n"
-            "        \"condition\": condition_number,  # Integer, 0 for status quo, 1 for project\n"
+            "        \"condition\": 1,  # Integer, always 1\n"
             "        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n"
             "        \"now\": false          # Boolean, false\n"
             "    }\n"

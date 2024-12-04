@@ -4,7 +4,7 @@ import websocket
 import threading
 import json
 import logging
-from GameHandlerFutarchy import GameHandler
+from GameHandlerHarberger import GameHandler
 
 class WebSocketClient:
     def __init__(self, url, game_id, recovery=None, verbose=True, logger=None):

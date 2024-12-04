@@ -1,7 +1,0 @@
-curl -X POST "http://localhost:10341/spawn-agents" \
-     -H "Content-Type: application/json" \
-     -d '{
-         "game_id": 139,
-         "game_type": "harberger",
-         "hostname": "188.166.34.67"
-     }'
