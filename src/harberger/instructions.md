@@ -46,7 +46,7 @@ Open another terminal and use the `curl` command to send a `POST` request to the
 curl -X POST "http://localhost:10341/spawn-agents" \
      -H "Content-Type: application/json" \
      -d '{
-        "game_id": 141,
+        "game_id": 147,
         "agents": 12,
         "game_type": "harberger"
      }'

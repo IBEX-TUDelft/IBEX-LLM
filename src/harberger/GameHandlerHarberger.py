@@ -213,6 +213,8 @@ class GameHandler:
             self.user_number = number
             self.logger.info(f"User assigned name: {name}, number: {number}")
 
+
+
             # Initialize LLMCommunicator with agent_id
             self.llm_communicator = LLMCommunicator(agent_id=self.user_number, logger=self.logger)
 

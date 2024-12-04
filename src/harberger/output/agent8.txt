@@ -270,3 +270,60 @@ Expected JSON Output (Post Order):
 2024-12-02 08:45:26,731 [INFO] Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":41,"sender":4,"price":75000,"quantity":1,"type":"ask","condition":1}}}
 2024-12-02 08:45:26,732 [INFO] Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":42,"sender":8,"price":80000,"quantity":1,"type":"ask","condition":1}}}
 2024-12-02 08:45:27,326 [INFO] Received message: {"type":"event","eventType":"add-order","data":{"order":{"id":43,"sender":9,"price":5000,"quantity":1,"type":"bid","condition":1}}}
+2024-12-04 13:29:16,965 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:29:16,970 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:29:16,972 [INFO] WebSocket client started.
+2024-12-04 13:29:17,034 [INFO] WebSocket connection opened.
+2024-12-04 13:29:17,034 [INFO] Sending message: {"gameId": 145, "type": "join", "recovery": "rg2c2mdnlkd57xe4qdi2qe5ag77geksctb8ogevgpronp0pzic3u9wbrfgf94f29"}
+2024-12-04 13:29:17,061 [INFO] Received message: {"type":"error","message":"Game 145 is full (and no current player matching your recovery string). You cannot join"}
+2024-12-04 13:29:52,696 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:29:52,697 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:29:52,699 [INFO] WebSocket client started.
+2024-12-04 13:29:52,752 [INFO] WebSocket connection opened.
+2024-12-04 13:29:52,752 [INFO] Sending message: {"gameId": 146, "type": "join", "recovery": "0tgvz3xzlczzbnxr3huv59ck69za2kewrt906voyqod8fd3qnrzqfy556rx74ive"}
+2024-12-04 13:29:52,801 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Aqua","number":2,"ruleset":"Harberger"}}
+2024-12-04 13:29:52,801 [INFO] User assigned name: Aqua, number: 2
+2024-12-04 13:29:52,801 [ERROR] Error in handle_assign_name: Client.__init__() got an unexpected keyword argument 'proxies'
+2024-12-04 13:29:52,801 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-04 13:29:52,801 [INFO] Received message: {"type":"info","message":"Player Aqua joined. We have now 2 players in the game."}
+2024-12-04 13:29:52,801 [INFO] Received message: {"type":"info","message":"Player Moccasin joined. We have now 3 players in the game."}
+2024-12-04 13:29:52,802 [INFO] Received message: {"type":"info","message":"Player Fuchsia joined. We have now 4 players in the game."}
+2024-12-04 13:29:52,802 [INFO] Received message: {"type":"info","message":"Player Coral joined. We have now 5 players in the game."}
+2024-12-04 13:29:52,802 [INFO] Received message: {"type":"info","message":"Player Silver joined. We have now 6 players in the game."}
+2024-12-04 13:29:52,802 [INFO] Received message: {"type":"info","message":"Player Salmon joined. We have now 7 players in the game."}
+2024-12-04 13:29:52,802 [INFO] Received message: {"type":"info","message":"Player Sapphire joined. We have now 8 players in the game."}
+2024-12-04 13:29:52,813 [INFO] Received message: {"type":"info","message":"Player Plum joined. We have now 9 players in the game."}
+2024-12-04 13:29:52,818 [INFO] Received message: {"type":"info","message":"Player Gold joined. We have now 10 players in the game."}
+2024-12-04 13:29:52,818 [INFO] Received message: {"type":"info","message":"Player Lime joined. We have now 11 players in the game."}
+2024-12-04 13:29:52,818 [INFO] Received message: {"type":"info","message":"Player Crimson joined. We have now 12 players in the game."}
+2024-12-04 13:32:10,546 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:32:10,547 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-04 13:32:10,548 [INFO] WebSocket client started.
+2024-12-04 13:32:10,622 [INFO] WebSocket connection opened.
+2024-12-04 13:32:10,623 [INFO] Sending message: {"gameId": 147, "type": "join", "recovery": "gpomv1avrvgxl388klll03ugs683pr2kwnskt76lrqsqbxb69s230o4j4eooor2p"}
+2024-12-04 13:32:10,651 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Pink","number":9,"ruleset":"Harberger"}}
+2024-12-04 13:32:10,651 [INFO] User assigned name: Pink, number: 9
+2024-12-04 13:32:11,716 [INFO] Sending message: {"gameId": 147, "type": "player-is-ready"}
+2024-12-04 13:32:11,717 [INFO] Sent 'player-is-ready' message: {"gameId": 147, "type": "player-is-ready"}
+2024-12-04 13:32:11,717 [INFO] Sent 'player-is-ready' message: {"gameId": 147, "type": "player-is-ready"}
+2024-12-04 13:32:11,717 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-04 13:32:11,717 [INFO] Received message: {"type":"info","message":"Player Pink joined. We have now 9 players in the game."}
+2024-12-04 13:32:11,717 [INFO] Received message: {"type":"info","message":"Player Amaranth joined. We have now 10 players in the game."}
+2024-12-04 13:32:11,717 [INFO] Received message: {"type":"info","message":"Player Chocolate joined. We have now 11 players in the game."}
+2024-12-04 13:32:11,717 [INFO] Received message: {"type":"info","message":"Player Emerald joined. We have now 12 players in the game."}
+2024-12-04 13:32:11,735 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-04 13:32:11,769 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1733315530610}}
+2024-12-04 13:32:11,772 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":1,"wallet":[{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000}],"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-04 13:32:11,774 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-04 13:32:11,775 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-04 13:32:11,775 [INFO] User assigned role: Speculator
+2024-12-04 13:32:11,775 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-04 13:32:11,776 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-04 13:32:11,776 [INFO] User assigned role: Speculator
+2024-12-04 13:32:11,778 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":3,"tag":"Owner 2"},{"number":4,"role":3,"tag":"Owner 3"},{"number":5,"role":3,"tag":"Owner 4"},{"number":6,"role":3,"tag":"Owner 5"},{"number":7,"role":1,"tag":"Speculator 1"},{"number":8,"role":1,"tag":"Speculator 2"},{"number":9,"role":1,"tag":"Speculator 3"},{"number":10,"role":1,"tag":"Speculator 4"},{"number":11,"role":1,"tag":"Speculator 5"},{"number":12,"role":1,"tag":"Speculator 6"}]}}
+2024-12-04 13:32:11,779 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Owner', 4: 'Owner', 5: 'Owner', 6: 'Owner', 7: 'Speculator', 8: 'Speculator', 9: 'Speculator', 10: 'Speculator', 11: 'Speculator', 12: 'Speculator'}
+2024-12-04 13:32:11,801 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-04 13:32:11,802 [INFO] Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-12-04 13:32:11,802 [INFO] Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
+2024-12-04 13:32:11,802 [INFO] No action required for Phase 1 for role Speculator.
+2024-12-04 13:32:11,802 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
