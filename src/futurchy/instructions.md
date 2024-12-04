@@ -1,5 +1,12 @@
 ## **To Start the Game and Play:**
 
+### **Step 0: Add OPENAI_API_KEY to environment variables**
+Get your OpenAI API key from the OpenAI website and add it to your environment variables:
+
+```bash
+export OPENAI_API_KEY='X'
+```
+
 ### **Step 1: Install the Dependency Manager**
 Make sure `poetry` is installed to manage dependencies:
 ```bash
