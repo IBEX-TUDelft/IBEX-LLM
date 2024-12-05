@@ -14,7 +14,7 @@ class LLMCommunicator:
     def query_openai(self, summary):
         try:
             instructions = (
-                f"You are agent {self.agent_id} participating in a Harberger tax simulation game. "
+                f"You are agent {self.agent_id} participating in a Futurchy tax simulation game. "
                 "Based on the following events and your current status, please decide whether to post a 'bid' order to buy assets or an 'ask' order to sell assets you own. "
                 "Consider the current market conditions, your objectives, and any potential profits when making your decision. "
                 "Your response should be in valid JSON format without any extra text, explanation, or formatting."
