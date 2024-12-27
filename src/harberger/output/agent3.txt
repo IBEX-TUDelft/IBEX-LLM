@@ -342,3 +342,45 @@ Expected JSON Output (Post Order):
 2024-12-04 13:32:11,802 [INFO] Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
 2024-12-04 13:32:11,802 [INFO] No action required for Phase 1 for role Owner.
 2024-12-04 13:32:11,803 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-27 10:31:05,386 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:05,388 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:05,392 [ERROR] Error loading metadata: [Errno 2] No such file or directory: '/prompts/role_descriptions.xlsx'
+2024-12-27 10:31:05,395 [INFO] WebSocket client started.
+2024-12-27 10:31:05,559 [INFO] WebSocket connection opened.
+2024-12-27 10:31:05,559 [INFO] Sending message: {"gameId": 147, "type": "join", "recovery": "rqc9dwcu8yofafd7wwwbv5b9dr4ezc15wqkx9liq1hp9476lfxel2rzam8gcm06q"}
+2024-12-27 10:31:05,672 [INFO] Received message: {"type":"error","message":"Game 147 is full (and no current player matching your recovery string). You cannot join"}
+2024-12-27 10:31:35,224 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:35,224 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:35,225 [ERROR] Error loading metadata: [Errno 2] No such file or directory: '/prompts/role_descriptions.xlsx'
+2024-12-27 10:31:35,226 [INFO] WebSocket client started.
+2024-12-27 10:31:35,378 [INFO] WebSocket connection opened.
+2024-12-27 10:31:35,379 [INFO] Sending message: {"gameId": 149, "type": "join", "recovery": "qze9mrk0d54cd8a1dlzaipsq8yttkmeaa2r8l016oyzjie0a7v4sqtx41j5o08r9"}
+2024-12-27 10:31:35,455 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Coffee","number":3,"ruleset":"Harberger"}}
+2024-12-27 10:31:35,456 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-27 10:31:35,457 [INFO] Received message: {"type":"info","message":"Player Coffee joined. We have now 3 players in the game."}
+2024-12-27 10:32:59,233 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:32:59,234 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:32:59,237 [ERROR] Error loading metadata: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+2024-12-27 10:32:59,238 [INFO] WebSocket client started.
+2024-12-27 10:32:59,373 [INFO] WebSocket connection opened.
+2024-12-27 10:32:59,373 [INFO] Sending message: {"gameId": 149, "type": "join", "recovery": "usniegmppprp567s42klbiwn9ge17qacuklka9didt2q9cvgx6tuwlvvwsd8bpgb"}
+2024-12-27 10:32:59,439 [INFO] Received message: {"type":"error","message":"Game 149 is full (and no current player matching your recovery string). You cannot join"}
+2024-12-27 10:34:40,070 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:34:40,071 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:34:40,073 [ERROR] Error loading metadata: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+2024-12-27 10:34:40,074 [INFO] WebSocket client started.
+2024-12-27 10:34:40,228 [INFO] WebSocket connection opened.
+2024-12-27 10:34:40,228 [INFO] Sending message: {"gameId": 150, "type": "join", "recovery": "0ygrfk6tdsfx4bnkbdb4f2rsstws8f554idnn6g0s5kjq3e14dajgse3wvi0jquf"}
+2024-12-27 10:34:40,309 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Tan","number":2,"ruleset":"Harberger"}}
+2024-12-27 10:34:40,311 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-27 10:34:40,311 [INFO] Received message: {"type":"info","message":"Player Tan joined. We have now 2 players in the game."}
+2024-12-27 10:34:40,311 [INFO] Received message: {"type":"info","message":"Player Emerald joined. We have now 3 players in the game."}
+2024-12-27 10:36:55,886 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:36:55,888 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:36:56,164 [INFO] Metadata successfully loaded.
+2024-12-27 10:36:56,165 [INFO] WebSocket client started.
+2024-12-27 10:36:56,348 [INFO] WebSocket connection opened.
+2024-12-27 10:36:56,348 [INFO] Sending message: {"gameId": 151, "type": "join", "recovery": "myxp6s4971u371xtkxjq2vbreqi6lzessdycsygk3vvttfwquzqxgnwe2teqjpd0"}
+2024-12-27 10:36:56,421 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Olive","number":3,"ruleset":"Harberger"}}
+2024-12-27 10:36:56,422 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-27 10:36:56,422 [INFO] Received message: {"type":"info","message":"Player Olive joined. We have now 3 players in the game."}

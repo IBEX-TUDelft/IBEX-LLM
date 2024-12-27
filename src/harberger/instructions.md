@@ -30,10 +30,6 @@ Start the server using `poetry`:
 poetry run python __init__.py
 ```
 
-Or, if running directly with Python:
-```bash
-python3 __init__.py
-```
 
 The server will start on the default port `10341` (or the port defined in your `.env` file).
 

@@ -334,3 +334,10 @@ Expected JSON Output (Post Order):
 2024-12-04 13:32:11,800 [INFO] Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
 2024-12-04 13:32:11,800 [INFO] No action required for Phase 1 for role Owner.
 2024-12-04 13:32:11,801 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-27 10:31:05,387 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:05,389 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-27 10:31:05,395 [ERROR] Error loading metadata: [Errno 2] No such file or directory: '/prompts/role_descriptions.xlsx'
+2024-12-27 10:31:05,397 [INFO] WebSocket client started.
+2024-12-27 10:31:05,540 [INFO] WebSocket connection opened.
+2024-12-27 10:31:05,540 [INFO] Sending message: {"gameId": 147, "type": "join", "recovery": "o6jxfrf6ok3eo71leryykg0jt0b59kuoi4bxhf7wddt114sf0rz0tgzxv02rzrb3"}
+2024-12-27 10:31:05,617 [INFO] Received message: {"type":"error","message":"Game 147 is full (and no current player matching your recovery string). You cannot join"}
