@@ -4,14 +4,17 @@ from queue import Queue
 import logging
 from LLMCommunicator import LLMCommunicator
 import sys
+import pandas as pd
+
 
 class GameHandler:
-    def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None, logger=None):
+    def __init__(self, game_id, websocket_client=None, verbose=False, recovery=None, logger=None, file_path='./prompts/'):
         self.logger = logger or logging.getLogger(f"GameHandler-{game_id}")
         self.game_id = game_id
         self.verbose = verbose
         self.recovery = recovery
         self.websocket_client = websocket_client
+        self.prompts = self.prompt_reader(file_path)
 
 
         self.current_phase = None
@@ -540,70 +543,46 @@ class GameHandler:
 
         return context_str
 
-    def get_phase_description(self, phase_number):
-        phase_descriptions = {
-            0: (
-                "Player is Ready: The game waits until all players declare themselves ready. No action is required.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"player-is-ready\"\n}}"
-            ),
-            1: "Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.",
-            2: (
-                "Declaration Phase: Owners and Developer should declare their expected revenue for the round.\n\n"
-                "The 'declaration' array should contain three values:\n"
-                "- Value for the status quo condition (no project)\n"
-                "- Value for the project development\n"
-                "- Optional third value, set to 0 (for future use)\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        value_for_no_project,  # Integer, expected revenue for no project\n        value_for_project,    # Integer, expected revenue for project development\n        0                     # Integer, always set to 0\n    ]\n}}"
-            ),
-            3: (
-                "Speculation Phase: Speculators may challenge declarations by Owners and Developers.\n\n"
-                "The 'snipe' array should contain two arrays:\n"
-                "- First array lists owners to challenge for the status quo condition\n"
-                "- Second array lists owners to challenge for the project development condition\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge_no_project],  # List of integers (player numbers)\n        [owners_to_challenge_project]     # List of integers (player numbers)\n    ]\n}}"
-            ),
-            4: "Waiting Phase: Players wait in this phase. No specific actions required.",
-            5: "Waiting Phase: Players wait in this phase. No specific actions required.",
-            6: self.get_market_phase_description(),
-            7: (
-                "Final Declaration Phase: Owners and Developers submit their final declaration for the winning condition.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n        final_value_for_winning_condition  # Integer, expected revenue for the winning condition\n    ]\n}}"
-            ),
-            8: (
-                "Final Speculation Phase: Speculators can challenge the final declarations.\n\n"
-                "The 'snipe' array works similarly to Phase 3, where speculators list owners to challenge.\n\n"
-                f"Expected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n        [owners_to_challenge]  # List of integers (player numbers)\n    ]\n}}"
-            ),
-            9: "Results Phase: Players are shown their results, and the next round begins shortly."
-        }
-
-        return phase_descriptions.get(phase_number, "Unknown Phase")
 
     def get_market_phase_description(self):
-        total_balance = self.player_wallet.get('total_balance', 0)
-        max_price = max(1, int(total_balance))
+        try:
+            # Retrieve the latest market signals from the context
+            latest_signal = self.context['market_signals'][-1] if self.context[
+                'market_signals'] else {}
+            private_signals = latest_signal.get('signals',
+                                                "No private signals available")
+            public_signal = latest_signal.get('publicSignal',
+                                              "No public signal available")
+            tax_rate = latest_signal.get('taxRate', "N/A")
 
-        return (
-            "Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.\n\n"
-            f"**Your available balance is {total_balance}. You cannot place a bid or ask that exceeds this amount.**\n\n"
-            "The signals represent market data, and you should interpret them to determine whether you wish to post a buy (bid) or sell (ask) order.\n\n"
-            "Market Signals:\n"
-            "- 'signals': Your private signals, visible only to you\n"
-            "- 'publicSignal': Signals visible to all players\n"
-            "Use this data to inform your decision. You are responsible for setting the prices based on these signals.\n\n"
-            "**You must ensure that the 'price' in your order does not exceed your available balance.**\n\n"
-            f"Expected JSON Output (Post Order):\n{{\n"
-            f"    \"gameId\": {self.game_id},\n"
-            "    \"type\": \"post-order\",\n"
-            "    \"order\": {\n"
-            f"        \"price\": your_chosen_price if 1 <= your_chosen_price <= {max_price},  # Integer, price you decide based on signals, limited to range 1-{max_price}\n"
-            "        \"quantity\": 1,                # Integer, always 1\n"
-            "        \"condition\": 1,  # Integer, always 1\n"
-            "        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n"
-            "        \"now\": false          # Boolean, false\n"
-            "    }\n"
-            "}}"
-        )
+            total_balance = self.player_wallet.get('total_balance', 0)
+            max_price = max(1, int(total_balance))
+
+            return (
+                f"Market Phase: Players now see their private signals and the public signals. Use these signals to decide your next trading move.\n\n"
+                f"**Your available balance is {total_balance}. You cannot place a bid or ask that exceeds this amount.**\n\n"
+                "Market Signals:\n"
+                f"- 'Private Signals': {private_signals}\n"
+                f"- 'Public Signal': {public_signal}\n"
+                f"- 'Tax Rate': {tax_rate}\n\n"
+                "Use this data to inform your decision. You are responsible for setting the prices based on these signals.\n\n"
+                "**You must ensure that the 'price' in your order does not exceed your available balance.**\n\n"
+                f"Expected JSON Output (Post Order):\n{{\n"
+                f"    \"gameId\": {self.game_id},\n"
+                "    \"type\": \"post-order\",\n"
+                "    \"order\": {\n"
+                f"        \"price\": your_chosen_price if 1 <= your_chosen_price <= {max_price},  # Integer, price you decide based on signals, limited to range 1-{max_price}\n"
+                "        \"quantity\": 1,                # Integer, always 1\n"
+                "        \"condition\": 1,  # Integer, always 1\n"
+                "        \"type\": \"ask\" or \"bid\",    # String, 'ask' to sell, 'bid' to buy\n"
+                "        \"now\": false          # Boolean, false\n"
+                "    }\n"
+                "}}"
+            )
+        except Exception as e:
+            self.logger.error(
+                f"Error generating market phase description: {e}")
+            return "Market Phase: Error fetching market signals. Please check the game context."
 
     def dispatch_summary_to_llm(self, summary):
         try:
@@ -630,3 +609,51 @@ class GameHandler:
         if self.dispatch_timer and self.dispatch_timer.is_alive():
             self.dispatch_timer.cancel()
             self.logger.debug("Dispatch timer stopped.")
+
+    def prompt_reader(self, file_path):
+        try:
+            # Load the Excel file
+            file_path = file_path + "role_phase_instructions.xlsx"
+            df = pd.read_excel(file_path)
+            # Ensure the expected structure: columns like "phase" and "description"
+            df = df.dropna(subset=["phase", "description"])
+            df["phase"] = df["phase"].astype(int)  # Ensure phases are integers
+            return df.set_index("phase")["description"].to_dict()
+        except Exception as e:
+            self.logger.error(f"Error reading prompts: {e}")
+            return {}
+
+    def get_phase_description(self, phase_number):
+        # Fetch the description from the loaded prompts
+        description = self.prompts.get(phase_number, "Unknown Phase")
+
+        # Add phase-specific Expected JSON Output formatting
+        if phase_number == 0:
+            description += (
+                f"\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"player-is-ready\"\n}}"
+            )
+        elif phase_number == 2:
+            description += (
+                f"\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n"
+                "        value_for_no_project,  # Integer, expected revenue for no project\n"
+                "        value_for_project,    # Integer, expected revenue for project development\n"
+                "        0                     # Integer, always set to 0\n    ]\n}}"
+            )
+        elif phase_number == 3:
+            description += (
+                f"\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n"
+                "        [owners_to_challenge_no_project],  # List of integers (player numbers)\n"
+                "        [owners_to_challenge_project]     # List of integers (player numbers)\n    ]\n}}"
+            )
+        elif phase_number == 7:
+            description += (
+                f"\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"declare\",\n    \"declaration\": [\n"
+                "        final_value_for_winning_condition  # Integer, expected revenue for the winning condition\n    ]\n}}"
+            )
+        elif phase_number == 8:
+            description += (
+                f"\n\nExpected JSON Output:\n{{\n    \"gameId\": {self.game_id},\n    \"type\": \"done-speculating\",\n    \"snipe\": [\n"
+                "        [owners_to_challenge]  # List of integers (player numbers)\n    ]\n}}"
+            )
+
+        return description

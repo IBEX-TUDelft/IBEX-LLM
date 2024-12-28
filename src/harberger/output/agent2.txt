@@ -328,3 +328,247 @@ Expected JSON Output (Post Order):
 2024-12-04 13:32:11,800 [INFO] Phase Transitioned to Phase 1: Presentation Phase: Players are shown private and public data. This is a passive phase with no actions required.
 2024-12-04 13:32:11,800 [INFO] No action required for Phase 1 for role Owner.
 2024-12-04 13:32:11,802 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:10:18,819 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:10:18,820 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:10:18,828 [ERROR] Error reading prompts: [Errno 21] Is a directory: './prompts/'
+2024-12-28 14:10:18,830 [INFO] WebSocket client started.
+2024-12-28 14:10:18,980 [INFO] WebSocket connection opened.
+2024-12-28 14:10:18,980 [INFO] Sending message: {"gameId": 152, "type": "join", "recovery": "7j2g238jluauomdtloravd84xlnsh0oscs3qi8050x8gcqlw4q0t4e6evef5ugw1"}
+2024-12-28 14:10:19,055 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Brown","number":3,"ruleset":"Harberger"}}
+2024-12-28 14:10:19,055 [INFO] User assigned name: Brown, number: 3
+2024-12-28 14:10:19,131 [INFO] Sending message: {"gameId": 152, "type": "player-is-ready"}
+2024-12-28 14:10:19,131 [INFO] Sent 'player-is-ready' message: {"gameId": 152, "type": "player-is-ready"}
+2024-12-28 14:10:19,131 [INFO] Sent 'player-is-ready' message: {"gameId": 152, "type": "player-is-ready"}
+2024-12-28 14:10:19,132 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:10:19,132 [INFO] Received message: {"type":"info","message":"Player Brown joined. We have now 3 players in the game."}
+2024-12-28 14:10:19,207 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:10:19,247 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395015769}}
+2024-12-28 14:10:19,248 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":1,"wallet":[{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000}],"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:10:19,248 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:10:19,248 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:10:19,249 [INFO] User assigned role: Speculator
+2024-12-28 14:10:19,249 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:10:19,249 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:10:19,249 [INFO] User assigned role: Speculator
+2024-12-28 14:10:19,249 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:10:19,249 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:10:19,281 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:10:19,281 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:10:19,282 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:10:19,282 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:10:19,282 [INFO] No action required for Phase 1 for role Speculator.
+2024-12-28 14:10:19,282 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:10:34,288 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:10:34,294 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395105818}}
+2024-12-28 14:10:34,338 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:10:34,339 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 152,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:10:34,353 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 152,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:10:34,355 [INFO] No action required for Phase 2 for role Speculator.
+2024-12-28 14:10:34,359 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:10:36,265 [INFO] Received message: {"type":"info","message":"Player Pink submitted a declaration of values."}
+2024-12-28 14:10:36,269 [INFO] Received message: {"type":"info","message":"Player Amethyst submitted a declaration of values."}
+2024-12-28 14:10:36,269 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:10:36,272 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395137795}}
+2024-12-28 14:10:36,273 [INFO] Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Firm Llama Lot","owner":"Pink","role":3,"number":1,"d":[20000,50000,0],"available":[true,true,true]},{"id":2,"name":"Average Cod Lot","owner":"Amethyst","role":2,"number":2,"d":[50000,100000,0],"available":[true,true,true]}],"winningCondition":1}}
+2024-12-28 14:10:36,276 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+2024-12-28 14:10:36,277 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 152,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:10:36,277 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 152,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:10:37,512 [INFO] Sending message: {"gameId": 152, "type": "ask", "price": 10000}
+2024-12-28 14:10:37,513 [INFO] Dispatched summary to LLM and sent response: {'gameId': 152, 'type': 'ask', 'price': 10000}
+2024-12-28 14:10:37,513 [INFO] Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-12-28 14:10:37,587 [INFO] Received message: {"type":"error","message":"Game 152: could not find an handler for ask"}
+2024-12-28 14:12:25,924 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:12:25,925 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:12:25,935 [ERROR] Error reading prompts: [Errno 21] Is a directory: './prompts/'
+2024-12-28 14:12:25,936 [INFO] WebSocket client started.
+2024-12-28 14:12:26,085 [INFO] WebSocket connection opened.
+2024-12-28 14:12:26,085 [INFO] Sending message: {"gameId": 153, "type": "join", "recovery": "zki27jnzjx9qyawtse2badjahaqjy43heprbdo07v3hvz2pdzrlo5o4tyepd0pzc"}
+2024-12-28 14:12:26,161 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Scarlet","number":3,"ruleset":"Harberger"}}
+2024-12-28 14:12:26,161 [INFO] User assigned name: Scarlet, number: 3
+2024-12-28 14:12:26,252 [INFO] Sending message: {"gameId": 153, "type": "player-is-ready"}
+2024-12-28 14:12:26,253 [INFO] Sent 'player-is-ready' message: {"gameId": 153, "type": "player-is-ready"}
+2024-12-28 14:12:26,253 [INFO] Sent 'player-is-ready' message: {"gameId": 153, "type": "player-is-ready"}
+2024-12-28 14:12:26,253 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:12:26,253 [INFO] Received message: {"type":"info","message":"Player Scarlet joined. We have now 3 players in the game."}
+2024-12-28 14:12:26,338 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:12:26,369 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395157892}}
+2024-12-28 14:12:26,370 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":1,"wallet":[{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000}],"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:12:26,370 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:12:26,370 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:12:26,370 [INFO] User assigned role: Speculator
+2024-12-28 14:12:26,370 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:12:26,371 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:12:26,371 [INFO] User assigned role: Speculator
+2024-12-28 14:12:26,371 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:12:26,372 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:12:26,401 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:12:26,401 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:12:26,402 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:12:26,402 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:12:26,402 [INFO] No action required for Phase 1 for role Speculator.
+2024-12-28 14:12:26,402 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:12:56,371 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:12:56,410 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395247934}}
+2024-12-28 14:12:56,442 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:12:56,443 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 153,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:12:56,443 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 153,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:12:56,443 [INFO] No action required for Phase 2 for role Speculator.
+2024-12-28 14:12:56,443 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:12:57,582 [INFO] Received message: {"type":"info","message":"Player Amber submitted a declaration of values."}
+2024-12-28 14:12:57,589 [INFO] Received message: {"type":"info","message":"Player Rose submitted a declaration of values."}
+2024-12-28 14:12:57,591 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:12:57,592 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395279110}}
+2024-12-28 14:12:57,593 [INFO] Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Flexible Bee Lot","owner":"Amber","role":3,"number":1,"d":[30000,50000,0],"available":[true,true,true]},{"id":2,"name":"Resulting Chipmunk Lot","owner":"Rose","role":2,"number":2,"d":[5000,10000,0],"available":[true,true,true]}],"winningCondition":1}}
+2024-12-28 14:12:57,593 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+2024-12-28 14:12:57,593 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 153,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:12:57,593 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 153,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:12:58,531 [INFO] Sending message: {"gameId": 153, "type": "ask", "price": 20000}
+2024-12-28 14:12:58,532 [INFO] Dispatched summary to LLM and sent response: {'gameId': 153, 'type': 'ask', 'price': 20000}
+2024-12-28 14:12:58,532 [INFO] Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-12-28 14:12:58,606 [INFO] Received message: {"type":"error","message":"Game 153: could not find an handler for ask"}
+2024-12-28 14:15:31,333 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:15:31,333 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:15:33,036 [ERROR] Error reading prompts: ['phase', 'description']
+2024-12-28 14:15:33,037 [INFO] WebSocket client started.
+2024-12-28 14:15:33,179 [INFO] WebSocket connection opened.
+2024-12-28 14:15:33,179 [INFO] Sending message: {"gameId": 154, "type": "join", "recovery": "oc7qtjr5hwd1nbenjv8e0eg4s417ioqu1phtgjc7e54ywflb2jtffynlhk5i0gey"}
+2024-12-28 14:15:33,249 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"White","number":2,"ruleset":"Harberger"}}
+2024-12-28 14:15:33,251 [INFO] User assigned name: White, number: 2
+2024-12-28 14:15:33,339 [INFO] Sending message: {"gameId": 154, "type": "player-is-ready"}
+2024-12-28 14:15:33,340 [INFO] Sent 'player-is-ready' message: {"gameId": 154, "type": "player-is-ready"}
+2024-12-28 14:15:33,340 [INFO] Sent 'player-is-ready' message: {"gameId": 154, "type": "player-is-ready"}
+2024-12-28 14:15:33,340 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:15:33,340 [INFO] Received message: {"type":"info","message":"Player White joined. We have now 2 players in the game."}
+2024-12-28 14:15:33,340 [INFO] Received message: {"type":"info","message":"Player Harlequin joined. We have now 3 players in the game."}
+2024-12-28 14:15:33,408 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:15:33,413 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395329935}}
+2024-12-28 14:15:33,413 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":2,"wallet":[{"balance":300000,"shares":30,"cashForSniping":250000},{"balance":300000,"shares":30,"cashForSniping":250000},{"balance":300000,"shares":30,"cashForSniping":250000}],"property":{"id":2,"owner":2,"name":"External Guineafowl Lot","v":[206000,1138000,1750000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:15:33,413 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:15:33,413 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:15:33,413 [INFO] User assigned role: Developer
+2024-12-28 14:15:33,413 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:15:33,414 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:15:33,414 [INFO] User assigned role: Developer
+2024-12-28 14:15:33,414 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:15:33,414 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:15:33,415 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:15:33,415 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:15:33,415 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:15:33,415 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:15:33,416 [INFO] No action required for Phase 1 for role Developer.
+2024-12-28 14:15:33,416 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:15:48,417 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:15:48,449 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735395419972}}
+2024-12-28 14:15:48,482 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:15:48,488 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 154,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:15:48,489 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 154,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:15:49,548 [INFO] Sending message: {"gameId": 154, "type": "ask", "order": {"asset": "External Guineafowl Lot", "price": 25000, "quantity": 1}}
+2024-12-28 14:15:49,548 [INFO] Dispatched summary to LLM and sent response: {'gameId': 154, 'type': 'ask', 'order': {'asset': 'External Guineafowl Lot', 'price': 25000, 'quantity': 1}}
+2024-12-28 14:15:49,549 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:15:49,617 [INFO] Received message: {"type":"error","message":"Game 154: could not find an handler for ask"}
