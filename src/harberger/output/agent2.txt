@@ -572,3 +572,215 @@ Expected JSON Output:
 2024-12-28 14:15:49,548 [INFO] Dispatched summary to LLM and sent response: {'gameId': 154, 'type': 'ask', 'order': {'asset': 'External Guineafowl Lot', 'price': 25000, 'quantity': 1}}
 2024-12-28 14:15:49,549 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
 2024-12-28 14:15:49,617 [INFO] Received message: {"type":"error","message":"Game 154: could not find an handler for ask"}
+2024-12-28 14:30:48,838 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,839 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,980 [ERROR] Error reading prompts: The file is missing required columns: 'phase' and 'description'.
+2024-12-28 14:30:48,981 [INFO] WebSocket client started.
+2024-12-28 14:30:49,128 [INFO] WebSocket connection opened.
+2024-12-28 14:30:49,128 [INFO] Sending message: {"gameId": 155, "type": "join", "recovery": "dtd70c3g9xy63c9cd1sibjoy33wrcjuh8ackxc99f1bdqr2odwp5yyf40c5yzl4r"}
+2024-12-28 14:30:49,201 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Lime","number":1,"ruleset":"Harberger"}}
+2024-12-28 14:30:49,202 [INFO] User assigned name: Lime, number: 1
+2024-12-28 14:30:49,288 [INFO] Sending message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,288 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,288 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Lime joined. We have now 1 players in the game."}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Scarlet joined. We have now 2 players in the game."}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Ivory joined. We have now 3 players in the game."}
+2024-12-28 14:30:49,359 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:30:49,411 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396245916}}
+2024-12-28 14:30:49,412 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":3,"wallet":[{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000},{"balance":60000,"shares":6,"cashForSniping":250000}],"property":{"id":1,"owner":1,"name":"Promising Armadillo Lot","v":[468000,164000,150000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-12-28 14:30:49,413 [INFO] User assigned role: Owner
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 60000, 'balance_condition_1': 60000, 'shares_condition_0': 6, 'shares_condition_1': 6, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 120000, 'total_shares': 12}
+2024-12-28 14:30:49,413 [INFO] User assigned role: Owner
+2024-12-28 14:30:49,414 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:30:49,414 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:30:49,425 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:30:49,425 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:30:49,426 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,426 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,426 [INFO] No action required for Phase 1 for role Owner.
+2024-12-28 14:30:49,426 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:31:04,393 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:04,426 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396335948}}
+2024-12-28 14:31:04,456 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:31:04,456 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:04,456 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:05,518 [INFO] Sending message: {"gameId": 155, "type": "declare", "declaration": [50000, 100000, 0]}
+2024-12-28 14:31:05,518 [INFO] Dispatched summary to LLM and sent response: {'gameId': 155, 'type': 'declare', 'declaration': [50000, 100000, 0]}
+2024-12-28 14:31:05,519 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:31:05,594 [INFO] Received message: {"type":"info","message":"Player Scarlet submitted a declaration of values."}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"info","message":"Player Lime submitted a declaration of values."}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"event","eventType":"declaration-received","data":{}}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396367116}}
+2024-12-28 14:31:05,596 [INFO] Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Promising Armadillo Lot","owner":"Lime","role":3,"number":1,"d":[50000,100000,0],"available":[true,true,true]},{"id":2,"name":"Precious Fowl Lot","owner":"Scarlet","role":2,"number":2,"d":[10000,20000,0],"available":[true,true,true]}],"winningCondition":1}}
+2024-12-28 14:31:05,596 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+2024-12-28 14:31:05,596 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:05,597 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:05,597 [INFO] No action required for Phase 3 for role Owner.
+2024-12-28 14:31:05,598 [INFO] Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-12-28 14:31:06,661 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:06,663 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396251186}}
+2024-12-28 14:31:06,663 [INFO] Received message: {"type":"info","message":"Reconciliation in progress ..."}
+2024-12-28 14:31:06,664 [INFO] Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":1,"condition":1,"value":164000,"declaration":100000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":1000,"owner":1,"role":3,"total":163000}}
+2024-12-28 14:31:06,665 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
+2024-12-28 14:31:06,665 [WARNING] Encountered unknown phase: 4
+2024-12-28 14:31:06,665 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,665 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,665 [INFO] No action required for Phase 4 for role Owner.
+2024-12-28 14:31:06,666 [INFO] Received message: {"type":"notice","message":"Phase 4 has begun."}
+2024-12-28 14:31:09,666 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:09,666 [INFO] Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
+2024-12-28 14:31:09,673 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396254196}}
+2024-12-28 14:31:09,675 [INFO] Received message: {"type":"event","eventType":"value-signals","data":{"signals":[8623,6734,0],"publicSignal":[0,396,0],"condition":1,"taxRate":33}}
+2024-12-28 14:31:09,676 [INFO] Received message: {"type":"info","message":"Prepare for the trading phase"}
+2024-12-28 14:31:09,677 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
+2024-12-28 14:31:09,678 [WARNING] Encountered unknown phase: 5
+2024-12-28 14:31:09,678 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,678 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,678 [INFO] No action required for Phase 5 for role Owner.
+2024-12-28 14:31:09,678 [INFO] Received message: {"type":"notice","message":"Phase 5 has begun."}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396524201}}
+2024-12-28 14:31:12,781 [INFO] Received message: {"type":"info","message":"The trading phase has started"}
+2024-12-28 14:31:12,781 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
+2024-12-28 14:31:12,781 [WARNING] Encountered unknown phase: 6
+2024-12-28 14:31:12,781 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:12,781 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:14,111 [INFO] Sending message: {"decision": "ask", "reason": "I currently own the Promising Armadillo Lot and based on the recent market signals indicating a tax rate of 33%, I should consider selling the asset to potentially make a profit. My total wallet balance is 120000, and I need to ensure that the ask price does not exceed this amount."}
+2024-12-28 14:31:14,111 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'I currently own the Promising Armadillo Lot and based on the recent market signals indicating a tax rate of 33%, I should consider selling the asset to potentially make a profit. My total wallet balance is 120000, and I need to ensure that the ask price does not exceed this amount.'}
+2024-12-28 14:31:14,111 [INFO] Received message: {"type":"notice","message":"Phase 6 has begun."}
+2024-12-28 14:31:14,183 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:19,818 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:19,818 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:19,889 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:25,982 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Promising Armadillo Lot that I own. Considering the recent profit of 163000 and my total wallet balance of 120000, it would be a good opportunity to potentially make a profit by selling the asset."}
+2024-12-28 14:31:25,982 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Promising Armadillo Lot that I own. Considering the recent profit of 163000 and my total wallet balance of 120000, it would be a good opportunity to potentially make a profit by selling the asset."}
+2024-12-28 14:31:26,053 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:32,272 [INFO] Sending message: {"decision": "ask", "reason": "Already owning the Promising Armadillo Lot, it is advisable to sell the asset in the current market conditions to potentially capitalize on any profit or market signals. The recent profit of 163000 indicates a positive outcome from selling assets. Given the current wallet balance of 120000, it is feasible to place an ask order to sell the Promising Armadillo Lot."}
+2024-12-28 14:31:32,272 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already owning the Promising Armadillo Lot, it is advisable to sell the asset in the current market conditions to potentially capitalize on any profit or market signals. The recent profit of 163000 indicates a positive outcome from selling assets. Given the current wallet balance of 120000, it is feasible to place an ask order to sell the Promising Armadillo Lot.'}
+2024-12-28 14:31:32,344 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:37,929 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:37,930 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:38,001 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:44,449 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. I have a total wallet balance of 120,000, and it's important to diversify my assets and potentially secure profits from selling the property. Additionally, considering the recent market signals and the fact that the tax rate is 33%, it might be a good time to sell the property."}
+2024-12-28 14:31:44,449 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. I have a total wallet balance of 120,000, and it's important to diversify my assets and potentially secure profits from selling the property. Additionally, considering the recent market signals and the fact that the tax rate is 33%, it might be a good time to sell the property."}
+2024-12-28 14:31:44,520 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:50,783 [INFO] Sending message: {"decision": "ask", "reasoning": "I own the Promising Armadillo Lot and have recently made a profit. Considering the recent market signals and my current status, it seems more appropriate to sell the asset at a reasonable price to potentially realize profits. Therefore, I will post an ask order to sell the Promising Armadillo Lot."}
+2024-12-28 14:31:50,783 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': 'I own the Promising Armadillo Lot and have recently made a profit. Considering the recent market signals and my current status, it seems more appropriate to sell the asset at a reasonable price to potentially realize profits. Therefore, I will post an ask order to sell the Promising Armadillo Lot.'}
+2024-12-28 14:31:50,855 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:56,983 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. This will allow me to potentially make a profit based on the recent declarations and market signals. My total wallet balance is 120000, so I need to ensure that the asking price does not exceed this amount."}
+2024-12-28 14:31:56,983 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. This will allow me to potentially make a profit based on the recent declarations and market signals. My total wallet balance is 120000, so I need to ensure that the asking price does not exceed this amount."}
+2024-12-28 14:31:57,057 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:03,163 [INFO] Sending message: {"decision": "ask", "reasoning": "I currently own the Promising Armadillo Lot and the recent profit from this property was substantial. Considering that the market signal is relatively high and the tax rate is 33%, it may be a good time to sell this property for a profit."}
+2024-12-28 14:32:03,163 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': 'I currently own the Promising Armadillo Lot and the recent profit from this property was substantial. Considering that the market signal is relatively high and the tax rate is 33%, it may be a good time to sell this property for a profit.'}
+2024-12-28 14:32:03,234 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:09,207 [INFO] Sending message: {"decision": "ask", "reason": "Already owning the Promising Armadillo Lot, it is advisable to sell it to potentially profit from the current market conditions and recent profit history."}
+2024-12-28 14:32:09,208 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already owning the Promising Armadillo Lot, it is advisable to sell it to potentially profit from the current market conditions and recent profit history.'}
+2024-12-28 14:32:09,279 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:15,046 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:32:15,046 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:32:15,116 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:21,417 [INFO] Sending message: {"decision": "ask", "reasoning": "I should place an 'ask' order to sell the Promising Armadillo Lot that I own, considering that the recent profit was high and the market signals are favorable. This will allow me to potentially realize a profit from selling the asset."}
+2024-12-28 14:32:21,417 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should place an 'ask' order to sell the Promising Armadillo Lot that I own, considering that the recent profit was high and the market signals are favorable. This will allow me to potentially realize a profit from selling the asset."}
+2024-12-28 14:32:21,490 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:27,438 [INFO] Sending message: {"decision": "ask", "reason": "Already owning the Promising Armadillo Lot and having a total wallet balance of 120000, it would be more beneficial to sell the asset now based on the market conditions and recent profits."}
+2024-12-28 14:32:27,439 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already owning the Promising Armadillo Lot and having a total wallet balance of 120000, it would be more beneficial to sell the asset now based on the market conditions and recent profits.'}
+2024-12-28 14:32:27,511 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:33,887 [INFO] Sending message: {"decision": "ask", "reason": "I currently own the Promising Armadillo Lot, and based on the recent declaration by Lime of a bid price range of [50000, 100000], it seems like a good time to sell the asset. My wallet balance is 120000, so I will place an ask order within the range of [50000, 100000]."}
+2024-12-28 14:32:33,888 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'I currently own the Promising Armadillo Lot, and based on the recent declaration by Lime of a bid price range of [50000, 100000], it seems like a good time to sell the asset. My wallet balance is 120000, so I will place an ask order within the range of [50000, 100000].'}
+2024-12-28 14:32:33,958 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:40,238 [INFO] Sending message: {"decision": "ask", "reasoning": "Since I already own the Promising Armadillo Lot and the recent declarations show that it has a high value, it might be a good time to sell the asset at a profitable price. Additionally, considering my total wallet balance and the recent profits, it makes sense to capitalize on the current market conditions and potentially earn more profit by selling the asset."}
+2024-12-28 14:32:40,238 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': 'Since I already own the Promising Armadillo Lot and the recent declarations show that it has a high value, it might be a good time to sell the asset at a profitable price. Additionally, considering my total wallet balance and the recent profits, it makes sense to capitalize on the current market conditions and potentially earn more profit by selling the asset.'}
+2024-12-28 14:32:40,311 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:46,001 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:32:46,001 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:32:46,072 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:51,909 [INFO] Sending message: {"decision": "ask", "reason": "Already own the Promising Armadillo Lot and recent profits are good. Selling the asset to take advantage of potential profits."}
+2024-12-28 14:32:51,910 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own the Promising Armadillo Lot and recent profits are good. Selling the asset to take advantage of potential profits.'}
+2024-12-28 14:32:51,985 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:58,536 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. Considering my total wallet balance of 120000, it makes sense to sell the asset and potentially make a profit based on the recent declarations and market signals. This decision aligns with my objective to maximize profits within the game."}
+2024-12-28 14:32:58,536 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Promising Armadillo Lot that I currently own. Considering my total wallet balance of 120000, it makes sense to sell the asset and potentially make a profit based on the recent declarations and market signals. This decision aligns with my objective to maximize profits within the game."}
+2024-12-28 14:32:58,607 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:04,403 [INFO] Sending message: {"decision": "ask", "reason": "Already own Promising Armadillo Lot, so I should consider selling it based on market conditions and recent profits."}
+2024-12-28 14:33:04,404 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own Promising Armadillo Lot, so I should consider selling it based on market conditions and recent profits.'}
+2024-12-28 14:33:04,476 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:10,238 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:10,239 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:10,310 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:16,893 [INFO] Sending message: {"decision": "ask", "reasoning": "I own the Promising Armadillo Lot and the recent declarations show that the value is between 50000 and 100000. My wallet balance is 120000, so I can afford to sell the asset at a reasonable price within this range to potentially make a profit."}
+2024-12-28 14:33:16,893 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': 'I own the Promising Armadillo Lot and the recent declarations show that the value is between 50000 and 100000. My wallet balance is 120000, so I can afford to sell the asset at a reasonable price within this range to potentially make a profit.'}
+2024-12-28 14:33:16,965 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:23,004 [INFO] Sending message: {"decision": "ask", "reason": "Already own the Promising Armadillo Lot, so selling assets to potentially profit from recent market conditions and past profits."}
+2024-12-28 14:33:23,004 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own the Promising Armadillo Lot, so selling assets to potentially profit from recent market conditions and past profits.'}
+2024-12-28 14:33:23,076 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:28,775 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:28,775 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:28,847 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:34,487 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:34,488 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:34,560 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:41,373 [INFO] Sending message: {"decision": "ask", "reasoning": "I should place an 'ask' order to sell the Promising Armadillo Lot that I currently own in order to realize profits. My total wallet balance is 120000, and it is a good opportunity to capitalize on the asset based on the recent declarations and market signals."}
+2024-12-28 14:33:41,374 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should place an 'ask' order to sell the Promising Armadillo Lot that I currently own in order to realize profits. My total wallet balance is 120000, and it is a good opportunity to capitalize on the asset based on the recent declarations and market signals."}
+2024-12-28 14:33:41,446 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:47,412 [INFO] Sending message: {"decision": "ask", "reason": "Already own the Promising Armadillo Lot and have recently made profits, so it may be a good opportunity to sell the asset at a potentially higher price."}
+2024-12-28 14:33:47,413 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own the Promising Armadillo Lot and have recently made profits, so it may be a good opportunity to sell the asset at a potentially higher price.'}
+2024-12-28 14:33:47,500 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:53,554 [INFO] Sending message: {"decision": "ask", "reasoning": "I will post an 'ask' order to sell the asset I own (Promising Armadillo Lot) because I currently have a balance of 120000 which is enough to afford placing the sell order. Additionally, considering the recent profits and market signals, it seems like a good time to sell the asset for potential profit."}
+2024-12-28 14:33:53,554 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I will post an 'ask' order to sell the asset I own (Promising Armadillo Lot) because I currently have a balance of 120000 which is enough to afford placing the sell order. Additionally, considering the recent profits and market signals, it seems like a good time to sell the asset for potential profit."}
+2024-12-28 14:33:53,625 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:59,311 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:33:59,311 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:33:59,428 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:05,230 [INFO] Sending message: {"decision": "ask", "reason": "Already own Promising Armadillo Lot, recent profit earned, and need to balance wallet"}
+2024-12-28 14:34:05,230 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own Promising Armadillo Lot, recent profit earned, and need to balance wallet'}
+2024-12-28 14:34:05,303 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:10,964 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:34:10,964 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:34:11,035 [INFO] Received message: {"error":"Game undefined not found"}

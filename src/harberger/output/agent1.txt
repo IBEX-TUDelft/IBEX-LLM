@@ -573,3 +573,217 @@ Expected JSON Output:
 }}
 2024-12-28 14:15:48,483 [INFO] No action required for Phase 2 for role Speculator.
 2024-12-28 14:15:48,483 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:30:48,837 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,839 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,979 [ERROR] Error reading prompts: The file is missing required columns: 'phase' and 'description'.
+2024-12-28 14:30:48,980 [INFO] WebSocket client started.
+2024-12-28 14:30:49,128 [INFO] WebSocket connection opened.
+2024-12-28 14:30:49,129 [INFO] Sending message: {"gameId": 155, "type": "join", "recovery": "kkaa1x6bug19g360hvzvj5nafua4ljbocwlv7krn9karo01gurf5rh4h940y2qsk"}
+2024-12-28 14:30:49,201 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Scarlet","number":2,"ruleset":"Harberger"}}
+2024-12-28 14:30:49,202 [INFO] User assigned name: Scarlet, number: 2
+2024-12-28 14:30:49,288 [INFO] Sending message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,288 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,288 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,288 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Scarlet joined. We have now 2 players in the game."}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Ivory joined. We have now 3 players in the game."}
+2024-12-28 14:30:49,359 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:30:49,411 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396245916}}
+2024-12-28 14:30:49,412 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":2,"wallet":[{"balance":300000,"shares":30,"cashForSniping":250000},{"balance":300000,"shares":30,"cashForSniping":250000},{"balance":300000,"shares":30,"cashForSniping":250000}],"property":{"id":2,"owner":2,"name":"Precious Fowl Lot","v":[206000,1138000,1750000]},"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:30:49,413 [INFO] User assigned role: Developer
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 300000, 'balance_condition_1': 300000, 'shares_condition_0': 30, 'shares_condition_1': 30, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 600000, 'total_shares': 60}
+2024-12-28 14:30:49,413 [INFO] User assigned role: Developer
+2024-12-28 14:30:49,413 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:30:49,413 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:30:49,425 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:30:49,425 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:30:49,425 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,425 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,425 [INFO] No action required for Phase 1 for role Developer.
+2024-12-28 14:30:49,426 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:31:04,394 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:04,424 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396335948}}
+2024-12-28 14:31:04,456 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:31:04,461 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:04,462 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:05,490 [INFO] Sending message: {"gameId": 155, "type": "declare", "declaration": [10000, 20000, 0]}
+2024-12-28 14:31:05,491 [INFO] Dispatched summary to LLM and sent response: {'gameId': 155, 'type': 'declare', 'declaration': [10000, 20000, 0]}
+2024-12-28 14:31:05,491 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:31:05,594 [INFO] Received message: {"type":"info","message":"Player Scarlet submitted a declaration of values."}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"event","eventType":"declaration-received","data":{}}
+2024-12-28 14:31:05,596 [INFO] Received message: {"type":"info","message":"Player Lime submitted a declaration of values."}
+2024-12-28 14:31:05,597 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:05,597 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396367116}}
+2024-12-28 14:31:05,598 [INFO] Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Promising Armadillo Lot","owner":"Lime","role":3,"number":1,"d":[50000,100000,0],"available":[true,true,true]},{"id":2,"name":"Precious Fowl Lot","owner":"Scarlet","role":2,"number":2,"d":[10000,20000,0],"available":[true,true,true]}],"winningCondition":1}}
+2024-12-28 14:31:05,602 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+2024-12-28 14:31:05,603 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:05,603 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:05,603 [INFO] No action required for Phase 3 for role Developer.
+2024-12-28 14:31:05,604 [INFO] Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-12-28 14:31:06,661 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:06,663 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396251186}}
+2024-12-28 14:31:06,663 [INFO] Received message: {"type":"info","message":"Reconciliation in progress ..."}
+2024-12-28 14:31:06,663 [INFO] Received message: {"type":"event","eventType":"profit","data":{"round":0,"phase":4,"property":2,"condition":1,"value":1138000,"declaration":20000,"sniped":false,"speculator":null,"snipeProfit":0,"taxes":200,"owner":2,"role":2,"total":1137800}}
+2024-12-28 14:31:06,665 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
+2024-12-28 14:31:06,666 [WARNING] Encountered unknown phase: 4
+2024-12-28 14:31:06,666 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,666 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,666 [INFO] No action required for Phase 4 for role Developer.
+2024-12-28 14:31:06,667 [INFO] Received message: {"type":"notice","message":"Phase 4 has begun."}
+2024-12-28 14:31:09,664 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:09,672 [INFO] Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
+2024-12-28 14:31:09,672 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396254196}}
+2024-12-28 14:31:09,675 [INFO] Received message: {"type":"event","eventType":"value-signals","data":{"signals":[9048,7284,0],"publicSignal":[0,396,0],"condition":1,"taxRate":33}}
+2024-12-28 14:31:09,676 [INFO] Received message: {"type":"info","message":"Prepare for the trading phase"}
+2024-12-28 14:31:09,678 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
+2024-12-28 14:31:09,678 [WARNING] Encountered unknown phase: 5
+2024-12-28 14:31:09,678 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,678 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,679 [INFO] No action required for Phase 5 for role Developer.
+2024-12-28 14:31:09,679 [INFO] Received message: {"type":"notice","message":"Phase 5 has begun."}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396524201}}
+2024-12-28 14:31:12,781 [INFO] Received message: {"type":"info","message":"The trading phase has started"}
+2024-12-28 14:31:12,781 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
+2024-12-28 14:31:12,781 [WARNING] Encountered unknown phase: 6
+2024-12-28 14:31:12,787 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:12,787 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:13,669 [INFO] Sending message: {"decision": "ask", "asset": "Precious Fowl Lot", "price": 20000}
+2024-12-28 14:31:13,669 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'asset': 'Precious Fowl Lot', 'price': 20000}
+2024-12-28 14:31:13,670 [INFO] Received message: {"type":"notice","message":"Phase 6 has begun."}
+2024-12-28 14:31:13,765 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:19,497 [INFO] Sending message: {"decision": "ask", "asset": "Precious Fowl Lot", "price": 15000}
+2024-12-28 14:31:19,497 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'asset': 'Precious Fowl Lot', 'price': 15000}
+2024-12-28 14:31:19,570 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:25,686 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the asset Precious Fowl Lot that I currently own. My wallet balance is 600000, and I need to take advantage of the current market conditions to potentially make a profit."}
+2024-12-28 14:31:25,686 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the asset Precious Fowl Lot that I currently own. My wallet balance is 600000, and I need to take advantage of the current market conditions to potentially make a profit."}
+2024-12-28 14:31:25,759 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:31,420 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:31,421 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:31,492 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:37,100 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:37,100 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:37,201 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:42,727 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:42,727 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:42,799 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:48,389 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:31:48,390 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:31:48,467 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:54,361 [INFO] Sending message: {"decision": "ask", "reason": "Already owning Precious Fowl Lot, it is better to sell while considering the recent profit of 1137800 and the current market signals."}
+2024-12-28 14:31:54,361 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already owning Precious Fowl Lot, it is better to sell while considering the recent profit of 1137800 and the current market signals.'}
+2024-12-28 14:31:54,434 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:00,091 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:32:00,092 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:32:00,167 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:05,932 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:32:05,932 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:32:06,004 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:14,023 [INFO] Sending message: {"decision": "ask", "reason": "Already own Precious Fowl Lot and recent profit was high, consider selling to potentially lock in gains."}
+2024-12-28 14:32:14,024 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own Precious Fowl Lot and recent profit was high, consider selling to potentially lock in gains.'}
+2024-12-28 14:32:14,097 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:20,370 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000 and the recent declaration for the Precious Fowl Lot by Scarlet of [10000, 20000, 0], I can potentially make a profit by selling at a reasonable price."}
+2024-12-28 14:32:20,371 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000 and the recent declaration for the Precious Fowl Lot by Scarlet of [10000, 20000, 0], I can potentially make a profit by selling at a reasonable price."}
+2024-12-28 14:32:20,453 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:26,678 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000 and recent profits of 1137800, it makes sense to sell this asset and potentially increase my funds."}
+2024-12-28 14:32:26,678 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000 and recent profits of 1137800, it makes sense to sell this asset and potentially increase my funds."}
+2024-12-28 14:32:26,758 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:32,964 [INFO] Sending message: {"decision": "ask", "reason": "Already own Precious Fowl Lot and recent profit indicates potential value, so selling it now may be profitable.", "order_details": {"asset": "Precious Fowl Lot", "quantity": 1, "price_per_asset": 21000}}
+2024-12-28 14:32:32,965 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Already own Precious Fowl Lot and recent profit indicates potential value, so selling it now may be profitable.', 'order_details': {'asset': 'Precious Fowl Lot', 'quantity': 1, 'price_per_asset': 21000}}
+2024-12-28 14:32:33,039 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:38,699 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:32:38,699 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:32:38,773 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:44,512 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:32:44,513 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:32:44,586 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:50,801 [INFO] Sending message: {"decision": "bid", "reasoning": "The player currently owns the Precious Fowl Lot and has a total wallet balance of 600000. Considering the recent market signals and the fact that the player has cash available for sniping in both conditions, it seems like a good opportunity to post a bid order to buy assets. This can potentially lead to profits in the future rounds."}
+2024-12-28 14:32:50,802 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'The player currently owns the Precious Fowl Lot and has a total wallet balance of 600000. Considering the recent market signals and the fact that the player has cash available for sniping in both conditions, it seems like a good opportunity to post a bid order to buy assets. This can potentially lead to profits in the future rounds.'}
+2024-12-28 14:32:50,875 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:56,804 [INFO] Sending message: {"decision": "ask", "reason": "Already own Precious Fowl Lot, so it's better to sell it now and potentially make a profit."}
+2024-12-28 14:32:56,804 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "Already own Precious Fowl Lot, so it's better to sell it now and potentially make a profit."}
+2024-12-28 14:32:56,878 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:02,541 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:02,541 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:02,614 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:08,293 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:08,294 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:08,366 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:13,989 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:33:13,990 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:33:14,062 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:19,659 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:19,660 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:19,736 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:25,954 [INFO] Sending message: {"decision": "ask", "reasoning": "I should place an 'ask' order to sell the asset I own, which is the Precious Fowl Lot. This will allow me to potentially profit from the sale and capitalize on the current market conditions. Additionally, considering my total wallet balance is 600000, I have the necessary funds to carry out the 'ask' order."}
+2024-12-28 14:33:25,954 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should place an 'ask' order to sell the asset I own, which is the Precious Fowl Lot. This will allow me to potentially profit from the sale and capitalize on the current market conditions. Additionally, considering my total wallet balance is 600000, I have the necessary funds to carry out the 'ask' order."}
+2024-12-28 14:33:26,026 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:31,635 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:31,636 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:31,707 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:37,291 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:37,292 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:37,385 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:43,004 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:43,005 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:43,076 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:48,846 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:48,846 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:48,919 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:54,517 [INFO] Sending message: {"decision": "ask"}
+2024-12-28 14:33:54,518 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask'}
+2024-12-28 14:33:54,610 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:00,513 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Precious Fowl Lot that I own. Considering my current balance and the recent profit from this property, it is a good opportunity to secure potential profits."}
+2024-12-28 14:34:00,513 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Precious Fowl Lot that I own. Considering my current balance and the recent profit from this property, it is a good opportunity to secure potential profits."}
+2024-12-28 14:34:00,586 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:06,866 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000, it would be a good opportunity to sell the asset and potentially make a profit based on the recent market signals and declarations."}
+2024-12-28 14:34:06,866 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my total wallet balance of 600000, it would be a good opportunity to sell the asset and potentially make a profit based on the recent market signals and declarations."}
+2024-12-28 14:34:06,940 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:13,056 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my balance and the recent market signals, it seems like a good opportunity to sell this asset and potentially make a profit."}
+2024-12-28 14:34:13,057 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell the Precious Fowl Lot that I currently own. Considering my balance and the recent market signals, it seems like a good opportunity to sell this asset and potentially make a profit."}
+2024-12-28 14:34:13,130 [INFO] Received message: {"error":"Game undefined not found"}

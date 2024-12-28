@@ -5,6 +5,7 @@ import logging
 from LLMCommunicator import LLMCommunicator
 import sys
 import pandas as pd
+import os
 
 
 class GameHandler:
@@ -612,10 +613,28 @@ class GameHandler:
 
     def prompt_reader(self, file_path):
         try:
+            # Check if the directory exists
+            if not os.path.isdir(file_path):
+                raise FileNotFoundError(
+                    f"The directory '{file_path}' does not exist.")
+
+            # Construct the full file path
+            file_name = "role_phase_instructions.xlsx"
+            full_file_path = os.path.join(file_path, file_name)
+
+            # Check if the file exists
+            if not os.path.isfile(full_file_path):
+                raise FileNotFoundError(
+                    f"The file '{file_name}' does not exist in the directory '{file_path}'.")
+
             # Load the Excel file
-            file_path = file_path + "role_phase_instructions.xlsx"
-            df = pd.read_excel(file_path)
+            df = pd.read_excel(full_file_path)
+
             # Ensure the expected structure: columns like "phase" and "description"
+            if "phase" not in df.columns or "description" not in df.columns:
+                raise ValueError(
+                    "The file is missing required columns: 'phase' and 'description'.")
+
             df = df.dropna(subset=["phase", "description"])
             df["phase"] = df["phase"].astype(int)  # Ensure phases are integers
             return df.set_index("phase")["description"].to_dict()

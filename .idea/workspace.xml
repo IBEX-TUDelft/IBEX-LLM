@@ -8,19 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/GameHandlerHarberger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/output/agent1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent12.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/output/agent2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harberger/output/agent3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/output/agent3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/output/agent9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harberger/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/harberger/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,74 +63,74 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for GameHandlerAuction.test_game_handler.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for HarbergerTestExtreme.TestGameHandler.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in HarbergerTestExtreme.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.AuctionTest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.AuctionTestExtreme.executor&quot;: &quot;Run&quot;,
-    &quot;Python.FuturchyTest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.FuturchyTestExtreme.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerAuction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerAuction_Beta.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerAuction_Beta2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerFutarchy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerHarberger.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GameHandlerLLM.executor&quot;: &quot;Run&quot;,
-    &quot;Python.HarbergerTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.HarbergerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.HarbergerTestExtreme.executor&quot;: &quot;Run&quot;,
-    &quot;Python.HarbergerTest_Market.executor&quot;: &quot;Run&quot;,
-    &quot;Python.LLMAgentLogic.executor&quot;: &quot;Run&quot;,
-    &quot;Python.SockethandlerNoGPT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.WebSocketClient.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__ (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.buttonFinder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.firstPrototype.executor&quot;: &quot;Run&quot;,
-    &quot;Python.improvedInteractor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.inputFinder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.instructionReader.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newButtonWebInteractor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newWebInteractor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.openAIAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.plot.executor&quot;: &quot;Run&quot;,
-    &quot;Python.re.executor&quot;: &quot;Run&quot;,
-    &quot;Python.secondPrototype.executor&quot;: &quot;Run&quot;,
-    &quot;Python.secondPrototype2.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.socketHandler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.webInteraction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.webInteractor.executor&quot;: &quot;Run&quot;,
-    &quot;Python.webInteractor2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.webInteractorJSON.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jasperbruin/Documents/IBEX-LLM/src/harberger&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for GameHandlerAuction.test_game_handler.executor": "Run",
+    "Python tests.Python tests for HarbergerTestExtreme.TestGameHandler.executor": "Run",
+    "Python tests.Python tests in HarbergerTestExtreme.py.executor": "Run",
+    "Python.AuctionTest.executor": "Run",
+    "Python.AuctionTestExtreme.executor": "Run",
+    "Python.FuturchyTest.executor": "Run",
+    "Python.FuturchyTestExtreme.executor": "Run",
+    "Python.GameHandler.executor": "Run",
+    "Python.GameHandlerAuction.executor": "Run",
+    "Python.GameHandlerAuction_Beta.executor": "Run",
+    "Python.GameHandlerAuction_Beta2.executor": "Run",
+    "Python.GameHandlerFutarchy.executor": "Run",
+    "Python.GameHandlerHarberger.executor": "Run",
+    "Python.GameHandlerLLM.executor": "Run",
+    "Python.HarbergerTest (1).executor": "Run",
+    "Python.HarbergerTest.executor": "Run",
+    "Python.HarbergerTestExtreme.executor": "Run",
+    "Python.HarbergerTest_Market.executor": "Run",
+    "Python.LLMAgentLogic.executor": "Run",
+    "Python.SockethandlerNoGPT.executor": "Run",
+    "Python.WebSocketClient.executor": "Run",
+    "Python.__init__ (1).executor": "Run",
+    "Python.__init__.executor": "Run",
+    "Python.buttonFinder.executor": "Run",
+    "Python.firstPrototype.executor": "Run",
+    "Python.improvedInteractor.executor": "Run",
+    "Python.inputFinder.executor": "Run",
+    "Python.instructionReader.executor": "Run",
+    "Python.newButtonWebInteractor.executor": "Run",
+    "Python.newWebInteractor.executor": "Run",
+    "Python.openAIAPI.executor": "Run",
+    "Python.plot.executor": "Run",
+    "Python.re.executor": "Run",
+    "Python.secondPrototype.executor": "Run",
+    "Python.secondPrototype2.0.executor": "Run",
+    "Python.socketHandler.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.webInteraction.executor": "Run",
+    "Python.webInteractor.executor": "Run",
+    "Python.webInteractor2.executor": "Run",
+    "Python.webInteractorJSON.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "git-widget-placeholder": "excel__prompts",
+    "last_opened_file_path": "/Users/jasperbruin/Documents/IBEX-LLM/src/harberger",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/harberger" />
@@ -461,7 +450,7 @@
       <workItem from="1733314093510" duration="2302000" />
       <workItem from="1735311086436" duration="249000" />
       <workItem from="1735313019527" duration="8000" />
-      <workItem from="1735392378971" duration="2713000" />
+      <workItem from="1735392378971" duration="3559000" />
     </task>
     <servers />
   </component>

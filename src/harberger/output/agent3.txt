@@ -590,3 +590,212 @@ Expected JSON Output:
 2024-12-28 14:15:49,548 [INFO] Dispatched summary to LLM and sent response: {'gameId': 154, 'type': 'bid', 'bidPrice': 0}
 2024-12-28 14:15:49,549 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
 2024-12-28 14:15:49,617 [INFO] Received message: {"type":"error","message":"Game 154: could not find an handler for bid"}
+2024-12-28 14:30:48,838 [INFO] Constructed WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,840 [INFO] Connecting to WebSocket URL: ws://188.166.34.67:3088/wss
+2024-12-28 14:30:48,980 [ERROR] Error reading prompts: The file is missing required columns: 'phase' and 'description'.
+2024-12-28 14:30:48,981 [INFO] WebSocket client started.
+2024-12-28 14:30:49,129 [INFO] WebSocket connection opened.
+2024-12-28 14:30:49,129 [INFO] Sending message: {"gameId": 155, "type": "join", "recovery": "06l9pzuo56d11ka3drfv3437pzrcml77seamnk8wk41ntmz5y85g2y9q307wmjfr"}
+2024-12-28 14:30:49,203 [INFO] Received message: {"type":"event","eventType":"assign-name","data":{"name":"Ivory","number":3,"ruleset":"Harberger"}}
+2024-12-28 14:30:49,203 [INFO] User assigned name: Ivory, number: 3
+2024-12-28 14:30:49,288 [INFO] Sending message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,289 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,289 [INFO] Sent 'player-is-ready' message: {"gameId": 155, "type": "player-is-ready"}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"event","eventType":"phase-instructions","data":{}}
+2024-12-28 14:30:49,289 [INFO] Received message: {"type":"info","message":"Player Ivory joined. We have now 3 players in the game."}
+2024-12-28 14:30:49,359 [INFO] Received message: {"type":"event","eventType":"ready-received","data":{}}
+2024-12-28 14:30:49,411 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396245916}}
+2024-12-28 14:30:49,411 [INFO] Received message: {"type":"event","eventType":"assign-role","data":{"role":1,"wallet":[{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000},{"balance":50000,"shares":5,"cashForSniping":250000}],"boundaries":{"developer":{"noProject":{"low":200000,"high":500000},"projectA":{"low":500000,"high":2750000}},"owner":{"noProject":{"low":350000,"high":600000},"projectA":{"low":150000,"high":350000}}},"taxRate":1,"initialTaxRate":1,"finalTaxRate":33,"conditions":[{"name":"No Project","id":0,"parameter":"no_project","key":"noProject"},{"name":"Project","id":1,"parameter":"project_a","key":"projectA"}]}}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:30:49,412 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:30:49,412 [INFO] User assigned role: Speculator
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:30:49,413 [INFO] Updated player wallet: {'balance_condition_0': 50000, 'balance_condition_1': 50000, 'shares_condition_0': 5, 'shares_condition_1': 5, 'cash_for_sniping_0': 250000, 'cash_for_sniping_1': 250000, 'total_balance': 100000, 'total_shares': 10}
+2024-12-28 14:30:49,413 [INFO] User assigned role: Speculator
+2024-12-28 14:30:49,413 [INFO] Received message: {"type":"event","eventType":"players-known","data":{"players":[{"number":1,"role":3,"tag":"Owner 1"},{"number":2,"role":2,"tag":"Developer"},{"number":3,"role":1,"tag":"Speculator 1"}]}}
+2024-12-28 14:30:49,413 [INFO] Player roles known: {1: 'Owner', 2: 'Developer', 3: 'Speculator'}
+2024-12-28 14:30:49,425 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":1}}
+2024-12-28 14:30:49,425 [WARNING] Encountered unknown phase: 1
+2024-12-28 14:30:49,425 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,426 [INFO] Phase Transitioned to Phase 1: Unknown Phase
+2024-12-28 14:30:49,426 [INFO] No action required for Phase 1 for role Speculator.
+2024-12-28 14:30:49,426 [INFO] Received message: {"type":"notice","message":"Phase 1 has begun."}
+2024-12-28 14:31:04,394 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:04,424 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396335948}}
+2024-12-28 14:31:04,456 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":2}}
+2024-12-28 14:31:04,456 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:04,461 [INFO] Phase Transitioned to Phase 2: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "declare",
+    "declaration": [
+        value_for_no_project,  # Integer, expected revenue for no project
+        value_for_project,    # Integer, expected revenue for project development
+        0                     # Integer, always set to 0
+    ]
+}}
+2024-12-28 14:31:04,462 [INFO] No action required for Phase 2 for role Speculator.
+2024-12-28 14:31:04,474 [INFO] Received message: {"type":"notice","message":"Phase 2 has begun."}
+2024-12-28 14:31:05,594 [INFO] Received message: {"type":"info","message":"Player Scarlet submitted a declaration of values."}
+2024-12-28 14:31:05,595 [INFO] Received message: {"type":"info","message":"Player Lime submitted a declaration of values."}
+2024-12-28 14:31:05,596 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:05,597 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396367116}}
+2024-12-28 14:31:05,597 [INFO] Received message: {"type":"event","eventType":"declarations-published","data":{"declarations":[{"id":1,"name":"Promising Armadillo Lot","owner":"Lime","role":3,"number":1,"d":[50000,100000,0],"available":[true,true,true]},{"id":2,"name":"Precious Fowl Lot","owner":"Scarlet","role":2,"number":2,"d":[10000,20000,0],"available":[true,true,true]}],"winningCondition":1}}
+2024-12-28 14:31:05,598 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":3}}
+2024-12-28 14:31:05,598 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:05,598 [INFO] Phase Transitioned to Phase 3: Unknown Phase
+
+Expected JSON Output:
+{
+    "gameId": 155,
+    "type": "done-speculating",
+    "snipe": [
+        [owners_to_challenge_no_project],  # List of integers (player numbers)
+        [owners_to_challenge_project]     # List of integers (player numbers)
+    ]
+}}
+2024-12-28 14:31:06,585 [INFO] Sending message: {"gameId": 155, "type": "done-speculating", "snipe": [[], []]}
+2024-12-28 14:31:06,585 [INFO] Dispatched summary to LLM and sent response: {'gameId': 155, 'type': 'done-speculating', 'snipe': [[], []]}
+2024-12-28 14:31:06,586 [INFO] Received message: {"type":"notice","message":"Phase 3 has begun."}
+2024-12-28 14:31:06,661 [INFO] Received message: {"type":"event","eventType":"speculation-received","data":{}}
+2024-12-28 14:31:06,661 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:06,664 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396251186}}
+2024-12-28 14:31:06,664 [INFO] Received message: {"type":"info","message":"Reconciliation in progress ..."}
+2024-12-28 14:31:06,665 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":4}}
+2024-12-28 14:31:06,665 [WARNING] Encountered unknown phase: 4
+2024-12-28 14:31:06,666 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,666 [INFO] Phase Transitioned to Phase 4: Unknown Phase
+2024-12-28 14:31:06,666 [INFO] No action required for Phase 4 for role Speculator.
+2024-12-28 14:31:06,666 [INFO] Received message: {"type":"notice","message":"Phase 4 has begun."}
+2024-12-28 14:31:09,665 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:09,672 [INFO] Received message: {"type":"event","eventType":"first-snipes","data":{"snipes":[]}}
+2024-12-28 14:31:09,673 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396254196}}
+2024-12-28 14:31:09,676 [INFO] Received message: {"type":"event","eventType":"value-signals","data":{"signals":[9041,6959,0],"publicSignal":[0,396,0],"condition":1,"taxRate":33}}
+2024-12-28 14:31:09,677 [INFO] Received message: {"type":"info","message":"Prepare for the trading phase"}
+2024-12-28 14:31:09,677 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":5}}
+2024-12-28 14:31:09,679 [WARNING] Encountered unknown phase: 5
+2024-12-28 14:31:09,679 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,679 [INFO] Phase Transitioned to Phase 5: Unknown Phase
+2024-12-28 14:31:09,679 [INFO] No action required for Phase 5 for role Speculator.
+2024-12-28 14:31:09,679 [INFO] Received message: {"type":"notice","message":"Phase 5 has begun."}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"reset-timer","data":{}}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"event","eventType":"set-timer","data":{"end":1735396524201}}
+2024-12-28 14:31:12,780 [INFO] Received message: {"type":"info","message":"The trading phase has started"}
+2024-12-28 14:31:12,781 [INFO] Received message: {"type":"event","eventType":"phase-transition","data":{"round":0,"phase":6}}
+2024-12-28 14:31:12,781 [WARNING] Encountered unknown phase: 6
+2024-12-28 14:31:12,781 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:12,781 [INFO] Phase Transitioned to Phase 6: Unknown Phase
+2024-12-28 14:31:13,828 [INFO] Sending message: {"decision": "bid", "reasoning": "You currently have no properties owned and a total wallet balance of 100,000. It is advisable to place a bid order to buy assets in the current market conditions to potentially generate profits."}
+2024-12-28 14:31:13,828 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'You currently have no properties owned and a total wallet balance of 100,000. It is advisable to place a bid order to buy assets in the current market conditions to potentially generate profits.'}
+2024-12-28 14:31:13,829 [INFO] Received message: {"type":"notice","message":"Phase 6 has begun."}
+2024-12-28 14:31:13,902 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:20,260 [INFO] Sending message: {"decision": "bid", "reasoning": "Agent 3 should post a bid order to buy assets because they currently do not own any properties and have a total wallet balance of 100000. This allows them to make a bid within their available balance. Considering the recent market signals and declarations, it is a good opportunity to participate in the market and potentially make profits by buying assets at a reasonable price."}
+2024-12-28 14:31:20,261 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'Agent 3 should post a bid order to buy assets because they currently do not own any properties and have a total wallet balance of 100000. This allows them to make a bid within their available balance. Considering the recent market signals and declarations, it is a good opportunity to participate in the market and potentially make profits by buying assets at a reasonable price.'}
+2024-12-28 14:31:20,333 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:26,403 [INFO] Sending message: {"decision": "ask", "reasoning": "Based on the current market signals and my objective to potentially make a profit, I will place an 'ask' order to sell assets I own. I do not have any properties owned at the moment, so I will wait for the right opportunity to sell in the market."}
+2024-12-28 14:31:26,404 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "Based on the current market signals and my objective to potentially make a profit, I will place an 'ask' order to sell assets I own. I do not have any properties owned at the moment, so I will wait for the right opportunity to sell in the market."}
+2024-12-28 14:31:26,507 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:32,753 [INFO] Sending message: {"decision": "ask", "reason": "I do not own any assets currently, so I should post an 'ask' order to sell assets."}
+2024-12-28 14:31:32,754 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I do not own any assets currently, so I should post an 'ask' order to sell assets."}
+2024-12-28 14:31:32,827 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:39,524 [INFO] Sending message: {"decision": "bid", "reasoning": "The recent market signals show a higher value for the left market (9041) compared to the right market (6959). As the tax rate is 33%, it might be a good opportunity to bid for assets in the left market where the value is higher. With a total wallet balance of 100000, it is reasonable to place a bid within that range for potential profits."}
+2024-12-28 14:31:39,525 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'The recent market signals show a higher value for the left market (9041) compared to the right market (6959). As the tax rate is 33%, it might be a good opportunity to bid for assets in the left market where the value is higher. With a total wallet balance of 100000, it is reasonable to place a bid within that range for potential profits.'}
+2024-12-28 14:31:39,597 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:46,061 [INFO] Sending message: {"decision": "ask", "reason": "I will post an 'ask' order to sell assets I own because I currently do not own any properties and the market signals are not favorable for buying at this moment. Additionally, I need to consider my available balance and not exceed it."}
+2024-12-28 14:31:46,061 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I will post an 'ask' order to sell assets I own because I currently do not own any properties and the market signals are not favorable for buying at this moment. Additionally, I need to consider my available balance and not exceed it."}
+2024-12-28 14:31:46,134 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:52,312 [INFO] Sending message: {"decision": "ask", "reasoning": "I will post an 'ask' order to sell assets because I currently do not own any properties and have a total wallet balance of 100000. Considering the recent market signals with a tax rate of 33, I believe it's a good opportunity to sell assets for potential profits."}
+2024-12-28 14:31:52,313 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I will post an 'ask' order to sell assets because I currently do not own any properties and have a total wallet balance of 100000. Considering the recent market signals with a tax rate of 33, I believe it's a good opportunity to sell assets for potential profits."}
+2024-12-28 14:31:52,386 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:31:58,287 [INFO] Sending message: {"decision": "bid", "price": 9000, "quantity": 5}
+2024-12-28 14:31:58,288 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'price': 9000, 'quantity': 5}
+2024-12-28 14:31:58,360 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:04,583 [INFO] Sending message: {"decision": "ask", "reasoning": "I should post an 'ask' order to sell assets I own because the market signals show higher values for the assets compared to my purchase price. Additionally, I do not currently own any properties, so selling assets would be a good strategy to potentially make a profit."}
+2024-12-28 14:32:04,584 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reasoning': "I should post an 'ask' order to sell assets I own because the market signals show higher values for the assets compared to my purchase price. Additionally, I do not currently own any properties, so selling assets would be a good strategy to potentially make a profit."}
+2024-12-28 14:32:04,656 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:10,719 [INFO] Sending message: {"decision": "ask", "reason": "I will post an 'ask' order to sell assets I own because the market signals show a higher value for the assets I own compared to the latest market signal. This allows me to potentially make a profit by selling at a higher price."}
+2024-12-28 14:32:10,719 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I will post an 'ask' order to sell assets I own because the market signals show a higher value for the assets I own compared to the latest market signal. This allows me to potentially make a profit by selling at a higher price."}
+2024-12-28 14:32:10,790 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:17,198 [INFO] Sending message: {"decision": "bid", "reasoning": "Player has a total wallet balance of 100000 and currently does not own any properties. Considering the recent market signals and declarations, it may be a good opportunity to place a bid order to buy assets at a potentially profitable price."}
+2024-12-28 14:32:17,199 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'Player has a total wallet balance of 100000 and currently does not own any properties. Considering the recent market signals and declarations, it may be a good opportunity to place a bid order to buy assets at a potentially profitable price.'}
+2024-12-28 14:32:17,271 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:22,922 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:32:22,922 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:32:22,992 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:29,274 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell assets I own because I currently do not own any properties, and it seems like a good time to sell based on the recent market signals and declarations by other players. My objective is to maximize profits, and selling assets at this point could lead to potential gains."}
+2024-12-28 14:32:29,274 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell assets I own because I currently do not own any properties, and it seems like a good time to sell based on the recent market signals and declarations by other players. My objective is to maximize profits, and selling assets at this point could lead to potential gains."}
+2024-12-28 14:32:29,347 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:35,628 [INFO] Sending message: {"decision": "bid", "reasoning": "Based on the current market conditions and my objectives, I have decided to post a 'bid' order to buy assets. With a total wallet balance of 100,000, I have the financial capacity to make a bid. Additionally, considering the recent declarations and market signals, there may be potential profits to be gained by purchasing assets at this time."}
+2024-12-28 14:32:35,629 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': "Based on the current market conditions and my objectives, I have decided to post a 'bid' order to buy assets. With a total wallet balance of 100,000, I have the financial capacity to make a bid. Additionally, considering the recent declarations and market signals, there may be potential profits to be gained by purchasing assets at this time."}
+2024-12-28 14:32:35,701 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:41,361 [INFO] Sending message: {"Decision": "Bid"}
+2024-12-28 14:32:41,361 [INFO] Dispatched summary to LLM and sent response: {'Decision': 'Bid'}
+2024-12-28 14:32:41,434 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:47,443 [INFO] Sending message: {"decision": "bid", "reasoning": "Player has a total wallet balance of 100000 and currently owns no properties. Based on the recent market signals and declarations, it seems like a good time to place a bid order to buy assets and potentially make a profit."}
+2024-12-28 14:32:47,444 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'Player has a total wallet balance of 100000 and currently owns no properties. Based on the recent market signals and declarations, it seems like a good time to place a bid order to buy assets and potentially make a profit.'}
+2024-12-28 14:32:47,516 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:53,513 [INFO] Sending message: {"decision": "bid", "reasoning": "The market signals indicate a potential opportunity to buy assets as the signals are favorable. Considering the current phase and my healthy wallet balance, placing a bid order to buy assets seems like a reasonable decision to potentially profit from the market conditions."}
+2024-12-28 14:32:53,514 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'The market signals indicate a potential opportunity to buy assets as the signals are favorable. Considering the current phase and my healthy wallet balance, placing a bid order to buy assets seems like a reasonable decision to potentially profit from the market conditions.'}
+2024-12-28 14:32:53,585 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:32:59,999 [INFO] Sending message: {"decision": "bid", "reasoning": "I should place a bid order to buy assets because I currently have a total wallet balance of 100000 and no properties owned. This presents an opportunity to acquire assets at a potentially lower price. Considering the recent market signals and declarations, it seems like a good time to make a bid."}
+2024-12-28 14:33:00,000 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'I should place a bid order to buy assets because I currently have a total wallet balance of 100000 and no properties owned. This presents an opportunity to acquire assets at a potentially lower price. Considering the recent market signals and declarations, it seems like a good time to make a bid.'}
+2024-12-28 14:33:00,072 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:06,139 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell assets because I currently do not own any properties and my balance is limited. By selling assets now, I can potentially generate profits without risking more funds in bidding."}
+2024-12-28 14:33:06,139 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell assets because I currently do not own any properties and my balance is limited. By selling assets now, I can potentially generate profits without risking more funds in bidding."}
+2024-12-28 14:33:06,211 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:12,492 [INFO] Sending message: {"decision": "bid", "reasoning": "I have a total wallet balance of 100000 and no properties owned. Considering the recent market signals and the fact that the tax rate is 33, I should place a bid order to buy assets. This will allow me to potentially acquire assets at a lower price and benefit from any future increases in value."}
+2024-12-28 14:33:12,492 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'I have a total wallet balance of 100000 and no properties owned. Considering the recent market signals and the fact that the tax rate is 33, I should place a bid order to buy assets. This will allow me to potentially acquire assets at a lower price and benefit from any future increases in value.'}
+2024-12-28 14:33:12,581 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:18,632 [INFO] Sending message: {"decision": "ask", "reason": "I currently do not own any assets, so it would be more beneficial for me to sell assets that I own. Considering the current phase and market signals, it seems like a good opportunity to sell assets."}
+2024-12-28 14:33:18,632 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'I currently do not own any assets, so it would be more beneficial for me to sell assets that I own. Considering the current phase and market signals, it seems like a good opportunity to sell assets.'}
+2024-12-28 14:33:18,703 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:24,786 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell assets I own because the recent market signals show that the prices are relatively high, and I currently do not own any properties. It is a good opportunity to sell my assets and potentially make a profit."}
+2024-12-28 14:33:24,786 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell assets I own because the recent market signals show that the prices are relatively high, and I currently do not own any properties. It is a good opportunity to sell my assets and potentially make a profit."}
+2024-12-28 14:33:24,857 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:30,997 [INFO] Sending message: {"decision": "ask", "reason": "I should post an 'ask' order to sell assets because I currently do not own any properties and there have been no recent declarations or player actions that would incentivize me to buy assets. Additionally, considering the current market signals and my objective to maximize profit, selling assets at this point seems more beneficial."}
+2024-12-28 14:33:30,997 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': "I should post an 'ask' order to sell assets because I currently do not own any properties and there have been no recent declarations or player actions that would incentivize me to buy assets. Additionally, considering the current market signals and my objective to maximize profit, selling assets at this point seems more beneficial."}
+2024-12-28 14:33:31,068 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:37,332 [INFO] Sending message: {"decision": "ask", "reason": "Player has no properties owned and a balance split equally between the two conditions. Given the current market conditions and balance, it would be more strategic to sell assets if any bids are available to make a profit."}
+2024-12-28 14:33:37,333 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'Player has no properties owned and a balance split equally between the two conditions. Given the current market conditions and balance, it would be more strategic to sell assets if any bids are available to make a profit.'}
+2024-12-28 14:33:37,404 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:43,004 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:33:43,005 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:33:43,077 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:49,171 [INFO] Sending message: {"decision": "ask", "reason": "I do not currently own any assets to sell, so the only action I can take is to place an ask order to sell assets. Given the market signals and tax rate, it may be a good time to sell assets at a reasonable price to potentially make a profit."}
+2024-12-28 14:33:49,171 [INFO] Dispatched summary to LLM and sent response: {'decision': 'ask', 'reason': 'I do not currently own any assets to sell, so the only action I can take is to place an ask order to sell assets. Given the market signals and tax rate, it may be a good time to sell assets at a reasonable price to potentially make a profit.'}
+2024-12-28 14:33:49,244 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:33:55,499 [INFO] Sending message: {"decision": "bid", "reasoning": "Based on the current market signals and my objective to potentially make a profit, I will place a bid order to buy assets."}
+2024-12-28 14:33:55,499 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'Based on the current market signals and my objective to potentially make a profit, I will place a bid order to buy assets.'}
+2024-12-28 14:33:55,572 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:01,240 [INFO] Sending message: {"Decision": "Ask"}
+2024-12-28 14:34:01,240 [INFO] Dispatched summary to LLM and sent response: {'Decision': 'Ask'}
+2024-12-28 14:34:01,312 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:07,085 [INFO] Sending message: {"decision": "bid"}
+2024-12-28 14:34:07,085 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid'}
+2024-12-28 14:34:07,157 [INFO] Received message: {"error":"Game undefined not found"}
+2024-12-28 14:34:13,305 [INFO] Sending message: {"decision": "bid", "reasoning": "I have a total wallet balance of 100000 and no properties owned. The recent market signals show a relatively balanced distribution between left and right market signals. Considering that the tax rate is 33, I should consider making a bid to buy assets at a reasonable price to potentially generate profits in the future phases."}
+2024-12-28 14:34:13,305 [INFO] Dispatched summary to LLM and sent response: {'decision': 'bid', 'reasoning': 'I have a total wallet balance of 100000 and no properties owned. The recent market signals show a relatively balanced distribution between left and right market signals. Considering that the tax rate is 33, I should consider making a bid to buy assets at a reasonable price to potentially generate profits in the future phases.'}
+2024-12-28 14:34:13,382 [INFO] Received message: {"error":"Game undefined not found"}
